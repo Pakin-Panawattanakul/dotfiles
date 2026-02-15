@@ -25,6 +25,7 @@ source $ZSH/oh-my-zsh.sh
 # ------------ user install application ------------
 # move to .zshenv
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # ------------ Neovim ------------
 # move to .zshenv
@@ -95,5 +96,7 @@ function y() {
 #script
 alias mimi="source $HOME/scripts/mimi.sh"
 export PATH=$PATH:$HOME/scripts
-export PATH=$PATH:$home/.local/bin
 alias f=fastfetch
+alias mod='python3 ~/scripts/mod.py'
+
+source /opt

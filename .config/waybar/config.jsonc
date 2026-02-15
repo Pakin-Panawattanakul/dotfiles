@@ -1,13 +1,12 @@
 {
   "layer": "top",
   "position": "bottom",
-  "height": 24,
+  "height": 28,
   "spacing": 4,
   "modules-left": [
     "hyprland/workspaces"
   ],
   "modules-center": [
-    "hyprland/window"
   ],
 "modules-right": [
     "tray",
@@ -28,9 +27,9 @@
     "workspace-taskbar": {
         "enable": true,
         "update-active-window": true,
-        "format": "{icon} {title:.22}",
+        "format": "{icon} {title:.15}",
         "icon-size": 18,
-        "on-click-window": "${SCRIPTS}/focus-window.sh {address} {button}"
+        "on-click-window": "$HOME/.config/hypr/sfocus-window.sh {address} {button}"
     }
 },
     "clock": {
@@ -45,7 +44,7 @@
     "max-volume": 100,
     "scroll-step": 5,
     "on-click" : "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol"
+    "on-click-right": "foot wiremix"
   },
   "battery": {
     "bat": "BAT1",
@@ -83,7 +82,7 @@
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "blueman-manager"
+    "on-click": "bluetui"
   },
   "hyprland/language": {
     "format": "{short}"

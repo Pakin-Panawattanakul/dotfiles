@@ -1,22 +1,20 @@
 -- Add Blink.cmp capabilities
 vim.lsp.config("slang-server", {
-  cmd = { "slang-server" },
-  root_markers = { ".git", ".slang" },
-  filetypes = {
-    "systemverilog",
-    "verilog",
-  },
+	cmd = { "slang-server" },
+	root_markers = { ".git", ".slang" },
+	filetypes = {
+		"systemverilog",
+		"verilog",
+	},
 })
-
---vim.lsp.enable("hdl-checker")
 vim.lsp.enable("slang-server")
-vim.lsp.enable("verible")
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-vim.lsp.config('*', {
-  capabilities = capabilities
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+vim.lsp.config("*", {
+	capabilities = capabilities,
 })
 
+map = vim.keymap.set
 -- Only create this keymap when lsp attach to buffer
 local builtin = require("telescope.builtin")
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -34,7 +32,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			builtin.lsp_workspace_symbols,
 			{ buffer = ev.buf, desc = "LSP : [G]o to [W]orkspace symbols" }
 		)
-		vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = ev.buf, desc = "LSP : [G]o to [R]efferences" })
+		vim.keymap.set(
+			"n",
+			"gr",
+			builtin.lsp_references,
+			{ nowait = true, buffer = ev.buf, desc = "LSP : [G]o to [R]efferences" }
+		)
 		vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = ev.buf, desc = "LSP : [G]o to [D]efinitions" })
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "LSP : [G]o to [D]eclaration" })
 		vim.keymap.set(
@@ -60,19 +63,19 @@ local severity = vim.diagnostic.severity
 vim.opt.winborder = "rounded"
 vim.diagnostic.config({
 	severity_sort = true,
-	float = { 
-    border = "rounded",
-    source = true
-  },
+	float = {
+		border = "rounded",
+		source = true,
+	},
 	virtual_text = true,
-  signs = {
-    text = {
-      [severity.ERROR] = " ",
-      [severity.WARN] = " ",
-      [severity.HINT] = "󰠠 ",
-      [severity.INFO] = " ",
-    },
-  },
+	signs = {
+		text = {
+			[severity.ERROR] = " ",
+			[severity.WARN] = " ",
+			[severity.HINT] = "󰠠 ",
+			[severity.INFO] = " ",
+		},
+	},
 })
 
 --[[
@@ -82,16 +85,16 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
   end,
 })
 ]]
-vim.api.nvim_create_autocmd('LspDetach', {
-  callback = function(args)
-    -- Get the detaching client
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    -- Remove the autocommand to format the buffer on save, if it exists
-    if client:supports_method('textDocument/formatting') then
-      vim.api.nvim_clear_autocmds({
-        event = 'BufWritePre',
-        buffer = args.buf,
-      })
-    end
-  end,
+vim.api.nvim_create_autocmd("LspDetach", {
+	callback = function(args)
+		-- Get the detaching client
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		-- Remove the autocommand to format the buffer on save, if it exists
+		if client:supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({
+				event = "BufWritePre",
+				buffer = args.buf,
+			})
+		end
+	end,
 })

@@ -19,12 +19,10 @@ ufw
 #
 # Nvidia
 nvidia-open
-nvidia-settings
 nvidia-utils
 
 # Power management
 tlp
-power-profiles-daemon
 powertop
 
 
@@ -34,8 +32,8 @@ alsa-utils
 pavucontrol
 pipewire
 pipewire-alsa
-pipewire-audio
-pipewire-jack
+#pipewire-audio
+#pipewire-jack
 pipewire-pulse
 wireplumber
 
@@ -71,10 +69,6 @@ gparted
 ## Desktop & Theme
 ########################################
 # sway
-sway
-swaybg
-swayidle
-swaylock
 swaync
 waybar
 wl-clipboard

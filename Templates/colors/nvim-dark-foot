@@ -6,7 +6,8 @@
 [colors]
 cursor=14161b e0e2ea # NvimDarkGrey2 NvimLightGrey2
 foreground=e0e2ea # NvimLightGrey2
-background=14161b # NvimDarkGrey2
+#background=14161b # NvimDarkGrey2
+background=07080d # NvimDarkGrey1 // i prefered this as a background
 
 selection-foreground=e0e2ea # NvimLightGrey2
 selection-background=4f5258 # NvimDarkGrey4

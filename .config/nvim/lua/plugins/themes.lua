@@ -9,10 +9,16 @@ return {
 				code_style = {},
 				colors = {
 					black = "#07080d", -- regular0 / NvimDarkGrey1
+					--[[ 
 					bg0 = "#14161b", -- background / NvimDarkGrey2
 					bg1 = "#2c2e33", -- bright0 / NvimDarkGrey3
 					bg2 = "#4f5258", -- selection-background / NvimDarkGrey4
 					bg3 = "#4f5258",
+          --]]
+					bg0 = "#07080d",
+					bg1 = "#14161b", -- background / NvimDarkGrey2
+					bg2 = "#2c2e33", -- bright0 / NvimDarkGrey3
+					bg3 = "#4f5258", -- selection-background / NvimDarkGrey4
 					bg_d = "#07080d",
 
 					fg = "#e0e2ea", -- foreground / NvimLightGrey2
@@ -59,11 +65,9 @@ return {
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			require("github-theme").setup({
-				-- ...
-			})
+			require("github-theme").setup({})
 
-			--vim.cmd("colorscheme github_dark_default")
+			-- vim.cmd("colorscheme github_dark_default")
 		end,
 	},
 }

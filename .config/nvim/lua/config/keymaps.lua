@@ -1,5 +1,26 @@
 -- luacheck: globals vim
 ------------------- Neovim keymap --------------------
+local map = vim.keymap.set
+local opts = { noremap = true }
+--map({"n", "v"}, "l", "k", opts)
+--map({ "n", "v" }, "m", "h", opts)
+--map({ "n", "v" }, "n", "j", opts)
+--map({ "n", "v" }, "e", "k", opts)
+--map({ "n", "v" }, "i", "l", opts)
+--map({ "n", "v" }, "h", "i", opts)
+--map({ "n", "v" }, "j", "n", opts)
+--map({ "n", "v" }, "k", "m", opts)
+--map({ "n", "v" }, "l", "e", opts)
+
+--map({ "n", "v" }, "M", "H", opts)
+--map({ "n", "v" }, "N", "J", opts)
+--map({ "n", "v" }, "E", "K", opts)
+--map({ "n", "v" }, "I", "L", opts)
+--map({ "n", "v" }, "H", "I", opts)
+--map({ "n", "v" }, "J", "N", opts)
+--map({ "n", "v" }, "K", "M", opts)
+--map({ "n", "v" }, "L", "E", opts)
+
 -- space bar leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -10,17 +31,9 @@ vim.cmd("ca W w")
 vim.cmd("ca Q q")
 vim.cmd("ca WQ wq")
 vim.cmd("ca Wq wq")
---vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit Vim!!" })
---im.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite buffer" })
---vim.keymap.set("n", "<leader>c", ":q!<cr>", { desc = "Quit without save" })
-
--- windows
-vim.keymap.set("n", "<leader>wl", ":vertical resize +20<cr>", { desc = "[S]plit vertical resize +20" })
-vim.keymap.set("n", "<leader>wh", ":vertical resize -20<cr>", { desc = "[S]plit vertical resize -20" })
-vim.keymap.set("n", "<leader>wk", ":resize +10<cr>", { desc = "[S]plit horizontal resize +10" })
-vim.keymap.set("n", "<leader>wj", ":resize -10<cr>", { desc = "[S]plit horizontal resize -10" })
-vim.keymap.set("n", "<leader>wv", ":vertical split<cr>", { desc = "[S]plit [V]ertically " })
-vim.keymap.set("n", "<leader>ws", ":split<cr>", { desc = "[S]plit Horontally" })
+vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit Vim!!" })
+vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite buffer" })
+vim.keymap.set("n", "<leader>c", ":q!<cr>", { desc = "Quit without save" })
 
 -- buffers
 vim.keymap.set("n", "<leader>n", ":bn<cr>", { desc = "[N]ext Buffer" })
@@ -35,13 +48,3 @@ local function ToggleRelative()
 	vim.wo.relativenumber = not vim.wo.relativenumber
 end
 vim.keymap.set("n", "<leader>tr", ToggleRelative, { desc = "[T]oggle [R]elative line number" })
-
-
--------------------- Terminal --------------------
-vim.keymap.set("n", "<leader>tt", function()
-	vim.cmd.vnew()
-	vim.cmd.term()
-	vim.cmd.wincmd("J")
-	vim.api.nvim_win_set_height(0, 8)
-end)
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})

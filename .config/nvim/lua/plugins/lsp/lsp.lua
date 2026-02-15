@@ -5,6 +5,11 @@ return {
 			"lua_ls",
 			"pyright",
 			"stylua",
+			"rust_analyzer",
+			"verible",
+		},
+		automatic_enable = {
+			exclude = { "verible" },
 		},
 	},
 	dependencies = {

@@ -6,14 +6,14 @@
 set $mod Mod4
 set $alt Mod1
 # Vim-like motions
-set $left h
-set $down j
-set $up k
-set $right l
+set $left m
+set $down n
+set $up e
+set $right i
 # Default applications
 set $term foot
-set $menu rofi -show drun
-set $browser firefox
+set $menu wofi --show drun -I
+set $browser flatpak run org.mozilla.firefox   
 set $filemanager thunar
 
 
@@ -34,7 +34,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Tab focus next
 bindsym $mod+Shift+Tab focus prev
 # Alt + Tab show all open windows
-bindsym $alt+Tab exec 'rofi -show window'
+#bindsym $alt+Tab exec 'rofi -show window'
 
 # TODO: Navigation betwen display 
 
@@ -121,7 +121,7 @@ floating_modifier $mod normal
 ## Manage windows
 ########################################
 bindsym $mod+q kill
-bindsym $mod+m fullscreen
+bindsym $mod+F11 fullscreen
 #bindsym $mod+s layout stacking
 
 mode "resize" {
@@ -154,14 +154,13 @@ bindsym $mod+Shift+a focus child
 ## Manage layout
 ########################################
 # TODO need some modification
-bindsym $mod+y layout toggle split tabbed 
+bindsym $mod+y layout toggle split 
 bindsym $mod+o splitt
 #bindsym $mod+b splith
 #bindsym $mod+v splitv
 # Switch the current container between different layout styles
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+g floating toggle

@@ -19,22 +19,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
-
--- Terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-	group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
-	callback = function()
-		vim.opt.number = false
-		vim.opt.relativenumber = false
-	end,
-})
-
-
 -- Man page
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "help", "man" },
-  callback = function()
-    vim.cmd("wincmd |") -- max width
-    vim.cmd("wincmd _") -- max height
-  end,
+	pattern = { "help", "man" },
+	callback = function()
+		vim.cmd("wincmd |") -- max width
+		vim.cmd("wincmd _") -- max height
+	end,
 })

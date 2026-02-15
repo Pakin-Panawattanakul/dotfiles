@@ -9,7 +9,7 @@ return { -- Autoformat
 			-- Conform can also run multiple formatters sequentially
 			python = { "isort", "black" },
 			systemverilog = { "verible" },
-			C = { "astyle" },
+			C = { "clang-format" },
 			json = { "jq" },
 			jsonc = { "jq" },
 			-- You can use 'stop_after_first' to run the first available formatter from the list

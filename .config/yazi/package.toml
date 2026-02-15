@@ -4,16 +4,6 @@ rev = "0c95a0d"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[flavor.deps]]
-use = "BennyOe/tokyo-night"
-rev = "8e6296f"
-hash = "d9da921c3bd37ba32ee27a8a7a40461f"
-
-[[flavor.deps]]
-use = "yazi-rs/flavors:dracula"
-rev = "ca61658"
-hash = "8589ae0231756a9daf9c072f31b1fe0"
-
-[[flavor.deps]]
-use = "damjee/onedark"
-rev = "8a7796c"
-hash = "e7d277fd8cec72b6fa26586b6d51f597"
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "4c57537"
+hash = "e25fb61c14484de843b52430a72b5196"
