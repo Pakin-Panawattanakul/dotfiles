@@ -1,0 +1,49 @@
+[general]
+import = [
+  "~/.config/alacritty/colors.toml",
+]
+live_config_reload = false
+ipc_socket = false
+working_directory = "None"
+
+[window]
+padding = {x = 10, y = 0}
+dynamic_padding = false
+decorations = "Full" #"Full" | "None" | "Transparent" | "Buttonless"
+opacity = 1
+blur = false
+startup_mode = "Windowed"
+title = "Alacritty"
+dynamic_title = true
+decorations_theme_variant = "Dark"
+level = "Normal"
+
+[scrolling]
+history = 3000
+multiplier = 3
+
+[font]
+size = 9.0
+normal = {family = "Jetbrains Mono Nerd Font", style = "Regular"}
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = "Block"
+vi_mode_style = "None" #default style
+unfocused_hollow = true
+thickness = 0.15
+
+[terminal]
+shell = { program = "/usr/bin/zsh", args = ["-l"] }
+
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
+
+[[hints.enabled]]
+regex = "[^ ]+\\.rs:\\d+:\\d+"
+command = { program = "nvim", args = [ "+{line}:{column}", "{file}" ] }
+mouse = { enabled = true }

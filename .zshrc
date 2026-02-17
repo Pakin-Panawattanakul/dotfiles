@@ -39,7 +39,7 @@ alias v='nvim'
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
-alias fzf='fzf --preview "bat --color=always --style=full --line-range=:500 {}"'
+alias fzf='fzf --preview "batcat --color=always --style=full --line-range=:500 {}"'
 
 # ------------ Eza : better ls ------------
 # export EZA_CONFIG_DIR="$HOME/.config/eza" # move to .zshenv
@@ -54,14 +54,14 @@ eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd t
 #alias cd=cd_ls
 
 # ------------ Bat : better cat------------
-alias cat='bat --style=plain'
+alias cat='batcat --style=plain'
 #export BAT_THEME=OneHalfDark # move to .zshenv
 # Man page
 #export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 # move to .zshenv
 # use bat for help
-alias -g -- -h='-h 2>&1 | bat --language=help -pp'
-alias -g -- --help='--help 2>&1 | bat --language=help -pp'
+alias -g -- -h='-h 2>&1 | batcat --language=help -pp'
+alias -g -- --help='--help 2>&1 | batcat --language=help -pp'
 # ------------ History ------------
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
