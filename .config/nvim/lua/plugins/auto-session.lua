@@ -15,10 +15,10 @@ return {
 		}
 
 		auto_session.setup(opts)
-		local builtin = require("telescope").builtin
 		local keymap = vim.keymap
-		keymap.set("n", "<leader>ss", "<cmd>AutoSession save<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
-		keymap.set("n", "<leader>sr", "<cmd>AutoSession search<CR>", { desc = "Search sessions" })
+		keymap.set("n", "<leader>sr", "<cmd>AutoSession restore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
+		keymap.set("n", "<leader>ss", "<cmd>AutoSession save<CR>", { desc = "Save sessions" })
+		keymap.set("n", "<leader>sf", "<cmd>AutoSession search<CR>", { desc = "Search sessions" })
 		vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 	end,
 }

@@ -34,6 +34,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		)
 		vim.keymap.set(
 			"n",
+			"gs",
+			builtin.lsp_document_symbols,
+			{ buffer = ev.buf, desc = "LSP : [G]o Document [S]ymbols" }
+		)
+		vim.keymap.set(
+			"n",
 			"gr",
 			builtin.lsp_references,
 			{ nowait = true, buffer = ev.buf, desc = "LSP : [G]o to [R]efferences" }

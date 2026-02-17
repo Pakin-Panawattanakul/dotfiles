@@ -34,7 +34,9 @@ vim.cmd("ca Wq wq")
 vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit Vim!!" })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite buffer" })
 vim.keymap.set("n", "<leader>c", ":q!<cr>", { desc = "Quit without save" })
-
+ 
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" }) 
 -- buffers
 vim.keymap.set("n", "<leader>n", ":bn<cr>", { desc = "[N]ext Buffer" })
 vim.keymap.set("n", "<leader>p", ":bp<cr>", { desc = "[P]revious Buffer" })
