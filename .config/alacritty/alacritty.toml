@@ -2,20 +2,22 @@
 import = [
   "~/.config/alacritty/colors.toml",
 ]
-live_config_reload = false
+live_config_reload = true
 ipc_socket = false
 working_directory = "None"
 
 [window]
 padding = {x = 10, y = 0}
-dynamic_padding = false
+dynamic_padding = true
+dimensions = { columns = 120, lines = 30 }
 decorations = "Full" #"Full" | "None" | "Transparent" | "Buttonless"
-opacity = 1
+opacity = 0.9
 blur = false
 startup_mode = "Windowed"
 title = "Alacritty"
 dynamic_title = true
 decorations_theme_variant = "Dark"
+resize_increments = true
 level = "Normal"
 
 [scrolling]
@@ -23,7 +25,7 @@ history = 3000
 multiplier = 3
 
 [font]
-size = 9.0
+size = 13.0
 normal = {family = "Jetbrains Mono Nerd Font", style = "Regular"}
 
 [selection]

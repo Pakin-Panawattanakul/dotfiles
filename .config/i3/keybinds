@@ -10,10 +10,10 @@ set $down n
 set $up e
 set $right i
 # Default applications
-set $term alacritty
+set $term ghostty
 set $menu rofi -show drun
 set $browser firefox   
-set $filemanager nemo
+set $filemanager thunar
 
 floating_modifier $mod
 tiling_drag modifier titlebar
@@ -26,8 +26,7 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #bindsym $mod+d workspace discord; exec discord
 bindsym $mod+f exec $filemanager
 bindsym $mod+b exec $browser
-bindsym $mod+slash exec $menu
-
+bindsym $mod+r exec $menu
 
 ########################################
 ## Navigation
@@ -150,7 +149,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $alt+r mode "resize"
 
 ########################################
 ## Manage layout
@@ -158,9 +157,9 @@ bindsym $mod+r mode "resize"
 # TODO need some modification
 bindsym $mod+h splith
 bindsym $mod+v splitv
-bindsym $mod+y layout toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+s splitt
+#bindsym $mod+s layout stacking
+bindsym $mod+p layout tabbed
 
 # toggle tiling / floating
 bindsym $mod+g floating toggle
@@ -196,7 +195,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
 bindsym Print exec 'flameshot gui'
 #bindsym $mod+Escape exec i3lock -k -s fill -i $HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg
-bindsym $mod+Shift+Escape exec i3-msg exit
+#bindsym $mod+Shift+Escape exec i3-msg exit
+bindsym $mod+Shift+Escape exec rofi -show power-menu -modi power-menu:rofi-power-menu
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

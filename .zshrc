@@ -60,8 +60,10 @@ alias cat='batcat --style=plain'
 #export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 # move to .zshenv
 # use bat for help
-alias -g -- -h='-h 2>&1 | batcat --language=help -pp'
-alias -g -- --help='--help 2>&1 | batcat --language=help -pp'
+alias -g -- -h='-h 2>&1 | batcat --language=help'
+alias -g -- --help='--help 2>&1 | batcat --language=help' 
+#can add -pp for normal output with no pager
+#
 # ------------ History ------------
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
@@ -94,9 +96,9 @@ function y() {
 }
 
 #script
-alias mimi="source $HOME/scripts/mimi.sh"
 export PATH=$PATH:$HOME/scripts
+alias mimi="source $HOME/scripts/mimi.sh"
+alias fd=fdfind
 alias f=fastfetch
 alias mod='python3 ~/scripts/mod.py'
-
-source /opt
+alias vivado='ssh -XC vivado20252.local "source /opt/Xilinx/2025.2/Vivado/settings64.sh && vivado"'

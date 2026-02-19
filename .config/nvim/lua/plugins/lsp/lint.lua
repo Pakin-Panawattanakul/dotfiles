@@ -7,7 +7,7 @@ return {
 			--systemverilog = { "verible-verilog-lint" },
 			python = { "pylint" }, -- or "ruff"
 			lua = { "luacheck" },
-			c = { "cpplint" },
+			--c = { "cpplint" },
 			rust = { "bacon" },
 		}
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter" }, {

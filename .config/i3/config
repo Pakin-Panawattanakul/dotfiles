@@ -5,15 +5,16 @@ include keybinds
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id autotiling
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id picom
+#exec --no-startup-id picom
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg
 exec --no-startup-id /usr/libexec/xfce-polkit
+exec --no-startup-id nitrogen --restore
 
 #output
 exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 165 --primary
-exec --no-startup-id xrandr --output HDMI-1 --right-of eDP-1
+exec --no-startup-id  xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
+
 #input
 exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win_space_toggle'
 
@@ -22,6 +23,6 @@ exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win
 # finds out, if available)
 bar {
     #status_command i3status --config ~/.config/i3status/i3status.conf
-    status_command i3status
+    status_command i3blocks
 }
 
