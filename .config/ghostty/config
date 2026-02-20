@@ -6,7 +6,7 @@ theme = Nvim Dark
 #custom theme
 # Primary Palette (Dark)
 #fix erros when ssh to bandit server 
-#term=xterm-256color 
+term=xterm-256color 
 background = 07080d
 
 shell-integration-features = no-cursor,sudo,title

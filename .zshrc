@@ -101,4 +101,4 @@ alias mimi="source $HOME/scripts/mimi.sh"
 alias fd=fdfind
 alias f=fastfetch
 alias mod='python3 ~/scripts/mod.py'
-alias vivado='ssh -XC vivado20252.local "source /opt/Xilinx/2025.2/Vivado/settings64.sh && vivado"'
+source /opt/Xilinx/2025.2/Vivado/settings64.sh
