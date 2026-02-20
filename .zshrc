@@ -22,18 +22,11 @@ plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# ------------ user install application ------------
-# move to .zshenv
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
 
 # ------------ Neovim ------------
 # move to .zshenv
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 alias vim='nvim'
 alias v='nvim'
-#export SUDO_EDITOR=nvim
-#export EDITOR=nvim
 
 # ------------ Fuzzy finder ------------
 # Set up fzf key bindings and fuzzy completion
@@ -53,17 +46,6 @@ eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd t
 #}
 #alias cd=cd_ls
 
-# ------------ Bat : better cat------------
-alias cat='batcat --style=plain'
-#export BAT_THEME=OneHalfDark # move to .zshenv
-# Man page
-#export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
-# move to .zshenv
-# use bat for help
-alias -g -- -h='-h 2>&1 | batcat --language=help'
-alias -g -- --help='--help 2>&1 | batcat --language=help' 
-#can add -pp for normal output with no pager
-#
 # ------------ History ------------
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
@@ -75,13 +57,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-# ------------ Custom alias ------------
-#alias ll='ls -al'
-alias dot='cd ~/.dotfiles && ls -al'
-alias kyber='cd $HOME/kyber'
-alias ref='cd $HOME/kyber-ref/kyber768'
-#alias conf='cd /.dotfiles/.config && ll'
-export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+
 
 # ------------ Starship ------------
 eval "$(starship init zsh)"
@@ -95,10 +71,35 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# os specific alias
+source /etc/os-release
+
+if [[ "$ID" == "debian" || "$ID_LIKE" == *debian* ]]; then
+  # ------------ Bat : better cat------------
+  alias cat='batcat --style=plain'
+  # use bat for help
+  alias -g -- -h='-h 2>&1 | batcat --language=help'
+  alias -g -- --help='--help 2>&1 | batcat --language=help' 
+  export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
+  alias firefox="flatpak run org.mozilla.firefox"
+  alias fd=fdfind
+  source /opt/Xilinx/2025.2/Vivado/settings64.sh
+else
+  alias cat='bat --style=plain'
+  # use bat for help
+  alias -g -- -h='-h 2>&1 | bat --language=help'
+  alias -g -- --help='--help 2>&1 | bat --language=help' 
+  export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+fi
+#can add -pp for normal output with no pager
+
 #script
-export PATH=$PATH:$HOME/scripts
-alias mimi="source $HOME/scripts/mimi.sh"
-alias fd=fdfind
+alias mimi="source $HOME/Scripts/mimi.sh"
+alias mod='python3 ~/Scripts/mod.py'
+
+# ------------ Custom alias ------------
 alias f=fastfetch
-alias mod='python3 ~/scripts/mod.py'
-source /opt/Xilinx/2025.2/Vivado/settings64.sh
+alias ll='ls -al'
+alias dot='cd ~/.dotfiles && ls -al'
+alias kyber='cd $HOME/kyber'
+alias ref='cd $HOME/kyber-ref/kyber768'

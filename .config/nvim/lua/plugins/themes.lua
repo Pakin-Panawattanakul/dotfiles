@@ -5,7 +5,7 @@ return {
 		config = function()
 			require("onedark").setup({
 				style = "darker",
-				transparent = false,
+				transparent = true,
 				code_style = {},
 				colors = {
 					black = "#07080d", -- regular0 / NvimDarkGrey1
