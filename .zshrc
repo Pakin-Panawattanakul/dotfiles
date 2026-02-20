@@ -60,8 +60,8 @@ alias cat='bat --style=plain'
 #export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 # move to .zshenv
 # use bat for help
-alias -g -- -h='-h 2>&1 | bat --language=help -pp'
-alias -g -- --help='--help 2>&1 | bat --language=help -pp'
+alias -g -- -h='-h 2>&1 | bat --language=help'
+alias -g -- --help='--help 2>&1 | bat --language=help'
 # ------------ History ------------
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
