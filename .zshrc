@@ -58,6 +58,10 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# The fuck
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
 
 # ------------ Starship ------------
 eval "$(starship init zsh)"
@@ -83,7 +87,6 @@ if [[ "$ID" == "debian" || "$ID_LIKE" == *debian* ]]; then
   export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
   alias firefox="flatpak run org.mozilla.firefox"
   alias fd=fdfind
-  source /opt/Xilinx/2025.2/Vivado/settings64.sh
 else
   alias cat='bat --style=plain'
   # use bat for help

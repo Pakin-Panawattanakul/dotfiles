@@ -19,7 +19,7 @@ map = vim.keymap.set
 local builtin = require("telescope.builtin")
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
-		vim.keymap.set("n", "gn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "LSP : [R]e[n]ame" })
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "LSP : [R]e[n]ame" })
 		vim.keymap.set(
 			{ "n", "v" },
 			"<leader>ca",
@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		)
 		vim.keymap.set(
 			"n",
-			"gr",
+			"gR",
 			builtin.lsp_references,
 			{ nowait = true, buffer = ev.buf, desc = "LSP : [G]o to [R]efferences" }
 		)
@@ -52,13 +52,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			builtin.lsp_implementations,
 			{ buffer = ev.buf, desc = "LSP : [G]oto [I]mplemetations" }
 		)
-		vim.keymap.set(
-			"n",
-			"gt",
-			builtin.lsp_type_definitions,
-			{ buffer = ev.buf, desc = "LSP : [G]oto [T]ype definitions" }
-		)
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "LSP : Displays hover information" })
+		vim.keymap.set("n", "<leader>rs", ":lsp restart<CR>", { buffer = ev.buf, desc = "LSP : restart LSP" })
 	end,
 })
 

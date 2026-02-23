@@ -26,7 +26,7 @@ return {
 					light_grey = "#c4c6cd", -- regular7 / NvimLightGrey3
 
 					red = "#ffc0b9", -- regular1
-					green = "#b3f6c0", -- regular2
+					green = "#b4f6c0", -- regular2
 					yellow = "#fce094", -- regular3
 					blue = "#a6dbff", -- regular4
 					purple = "#ffcaff", -- regular5

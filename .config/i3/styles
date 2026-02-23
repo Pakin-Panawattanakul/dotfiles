@@ -1,9 +1,18 @@
 default_border pixel
 default_floating_border pixel 2
+hide_edge_borders smart
 # Title bar
 font pango:JetBrainsMonoNerdFont 10
 gaps outer 2
 focus_follows_mouse yes
-focus_wrapping yes
+focus_wrapping no
 mouse_warping output
-client.focused #8cf8f7 #14161b #e0e2ea #a392e8 #a6dbffcc
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #7EDFDE #7EDFDE #07080b #95C5E5   #7EDFDE
+client.focused_inactive #4f5258 #4f5258 #C4C6CD #4f5258   #4f5258
+client.unfocused        #2c2e33 #2c2e33 #4f5258 #2c2e33   #2c2e33
+client.urgent           #E5ADB9 #E5ADB9 #07080b #FFC0B9   #E5ADB9
+client.placeholder      #07080b #07080b #4f5258 #07080b   #07080b
+
+client.background       #07080b
