@@ -8,4 +8,3 @@ export PATH=$PATH:$HOME/Scripts
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export BAT_THEME=ansi
-. "$HOME/.cargo/env"

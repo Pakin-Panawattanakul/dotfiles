@@ -87,6 +87,7 @@ if [[ "$ID" == "debian" || "$ID_LIKE" == *debian* ]]; then
   export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
   alias firefox="flatpak run org.mozilla.firefox"
   alias fd=fdfind
+  . "$HOME/.cargo/env"
 else
   alias cat='bat --style=plain'
   # use bat for help
