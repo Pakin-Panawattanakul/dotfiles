@@ -3,7 +3,7 @@ default_floating_border pixel 2
 hide_edge_borders smart
 # Title bar
 font pango:JetBrainsMonoNerdFont 10
-gaps outer 2
+gaps outer 0
 focus_follows_mouse yes
 focus_wrapping no
 mouse_warping output

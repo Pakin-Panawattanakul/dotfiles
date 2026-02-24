@@ -15,8 +15,6 @@ set $menu rofi -show drun
 set $browser flatpak run org.mozilla.firefox  
 set $filemanager thunar
 
-floating_modifier $mod
-tiling_drag modifier titlebar
 
 ########################################
 ## Applications launcher

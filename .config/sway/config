@@ -18,6 +18,8 @@ exec swayidle -w \
          before-sleep 'swaylock -f -c 000000'
          #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 
+floating_modifier Mod4 normal
+tiling_drag enable
 ########################################
 ## Output sdasdasdjklsconfiguration
 ########################################
@@ -38,21 +40,23 @@ input type:touchpad {
     middle_emulation enabled
 }
 input type:keyboard {
-    xkb_layout us,th
-    xkb_options grp:win_space_toggle
+    xkb_layout us,th,
+    xkb_variant colemak_dh_ortho,
+    xkb_options grp:win_space_toggle,lv3:caps_switch_capslock_with_ctrl,mykeys:hjkl
 }
 
 bar {
-    position bottom
-    # Keep in mind that the current directory of this config file is $HOME
-    status_command while ~/.config/sway/status.sh; do sleep 1; done
-
+    font pango:JetBrainsMonoNerdFontPropo 10
     colors {
-        # Text color of status bar
-        statusline #ffffff
-        # Background of status bar
-        background #000000
+        background #07080b
+        statusline #E0E2EA
+        separator  #4f5258
+        focused_workspace  #7EDFDE #7EDFDE #07080b
+        active_workspace   #4f5258 #4f5258 #E0E2EA
+        inactive_workspace #2c2e33 #2c2e33 #C4C6CD
+        urgent_workspace   #E5ADB9 #E5ADB9 #07080b
+        binding_mode       #E3CA85 #E3CA85 #07080b
     }
-    font pango:JetBrains Mono Nerd Font 10
+   status_command i3status
 }
 include /etc/sway/config.d/*
