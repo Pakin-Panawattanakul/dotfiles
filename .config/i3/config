@@ -15,10 +15,12 @@ exec --no-startup-id ~/Scripts/low_battery.sh
 #output
 exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 165 --primary
 exec --no-startup-id  xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
+exec --no-startup-id  xrandr --output DP-1 --mode 2560x1440  --same-as eDP-1
 
 #input
 #exec_always --no-startup-id setxkbmap -layout us,th -variant colemak_dh_ortho,  -option 'grp:win_space_toggle'
-exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win_space_toggle'
+#exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win_space_toggle'
+exec_always --no-startup-id ~/.config/i3/keyboard.sh
 
 #assign [class="^Vivado"] 8
 # Start i3bar to display a workspace bar (plus the system information i3status
