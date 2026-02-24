@@ -13,12 +13,11 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/Scripts/low_battery.sh
 
 #output
-exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 165 --primary
-exec --no-startup-id  xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
-exec --no-startup-id  xrandr --output DP-1 --mode 2560x1440  --same-as eDP-1
+exec --always ~/.config/i3/monitors.sh
+#exec --no-startup-id  xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
 
 #input
-#exec_always --no-startup-id setxkbmap -layout us,th -variant colemak_dh_ortho,  -option 'grp:win_space_toggle'
+#exec_always --no-startup-id setxkbmap -layout us,th -variant colemak_dh_ortho, -option 'grp:win_space_toggle,lv3:caps_switch,mykeys:hjkl' 
 #exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win_space_toggle'
 exec_always --no-startup-id ~/.config/i3/keyboard.sh
 

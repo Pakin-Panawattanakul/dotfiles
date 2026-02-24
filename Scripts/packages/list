@@ -1,0 +1,194 @@
+########################################
+## System
+########################################
+# !!Core!! 
+base
+base-devel
+intel-ucode
+linux
+linux-firmware
+linux-headers
+sof-firmware
+
+# Network
+inetutils
+networkmanager
+network-manager-applet
+ufw
+
+#
+# Nvidia
+nvidia-open
+nvidia-utils
+
+# Power management
+tlp
+powertop
+
+
+# Sounds
+alsa-firmware
+alsa-utils
+pavucontrol
+pipewire
+pipewire-alsa
+#pipewire-audio
+#pipewire-jack
+pipewire-pulse
+wireplumber
+
+# Bluetooth
+bluez
+bluez-utils
+blueman
+
+# Utilities
+yay
+openssh
+man-db
+brightnessctl
+curl
+wget
+ncdu
+
+# System monitor
+btop
+htop
+
+# File system
+timeshift
+os-prober
+efibootmgr
+efitools
+exfatprogs
+udisks2
+gvfs-mtp
+gparted
+
+########################################
+## Desktop & Theme
+########################################
+# sway
+swaync
+waybar
+wl-clipboard
+wev
+
+# hyprland ecosystem
+hyprland
+hyprpaper
+hyprpolkitagent
+hypridle
+hyprlock
+hyprpicker
+xdg-desktop-portal-hyprland
+
+# Display manager & greeter
+ly
+
+# System utils
+unzip
+selectdefaultapplication-fork-git
+rofi
+flameshot
+grim
+calc
+7zip
+imv
+thunar
+thunar-archive-plugin
+file-roller
+zathura
+zathura-pdf-mupdf
+
+# Theme
+nwg-look
+kvantum-qt5
+qt5-wayland
+qt6-wayland
+kvantum-theme-orchis-git
+orchis-theme
+papirus-icon-theme
+
+# Font
+noto-fonts-emoji
+noto-fonts-cjk
+ttf-jetbrains-mono-nerd
+ttf-ms-fonts
+
+########################################
+## Personal
+########################################
+# Terminal 
+foot
+fastfetch
+foot-terminfo
+tmux
+tree
+starship
+stow
+zsh
+fzf
+bat
+eza
+fd
+tldr
+neofetch
+zoxide
+
+# Internet
+firefox
+
+# Personal
+proton-pass
+thunderbird
+
+# Neovim
+neovim
+tree-sitter-cli
+tinyxxd
+npm
+luarocks
+
+# Yazi and dependency
+yazi
+jq
+imagemagick
+resvg
+ripgrep
+
+# Entertainment
+discord
+mpd
+mpc
+mpv
+rmpc
+cava
+solaar
+spotify-launcher
+
+# Dev
+code
+uv
+vivado
+rust
+git
+git-lfs
+gcc
+gdb
+go
+python-pipx
+
+# Tools
+android-tools
+libreoffice-fresh-th
+aria2
+qalculate-qt
+
+# Misc
+##
+
+
+#compatibility
+python311
+python312
