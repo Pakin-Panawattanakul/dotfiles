@@ -14,7 +14,8 @@ exec --no-startup-id ~/Scripts/low_battery.sh
 
 #output
 #exec_always ~/.config/i3/monitors.sh
-exec_always --no-startup-id  xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
+exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 165 --primary
+exec_always --no-startup-id xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
 exec_always --no-startup-id nitrogen --restore
 
 #input
