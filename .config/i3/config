@@ -20,8 +20,8 @@ exec_always --no-startup-id nitrogen --restore
 
 #input
 #exec_always --no-startup-id setxkbmap -layout us,th -variant colemak_dh_ortho, -option 'grp:win_space_toggle,lv3:caps_switch,mykeys:hjkl' 
-#exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win_space_toggle'
-exec_always --no-startup-id ~/.config/i3/keyboard.sh
+exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win_space_toggle'
+#exec_always --no-startup-id ~/.config/i3/keyboard.sh
 
 floating_modifier Mod4
 tiling_drag modifier titlebar
