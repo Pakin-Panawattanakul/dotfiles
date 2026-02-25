@@ -1,5 +1,5 @@
 #!/bin/sh
-setxkbmap -layout us,th -variant colemak_dh_ortho, -option 'grp:win_space_toggle,lv3:caps_switch'
+setxkbmap -layout us,th -variant colemak_dh, -option 'grp:win_space_toggle,lv3:caps_switch,shift:both_capslock'
 sleep 0.2
 xmodmap -e "keycode 43 = m M Thai_maitho Thai_maitaikhu h H" \
 -e "keycode 44 = n N Thai_maiek Thai_maichattawa j J" \

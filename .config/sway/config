@@ -41,7 +41,7 @@ input type:touchpad {
 }
 input type:keyboard {
     xkb_layout us,th,
-    xkb_variant colemak_dh_ortho,
+    xkb_variant colemak_dh,
     xkb_options grp:win_space_toggle,lv3:caps_switch_capslock_with_ctrl,mykeys:hjkl
 }
 

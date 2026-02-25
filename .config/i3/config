@@ -13,8 +13,9 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/Scripts/low_battery.sh
 
 #output
-exec --always ~/.config/i3/monitors.sh
-#exec --no-startup-id  xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
+#exec_always ~/.config/i3/monitors.sh
+exec_always --no-startup-id  xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
+exec_always --no-startup-id nitrogen --restore
 
 #input
 #exec_always --no-startup-id setxkbmap -layout us,th -variant colemak_dh_ortho, -option 'grp:win_space_toggle,lv3:caps_switch,mykeys:hjkl' 
@@ -41,4 +42,3 @@ bar {
     }
    status_command i3status
 }
-
