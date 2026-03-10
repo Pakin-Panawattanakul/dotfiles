@@ -11,12 +11,15 @@ vim.cmd("ca W w")
 vim.cmd("ca Q q")
 vim.cmd("ca WQ wq")
 vim.cmd("ca Wq wq")
-vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit Vim!!" })
-vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite buffer" })
-vim.keymap.set("n", "<leader>c", ":q!<cr>", { desc = "Quit without save" })
+--vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit Vim!!" })
+--vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite buffer" })
+--vim.keymap.set("n", "<leader>c", ":q!<cr>", { desc = "Quit without save" })
 
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
+vim.keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Page down" })
+vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Page up" })
+
 -- buffers
 vim.keymap.set("n", "<leader>n", ":bn<cr>", { desc = "[N]ext Buffer" })
 vim.keymap.set("n", "<leader>p", ":bp<cr>", { desc = "[P]revious Buffer" })
@@ -39,5 +42,5 @@ end
 vim.keymap.set("n", "<leader>tr", ToggleRelative, { desc = "[T]oggle [R]elative line number" })
 
 -- terminal
-vim.keymap.set("n", "<leader>tt", ":term<cr>",{})
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>",{})
+vim.keymap.set("n", "<leader>tt", ":term<cr>", {})
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})

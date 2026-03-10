@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			{ buffer = ev.buf, desc = "LSP : [G]oto [I]mplemetations" }
 		)
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "LSP : Displays hover information" })
-		vim.keymap.set("n", "<leader>rs", ":lsp restart<CR>", { buffer = ev.buf, desc = "LSP : restart LSP" })
+		vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { buffer = ev.buf, desc = "LSP : restart LSP" })
 	end,
 })
 

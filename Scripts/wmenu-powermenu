@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. "$HOME/Scripts/wmenu-cmd"
+
+choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | wmenu_cmd -p 'Power Menu')
+
+case "$choice" in
+    Lock) swaylock ;;
+    Logout) swaymsg exit ;;
+    Suspend) systemctl suspend ;;
+    Reboot) systemctl reboot ;;
+    Shutdown) systemctl poweroff ;;
+esac

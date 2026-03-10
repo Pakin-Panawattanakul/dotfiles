@@ -9,7 +9,7 @@ return {
 				code_style = {},
 				colors = {
 					black = "#07080d", -- regular0 / NvimDarkGrey1
-					--[[ 
+					--[[
 					bg0 = "#14161b", -- background / NvimDarkGrey2
 					bg1 = "#2c2e33", -- bright0 / NvimDarkGrey3
 					bg2 = "#4f5258", -- selection-background / NvimDarkGrey4
@@ -56,18 +56,7 @@ return {
 				},
 			})
 			-- Enable theme
-			require("onedark").load()
-		end,
-	},
-	{
-		"projekt0n/github-nvim-theme",
-		name = "github-theme",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			require("github-theme").setup({})
-
-			-- vim.cmd("colorscheme github_dark_default")
+			 require("onedark").load()
 		end,
 	},
 }

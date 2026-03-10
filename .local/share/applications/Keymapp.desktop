@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Keymapp
+Comment=ZSA voyager keymap
+Exec=keymapp
+Icon=/home/pakin/.local/share/icons/keymapp.png
+Terminal=false
+Type=Application
+Categories=Keyboard

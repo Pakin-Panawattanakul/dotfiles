@@ -14,5 +14,9 @@ return {
 		{ "<C-Up>", ":TmuxNavigateUp<CR>" },
 		{ "<C-Right>", ":TmuxNavigateRight<CR>" },
 		{ "<C-\\>", ":TmuxNavigatePreviousgra<CR>" },
+		-- {"<C-M>", ":TmuxNavigateLeft<CR>" },
+		--	{ "<C-N>", ":TmuxNavigateDown<CR>" },
+		--	{ "<C-E>", ":TmuxNavigateUp<CR>" },
+		--	{ "<C-I>", ":TmuxNavigateRight<CR>" },
 	},
 }

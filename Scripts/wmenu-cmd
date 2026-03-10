@@ -1,0 +1,14 @@
+#!/bin/sh
+
+export WMENU_OPTIONS="-i -b -N 07080b -n e0e2ea -m b3f6c0 -M 07080b -S 07080b -s 7edfde -f 'JetBrainsMonoNerdFontPropo Regular 11'"
+wmenu_cmd() {
+    wmenu -i -b \
+        -N 07080b \
+        -n e0e2ea \
+        -m b3f6c0 \
+        -M 07080b \
+        -S 07080b \
+        -s 7edfde \
+        -f "JetBrainsMonoNerdFontPropo Regular 11" \
+        "$@"
+}

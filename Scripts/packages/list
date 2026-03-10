@@ -16,7 +16,6 @@ networkmanager
 network-manager-applet
 ufw
 
-#
 # Nvidia
 nvidia-open
 nvidia-utils
@@ -29,22 +28,18 @@ powertop
 # Sounds
 alsa-firmware
 alsa-utils
-pavucontrol
 pipewire
-pipewire-alsa
-#pipewire-audio
-#pipewire-jack
 pipewire-pulse
 wireplumber
+wiremix
 
 # Bluetooth
 bluez
 bluez-utils
-blueman
+bluetui
 
 # Utilities
 yay
-openssh
 man-db
 brightnessctl
 curl
@@ -57,11 +52,11 @@ htop
 
 # File system
 timeshift
-os-prober
 efibootmgr
 efitools
 exfatprogs
-udisks2
+pcmanfm
+gvfs
 gvfs-mtp
 gparted
 
@@ -69,48 +64,48 @@ gparted
 ## Desktop & Theme
 ########################################
 # sway
+sway
+swaybg
+swayidle
+swaylock
 swaync
 waybar
 wl-clipboard
 wev
+autotiling
+xorg-xwayland
+xdg-desktop-portal-wlr
+i3status
+nwg-displays
+wl-mirror
 
-# hyprland ecosystem
-hyprland
-hyprpaper
-hyprpolkitagent
-hypridle
-hyprlock
-hyprpicker
-xdg-desktop-portal-hyprland
-
-# Display manager & greeter
-ly
+# etc.
+greetd-tuigreet
+xdg-user-dirs
 
 # System utils
 unzip
-selectdefaultapplication-fork-git
-rofi
-flameshot
-grim
 calc
+grim
 7zip
 imv
-thunar
-thunar-archive-plugin
+shotwell
 file-roller
 zathura
 zathura-pdf-mupdf
+wmenu
 
 # Theme
 nwg-look
+kvantum
 kvantum-qt5
 qt5-wayland
 qt6-wayland
-kvantum-theme-orchis-git
-orchis-theme
 papirus-icon-theme
+kvantum-theme-materia
 
 # Font
+noto-fonts
 noto-fonts-emoji
 noto-fonts-cjk
 ttf-jetbrains-mono-nerd
@@ -119,7 +114,7 @@ ttf-ms-fonts
 ########################################
 ## Personal
 ########################################
-# Terminal 
+# Terminal
 foot
 fastfetch
 foot-terminfo
@@ -130,17 +125,19 @@ stow
 zsh
 fzf
 bat
+dust
 eza
 fd
 tldr
-neofetch
+lazygit
 zoxide
+nano
 
 # Internet
 firefox
 
 # Personal
-proton-pass
+proton-pass-bin
 thunderbird
 
 # Neovim
@@ -157,20 +154,27 @@ imagemagick
 resvg
 ripgrep
 
+#vivado
+vivado
+lib32-gcc-libs
+lib32-libpng12
+multilib-devel
+
+
 # Entertainment
 discord
-mpd
-mpc
-mpv
-rmpc
-cava
-solaar
+steam
+#mpd
+#mpc
+#mpv
+#rmpc
+#cava
+#solaar
+ncspot
 spotify-launcher
 
 # Dev
-code
 uv
-vivado
 rust
 git
 git-lfs
@@ -183,12 +187,9 @@ python-pipx
 android-tools
 libreoffice-fresh-th
 aria2
-qalculate-qt
 
 # Misc
-##
+selectdefaultapplication-git
 
-
-#compatibility
-python311
-python312
+# dependency keymapp
+webkit2gtk-4.1

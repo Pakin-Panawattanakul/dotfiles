@@ -1,0 +1,4 @@
+#!/bin/sh
+
+. "$HOME/Scripts/wmenu-cmd"
+wmenu-drun -t foot -d "wmenu $WMENU_OPTIONS -l 10 -p drun"

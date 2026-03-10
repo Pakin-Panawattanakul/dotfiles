@@ -3,35 +3,35 @@
 include keybinds
 include styles
 ########################################
-## Auto Start
+# Auto Start
 ########################################
-xwayland force
+xwayland enable
 exec --no-startup-id autotiling
-exec --no-startup-id "export XDG_CURRENT_DESKTOP=sway"
-exec --no-startup-id "export XDG_SESSION_TYPE=wayland"
-#exec --no-startup-id "export MOZ_ENABLE_WAYLAND=1"
-#exec waybar
+#exec --no-startup-id nm-applet
+exec /home/pakin/Scripts/low_battery.sh
+
 ### Idle configuration : man swayidle
+set $wallpaper ~/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -f -i $wallpaper' \
          timeout 600 'systemctl suspend' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -f -i $wallpaper'
          #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 
-floating_modifier Mod4 normal
-tiling_drag enable
+# bindsym $mod+l exec swaylock -f -i $wallpaper
+
 ########################################
-## Output sdasdasdjklsconfiguration
+# Outputs
 ########################################
 output * bg $HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg fill
-output eDP-1 resolution 1920x1080@165Hz position 1920,0
-output HDMI-A-1 resolution 2560x1440@60Hz position 2560,1080
-output HDMI-A-1 enable
+output eDP-1 resolution 1920x1080@165Hz position 0,0
+output HDMI-A-2 resolution 2560x1440@60Hz position 1920,0
+output *   
 #use : swaymsg -t get_outputs
 
 
 ########################################
-## Output configuration
+# Inputs
 ########################################
 input type:touchpad {
     dwt enabled
@@ -39,6 +39,19 @@ input type:touchpad {
     natural_scroll enabled
     middle_emulation enabled
 }
+
+input 1:1:AT_Translated_Set_2_keyboard {
+    xkb_layout us,th,
+    xkb_options grp:win_space_toggle,
+
+    xkb_variant colemak_dh,
+    xkb_options grp:win_space_toggle,lv3:caps_switch,mykeys:hjkl
+}
+
+input 12951:6519:ZSA_Technology_Labs_Voyager {
+    xkb_layout us,
+}
+
 input type:keyboard {
     xkb_layout us,th,
     xkb_options grp:win_space_toggle,
@@ -48,18 +61,31 @@ input type:keyboard {
     #xkb_options grp:win_space_toggle,lv3:caps_switch_capslock_with_ctrl,mykeys:hjkl
 }
 
+floating_modifier Mod4 normal
+tiling_drag enable
+
+########################################
+# Bar
+########################################
 bar {
-    font pango:JetBrainsMonoNerdFontPropo 10
+    #output eDP-1
+    font pango:JetBrainsMonoNerdFontPropo 11
+    position bottom
+    mode dock
+
     colors {
         background #07080b
-        statusline #E0E2EA
-        separator  #4f5258
-        focused_workspace  #7EDFDE #7EDFDE #07080b
-        active_workspace   #4f5258 #4f5258 #E0E2EA
-        inactive_workspace #2c2e33 #2c2e33 #C4C6CD
-        urgent_workspace   #E5ADB9 #E5ADB9 #07080b
-        binding_mode       #E3CA85 #E3CA85 #07080b
+        statusline #e0e2ea
+        separator  #4f5259
+
+        # color format     border    bg        text 
+        focused_workspace  #7edfde #7edfde #07080b
+        active_workspace   #07080b   #07080b   #e0e2ea
+        inactive_workspace #07080b   #07080b   #c4c6cd
+        urgent_workspace   #e5adb9 #e5adb9 #07080b
+        binding_mode       #e3ca85 #e3ca85 #07080b
     }
    status_command i3status
 }
+
 include /etc/sway/config.d/*

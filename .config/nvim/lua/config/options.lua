@@ -39,6 +39,17 @@ vim.g.have_nerd_font = true
 
 -- Custom status line
 -- Synce neovim clipboard with OS
+
+
+if os.getenv("WAYLAND_DISPLAY") then
+  vim.g.clipboard = {
+    name = 'wl-clipboard',
+    copy = { ['+'] = 'wl-copy', ['*'] = 'wl-copy --primary' },
+    paste = { ['+'] = 'wl-paste --no-newline', ['*'] = 'wl-paste --no-newline --primary' },
+    cache_enabled = 0,
+  }
+end
+
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
