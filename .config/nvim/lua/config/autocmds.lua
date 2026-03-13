@@ -19,11 +19,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
--- Man page
+--[[
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "help", "man" },
+	pattern = { "verilog", "systemverilog" },
 	callback = function()
-		vim.cmd("wincmd |") -- max width
-		vim.cmd("wincmd _") -- max height
+		vim.cmd("highlight Statement guifg=NvimLightGreen")
+		vim.cmd("highlight Constant  guifg=NvimLightCyan")
+		vim.cmd("highlight Special   guifg=NvimLightBlue")
 	end,
 })
+--]]

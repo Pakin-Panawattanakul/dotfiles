@@ -44,3 +44,5 @@ vim.keymap.set("n", "<leader>tr", ToggleRelative, { desc = "[T]oggle [R]elative 
 -- terminal
 vim.keymap.set("n", "<leader>tt", ":term<cr>", {})
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
+
+vim.keymap.set("n", "<leader>i", ":Inspect<cr>", {})

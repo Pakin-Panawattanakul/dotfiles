@@ -1,12 +1,19 @@
 [opener]
-zathura = [
-    { run = 'zathura "$@"', orphan = true, desc = "Open with Zathura" }
+play = [
+	{ run = "mpv %s", orphan = true, for = "unix" },
 ]
-nvim = [
-  { run = "nvim '$@'", desc = "Open with Neovim"}
+edit = [
+	{ run = "$EDITOR %s", block = true, for = "unix" },
 ]
+open = [
+	{ run = "xdg-open %s", desc = "Open" },
+]
+
 [open]
 prepend_rules = [
-    { name = "*.pdf", use = "zathura" },
-    { name = "*.epub", use = "zathura" },
+    { name = "*.pdf", use = "open"},
+    { name = "*.epub", use = "open" },
+    { name = "*.jpeg", use = "open"},
+    { name = "*.jpg", use = "open"},
+    { name = "*.png", use = "open"},
 ]

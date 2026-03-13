@@ -26,7 +26,6 @@ powertop
 
 
 # Sounds
-alsa-firmware
 alsa-utils
 pipewire
 pipewire-pulse
@@ -55,10 +54,6 @@ timeshift
 efibootmgr
 efitools
 exfatprogs
-pcmanfm
-gvfs
-gvfs-mtp
-gparted
 
 ########################################
 ## Desktop & Theme
@@ -69,7 +64,6 @@ swaybg
 swayidle
 swaylock
 swaync
-waybar
 wl-clipboard
 wev
 autotiling
@@ -80,7 +74,6 @@ nwg-displays
 wl-mirror
 
 # etc.
-greetd-tuigreet
 xdg-user-dirs
 
 # System utils
@@ -89,8 +82,6 @@ calc
 grim
 7zip
 imv
-shotwell
-file-roller
 zathura
 zathura-pdf-mupdf
 wmenu
@@ -163,13 +154,7 @@ multilib-devel
 
 # Entertainment
 discord
-steam
-#mpd
-#mpc
-#mpv
-#rmpc
-#cava
-#solaar
+mpv
 ncspot
 spotify-launcher
 
@@ -191,5 +176,8 @@ aria2
 # Misc
 selectdefaultapplication-git
 
-# dependency keymapp
+# Voyager
 webkit2gtk-4.1
+qmk
+dos2unix
+

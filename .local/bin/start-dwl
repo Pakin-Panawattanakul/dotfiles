@@ -1,2 +1,0 @@
-#!/bin/sh
-slstatus -s  | dwl -s "sh -c 'swaybg -i /home/pakin/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg &'"

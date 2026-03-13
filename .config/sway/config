@@ -7,7 +7,7 @@ include styles
 ########################################
 xwayland enable
 exec --no-startup-id autotiling
-#exec --no-startup-id nm-applet
+exec --no-startup-id gammastep -l 36:138
 exec /home/pakin/Scripts/low_battery.sh
 
 ### Idle configuration : man swayidle
@@ -29,7 +29,6 @@ output HDMI-A-2 resolution 2560x1440@60Hz position 1920,0
 output *   
 #use : swaymsg -t get_outputs
 
-
 ########################################
 # Inputs
 ########################################
@@ -44,21 +43,25 @@ input 1:1:AT_Translated_Set_2_keyboard {
     xkb_layout us,th,
     xkb_options grp:win_space_toggle,
 
+    repeat_rate 35
+    repeat_delay 200
     xkb_variant colemak_dh,
     xkb_options grp:win_space_toggle,lv3:caps_switch,mykeys:hjkl
 }
 
 input 12951:6519:ZSA_Technology_Labs_Voyager {
     xkb_layout us,
+    repeat_rate 35
+    repeat_delay 200
 }
 
 input type:keyboard {
     xkb_layout us,th,
-    xkb_options grp:win_space_toggle,
 
-    # if want to use the laptop keyboard
-    #xkb_variant colemak_dh,
-    #xkb_options grp:win_space_toggle,lv3:caps_switch_capslock_with_ctrl,mykeys:hjkl
+    xkb_options grp:win_space_toggle,
+    repeat_rate 35
+    repeat_delay 200
+
 }
 
 floating_modifier Mod4 normal
@@ -87,5 +90,8 @@ bar {
     }
    status_command i3status
 }
+
+for_window [app_id="org.pwmt.zathura"] floating enable
+for_window [app_id="imv"] floating enable
 
 include /etc/sway/config.d/*

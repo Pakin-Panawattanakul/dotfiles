@@ -8,9 +8,11 @@ return {
 			"rust_analyzer",
 			"verible",
 		},
+    --[[
 		automatic_enable = {
 			exclude = { "verible" },
 		},
+    ]]
 	},
 	dependencies = {
 		{

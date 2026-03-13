@@ -1,5 +1,7 @@
 -------------------- Neovim options --------------------
 -- luacheck:globals vim
+vim.cmd([[highlight Normal guibg=07080b]])
+vim.cmd([[highlight Statusline guibg=NvimDarkGray3 guifg=NvimLightGray]])
 --vim.cmd[[colorscheme tokyonight]]
 -- Basic settings
 vim.opt.number = true -- enable line number
@@ -33,21 +35,20 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Keep signcolumn on by default
+-- Keep signcolumn On by default
 vim.opt.signcolumn = "yes"
 vim.g.have_nerd_font = true
 
 -- Custom status line
 -- Synce neovim clipboard with OS
 
-
 if os.getenv("WAYLAND_DISPLAY") then
-  vim.g.clipboard = {
-    name = 'wl-clipboard',
-    copy = { ['+'] = 'wl-copy', ['*'] = 'wl-copy --primary' },
-    paste = { ['+'] = 'wl-paste --no-newline', ['*'] = 'wl-paste --no-newline --primary' },
-    cache_enabled = 0,
-  }
+	vim.g.clipboard = {
+		name = "wl-clipboard",
+		copy = { ["+"] = "wl-copy", ["*"] = "wl-copy --primary" },
+		paste = { ["+"] = "wl-paste --no-newline", ["*"] = "wl-paste --no-newline --primary" },
+		cache_enabled = 0,
+	}
 end
 
 vim.schedule(function()
