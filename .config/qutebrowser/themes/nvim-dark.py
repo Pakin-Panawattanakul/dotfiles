@@ -40,28 +40,29 @@ c.colors.contextmenu.selected.fg = light2
 
 c.colors.downloads.bar.bg = dark2
 c.colors.downloads.start.fg = dark2
-c.colors.downloads.start.bg = blue
-c.colors.downloads.stop.fg = dark2
-c.colors.downloads.stop.bg = cyan
-c.colors.downloads.error.fg = red
+c.colors.downloads.start.bg = dark2
+c.colors.downloads.stop.fg = green
+c.colors.downloads.stop.bg = dark2
+c.colors.downloads.error.fg = dark2
+c.colors.downloads.error.bg = red
 
 c.colors.hints.fg = dark2
-c.colors.hints.bg = yellow
+c.colors.hints.bg = blue
 c.colors.hints.match.fg = green
 
-c.colors.messages.error.fg = dark2
-c.colors.messages.error.bg = red
-c.colors.messages.warning.fg = dark2
-c.colors.messages.warning.bg = magenta
+c.colors.messages.error.fg = red
+c.colors.messages.error.bg = dark2
+c.colors.messages.warning.fg = magenta
+c.colors.messages.warning.bg = dark2
 c.colors.messages.info.fg = light2
 c.colors.messages.info.bg = dark2
 
-c.colors.statusbar.normal.fg = green
+c.colors.statusbar.normal.fg = light2
 c.colors.statusbar.normal.bg = dark2
-c.colors.statusbar.insert.fg = dark2
-c.colors.statusbar.insert.bg = blue
-c.colors.statusbar.passthrough.fg = dark2
+c.colors.statusbar.insert.fg = green
+c.colors.statusbar.insert.bg = dark2
 c.colors.statusbar.passthrough.bg = cyan
+c.colors.statusbar.passthrough.fg = dark2
 
 c.colors.statusbar.url.fg = light2
 c.colors.statusbar.url.error.fg = red

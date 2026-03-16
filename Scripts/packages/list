@@ -13,7 +13,7 @@ sof-firmware
 # Network
 inetutils
 networkmanager
-network-manager-applet
+nm-connection-editor
 ufw
 
 # Nvidia
@@ -23,7 +23,7 @@ nvidia-utils
 # Power management
 tlp
 powertop
-
+upower
 
 # Sounds
 alsa-utils
@@ -58,25 +58,33 @@ exfatprogs
 ########################################
 ## Desktop & Theme
 ########################################
-# sway
-sway
-swaybg
-swayidle
-swaylock
-swaync
+
+# wayland
 wl-clipboard
 wev
-autotiling
 xorg-xwayland
 xdg-desktop-portal-wlr
-i3status
-nwg-displays
 wl-mirror
+wdisplays
+
+#dwl
+xfce-polkit
+tllist
+wayland-protocols
+mako
+wlroots0.19
+wlr-randr
+wbg
+
+# sway still use idle and lock util
+swayidle
+swaylock
 
 # etc.
 xdg-user-dirs
 
 # System utils
+gammastep
 unzip
 calc
 grim
@@ -126,6 +134,8 @@ nano
 
 # Internet
 firefox
+qutebrowser
+python-adblock
 
 # Personal
 proton-pass-bin
@@ -157,12 +167,14 @@ discord
 mpv
 ncspot
 spotify-launcher
+steam
 
 # Dev
 uv
 rust
 git
 git-lfs
+github-cli
 gcc
 gdb
 go

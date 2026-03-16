@@ -10,8 +10,8 @@ c = c
 config.load_autoconfig(True)
 
 c.tabs.title.format = "{audio}{current_title}"
-c.fonts.default_size = "10pt"
-c.fonts.default_family = "JetBrains Mono Nerd Font"
+c.fonts.default_size = "13px"
+c.fonts.default_family = "JetBrainsMono Nerd Font"
 
 c.fonts.web.size.default = 18
 c.fonts.web.family.standard = "Noto Serif"
@@ -130,4 +130,4 @@ c.colors.webpage.darkmode.policy.images = "never"
 
 # base16 colors but with variable names that
 # reflect what the color is mainly used for
-config.source("themes/my_dark.py")
+config.source("themes/nvim-dark.py")
