@@ -1,7 +1,7 @@
 #!/bin/sh
 export XDG_SESSION_TYPE=wayland
-export XDG_SESSION_DESKTOP=dwl
-export XDG_CURRENT_DESKTOP=dwl
+export XDG_SESSION_DESKTOP=wlroots
+export XDG_CURRENT_DESKTOP=wlroots
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export QT_QPA_PLATFORM=wayland

@@ -1,3 +1,10 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh
+[submodule "dwl"]
+	path = dwl
+	url = https://github.com/Pakin-Panawattanakul/dwl.git
+
+[submodule "slstatus"]
+	path = slstatus
+	url = https://github.com/Pakin-Panawattanakul/slstatus.git
