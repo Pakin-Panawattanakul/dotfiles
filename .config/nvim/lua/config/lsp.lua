@@ -1,3 +1,4 @@
+-- luacheck: globals vim
 -- Add Blink.cmp capabilities
 vim.lsp.config("slang-server", {
 	cmd = { "slang-server" },
@@ -14,46 +15,41 @@ vim.lsp.config("*", {
 	capabilities = capabilities,
 })
 
-map = vim.keymap.set
+local map = vim.keymap.set
+
 -- Only create this keymap when lsp attach to buffer
-local builtin = require("telescope.builtin")
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "LSP : [R]e[n]ame" })
-		vim.keymap.set(
-			{ "n", "v" },
-			"<leader>ca",
-			vim.lsp.buf.code_action,
-			{ buffer = ev.buf, desc = "LSP : [C]ode [A]ction" }
-		)
-		vim.keymap.set(
+		map("n", "<leader>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "LSP : Rename" })
+		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "LSP : Code Action" })
+		map(
 			"n",
-			"gw",
-			builtin.lsp_workspace_symbols,
-			{ buffer = ev.buf, desc = "LSP : [G]o to [W]orkspace symbols" }
+			"<leader>gw",
+			":Pick lsp scope='workspace_symbol_live'<cr>",
+			{ buffer = ev.buf, desc = "LSP : workspace symbols" }
 		)
-		vim.keymap.set(
+		map(
 			"n",
-			"gs",
-			builtin.lsp_document_symbols,
-			{ buffer = ev.buf, desc = "LSP : [G]o Document [S]ymbols" }
+			"<leader>gs",
+			":Pick lsp scope='document_symbol'<cr>",
+			{ buffer = ev.buf, desc = "LSP : Document Symbols" }
 		)
-		vim.keymap.set(
+		map(
 			"n",
 			"gR",
-			builtin.lsp_references,
+			":Pick lsp scope='references'<cr>",
 			{ nowait = true, buffer = ev.buf, desc = "LSP : [G]o to [R]efferences" }
 		)
-		vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = ev.buf, desc = "LSP : [G]o to [D]efinitions" })
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "LSP : [G]o to [D]eclaration" })
-		vim.keymap.set(
+		map("n", "gd", ":Pick lsp scope='definition<cr>", { buffer = ev.buf, desc = "LSP : [D]efinitions" })
+		map("n", "gD", ":Pick lsp scope='declaration<cr>", { buffer = ev.buf, desc = "LSP : [G]o to [D]eclaration" })
+		map(
 			"n",
 			"gi",
-			builtin.lsp_implementations,
+			"Pick lsp scope='implementatioin'<cr>",
 			{ buffer = ev.buf, desc = "LSP : [G]oto [I]mplemetations" }
 		)
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "LSP : Displays hover information" })
-		vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { buffer = ev.buf, desc = "LSP : restart LSP" })
+		map("n", "K", vim.lsp.buf.hover, { buffer = ev.buf, desc = "LSP : Displays hover information" })
+		map("n", "<leader>rs", ":LspRestart<CR>", { buffer = ev.buf, desc = "LSP : restart LSP" })
 	end,
 })
 

@@ -21,13 +21,13 @@ vim.keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Page down" })
 vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Page up" })
 
 -- buffers
-vim.keymap.set("n", "<leader>n", ":bn<cr>", { desc = "[N]ext Buffer" })
-vim.keymap.set("n", "<leader>p", ":bp<cr>", { desc = "[P]revious Buffer" })
-vim.keymap.set("n", "<leader>x", ":bd<cr>", { desc = "[D]elete [B]uffer" })
-vim.keymap.set("n", "<leader>bl", ":b#<cr>", { desc = "[Last] Open Buffer" })
+vim.keymap.set("n", "<leader>n", ":bn<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>p", ":bp<cr>", { desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader>x", ":bd<cr>", { desc = "Delete [B]uffer" })
+vim.keymap.set("n", "<leader>bl", ":b#<cr>", { desc = "Last Open Buffer" })
 
 -- Diagnostic
-vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float()<CR>", { desc = "Show [D]iagnostic" })
+vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float()<CR>", { desc = "Show Diagnostic" })
 vim.keymap.set(
 	"n",
 	"<leader>D",
@@ -39,10 +39,10 @@ vim.keymap.set(
 local function ToggleRelative()
 	vim.wo.relativenumber = not vim.wo.relativenumber
 end
-vim.keymap.set("n", "<leader>tr", ToggleRelative, { desc = "[T]oggle [R]elative line number" })
+vim.keymap.set("n", "<leader>tr", ToggleRelative, { desc = "Toggle Relative line number" })
 
 -- terminal
-vim.keymap.set("n", "<leader>tt", ":term<cr>", {})
+vim.keymap.set("n", "<leader>ot", ":term<cr>", { desc = "Open Terminal" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
 
 vim.keymap.set("n", "<leader>i", ":Inspect<cr>", {})

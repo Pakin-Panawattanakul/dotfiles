@@ -24,9 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # ------------ Neovim ------------
-# move to .zshenv
 alias vim='nvim'
-alias v='nvim'
 
 # ------------ Fuzzy finder ------------
 # Set up fzf key bindings and fuzzy completion

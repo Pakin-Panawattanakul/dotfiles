@@ -1,0 +1,113 @@
+# Wiki is in the man page : man -k sway
+# Include config files
+include keybinds
+include styles
+########################################
+# Auto Start
+########################################
+xwayland enable
+exec --no-startup-id autotiling
+exec --no-startup-id gammastep -l 36:138
+exec /home/pakin/Scripts/low_battery.sh
+
+### Idle configuration : man swayidle
+set $wallpaper ~/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg
+exec swayidle -w \
+         timeout 300 'swaylock -f -i $wallpaper' \
+         timeout 600 'systemctl suspend' \
+         before-sleep 'swaylock -f -i $wallpaper'
+         #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+
+# bindsym $mod+l exec swaylock -f -i $wallpaper
+
+########################################
+# Outputs
+########################################
+output * bg $HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg fill
+output eDP-1 resolution 1920x1080@165Hz position 0,0
+output HDMI-A-1 resolution 2560x1440@60Hz position 1920,0
+output *   
+#use : swaymsg -t get_outputs
+
+########################################
+# Inputs
+########################################
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+input 1:1:AT_Translated_Set_2_keyboard {
+    xkb_layout us,th,
+    xkb_options grp:win_space_toggle,
+
+    repeat_rate 35
+    repeat_delay 200
+    xkb_variant colemak_dh,
+    xkb_options grp:win_space_toggle
+}
+
+input 12951:6519:ZSA_Technology_Labs_Voyager {
+    xkb_layout us,
+    repeat_rate 35
+    repeat_delay 200
+}
+
+input type:keyboard {
+    xkb_layout us,th,
+
+    xkb_options grp:win_space_toggle,
+    repeat_rate 35
+    repeat_delay 200
+
+}
+
+floating_modifier Mod4 normal
+tiling_drag enable
+
+########################################
+# Bar
+########################################
+bar {
+    #output eDP-1
+    font pango:JetBrainsMonoNerdFontPropo 11
+    position bottom
+    mode dock
+
+    colors {
+        background #07080b
+        statusline #e0e2ea
+        separator  #4f5259
+
+        # color format     border    bg        text 
+        focused_workspace  #7edfde #7edfde #07080b
+        active_workspace   #07080b   #07080b   #e0e2ea
+        inactive_workspace #07080b   #07080b   #c4c6cd
+        urgent_workspace   #e5adb9 #e5adb9 #07080b
+        binding_mode       #e3ca85 #e3ca85 #07080b
+    }
+   status_command i3status -c ~/.config/sway/i3status-config
+}
+
+for_window [app_id="org.pwmt.zathura"] fullscreen enable
+for_window [app_id="imv"] floating enable
+for_window [app_id="Proton Pass"] floating enable
+
+# Dual screen 
+ set $firstMonitor "eDP-1"
+ set $secondMonitor "HDMI-A-1" 
+  
+ workspace 1 output $firstMonitor 
+ workspace 2 output $firstMonitor 
+ workspace 3 output $firstMonitor 
+ workspace 4 output $firstMonitor 
+ workspace 5 output $firstMonitor 
+ workspace 6 output $secondMonitor 
+ workspace 7 output $secondMonitor 
+ workspace 8 output $secondMonitor 
+ workspace 9 output $secondMonitor 
+ workspace 10 output $scondMonitor
+
+include /etc/sway/config.d/*
