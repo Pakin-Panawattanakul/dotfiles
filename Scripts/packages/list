@@ -58,6 +58,14 @@ exfatprogs
 ########################################
 ## Desktop & Theme
 ########################################
+# sway
+sway
+swaybg
+swaync
+swayidle
+swaylock
+i3status
+autotiling
 
 # wayland
 wl-clipboard
@@ -65,22 +73,11 @@ wev
 xorg-xwayland
 xdg-desktop-portal-wlr
 wl-mirror
-wdisplays
 
-#dwl
 xfce-polkit
-tllist
-wayland-protocols
-mako
 wlroots0.19
 wlr-randr
-wbg
-
-# sway still use idle and lock util
-swayidle
-swaylock
-
-# etc.
+nwg-displays
 xdg-user-dirs
 
 # System utils
@@ -191,4 +188,3 @@ selectdefaultapplication-git
 webkit2gtk-4.1
 qmk
 dos2unix
-

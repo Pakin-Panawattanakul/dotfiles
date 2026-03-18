@@ -39,7 +39,7 @@ c.colors.contextmenu.selected.bg = dark4
 c.colors.contextmenu.selected.fg = light2
 
 c.colors.downloads.bar.bg = dark2
-c.colors.downloads.start.fg = dark2
+c.colors.downloads.start.fg = light2
 c.colors.downloads.start.bg = dark2
 c.colors.downloads.stop.fg = green
 c.colors.downloads.stop.bg = dark2
