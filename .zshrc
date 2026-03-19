@@ -72,29 +72,22 @@ function y() {
 source /etc/os-release
 
 # don't have debian system anymore
-#if [[ "$ID" == "debian" || "$ID_LIKE" == *debian* ]]; then
+if [[ "$ID" == "debian" || "$ID_LIKE" == *debian* ]]; then
   # ------------ Bat : better cat------------
-#  alias cat='batcat --style=plain'
-#  # use bat for help
-#  alias -g -- -h='-h 2>&1 | batcat --language=help'
-#  alias -g -- --help='--help 2>&1 | batcat --language=help' 
-#  export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
-#  alias firefox="flatpak run org.mozilla.firefox"
-#  alias fd=fdfind
-#  . "$HOME/.cargo/env"
-#else
-#  alias cat='bat --style=plain'
-#  # use bat for help
-#  alias -g -- -h='-h 2>&1 | bat --language=help'
-#  alias -g -- --help='--help 2>&1 | bat --language=help' 
-#  export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
-#fi
+  alias cat='batcat --style=plain'
+  # use bat for help
+  alias -g -- -h='-h 2>&1 | batcat --language=help'
+  alias -g -- --help='--help 2>&1 | batcat --language=help' 
+  export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
+  alias fd=fdfind
+else
+ alias cat='bat --style=plain'
+  # use bat for help
+  alias -g -- -h='-h 2>&1 | bat --language=help'
+  alias -g -- --help='--help 2>&1 | bat --language=help' 
+  export manpager="sh -c 'awk '\''{ gsub(/\x1b\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
+fi
 
-alias cat='bat --style=plain'
-# use bat for help
-alias -g -- -h='-h 2>&1 | bat --language=help'
-alias -g -- --help='--help 2>&1 | bat --language=help' 
-export manpager="sh -c 'awk '\''{ gsub(/\x1b\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 #can add -pp for normal output with no pager
 
 #script

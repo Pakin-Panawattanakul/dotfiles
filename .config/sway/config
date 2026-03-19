@@ -14,7 +14,7 @@ exec /home/pakin/Scripts/low_battery.sh
 set $wallpaper ~/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg
 exec swayidle -w \
          timeout 600 'swaylock -f -i $wallpaper' \
-         timeout 900 'systemctl suspend' \
+         timeout 900 'sysiemctl suspend' \
          before-sleep 'swaylock -f -i $wallpaper'
          #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 
@@ -23,9 +23,11 @@ exec swayidle -w \
 ########################################
 # Outputs
 ########################################
+set $firstMonitor "eDP-1"
+set $secondMonitor "HDMI-A-2" 
 output * bg $HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg fill
-output eDP-1 resolution 1920x1080@165Hz position 0,0
-output HDMI-A-1 resolution 2560x1440@60Hz position 1920,0
+output $firstMonitor resolution 1920x1080@165Hz position 0,0
+output $secondMonitor resolution 2560x1440@60Hz position 1920,0  allow_tearing no
 output *   
 #use : swaymsg -t get_outputs
 
@@ -66,6 +68,7 @@ input type:keyboard {
 
 floating_modifier Mod4 normal
 tiling_drag enable
+#allow_tearing no
 
 ########################################
 # Bar
@@ -96,8 +99,6 @@ for_window [app_id="imv"] floating enable
 for_window [app_id="Proton Pass"] floating enable
 
 # Dual screen 
- set $firstMonitor "eDP-1"
- set $secondMonitor "HDMI-A-1" 
   
  workspace 1 output $firstMonitor 
  workspace 2 output $firstMonitor 

@@ -1,0 +1,75 @@
+## Hex palettes
+# Dark
+blue    = "#005078"
+cyan    = "#007676"
+green   = "#015825"
+grey1   = "#0a0b10"
+grey2   = "#1c1d23"
+grey3   = "#2c2e33"
+grey4   = "#4f5258"
+magenta = "#4c0049"
+red     = "#5e0009"
+yellow  = "#6e5600"
+
+# Light
+blue    = "#9fd8ff"
+cyan    = "#83efef"
+green   = "#aaedb7"
+grey1   = "#ebeef5"
+grey2   = "#d7dae1"
+grey3   = "#c4c6cd"
+grey4   = "#9b9ea4"
+magenta = "#ffc3fa"
+red     = "#ffbcb5"
+yellow  = "#f4d88c"
+
+## 256 colors palettes
+# Dark
+blue    = 24
+cyan    = 30
+green   = 22
+grey1   = 232
+grey2   = 234
+grey3   = 236
+grey4   = 239
+magenta = 53
+red     = 52
+yellow  = 58
+
+# Light
+blue    = 153
+cyan    = 123
+green   = 158
+grey1   = 255
+grey2   = 253
+grey3   = 251
+grey4   = 247
+magenta = 189
+red     = 217
+yellow  = 222
+
+## Contrast ratio
+dark_blue         = 11
+dark_comment      = 6.3
+dark_comment_cur  = 5.1
+dark_comment_vis  = 2.9
+dark_cur_line     = 9.7
+dark_cyan         = 12.5
+dark_green        = 12.4
+dark_magenta      = 11.6
+dark_normal       = 12
+dark_red          = 10.5
+dark_visual       = 5.6
+dark_yellow       = 12
+light_blue        = 6.2
+light_comment     = 5.6
+light_comment_cur = 4.6
+light_comment_vis = 2.9
+light_cur_line    = 9.8
+light_cyan        = 3.9
+light_green       = 6.2
+light_magenta     = 10.7
+light_normal      = 12
+light_red         = 10.1
+light_visual      = 6.3
+light_yellow      = 5
