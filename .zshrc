@@ -80,6 +80,7 @@ if [[ "$ID" == "debian" || "$ID_LIKE" == *debian* ]]; then
   alias -g -- --help='--help 2>&1 | batcat --language=help' 
   export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
   alias fd=fdfind
+  alias ncspot='flatpak run io.github.hrkfdn.ncspot'
 else
  alias cat='bat --style=plain'
   # use bat for help
