@@ -32,23 +32,17 @@ sudo nala install git network-manager nm-connection-editor ufw bluez \
   tlp powertop upower \
   pipewire pipewire-pulse wireplumber \
   build-essential man-db brightnessctl curl wget gawk aria2  btop \
-  efibootmgr timeshift
-check_exit "Installing system packages"
-
-# sway
-sudo nala install sway swaybg sway-notification-center swayidle swaylock \
+  efibootmgr timeshift \
+  sway swaybg sway-notification-center swayidle swaylock \
   i3status autotiling foot foot-themes foot-terminfo wmenu wl-clipboard \
   xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-wlr xwayland \
   nwg-look nwg-displays wev wlr-randr wl-mirror \
-  fonts-noto fonts-noto-cjk ttf-mscorefonts-installer
-check_exit "Installing sway packagages"
-
-# Install more tools
-sudo nala install zsh stow starship zoxide eza bat fd-find ncdu fzf ripgrep tmux pipx rustc cargo npm \
-  qutebrowser flatpak zip unzip 7zip neovim tree-sitter-cli \
+  fonts-noto fonts-noto-cjk ttf-mscorefonts-installer \
+  zsh stow starship zoxide eza bat fd-find ncdu du-dust fzf ripgrep tmux pipx rustc cargo npm \
+  qutebrowser flatpak zip unzip 7zip tree-sitter-cli \
   gammastep zoxide slurp grim imv zathura zathura-pdf-poppler \
   fastfetch tree lazygit luarocks git-lfs
-check_exit "Installing additional tools"
+check_exit "Installing packages"
 
 xdg-user-dirs-update
 
@@ -57,6 +51,7 @@ mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share/applications"
 mkdir -p "$HOME/.local/share/icons"
 mkdir -p "$HOME/.local/share/fonts"
+mkdir -p "$HOME/.themes"
 check_exit "Creating directories"
 
 # Install tldr
@@ -95,7 +90,7 @@ check_exit "Stowing dotfiles"
 
 # Install kernel headers and NVIDIA drivers
 sudo nala install linux-headers-generic extrepo && sudo extrepo enable nvidia-cuda
-#sudo nala install nvidia-open
+sudo nala install nvidia-open
 check_exit "Installing kernel headers and NVIDIA drivers"
 
 # Install yazi
@@ -104,6 +99,8 @@ check_exit "Installing kernel headers and NVIDIA drivers"
 #check_exit "Installing yazi"
 
 # ZSA keymapp dependency & proton pass
+cd "$HOME/dotfiles" && git lfs pull
+cd "$HOME"
 sudo nala install libwebkit2gtk-4.1-0 libgtk-3-0 libusb-1.0-0
 sudo nala install "$install_dir/ProtonPass.deb"
 sudo cp "$install_dir/50-zsa.rules" "/etc/udev/rules.d/50-zsa.rules"
@@ -115,7 +112,15 @@ check_exit "Installing keymap dependency and proton pass"
 flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 check_exit "Adding flathub repository"
 
-mkdir -p "$HOME/projects"
+# build neovim from source
+cd "$HOME"
+sudo nala install ninja-build gettext cmake curl build-essential git
+git clone https://github.com/neovim/neovim
+cd neovim && git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
+cd "$HOME" && rm -rf neovim
+check_exit "Building neovim from source"
 
 echo "Finished initial Debian setup
 1. edit /etc/fstab

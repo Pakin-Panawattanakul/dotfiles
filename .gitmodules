@@ -10,3 +10,6 @@
 	path = slstatus
 	url = https://github.com/Pakin-Panawattanakul/slstatus.git
   branch = my_branch
+[submodule "Scripts/debian-install/neovim"]
+	path = Scripts/debian-install/neovim
+	url = https://github.com/neovim/neovim

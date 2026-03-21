@@ -81,6 +81,7 @@ if [[ "$ID" == "debian" || "$ID_LIKE" == *debian* ]]; then
   export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | batcat -p -lman'"
   alias fd=fdfind
   alias ncspot='flatpak run io.github.hrkfdn.ncspot'
+  alias firefox='flatpak run org.mozilla.firefox'
 else
  alias cat='bat --style=plain'
   # use bat for help
@@ -90,10 +91,6 @@ else
 fi
 
 #can add -pp for normal output with no pager
-
-#script
-alias mimi="source $HOME/Scripts/mimi.sh"
-alias mod='python3 ~/Scripts/mod.py'
 
 # ------------ Custom alias ------------
 alias f=fastfetch

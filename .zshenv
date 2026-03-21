@@ -1,8 +1,15 @@
 # ~/.zshenv - loaded for ALL zsh sessions
+# User Directories
+XDG_CONFIG_HOME="$HOME/.config"
+XDG_CACHE_HOME="$HOME/.cache"
+XDG_DATA_HOME="$HOME/.local/share"
+XDG_STATE_HOME="$HOME/.local/state"
+
+# System Directories
+XDG_DATA_DIRS="/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/exports/share"
+XDG_CONFIG_DIRS="/etc/xdg"
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH=$PATH:$HOME/Scripts
 export WMENU_OPTIONS=" -i -b \
         -N 07080b \
         -n e0e2ea \

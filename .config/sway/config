@@ -7,7 +7,7 @@ include styles
 ########################################
 xwayland enable
 exec --no-startup-id autotiling
-#exec --no-startup-id gammastep -l 36:138
+exec gammastep -l 36:138
 exec /home/pakin/Scripts/low_battery.sh
 
 ### Idle configuration : man swayidle
@@ -23,6 +23,7 @@ exec swayidle -w \
 ########################################
 # Outputs
 ########################################
+
 set $firstMonitor "eDP-1"
 set $secondMonitor "HDMI-A-2" 
 output * bg $HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg fill

@@ -18,4 +18,5 @@ flatpak override --user --env=GTK_THEME=Orchis-Dark-Compact
 flatpak override --user --env=ICON_THEME=Papirus-Dark
 
 flatpak override --user --filesystem='~/.config/ncspot' io.github.hrkfdn.ncspot
+
 ln -sf "$HOME/.config/ncspot/config.toml" "$HOME/.var/app/io.github.hrkfdn.ncspot/config/ncspot/config.toml"

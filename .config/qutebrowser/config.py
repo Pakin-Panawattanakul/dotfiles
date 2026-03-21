@@ -58,7 +58,7 @@ config.set("content.javascript.clipboard", "access-paste")
 
 # ads block
 c.content.blocking.enabled = True
-c.content.blocking.method = "adblock"  # uncomment this if you install python-adblock
+#c.content.blocking.method = "adblock"  # uncomment this if you install python-adblock
 c.content.blocking.adblock.lists = [
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
