@@ -9,6 +9,7 @@ ln -s /usr/lib/x86_64-linux-gnu/crtn.o /usr/lib/crtn.o
 
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 echo "deb http://deb.debian.org/debian/ bookworm main 
-deb-src http://deb.debian.org/debian/ bookworm main" >> /etc/apt/sources.list.bak    
+deb-src http://deb.debian.org/debian/ bookworm main" >> /etc/apt/sources.list
 
 echo "APT:Default-Release 'trixie';" > /etc/apt/apt.conf.d/99bookworm
+sudo  nala install -t bookworm libncurses5

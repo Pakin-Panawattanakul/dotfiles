@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			":Pick lsp scope='references'<cr>",
 			{ nowait = true, buffer = ev.buf, desc = "LSP : [G]o to [R]efferences" }
 		)
-		map("n", "gd", ":Pick lsp scope='definition<cr>", { buffer = ev.buf, desc = "LSP : [D]efinitions" })
+		map("n", "gd", ":Pick lsp scope='definition'<cr>", { buffer = ev.buf, desc = "LSP : [D]efinitions" })
 		map("n", "gD", ":Pick lsp scope='declaration<cr>", { buffer = ev.buf, desc = "LSP : [G]o to [D]eclaration" })
 		map(
 			"n",

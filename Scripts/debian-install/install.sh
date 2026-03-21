@@ -32,16 +32,17 @@ sudo nala install git network-manager nm-connection-editor ufw bluez \
   tlp powertop upower \
   pipewire pipewire-pulse wireplumber \
   build-essential man-db brightnessctl curl wget gawk aria2  btop \
-  efibootmgr timeshift \
-  sway swaybg sway-notification-center swayidle swaylock \
+  firefox efibootmgr timeshift \
+  sway swaybg sway-notification-center swayidle swaylock imv \
   i3status autotiling foot foot-themes foot-terminfo wmenu wl-clipboard \
   xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-wlr xwayland \
   nwg-look nwg-displays wev wlr-randr wl-mirror \
   fonts-noto fonts-noto-cjk ttf-mscorefonts-installer \
-  zsh stow starship zoxide eza bat fd-find ncdu du-dust fzf ripgrep tmux pipx rustc cargo npm \
-  qutebrowser flatpak zip unzip 7zip tree-sitter-cli \
-  gammastep zoxide slurp grim imv zathura zathura-pdf-poppler \
-  fastfetch tree lazygit luarocks git-lfs
+  zsh stow starship zoxide eza bat fd-find ncdu du-dust fzf ripgrep tmux pipx npm \
+  flatpak zip unzip 7zip tree-sitter-cli neovim \
+  gammastep zoxide slurp grim zathura zathura-pdf-poppler \
+  fastfetch tree lazygit luarocks git-lfs \
+  greetd tuigreet
 check_exit "Installing packages"
 
 xdg-user-dirs-update
@@ -86,6 +87,7 @@ check_exit "Removing old zshrc"
 # Set up dotfiles
 cd "$HOME/dotfiles" && stow .
 cd "$HOME"
+sudo ln -s ~/.local/bin/start-sway /usr/local/bin/start-sway
 check_exit "Stowing dotfiles"
 
 # Install kernel headers and NVIDIA drivers
@@ -93,10 +95,19 @@ sudo nala install linux-headers-generic extrepo && sudo extrepo enable nvidia-cu
 sudo nala install nvidia-open
 check_exit "Installing kernel headers and NVIDIA drivers"
 
+
 # Install yazi
-#sudo extrepo enable griffo
-#sudo nala install yazi jq ffmpeg resvg imagemagick fd-find ripgrep
-#check_exit "Installing yazi"
+cd "$HOME"
+sudo nala install jq ffmpeg resvg imagemagick fd-find ripgrep
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+. "$HOME/.cargo/env"
+rustup update
+git clone https://github.com/sxyazi/yazi.git
+cd yazi
+cargo build --release --locked
+mv target/release/yazi target/release/ya "$HOME/.local/bin/"
+cd $HOME && rm -rf yazi
+check_exit "Installing yazi"
 
 # ZSA keymapp dependency & proton pass
 cd "$HOME/dotfiles" && git lfs pull
@@ -108,19 +119,13 @@ sudo groupadd plugdev
 sudo usermod -aG plugdev $USER
 check_exit "Installing keymap dependency and proton pass"
 
+# unzip fonts, icons, theme
+tar -xGf "$install_dir/Orchis.tar.xz " --directory "$HOME/.themes"
+tar -xGf "$install_dir/papirus-icon-theme-20250501.tar.gz" --directory "$HOME/.local/share/icons"
+unzip "$install_dir/JetBrainMono.zip" -d "$HOME/.local/share/fonts"
 # Add flathub repository
 flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 check_exit "Adding flathub repository"
-
-# build neovim from source
-cd "$HOME"
-sudo nala install ninja-build gettext cmake curl build-essential git
-git clone https://github.com/neovim/neovim
-cd neovim && git checkout stable
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
-cd "$HOME" && rm -rf neovim
-check_exit "Building neovim from source"
 
 echo "Finished initial Debian setup
 1. edit /etc/fstab

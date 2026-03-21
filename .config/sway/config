@@ -69,7 +69,6 @@ input type:keyboard {
 
 floating_modifier Mod4 normal
 tiling_drag enable
-#allow_tearing no
 
 ########################################
 # Bar
@@ -97,8 +96,9 @@ bar {
 
 for_window [app_id="org.pwmt.zathura"] fullscreen enable
 for_window [app_id="imv"] floating enable
+for_window [app_id="swayimg"] fullscreen enable
 for_window [app_id="Proton Pass"] floating enable
-
+for_window [app_id="firefox"] inhibit_idle fullscreen
 # Dual screen 
   
  workspace 1 output $firstMonitor 

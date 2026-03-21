@@ -1,14 +1,14 @@
 #!/bin/sh
-flatpak install --user flathub io.github.kolunmi.Bazaar \
-  org.libreoffice.LibreOffice \
+flatpak install flathub io.github.kolunmi.Bazaar 
+
+flatpak install --user flathub org.libreoffice.LibreOffice \
   com.discordapp.Discord \
   com.github.tchx84.Flatseal \
   org.freedesktop.Platform.GL32.nvidia-595-45-04 \
   com.valvesoftware.Steam \
   com.spotify.Client \
   io.github.hrkfdn.ncspot \
-  org.mozilla.Thunderbird \
-  org.mozilla.firefox 
+  org.mozilla.Thunderbird
 
 flatpak override --user --filesystem='~/.local/share/icons'
 flatpak override --user --filesystem='~/.local/share/fonts'

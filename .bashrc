@@ -74,3 +74,4 @@ export SUDO_EDITOR=nvim
 export BAT_THEME=ansi
 
 #[[ ! ${BLE_VERSION-} ]] || ble-attach
+. "$HOME/.cargo/env"
