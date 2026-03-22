@@ -6,10 +6,9 @@ XDG_DATA_HOME="$HOME/.local/share"
 XDG_STATE_HOME="$HOME/.local/state"
 
 # System Directories
-XDG_DATA_DIRS="/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/exports/share"
+XDG_DATA_DIRS="/usr/local/share:$HOME/.local/share/flatpak/exports/share:/usr/share:/var/lib/flatpak/exports/share"
 XDG_CONFIG_DIRS="/etc/xdg"
 
-export PATH="HOME/.local/bin:$PATH"
 export WMENU_OPTIONS=" -i -b \
         -N 07080b \
         -n e0e2ea \
@@ -31,5 +30,3 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export QT_QPA_PLATFORM=wayland
 export SDL_VIDEODRIVER=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
-
-. "$HOME/.cargo/env"

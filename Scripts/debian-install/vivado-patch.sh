@@ -11,5 +11,5 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 echo "deb http://deb.debian.org/debian/ bookworm main 
 deb-src http://deb.debian.org/debian/ bookworm main" >> /etc/apt/sources.list
 
-echo "APT:Default-Release 'trixie';" > /etc/apt/apt.conf.d/99bookworm
-sudo  nala install -t bookworm libncurses5
+echo "APT::Default-Release stable;" > /etc/apt/apt.conf.d/99bookworm
+sudo nala update && sudo nala install -t bookworm libncurses5
