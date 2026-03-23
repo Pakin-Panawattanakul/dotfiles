@@ -1,22 +1,7 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-#ZSH_THEME="oxide"
-
-# Uncomment the following line to disable auto-setting terminal title.
-#DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+ENABLE_CORRECTION="false"
+COMPLETION_WAITING_DOTS="false"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
@@ -94,6 +79,6 @@ fi
 # ------------ Custom alias ------------
 alias f=fastfetch
 alias ll='ls -al'
-alias dot='cd ~/dotfiles && ls -al'
+alias dot='cd ~/.dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias ref='cd $HOME/kyber-ref/kyber768'

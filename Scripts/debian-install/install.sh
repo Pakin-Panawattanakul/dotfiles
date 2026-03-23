@@ -14,9 +14,9 @@ check_exit() {
 sudo apt update && sudo apt upgrade
 check_exit "System update and upgrade"
 
-# Install nala
-sudo apt install nala
-check_exit "Installing nala"
+# Install apt
+sudo apt install apt
+check_exit "Installing apt"
 
 # Git config
 git config --global user.name 'Pakin-Panawattanakul'
@@ -28,7 +28,7 @@ sleep 1
 
 # Install packages
 # System
-sudo nala install git network-manager nm-connection-editor ufw bluez \
+sudo apt install git network-manager nm-connection-editor ufw bluez \
   tlp powertop upower \
   pipewire pipewire-pulse wireplumber \
   build-essential man-db brightnessctl curl wget gawk aria2  btop \
@@ -42,7 +42,7 @@ sudo nala install git network-manager nm-connection-editor ufw bluez \
   flatpak zip unzip 7zip tree-sitter-cli \
   gammastep zoxide slurp grim zathura zathura-pdf-poppler \
   fastfetch tree lazygit luarocks git-lfs \
-  greetd tuigreet steam-devices 
+  greetd tuigreet steam-devices mpv
 check_exit "Installing packages"
 
 xdg-user-dirs-update
@@ -87,35 +87,35 @@ fi
 
 
 # Set up dotfiles
-cd "$HOME/dotfiles" && stow .
+cd "$HOME/.dotfiles" && stow .
 cd "$HOME"
 sudo ln -sf ~/.local/bin/sway /usr/local/bin/sway
 check_exit "Stowing dotfiles"
 
 # Install kernel headers and NVIDIA drivers
-sudo nala install linux-headers-generic extrepo
+sudo apt install linux-headers-generic extrepo
 sudo extrepo enable nvidia-cuda
-sudo nala update && sudo nala upgrade
-sudo nala install nvidia-open
+sudo apt update && sudo apt upgrade
+sudo apt install nvidia-open
 check_exit "Installing kernel headers and NVIDIA drivers"
 
 # build neovim from source
-if [ ! $(which nvim) ]; then
-cd "$HOME"
-sudo nala install ninja-build gettext cmake curl build-essential git
-git clone https://github.com/neovim/neovim
-cd neovim
-git checkout stable
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
-cd "$HOME"
-check_exit "Buliding neovim"
-fi
+#if [ ! $(which nvim) ]; then
+#cd "$HOME"
+#sudo apt install ninja-build gettext cmake curl build-essential git
+#git clone https://github.com/neovim/neovim
+#cd neovim
+#git checkout stable
+#make CMAKE_BUILD_TYPE=RelWithDebInfo
+#cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
+#cd "$HOME"
+#check_exit "Buliding neovim"
+#fi
 
 # Install yazi
 if [ ! $(which yazi) ]; then
 cd "$HOME"
-  sudo nala install jq ffmpeg resvg imagemagick fd-find ripgrep
+  sudo apt install jq ffmpeg resvg imagemagick fd-find ripgrep
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   . "$HOME/.cargo/env"
   rustup update
@@ -128,10 +128,10 @@ fi
 check_exit "Installing yazi"
 
 # ZSA keymapp dependency & proton pass
-cd "$HOME/dotfiles" && git lfs pull
+cd "$HOME/.dotfiles" && git lfs pull
 cd "$HOME"
-sudo nala install libwebkit2gtk-4.1-0 libgtk-3-0 libusb-1.0-0 dos2unix
-sudo nala install "$install_dir/ProtonPass.deb"
+sudo apt install libwebkit2gtk-4.1-0 libgtk-3-0 libusb-1.0-0 dos2unix
+sudo apt install "$install_dir/ProtonPass.deb"
 sudo cp "$install_dir/50-zsa.rules" "/etc/udev/rules.d/50-zsa.rules"
 sudo groupadd plugdev
 sudo usermod -aG plugdev $USER

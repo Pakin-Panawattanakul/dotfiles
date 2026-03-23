@@ -8,12 +8,11 @@ edit = [
 open = [
 	{ run = "xdg-open %s", desc = "Open" },
 ]
+imv = [
+  { run = "imv-wayland %s", orphan = true, desc = "imv" },
+]
 
 [open]
 prepend_rules = [
-    { name = "*.pdf", use = "open"},
-    { name = "*.epub", use = "open" },
-    { name = "*.jpeg", use = "open"},
-    { name = "*.jpg", use = "open"},
-    { name = "*.png", use = "open"},
+    { mime = "image/*", use = "imv" },
 ]

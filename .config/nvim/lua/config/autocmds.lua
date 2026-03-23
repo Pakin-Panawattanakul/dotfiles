@@ -19,7 +19,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
---[[
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "verilog", "systemverilog" },
 	callback = function()
@@ -28,4 +27,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.cmd("highlight Special   guifg=NvimLightBlue")
 	end,
 })
---]]

@@ -27,9 +27,16 @@ exec swayidle -w \
 set $firstMonitor "eDP-1"
 set $secondMonitor "HDMI-A-2" 
 output * bg $HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg fill
-output $firstMonitor resolution 1920x1080@165Hz position 0,0
-output $secondMonitor resolution 2560x1440@60Hz position 1920,0  allow_tearing no
 output *   
+output $firstMonitor {
+  resolution 1920x1080@165Hz 
+  position 0,0
+}
+
+output $secondMonitor {
+  resolution 2560x1440@60Hz 
+  position 1920,0  
+}
 #use : swaymsg -t get_outputs
 
 ########################################
@@ -43,13 +50,13 @@ input type:touchpad {
 }
 
 input 1:1:AT_Translated_Set_2_keyboard {
-    xkb_layout us,th,
+    xkb_layout us,th
     xkb_options grp:win_space_toggle,
 
     repeat_rate 35
     repeat_delay 200
     xkb_variant colemak_dh,
-    xkb_options grp:win_space_toggle
+    xkb_options grp:win_space_toggle,lv3:lalt_switch,mykeys:hjkl
 }
 
 input 12951:6519:ZSA_Technology_Labs_Voyager {
@@ -64,6 +71,7 @@ input type:keyboard {
     xkb_options grp:win_space_toggle,
     repeat_rate 35
     repeat_delay 200
+
 
 }
 

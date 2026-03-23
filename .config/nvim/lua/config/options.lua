@@ -1,8 +1,9 @@
 -------------------- Neovim options --------------------
 -- luacheck:globals vim
---vim.cmd([[colorscheme vim]])
---vim.cmd([[highlight Normal guibg=07080b]])
---vim.cmd([[highlight Statusline guibg=NvimDarkGray3 guifg=NvimLightGray]])
+vim.cmd([[colorscheme default]])
+vim.cmd([[highlight Normal guibg=07080b]])
+vim.cmd([[highlight Statusline guibg=NvimDarkGray4 guifg=NvimLightGray]])
+vim.cmd([[highlight StatuslineNC guibg=NvimDarkGray3 guifg=NvimLightGray]])
 
 -- Basic settings
 vim.opt.number = true -- enable line number
@@ -42,15 +43,6 @@ vim.g.have_nerd_font = true
 
 -- Custom status line
 -- Synce neovim clipboard with OS
-
-if os.getenv("WAYLAND_DISPLAY") then
-	vim.g.clipboard = {
-		name = "wl-clipboard",
-		copy = { ["+"] = "wl-copy", ["*"] = "wl-copy --primary" },
-		paste = { ["+"] = "wl-paste --no-newline", ["*"] = "wl-paste --no-newline --primary" },
-		cache_enabled = 0,
-	}
-end
 
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"

@@ -11,5 +11,5 @@ return {
 			buffer_selected = {},
 		},
 	},
-	enabled = false,
+	enabled = true,
 }

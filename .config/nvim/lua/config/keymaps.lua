@@ -1,3 +1,4 @@
+--
 -- luacheck: globals vim
 ------------------- Neovim keymap --------------------
 -- vim-powered terminal in split window
@@ -11,6 +12,7 @@ vim.cmd("ca W w")
 vim.cmd("ca Q q")
 vim.cmd("ca WQ wq")
 vim.cmd("ca Wq wq")
+vim.cmd("ca wQ wq")
 --vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit Vim!!" })
 --vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite buffer" })
 --vim.keymap.set("n", "<leader>c", ":q!<cr>", { desc = "Quit without save" })

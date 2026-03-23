@@ -11,5 +11,20 @@ cp /etc/apt/sources.list /etc/apt/sources.list.bak
 echo "deb http://deb.debian.org/debian/ bookworm main 
 deb-src http://deb.debian.org/debian/ bookworm main" >> /etc/apt/sources.list
 
-echo "APT::Default-Release stable;" > /etc/apt/apt.conf.d/99bookworm
-sudo nala update && sudo nala install -t bookworm libncurses5
+echo "deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware" >> /etc/apt/sources.list
+
+echo "Package: *
+Pin: release a=testing
+Pin-Priority: 500
+
+Package: *
+Pin: release n=sid
+Pin-Priority: 50
+
+Package: *
+Pin: release n=bookworm
+Pin-Priority: 50
+" > /etc/apt/preferences.d/priority
+
+sudo apt update && sudo apt install -t bookworm libncurses5

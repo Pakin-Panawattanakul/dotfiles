@@ -16,8 +16,8 @@ set $wmenu-options -i -b -N 07080b -n e0e2ea -m b3f6c0 -M 07080b -S 07080b -s 7e
 # Default applications
 ########################################
 set $term foot
-#set $webbrowser flatpak run org.mozilla.firefox
-set $webbrowser qutebrowser
+set $webbrowser flatpak run org.mozilla.firefox
+#set $webbrowser qutebrowser
 set $filemanager foot yazi
 #set $filemanager pcmanfm
 bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
