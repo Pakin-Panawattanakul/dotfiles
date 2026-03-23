@@ -32,7 +32,7 @@ sudo nala install git network-manager nm-connection-editor ufw bluez \
   tlp powertop upower \
   pipewire pipewire-pulse wireplumber \
   build-essential man-db brightnessctl curl wget gawk aria2  btop \
-  firefox efibootmgr timeshift \
+  efibootmgr timeshift \
   sway swaybg sway-notification-center swayidle swaylock imv \
   i3status autotiling foot foot-themes foot-terminfo wmenu wl-clipboard \
   xdg-user-dirs xdg-desktop-portal xdg-desktop-portal-wlr xwayland \
@@ -75,12 +75,13 @@ fi
 check_exit "Backing up existing configs"
 
 # Install oh-my-zsh 
-if [ ! -d "$HOME/.oh-my-zsh"  ]; then       
+if [ ! -d "$HOME/.oh-my-zsh"  ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   check_exit "Installing oh-my-zsh"
   # Clone zsh plugins
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  rm "$HOME/.zshrc"
   check_exit "Cloning zsh plugins"
 fi
 
@@ -99,6 +100,7 @@ sudo nala install nvidia-open
 check_exit "Installing kernel headers and NVIDIA drivers"
 
 # build neovim from source
+if [ ! $(which nvim) ]; then
 cd "$HOME"
 sudo nala install ninja-build gettext cmake curl build-essential git
 git clone https://github.com/neovim/neovim
@@ -106,10 +108,12 @@ cd neovim
 git checkout stable
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
-
+cd "$HOME"
+check_exit "Buliding neovim"
+fi
 
 # Install yazi
-if [! $(which yazi) ]; then
+if [ ! $(which yazi) ]; then
 cd "$HOME"
   sudo nala install jq ffmpeg resvg imagemagick fd-find ripgrep
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
