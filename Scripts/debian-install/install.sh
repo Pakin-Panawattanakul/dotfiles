@@ -14,10 +14,6 @@ check_exit() {
 sudo apt update && sudo apt upgrade
 check_exit "System update and upgrade"
 
-# Install apt
-sudo apt install apt
-check_exit "Installing apt"
-
 # Git config
 git config --global user.name 'Pakin-Panawattanakul'
 git config --global user.email pakin.pan@proton.me
@@ -42,7 +38,7 @@ sudo apt install git network-manager nm-connection-editor ufw bluez \
   flatpak zip unzip 7zip tree-sitter-cli \
   gammastep zoxide slurp grim zathura zathura-pdf-poppler \
   fastfetch tree lazygit luarocks git-lfs \
-  greetd tuigreet steam-devices mpv
+  greetd tuigreet mpv qalc
 check_exit "Installing packages"
 
 xdg-user-dirs-update
@@ -99,18 +95,10 @@ sudo apt update && sudo apt upgrade
 sudo apt install nvidia-open
 check_exit "Installing kernel headers and NVIDIA drivers"
 
-# build neovim from source
-#if [ ! $(which nvim) ]; then
-#cd "$HOME"
-#sudo apt install ninja-build gettext cmake curl build-essential git
-#git clone https://github.com/neovim/neovim
-#cd neovim
-#git checkout stable
-#make CMAKE_BUILD_TYPE=RelWithDebInfo
-#cd build && cpack -G DEB && sudo dpkg -i nvim-linux-x86_64.deb
-#cd "$HOME"
-#check_exit "Buliding neovim"
-#fi
+sudo dpkg --add-architectuer i386
+sudo apt update
+sudo apt install gamemode nvidia-driver-libs:i386 steam-installer -y
+check_exit "Installing Steam"
 
 # Install yazi
 if [ ! $(which yazi) ]; then

@@ -9,6 +9,7 @@ xwayland enable
 exec --no-startup-id autotiling
 exec gammastep -l 36:138
 exec /home/pakin/Scripts/low_battery.sh
+exec /usr/libexec/xfce-polkit
 
 ### Idle configuration : man swayidle
 set $wallpaper ~/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg

@@ -11,8 +11,12 @@ open = [
 imv = [
   { run = "imv-wayland %s", orphan = true, desc = "imv" },
 ]
+zathura = [
+  { run = "zathura %s", orphan = true, desc = "pdf viewer" }
+]
 
 [open]
 prepend_rules = [
     { mime = "image/*", use = "imv" },
+    { mime = "application/pdf", use = "zathura" }
 ]

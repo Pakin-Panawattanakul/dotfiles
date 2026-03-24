@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # ------------ Neovim ------------
-alias vim='nvim'
+#alias vim='nvim'
 
 # ------------ Fuzzy finder ------------
 # Set up fzf key bindings and fuzzy completion

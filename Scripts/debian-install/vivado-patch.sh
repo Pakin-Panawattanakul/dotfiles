@@ -20,7 +20,7 @@ Pin-Priority: 500
 
 Package: *
 Pin: release n=sid
-Pin-Priority: 50
+Pin-Priority: 90
 
 Package: *
 Pin: release n=bookworm
