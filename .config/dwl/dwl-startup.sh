@@ -9,7 +9,7 @@ done
 
 # Start up applications
 #swaybg --output '*' --image "$HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg" &
-swaybg -i "$HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg" &
+wbg "$HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg" &
 mako &
 gammastep -l 36:138 &
 "$HOME/Scripts/low_battery.sh" &
