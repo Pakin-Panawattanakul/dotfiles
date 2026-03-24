@@ -9,25 +9,16 @@ XDG_STATE_HOME="$HOME/.local/state"
 XDG_DATA_DIRS="/usr/local/share:$HOME/.local/share/flatpak/exports/share:/usr/share:/var/lib/flatpak/exports/share"
 XDG_CONFIG_DIRS="/etc/xdg"
 
-export WMENU_OPTIONS=" -i -b \
-        -N 07080b \
-        -n e0e2ea \
-        -M b3f6c0 \
-        -m 07080b \
-        -s 07080b \
-        -S 7edfde \
-        -f 'JetBrainsMonoNerdFontPropo Regular 11'"
-
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export BAT_THEME=ansi
 export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
+export WAY_ROFI_SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots"
 
 #export WL_PRESENT_DMENU="wmenu $WMENU_OPTIONS"
 export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 export QT_QPA_PLATFORM=wayland
-export SDL_VIDEODRIVER=wayland
+export SDL_VIDEODRIVER=wayland,x11
 export _JAVA_AWT_WM_NONREPARENTING=1
-. "$HOME/.cargo/env"

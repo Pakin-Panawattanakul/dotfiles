@@ -10,19 +10,28 @@ set $left m
 set $down n
 set $up e
 set $right i
-set $wmenu-options -i -b -N 07080b -n e0e2ea -m b3f6c0 -M 07080b -S 07080b -s 7edfde
 
+#wmenu stuff
+#set $wmenu-options -i -b -N 07080b -n e0e2ea -m b3f6c0 -M 07080b -S 07080b -s 7edfde
+#bindsym Print exec wmenu-screenshot $wmenu-options -p screenshot
+#bindsym $mod+Shift+q exec wmenu-powermenu $wmenu-options -p powermenu 
+#bindsym $mod+r exec wmenu-drun $wmenu-options -p drun -l 10
 ########################################
 # Default applications
 ########################################
 set $term foot
-set $webbrowser2 flatpak run org.mozilla.firefox
 set $webbrowser qutebrowser
+set $webbrowser2 firefox
 set $filemanager foot yazi
 bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
 
-bindsym $mod+c exec wmenu-calc $wmenu-options -p Calculator -l 10
-bindsym $mod+r exec wmenu-drun $wmenu-options -p drun -l 10
+# rofi
+bindsym $mod+r exec rofi -show-icons -show drun
+bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
+bindsym $mod+Shift+q exec rofi -show power-menu -modi power-menu:/usr/bin/rofi-power-menu
+bindsym Print exec /usr/bin/sway-rofi-screenshot
+bindsym $alt+tab exec rofi  -show-icons -show window 
+
 bindsym $mod+t exec $term
 #bindsym $mod+e exec $filemanager
 bindsym $mod+w exec $webbrowser
@@ -34,8 +43,6 @@ bindsym $meh+s exec foot pipemixer
 bindsym $meh+m exec foot flatpak run io.github.hrkfdn.ncspot 
 bindsym $meh+k exec keymapp
 
-bindsym Print exec wmenu-screenshot $wmenu-options -p screenshot
-bindsym $mod+Shift+q exec wmenu-powermenu $wmenu-options -p powermenu
 ########################################
 ## Navigation
 ########################################

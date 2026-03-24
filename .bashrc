@@ -1,5 +1,4 @@
 # ~/.bashrc
-#[[ $- == *i* ]] && source -- /usr/share/blesh/ble.sh --attach=none
 
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
@@ -59,7 +58,6 @@ alias ref='cd $HOME/kyber-ref/kyber768'
 
 # ENV variable
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
 export PATH=$PATH:$HOME/Scripts
 export WMENU_OPTIONS="-N 07080b \
         -n e0e2ea \
@@ -73,5 +71,3 @@ export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export BAT_THEME=ansi
 
-#[[ ! ${BLE_VERSION-} ]] || ble-attach
-. "$HOME/.cargo/env"

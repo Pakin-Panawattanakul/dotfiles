@@ -2,6 +2,7 @@
 ## System
 ########################################
 # !!Core!! 
+sudo
 base
 base-devel
 intel-ucode
@@ -26,7 +27,6 @@ powertop
 upower
 
 # Sounds
-alsa-utils
 pipewire
 pipewire-pulse
 wireplumber
@@ -47,37 +47,36 @@ ncdu
 
 # System monitor
 btop
-htop
 
 # File system
 timeshift
 efibootmgr
-#efitools
-#exfatprogs
 
 ########################################
 ## Desktop & Theme
 ########################################
-# sway
+# Sway wm
 sway
 swaybg
 swaync
-swayidle
-swaylock
 i3status
 autotiling
+swayidle
+swaylock
+
 
 # wayland
 wl-clipboard
 wev
 xorg-xwayland
 xdg-desktop-portal-wlr
+xdg-desktop-portal
 wl-mirror
 
 xfce-polkit
 wlroots0.19
 wlr-randr
-nwg-displays
+wdisplays
 xdg-user-dirs
 
 # System utils
@@ -85,24 +84,26 @@ gammastep
 unzip
 calc
 grim
+slurp
 7zip
 imv
 zathura
 zathura-pdf-mupdf
-wmenu
+
+#rofi
+lazygit
+rofi
+rofi-calc
+rofi-power-menu
+sway-rofi-screenshot-git
+qalculate-gtk
 
 # Theme
 nwg-look
-kvantum
-kvantum-qt5
-qt5-wayland
-qt6-wayland
+orchis-theme
 papirus-icon-theme
-kvantum-theme-materia
 
 # Font
-noto-fonts
-noto-fonts-emoji
 noto-fonts-cjk
 ttf-jetbrains-mono-nerd
 ttf-ms-fonts
@@ -125,7 +126,6 @@ dust
 eza
 fd
 tldr
-lazygit
 zoxide
 nano
 
@@ -135,7 +135,7 @@ qutebrowser
 python-adblock
 
 # Personal
-proton-pass-bin
+proton-pass
 thunderbird
 
 # Neovim
@@ -152,39 +152,41 @@ imagemagick
 resvg
 ripgrep
 
-#vivado
-vivado
-lib32-gcc-libs
-lib32-libpng12
-multilib-devel
-
-
 # Entertainment
 discord
 mpv
 ncspot
-spotify-launcher
+steam
 
 # Dev
-uv
-rust
 git
+lazygit
 git-lfs
-github-cli
 gcc
-gdb
-go
-python-pipx
 
 # Tools
 android-tools
 libreoffice-fresh-th
 aria2
 
-# Misc
-selectdefaultapplication-git
-
 # Voyager
 webkit2gtk-4.1
 qmk
 dos2unix
+
+# archive : old package that i might use
+
+#vivado
+#vivado
+#lib32-gcc-libs
+#lib32-libpng12
+#multilib-devel
+
+#efitools
+#exfatprogs
+
+# Dwl
+#mako
+#tllist
+#wayland-protocols
+#wbg
