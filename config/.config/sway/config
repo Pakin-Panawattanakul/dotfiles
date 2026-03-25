@@ -12,10 +12,10 @@ exec /home/pakin/Scripts/low_battery.sh
 exec /usr/lib/xfce-polkit/xfce-polkit 
 
 ### Idle configuration : man swayidle
-set $wallpaper ~/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg
+set $wallpaper ~/Pictures/wallpapers/nord-wave.png
 exec swayidle -w \
          timeout 600 'swaylock -f -i $wallpaper' \
-         timeout 900 'sysiemctl suspend' \
+         timeout 900 'systemctl suspend' \
          before-sleep 'swaylock -f -i $wallpaper'
          #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 
@@ -27,7 +27,7 @@ exec swayidle -w \
 
 set $firstMonitor "eDP-1"
 set $secondMonitor "HDMI-A-2" 
-output * bg $HOME/Pictures/wallpapers/cosmic/orion_nebula_nasa_heic0601a.jpg fill
+output * bg $wallpaper fill
 output *   
 output $firstMonitor {
   resolution 1920x1080@165Hz 
@@ -52,12 +52,11 @@ input type:touchpad {
 
 input 1:1:AT_Translated_Set_2_keyboard {
     xkb_layout us,th
-    xkb_options grp:win_space_toggle,
+    xkb_variant colemak_dh,
+    xkb_options "grp:win_space_toggle,custom:hjkl"
 
     repeat_rate 35
     repeat_delay 200
-    xkb_variant colemak_dh,
-    xkb_options grp:win_space_toggle,lv3:lalt_switch,mykeys:hjkl
 }
 
 input 12951:6519:ZSA_Technology_Labs_Voyager {
@@ -68,12 +67,10 @@ input 12951:6519:ZSA_Technology_Labs_Voyager {
 
 input type:keyboard {
     xkb_layout us,th,
-
     xkb_options grp:win_space_toggle,
+
     repeat_rate 35
     repeat_delay 200
-
-
 }
 
 floating_modifier Mod4 normal
@@ -84,8 +81,8 @@ tiling_drag enable
 ########################################
 bar {
     #output eDP-1
-    font pango:JetBrainsMonoNerdFontPropo 15px
-    position bottom
+    font pango:JetBrainsMonoNerdFontPropo 14px
+    position top
     mode dock
 
     colors {

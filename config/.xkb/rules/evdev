@@ -1,3 +1,0 @@
-! option = symbols
-  mykeys:hjkl = +mykeys(hjkl)
-! include %S/evdev

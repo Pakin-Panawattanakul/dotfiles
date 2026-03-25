@@ -2,8 +2,8 @@ default_border pixel
 default_floating_border pixel 
 hide_edge_borders smart
 # Title bar
-gaps inner 0
-gaps outer 0
+gaps inner 4
+gaps outer 5
 font pango:JetBrainsMonoNerdFont 10
 
 focus_follows_mouse yes

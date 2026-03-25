@@ -18,12 +18,3 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "verilog", "systemverilog" },
-	callback = function()
-		vim.cmd("highlight Statement guifg=NvimLightGreen")
-		vim.cmd("highlight Constant  guifg=NvimLightCyan")
-		vim.cmd("highlight Special   guifg=NvimLightBlue")
-	end,
-})

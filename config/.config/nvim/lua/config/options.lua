@@ -1,10 +1,5 @@
 -------------------- Neovim options --------------------
 -- luacheck:globals vim
-vim.cmd([[colorscheme default]])
-vim.cmd([[highlight Normal guibg=07080b]])
-vim.cmd([[highlight Statusline guibg=NvimDarkGray4 guifg=NvimLightGray]])
-vim.cmd([[highlight StatuslineNC guibg=NvimDarkGray3 guifg=NvimLightGray]])
-
 -- Basic settings
 vim.opt.number = true -- enable line number
 vim.opt.relativenumber = true --enable relative linenumber
