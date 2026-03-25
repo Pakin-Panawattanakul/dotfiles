@@ -1,15 +1,3 @@
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/ohmyzsh/ohmyzsh
-[submodule "dwl"]
-	path = dwl
-	url = https://github.com/Pakin-Panawattanakul/dwl.git
-  branch = my_branch
-
-[submodule "slstatus"]
-	path = slstatus
-	url = https://github.com/Pakin-Panawattanakul/slstatus.git
-  branch = my_branch
-[submodule "Scripts/debian-install/neovim"]
-	path = Scripts/debian-install/neovim
-	url = https://github.com/neovim/neovim
+[submodule "assets"]
+	path = assets
+	url = https://github.com/Pakin-Panawattanakul/assets
