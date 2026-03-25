@@ -1,3 +1,9 @@
 [submodule "assets"]
 	path = assets
 	url = https://github.com/Pakin-Panawattanakul/assets
+[submodule "build/dwl"]
+	path = build/dwl
+	url = https://github.com/Pakin-Panawattanakul/dwl
+[submodule "build/slstatus"]
+	path = build/slstatus
+	url = https://github.com/Pakin-Panawattanakul/slstatus
