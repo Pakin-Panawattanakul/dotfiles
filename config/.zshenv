@@ -13,11 +13,3 @@ export EDITOR=nvim
 export SUDO_EDITOR=nvim
 export BAT_THEME=ansi
 export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
-
-#export WL_PRESENT_DMENU="wmenu $WMENU_OPTIONS"
-export GBM_BACKEND=nvidia-drm
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-
-export QT_QPA_PLATFORM=wayland
-export SDL_VIDEODRIVER=wayland,x11
-export _JAVA_AWT_WM_NONREPARENTING=1

@@ -15,8 +15,8 @@ set $right i
 # Default applications
 ########################################
 set $term foot
-set $webbrowser firefox
-set $webbrowser2 qutebrowser
+set $web-browser firefox
+set $web-browser2 qutebrowser
 set $filemanager foot yazi
 bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
 
@@ -35,8 +35,9 @@ bindsym $alt+tab exec rofi  -show-icons -show window
 
 bindsym $mod+t exec $term
 bindsym $mod+f exec $filemanager
-bindsym $mod+w exec $webbrowser
-bindsym $mod+Shift+w exec $webbrowser2
+bindsym $mod+w exec $web-browser
+bindsym $mod+Shift+w exec $web-browser2
+
 bindsym $meh+n exec foot nvim
 
 bindsym $meh+s exec foot wiremix
