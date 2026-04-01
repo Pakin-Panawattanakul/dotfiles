@@ -26,7 +26,7 @@ exec swayidle -w \
 ########################################
 
 set $firstMonitor "eDP-1"
-set $secondMonitor "HDMI-A-1" 
+set $secondMonitor "HDMI-A-2" 
 output * bg $wallpaper fill
 output *   
 output $firstMonitor {
