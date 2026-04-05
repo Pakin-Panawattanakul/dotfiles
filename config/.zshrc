@@ -19,8 +19,9 @@ alias fzf='fzf --preview "bat --color=always --style=full --line-range=:500 {}"'
 
 # ------------ Eza : better ls ------------
 # export EZA_CONFIG_DIR="$HOME/.config/eza" # move to .zshenv
+export DISABLE_LS_COLORS="true" # to show the correct theme disable LS_COLORS 
+export LS_COLORS=""
 alias ls='eza --color=always --long'
-DISABLE_LS_COLORS="true" # to show the correct theme disable LS_COLORS 
 
 # ------------ Zoxide: better cd------------
 eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd to z
@@ -59,7 +60,7 @@ alias cat='bat --style=plain'
 # use bat for help
 alias -g -- -h='-h 2>&1 | bat --language=help'
 alias -g -- --help='--help 2>&1 | bat --language=help' 
-export MANPAGER="bat -plman"
+export MANPAGER="bat -l man -p"
 
 # ------------ Custom alias ------------
 alias f=fastfetch

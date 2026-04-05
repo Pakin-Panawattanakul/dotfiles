@@ -12,3 +12,4 @@ mkdir -p "$HOME/.local/share/themes"
 stow assets
 stow config
 stow wmenu-scripts --target="$HOME/.local/bin" 
+stow rofi --target="$HOME/.local/bin" 

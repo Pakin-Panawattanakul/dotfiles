@@ -27,8 +27,7 @@ bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "d
 
 # rofi
 bindsym $mod+r exec rofi -show-icons -show drun
-bindsym $mod+c exec rofi -show calc -modi calc -no-show-match -no-sort
-bindsym $mod+Shift+q exec rofi -show power-menu -modi power-menu:/usr/bin/rofi-power-menu
+bindsym $mod+Shift+q exec rofi -show power-menu -modi power-menu:rofi-power-menu
 bindsym Print exec /usr/bin/sway-rofi-screenshot
 bindsym $alt+tab exec rofi  -show-icons -show window 
 

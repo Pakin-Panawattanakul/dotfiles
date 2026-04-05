@@ -9,10 +9,14 @@ xwayland enable
 exec --no-startup-id autotiling
 exec gammastep -l 36:138
 exec /home/pakin/Scripts/low_battery.sh
-exec /usr/lib/xfce-polkit/xfce-polkit 
+exec --no-startup-id /usr/libexec/xfce-polkit
+
+# void linux
+exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec --no-startup-id pipewire
 
 ### Idle configuration : man swayidle
-set $wallpaper ~/Pictures/wallpapers/nord-wave.png
+set $wallpaper ~/Pictures/wallpapers/void.png
 exec swayidle -w \
          timeout 600 'swaylock -f -i $wallpaper' \
          timeout 900 'systemctl suspend' \
@@ -38,6 +42,8 @@ output $secondMonitor {
   resolution 2560x1440@60Hz 
   position 1920,0  
 }
+
+output DP-3 resolution 1920x1080@165.000Hz position 0,0
 #use : swaymsg -t get_outputs
 
 ########################################
@@ -58,7 +64,7 @@ input 1:1:AT_Translated_Set_2_keyboard {
 
     repeat_rate 35
     repeat_delay 200
-}
+}  
 
 input 12951:6519:ZSA_Technology_Labs_Voyager {
     xkb_layout us,
@@ -108,8 +114,8 @@ for_window [app_id="imv"] floating enable
 for_window [app_id="swayimg"] fullscreen enable
 for_window [app_id="Proton Pass"] floating enable
 for_window [app_id="firefox"] inhibit_idle fullscreen
+
 # Dual screen 
-  
  workspace 1 output $firstMonitor 
  workspace 2 output $firstMonitor 
  workspace 3 output $firstMonitor 
