@@ -12,5 +12,6 @@ export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 export SWAY_ROFI_SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots"
-
 export PATH="$HOME/.local/bin:$PATH"
+
+#dbus-run-session sway --unsupported-gpu

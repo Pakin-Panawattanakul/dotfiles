@@ -60,7 +60,11 @@ alias cat='bat --style=plain'
 # use bat for help
 alias -g -- -h='-h 2>&1 | bat --language=help'
 alias -g -- --help='--help 2>&1 | bat --language=help' 
-export MANPAGER="bat -l man -p"
+#export MANPAGER="bat -l man -p"
+# have to use this to fix weird ^H in void linux + foot
+man() {
+  command man "$@" | col -bx | bat -plman --paging=always
+}
 
 # ------------ Custom alias ------------
 alias f=fastfetch
@@ -68,3 +72,6 @@ alias ll='ls -al'
 alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias ref='cd $HOME/kyber-ref/kyber768'
+alias xi='sudo xbps-install'
+alias xr='sudo xbps-remove'
+alias xq=xbps-query

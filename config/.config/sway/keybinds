@@ -28,18 +28,17 @@ bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "d
 # rofi
 bindsym $mod+r exec rofi -show-icons -show drun
 bindsym $mod+Shift+q exec rofi -show power-menu -modi power-menu:rofi-power-menu
-bindsym Print exec /usr/bin/sway-rofi-screenshot
+bindsym Print exec /home/pakin/.local/bin/sway-rofi-screenshot
 bindsym $alt+tab exec rofi  -show-icons -show window 
 
 bindsym $mod+t exec $term
 bindsym $mod+f exec $filemanager
 bindsym $mod+w exec $web-browser
 
-bindsym $meh+n exec foot nvim
-
-bindsym $meh+s exec foot wiremix
+bindsym $meh+n exec foot -a neovim nvim
+bindsym $meh+s exec foot -a wiremix wiremix
 #bindsym $meh+d exec discord
-bindsym $meh+m exec foot ncspot
+bindsym $meh+m exec foot -a rmpc rmpc
 bindsym $meh+k exec keymapp
 
 ########################################
