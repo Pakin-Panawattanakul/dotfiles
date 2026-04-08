@@ -1,5 +1,6 @@
 # wayland stuff
-export QT_QPA_PLATFORM=wayland
+# this ensure qutebrowser is working
+export QT_QPA_PLATFORM=xcb
 export QT_STYLE_OVERRIDE=kvantum
 export SDL_VIDEODRIVER=wayland
 export ELM_DISPLAY=wl
@@ -12,6 +13,8 @@ export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 export SWAY_ROFI_SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH:$HOME/.cargo/bin"
+
+export WMENU_OPTIONS="-b -f JetBrainsMonoNerdFont Regular 13"
 
 #dbus-run-session sway --unsupported-gpu

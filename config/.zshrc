@@ -9,13 +9,14 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # ------------ Neovim ------------
+alias vi='nvim'
 alias vim='nvim'
 
 # ------------ Fuzzy finder ------------
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
-alias fzf='fzf --preview "bat --color=always --style=full --line-range=:500 {}"'
+alias fzf='fzf --preview "batcat --color=always --style=full --line-range=:500 {}"'
 
 # ------------ Eza : better ls ------------
 # export EZA_CONFIG_DIR="$HOME/.config/eza" # move to .zshenv
@@ -56,22 +57,17 @@ function y() {
 
 # os specific alias
 
-alias cat='bat --style=plain'
-# use bat for help
-alias -g -- -h='-h 2>&1 | bat --language=help'
-alias -g -- --help='--help 2>&1 | bat --language=help' 
-#export MANPAGER="bat -l man -p"
-# have to use this to fix weird ^H in void linux + foot
-man() {
-  command man "$@" | col -bx | bat -plman --paging=always
-}
+alias cat='batcat --style=plain'
+# use batcat for help
+alias -g -- -h='-h 2>&1 | batcat --language=help'
+alias -g -- --help='--help 2>&1 | batcat --language=help' 
+export MANPAGER="batcat -plman"
 
 # ------------ Custom alias ------------
 alias f=fastfetch
+alias fd=fdfind
 alias ll='ls -al'
 alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias ref='cd $HOME/kyber-ref/kyber768'
-alias xi='sudo xbps-install'
-alias xr='sudo xbps-remove'
-alias xq=xbps-query
+alias startw="dwl -s $HOME/dwl/dwl-autostart.sh"
