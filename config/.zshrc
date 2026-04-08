@@ -44,7 +44,7 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # ------------ Starship ------------
-#eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 alias cat='bat --style=plain'
 # use bat for help
