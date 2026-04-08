@@ -16,7 +16,7 @@ alias vim='nvim'
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
-alias fzf='fzf --preview "batcat --color=always --style=full --line-range=:500 {}"'
+alias fzf='fzf --preview "bat --color=always --style=full --line-range=:500 {}"'
 
 # ------------ Eza : better ls ------------
 # export EZA_CONFIG_DIR="$HOME/.config/eza" # move to .zshenv
@@ -44,24 +44,16 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # ------------ Starship ------------
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
-# ------------ Yazi -----------------
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
+alias cat='bat --style=plain'
+# use bat for help
+alias -g -- -h='-h 2>&1 | bat --language=help'
+alias -g -- --help='--help 2>&1 | bat --language=help' 
+#export MANPAGER="bat -plman"
+man() {
+  command man "$@" | col -bx | bat -plman --paging=always
 }
-
-# os specific alias
-
-alias cat='batcat --style=plain'
-# use batcat for help
-alias -g -- -h='-h 2>&1 | batcat --language=help'
-alias -g -- --help='--help 2>&1 | batcat --language=help' 
-export MANPAGER="batcat -plman"
 
 # ------------ Custom alias ------------
 alias f=fastfetch
