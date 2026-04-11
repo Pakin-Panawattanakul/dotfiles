@@ -9,7 +9,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # ------------ Neovim ------------
-alias vi='nvim'
 alias vim='nvim'
 
 # ------------ Fuzzy finder ------------
@@ -55,11 +54,12 @@ man() {
   command man "$@" | col -bx | bat -plman --paging=always
 }
 
+alias rm=trash
 # ------------ Custom alias ------------
+alias grep='grep --color'
 alias f=fastfetch
-alias fd=fdfind
 alias ll='ls -al'
 alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
+alias psc='ps aux | cat -l conf'
 alias ref='cd $HOME/kyber-ref/kyber768'
-alias startw="dwl -s $HOME/dwl/dwl-autostart.sh"

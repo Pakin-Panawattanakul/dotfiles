@@ -1,0 +1,14 @@
+#!/bin/sh
+# wayland stuff
+export QT_QPA_PLATFORM=wayland
+export ELM_DISPLAY=wl
+export SDL_VIDEODRIVER=wayland,x11
+export WLR_NO_HARDWARE_CURSORS=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# dwl
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=wlroots
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+exec dbus-run-session dwl -s somebar

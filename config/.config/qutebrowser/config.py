@@ -109,6 +109,7 @@ config.bind("<Shift-Left>", "back")
 config.bind("<Shift-Right>", "forward")
 config.bind("<Shift-Down>", "tab-prev")
 config.bind("<Shift-Up>", "tab-next")
+config.bind('<Ctrl+/>', 'hint links spawn --detach mpv {hint-url}')
 ############################################################
 #                                                          #
 #                   Style and Colors                       #

@@ -1,17 +1,6 @@
-# wayland stuff
-# this ensure qutebrowser is working
-export QT_QPA_PLATFORM=xcb
-export QT_STYLE_OVERRIDE=kvantum
-export SDL_VIDEODRIVER=wayland
-export ELM_DISPLAY=wl
-export _JAVA_AWT_WM_NONREPARENTING=1
-# in void have to run on firefox xwayland instead
-export MOZ_ENABLE_WAYLAND=0
-
-# tell sway to use intel graphic card
+#nvidia
 export GBM_BACKEND=nvidia-drm
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
-
 
 # User Directories
 export XDG_CONFIG_HOME="$HOME/.config"
