@@ -10,7 +10,7 @@ c = c
 config.load_autoconfig(True)
 
 c.tabs.title.format = "{audio}{current_title}"
-c.fonts.default_size = "13px"
+c.fonts.default_size = "14px"
 c.fonts.default_family = "JetBrainsMono Nerd Font"
 
 c.fonts.web.size.default = 18

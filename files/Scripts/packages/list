@@ -1,0 +1,216 @@
+########################################
+## System
+########################################
+# !!Core!! 
+sudo
+base
+base-devel
+linux
+linux-firmware
+linux-headers
+intel-ucode
+sof-firmware
+
+# Network
+inetutils
+networkmanager
+nm-connection-editor
+ufw
+
+# Intel
+intel-gpu-tools
+intel-media-driver
+libva-intel-driver
+lib32-vulkan-intel
+vulkan-intel
+vulkan-tools
+mesa-utils
+libva-utils
+xf86-video-intel
+
+# Nvidia
+nvidia-open
+nvidia-utils
+nvidia-prime
+lib32-nvidia-utils
+
+# Power management
+power-profiles-daemon
+powertop
+upower
+
+# Sounds
+pipewire
+pipewire-pulse
+wireplumber
+wiremix
+
+# Bluetooth
+bluez
+bluez-utils
+bluetui
+
+# Utilities
+yay
+man-db
+brightnessctl
+curl
+wget
+ncdu
+
+# System monitor
+btop
+
+# File system
+timeshift
+efibootmgr
+
+########################################
+## Desktop & Theme
+########################################
+# Sway wm
+sway
+swaybg
+swaync
+i3status
+autotiling
+swayidle
+swaylock
+
+
+# wayland
+wl-clipboard
+wev
+xorg-xwayland
+xdg-desktop-portal-wlr
+xdg-desktop-portal
+wl-mirror
+xfce-polkit
+wlroots0.19
+wlr-randr
+wdisplays
+xdg-user-dirs
+
+greetd
+greetd-tuigreet
+
+# System utils
+gammastep
+unzip
+calc
+grim
+slurp
+7zip
+imv
+zathura
+zathura-pdf-mupdf
+
+#rofi
+lazygit
+rofi
+rofi-calc
+rofi-power-menu
+sway-rofi-screenshot-git
+qalculate-gtk
+
+# Theme
+nwg-look
+orchis-theme
+papirus-icon-theme
+kvantum
+kvantum-theme-orchis-git
+
+# Font
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-liberation
+ttf-jetbrains-mono-nerd
+ttf-ms-fonts
+
+########################################
+## Personal
+########################################
+# Terminal
+foot
+fastfetch
+foot-terminfo
+tmux
+tree
+starship
+stow
+zsh
+fzf
+bat
+dust
+eza
+fd
+tldr
+zoxide
+nano
+
+# Internet
+firefox
+
+# Personal
+proton-pass
+thunderbird
+
+# Neovim
+neovim
+tree-sitter-cli
+tinyxxd
+npm
+luarocks
+
+# Yazi and dependency
+yazi
+jq
+imagemagick
+resvg
+ripgrep
+
+# Entertainment
+discord
+mpv
+ncspot
+steam
+protonup-qt
+
+# Dev
+git
+lazygit
+git-lfs
+gcc
+gdb
+python-pipx
+
+# Tools
+android-tools
+libreoffice-fresh-th
+aria2
+
+# Voyager
+webkit2gtk-4.1
+qmk
+dos2unix
+
+# archive : old package that i might use
+
+#vivado
+lib32-gcc-libs
+lib32-libpng12
+ncurses5-compat-libs
+
+#virtualbox
+virtualbox
+virtualbox-guest-iso
+virtualbox-host-modules-arch
+#efitools
+#exfatprogs
+
+# Dwl
+#mako
+#tllist
+#wayland-protocols
+#wbg

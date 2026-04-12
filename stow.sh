@@ -9,7 +9,7 @@ mkdir -p "$HOME/.local/share/rofi"
 mkdir -p "$HOME/.local/share/themes"
 
 # stowing config and asset dir
-stow assets
+stow files
 stow config
 stow wmenu-scripts --target="$HOME/.local/bin" 
 ln -sf $HOME/dotfiles/build/dwl-config/config.h $HOME/dotfiles/build/dwl

@@ -9,6 +9,5 @@ xkb_symbols "hjkl" {
     key <AC09> { [i,I,l,L ] };
     key <AC09> { [i,I,l,L ] };
     key <AC10> { [o, O, semicolon, colon]};
-    include "level3(lalt_switch)"
-    include "level3(ralt_alt)"
+    include "level3(caps_switch)"
 };

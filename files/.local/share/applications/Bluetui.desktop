@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Bluetui
+Comment=TUI for controlling bluetooth
+Exec=bluetui
+Terminal=true
+Type=Application
+Categories=System

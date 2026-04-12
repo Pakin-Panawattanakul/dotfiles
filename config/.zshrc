@@ -30,6 +30,14 @@ eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd t
 #}
 #alias cd=cd_ls
 
+# yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 # ------------ History ------------
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE
@@ -45,6 +53,7 @@ setopt hist_find_no_dups
 # ------------ Starship ------------
 eval "$(starship init zsh)"
 
+# --- bat ---
 alias cat='bat --style=plain'
 # use bat for help
 alias -g -- -h='-h 2>&1 | bat --language=help'
@@ -53,13 +62,20 @@ alias -g -- --help='--help 2>&1 | bat --language=help'
 man() {
   command man "$@" | col -bx | bat -plman --paging=always
 }
+# coloriziing stuff
+alias psc='ps aux | cat -l conf'
+alias lsblk='lsblk | cat -l conf'
 
-alias rm=trash
+
 # ------------ Custom alias ------------
 alias grep='grep --color'
 alias f=fastfetch
 alias ll='ls -al'
 alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
-alias psc='ps aux | cat -l conf'
 alias ref='cd $HOME/kyber-ref/kyber768'
+
+# void linux
+alias xi='sudo xbps-install'
+alias xq='xbps-query'
+alias xr='sudo xbps-remove'

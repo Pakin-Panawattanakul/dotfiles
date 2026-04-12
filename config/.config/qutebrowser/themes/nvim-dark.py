@@ -61,14 +61,19 @@ c.colors.statusbar.normal.fg = light2
 c.colors.statusbar.normal.bg = dark2
 c.colors.statusbar.insert.fg = green
 c.colors.statusbar.insert.bg = dark2
-c.colors.statusbar.passthrough.bg = cyan
-c.colors.statusbar.passthrough.fg = dark2
+c.colors.statusbar.passthrough.bg = dark2
+c.colors.statusbar.passthrough.fg = green
 
 c.colors.statusbar.url.fg = light2
 c.colors.statusbar.url.error.fg = red
 c.colors.statusbar.url.success.http.fg = cyan
 c.colors.statusbar.url.success.https.fg = green
 c.colors.statusbar.url.warn.fg = magenta
+
+c.colors.statusbar.caret.bg = dark2
+c.colors.statusbar.caret.fg = green
+c.colors.statusbar.caret.selection.bg = dark2
+c.colors.statusbar.caret.selection.fg = green
 
 c.colors.tabs.bar.bg = dark2
 c.colors.tabs.indicator.start = blue

@@ -1,3 +1,12 @@
+/*  My patches
+ *  swapandfocusdir
+ *  warpcursor
+ *  attatchbottom
+ *  autostart
+ *  custom float
+ *  gaps
+ *  perinputconfig
+ */
 /* Taken from https://github.com/djpohly/dwl/issues/466 */
 #define COLOR(hex)    { ((hex >> 24) & 0xFF) / 255.0f, \
                         ((hex >> 16) & 0xFF) / 255.0f, \
@@ -8,9 +17,9 @@ static const int sloppyfocus               = 1;  /* focus follows mouse */
 static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
 static const int smartgaps                 = 0;  /* 1 means no outer gap when there is only one window */
 static int gaps                            = 1;  /* 1 means gaps between windows are added */
-static const unsigned int gappx            = 4; /* gap pixel between windows */
+static const unsigned int gappx            = 6; /* gap pixel between windows */
 static const unsigned int borderpx         = 1;  /* border pixel of windows */
-static const float rootcolor[]             = COLOR(0x14161bff);
+static const float rootcolor[]             = COLOR(0x8cf8f7ff);
 static const float bordercolor[]           = COLOR(0x14161bff);
 static const float focuscolor[]            = COLOR(0x8cf8f7ff);
 static const float urgentcolor[]           = COLOR(0xffc0b9ff);
@@ -27,18 +36,25 @@ static int log_level = WLR_ERROR;
 /* Autostart */
 static const char *const autostart[] = {
         "pipewire", NULL,
-        "mpd", NULL,
+        "sh", "-c", "pkill mpd; sleep 1; mpd", NULL,
         "someblocks", NULL,
-        "wbg", "/home/pakin/Pictures/wallpapers/void/052.png", NULL,
+        "wbg", "/home/pakin/Pictures/wallpapers/void/019.png", NULL,
         "dbus-update-activation-environment", "DISPLAY", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP=wlroots", NULL,
         NULL /* terminate */
 };
 
+/* Window rules */
 static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   monitor   x   y   width   height */
 	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1,       -1, -1, 1000,   0.75 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-  { "mpv",              NULL,       0,            1,           -1,       -1, -1, 0.9,   0.9 },
+	{ "rmpc",             NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
+	{ "Thunderbird",      NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+  { "mpv",              NULL,       0,            1,           -1,       -1, -1, -1,     -1 },
+  { "me.proton.Pass",   NULL,       0,            1,           -1,       -1, -1, 0.5,   0.5 },
+  { "org.pwmt.zathura", NULL,       0,            1,           -1,       -1, -1, -1,     -1 },
+  
     /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
 };
 
@@ -69,7 +85,8 @@ static const KeyboardRule kbrules[] = {
 	/* example:
 	{ "keyboard", NULL, NULL, "us,de", NULL,   "ctrl:nocaps" },
 	*/
-  { "ROYUAN Gaming keyboard", NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle"},
+  { "ROYUAN Gaming keyboard", NULL,NULL, "us,th,us", "colemak_dh,," , "grp:win_space_toggle,custom:hjkl"},
+  { "Compx Air84@Lofree", NULL,NULL, "us,th,us", "colemak_dh,," , "grp:win_space_toggle,custom:hjkl"},
 	{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
 
@@ -121,7 +138,7 @@ LIBINPUT_CONFIG_TAP_MAP_LMR -- 1/2/3 finger tap maps to left/middle/right
 static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TAP_MAP_LRM;
 
 /* If you want to use the windows key for MODKEY, use WLR_MODIFIER_LOGO */
-#define MODKEY WLR_MODIFIER_LOGO
+#define MODKEY WLR_MODIFIER_ALT
 
 #define TAGKEYS(KEY,SKEY,TAG) \
 	{ MODKEY,                    KEY,            view,            {.ui = 1 << TAG} }, \
@@ -135,6 +152,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 /* commands */
 static const char *termcmd[] = { "foot", NULL };
 static const char *web_browser[] = { "qutebrowser" , NULL};
+static const char *librewolf[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL};
 static const char *menucmd[] = { "wmenu-drun", "-i", "-p", "drun",
   "-f", "JetBrainsMono Nerd Font 10",
   "-n", "e0e2ea", "-N", "14161b",
@@ -153,19 +171,29 @@ static const char *screenshot[] = { "wmenu-screenshot", "-i", "-p", "screenshot"
 static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%",   NULL };
 static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%",   NULL };
 static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+static const char *rmpc[] = { "foot", "--app-id", "rmpc", "-T", "rmpc", "rmpc", NULL};
+static const char *bluetui[] = { "foot", "--app-id", "bluetui", "-T", "bluetui","bluetui", NULL};
+static const char *wiremix[] = { "foot", "--app-id", "wiremix", "-T", "wiremix", "wiremix", NULL};
+static const char *filemanager[] = { "foot", "--app-id", "yazi", "--title", "yazi", "yazi", NULL};
 
+#define MEHKEY WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: 2 -> at, etc. */
 	/* modifier                  key                  function          argument */
-	{ MODKEY,                    XKB_KEY_r,           spawn,            {.v = menucmd} },
+	{ MODKEY,                    XKB_KEY_d,           spawn,            {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_t,           spawn,            {.v = termcmd} },
-	{ MODKEY,                    XKB_KEY_b,           spawn,            {.v = web_browser} },
+  { MODKEY,                    XKB_KEY_f,           spawn,            {.v = filemanager} },
+	{ MODKEY,                    XKB_KEY_w,           spawn,            {.v = web_browser} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_w,           spawn,            {.v = librewolf} },
 	{ 0,                         XKB_KEY_Print,       spawn,            {.v = screenshot} },
+  { MEHKEY,                    XKB_KEY_m,           spawn,            {.v = rmpc} },
+  { MEHKEY,                    XKB_KEY_s,           spawn,            {.v = wiremix} },
+  { MEHKEY,                    XKB_KEY_b,           spawn,            {.v = bluetui} },
   { 0, XKB_KEY_XF86AudioRaiseVolume, spawn, {.v = up_vol } },
   { 0, XKB_KEY_XF86AudioLowerVolume, spawn, {.v = down_vol } },
   { 0, XKB_KEY_XF86AudioMute, spawn, {.v = mute_vol } },
-	{ MODKEY,                    XKB_KEY_j,           focusstack,       {.i = +1} },
-	{ MODKEY,                    XKB_KEY_k,           focusstack,       {.i = -1} },
+	//{ MODKEY,                    XKB_KEY_j,           focusstack,       {.i = +1} },
+	//{ MODKEY,                    XKB_KEY_k,           focusstack,       {.i = -1} },
 	{ MODKEY,                    XKB_KEY_Left,        focusdir,         {.ui = 0} },
 	{ MODKEY,                    XKB_KEY_m,           focusdir,         {.ui = 0} },
 	{ MODKEY,                    XKB_KEY_Right,       focusdir,         {.ui = 1} },
@@ -179,8 +207,8 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Right,       swapdir,          {.ui = 1} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_i,           swapdir,          {.ui = 1} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Up,          swapdir,          {.ui = 2} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_e,           swapdir,          {.ui = 2} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Down,           swapdir,          {.ui = 3} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_k,           swapdir,          {.ui = 2} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Down,        swapdir,          {.ui = 3} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_n,           swapdir,          {.ui = 3} },
 	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_e,           incnmaster,       {.i = +1} },
 	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_n,           incnmaster,       {.i = -1} },
@@ -189,12 +217,12 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,      zoom,             {0} },
 	{ MODKEY,                    XKB_KEY_Tab,         view,             {0} },
 	{ MODKEY,                    XKB_KEY_q,           killclient,       {0} },
-	{ MODKEY,                    XKB_KEY_w,           setlayout,        {.v = &layouts[0]} },
-	{ MODKEY,                    XKB_KEY_f,           setlayout,        {.v = &layouts[1]} },
-	{ MODKEY,                    XKB_KEY_p,           setlayout,        {.v = &layouts[2]} },
+	//{ MODKEY,                    XKB_KEY_u,           setlayout,        {.v = &layouts[0]} },
+	//{ MODKEY,                    XKB_KEY_i,           setlayout,        {.v = &layouts[1]} },
+//{ MODKEY,                    XKB_KEY_o,           setlayout,        {.v = &layouts[2]} },
 	{ MODKEY,                    XKB_KEY_space,       setlayout,        {0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,       togglefloating,   {0} },
-	{ 0,                         XKB_KEY_F11,           togglefullscreen, {0} },
+	{ MODKEY,                    XKB_KEY_g,           togglefloating,   {0} },
+	{ 0,                         XKB_KEY_F11,         togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_0,           view,             {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright,  tag,              {.ui = ~0} },
 	{ MODKEY,                    XKB_KEY_comma,       focusmon,         {.i = WLR_DIRECTION_LEFT} },
