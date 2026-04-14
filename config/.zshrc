@@ -30,14 +30,6 @@ eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd t
 #}
 #alias cd=cd_ls
 
-# yazi
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
 # ------------ History ------------
 HISTSIZE=3000
 SAVEHIST=$HISTSIZE

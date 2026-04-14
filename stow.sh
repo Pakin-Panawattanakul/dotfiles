@@ -12,8 +12,7 @@ mkdir -p "$HOME/.themes"
 stow files
 stow config
 stow wmenu-scripts --target="$HOME/.local/bin" 
-ln -sf $HOME/dotfiles/build/dwl-config/config.h $HOME/dotfiles/build/dwl
-ln -sf "$HOME/dotfiles/build/dwl-config/startw" "$HOME/.local/bin"
+ln -sf "$HOME/dotfiles/build/dwl/startw" "$HOME/.local/bin"
 
 # mpd
 mkdir -p "$HOME/.local/state/mpd"

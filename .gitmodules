@@ -10,3 +10,9 @@
 [submodule "wmenu-scripts"]
 	path = wmenu-scripts
 	url = https://github.com/Pakin-Panawattanakul/wmenu-scripts
+[submodule "build/someblocks"]
+	path = build/someblocks
+	url = https://github.com/Pakin-Panawattanakul/someblocks
+[submodule "build/somebar"]
+	path = build/somebar
+	url = https://github.com/Pakin-Panawattanakul/somebar
