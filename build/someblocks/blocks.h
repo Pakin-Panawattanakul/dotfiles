@@ -5,7 +5,7 @@ static const Block blocks[] = {
     //{"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",
     //30,		0},
 
-    {"", "upower -i \"$(upower -e | grep BAT)\" | grep -E 'percentage' | awk '{print 󰁹 $2}'", 30, 0},
+    {"", "upower -i \"$(upower -e | grep BAT)\" | awk '/percentage/ {print \"󰁹 \"$2}'", 30, 0},
     {" ", "wpctl get-volume @DEFAULT_SINK@ | grep 'Volume'  | sed 's/Volume: //'",
      5, 0},
     {" ", "date '+%H:%M'", 5, 0},
@@ -17,5 +17,5 @@ static const Block blocks[] = {
 
 // sets delimeter between status commands. NULL character ('\0') means no
 // delimeter.
-static char delim[] = " | ";
+static char delim[] = "  ";
 static unsigned int delimLen = 5;
