@@ -124,6 +124,7 @@ sudo cp /lib/libncurses.so.6 /lib/libncurses.so.5
 
 # ZSA keymapp dependency & proton pass
 sudo cp "$install_dir/50-zsa.rules" "/etc/udev/rules.d/50-zsa.rules"
+sudo xbps-install -y libwebkit2gtk41
 sudo groupadd plugdev
 sudo usermod -aG plugdev $USER
 
@@ -150,9 +151,6 @@ if [ ! -d "$HOME/.oh-my-zsh"  ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
-
-# set gpu ENV variables on for separate machine on .gpu
-touch "$HOME/.gpu"
 
 sudo xbps-install greetd tuigreet
 sudo ln -s /etc/sv/greetd /var/service

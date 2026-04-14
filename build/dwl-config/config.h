@@ -52,7 +52,7 @@ static const Rule rules[] = {
 	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
 	{ "Thunderbird",      NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
   { "mpv",              NULL,       0,            1,           -1,       -1, -1, -1,     -1 },
-  { "me.proton.Pass",   NULL,       0,            1,           -1,       -1, -1, 0.5,   0.5 },
+  { "me.proton.Pass",   NULL,       0,            1,           -1,       -1, -1, -1,     -1 },
   { "org.pwmt.zathura", NULL,       0,            1,           -1,       -1, -1, -1,     -1 },
   
     /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
