@@ -18,3 +18,4 @@ ln -sf "$HOME/dotfiles/build/dwl-config/startw" "$HOME/.local/bin"
 # mpd
 mkdir -p "$HOME/.local/state/mpd"
 touch "$HOME/.local/state/mpd/state"
+touch "$HOME/.config/mpd/database"
