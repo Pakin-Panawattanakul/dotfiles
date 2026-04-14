@@ -19,7 +19,7 @@ static const int smartgaps                 = 0;  /* 1 means no outer gap when th
 static int gaps                            = 1;  /* 1 means gaps between windows are added */
 static const unsigned int gappx            = 6; /* gap pixel between windows */
 static const unsigned int borderpx         = 1;  /* border pixel of windows */
-static const float rootcolor[]             = COLOR(0x8cf8f7ff);
+static const float rootcolor[]             = COLOR(0x14161bff);
 static const float bordercolor[]           = COLOR(0x14161bff);
 static const float focuscolor[]            = COLOR(0x8cf8f7ff);
 static const float urgentcolor[]           = COLOR(0xffc0b9ff);
@@ -85,8 +85,8 @@ static const KeyboardRule kbrules[] = {
 	/* example:
 	{ "keyboard", NULL, NULL, "us,de", NULL,   "ctrl:nocaps" },
 	*/
-  { "ROYUAN Gaming keyboard", NULL,NULL, "us,th,us", "colemak_dh,," , "grp:win_space_toggle,custom:hjkl"},
-  { "Compx Air84@Lofree", NULL,NULL, "us,th,us", "colemak_dh,," , "grp:win_space_toggle,custom:hjkl"},
+  { "ROYUAN Gaming keyboard", NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
+  { "Compx Air84@Lofree", NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
 	{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
 
@@ -151,8 +151,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "foot", NULL };
-static const char *web_browser[] = { "qutebrowser" , NULL};
-static const char *librewolf[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL};
+static const char *web_browser[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL};
 static const char *menucmd[] = { "wmenu-drun", "-i", "-p", "drun",
   "-f", "JetBrainsMono Nerd Font 10",
   "-n", "e0e2ea", "-N", "14161b",
@@ -174,7 +173,8 @@ static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", 
 static const char *rmpc[] = { "foot", "--app-id", "rmpc", "-T", "rmpc", "rmpc", NULL};
 static const char *bluetui[] = { "foot", "--app-id", "bluetui", "-T", "bluetui","bluetui", NULL};
 static const char *wiremix[] = { "foot", "--app-id", "wiremix", "-T", "wiremix", "wiremix", NULL};
-static const char *filemanager[] = { "foot", "--app-id", "yazi", "--title", "yazi", "yazi", NULL};
+//static const char *filemanager[] = { "foot", "--app-id", "yazi", "--title", "yazi", "yazi", NULL};
+static const char *filemanager[] = { "thunar", NULL};
 
 #define MEHKEY WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT
 static const Key keys[] = {
@@ -184,7 +184,6 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_t,           spawn,            {.v = termcmd} },
   { MODKEY,                    XKB_KEY_f,           spawn,            {.v = filemanager} },
 	{ MODKEY,                    XKB_KEY_w,           spawn,            {.v = web_browser} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_w,           spawn,            {.v = librewolf} },
 	{ 0,                         XKB_KEY_Print,       spawn,            {.v = screenshot} },
   { MEHKEY,                    XKB_KEY_m,           spawn,            {.v = rmpc} },
   { MEHKEY,                    XKB_KEY_s,           spawn,            {.v = wiremix} },

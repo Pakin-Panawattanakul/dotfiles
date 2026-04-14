@@ -82,9 +82,6 @@ sudo xbps-install -y papirus-icon-theme noto-fonts-ttf nerd-fonts-ttf nwg-look q
 sudo xbps-install -y foot foot-terminfo bat zsh eza zoxide starship \
   fzf fd ncdu ripgrep tree fastfetch
 
-# yazi 
-sudo xbps-install -y yazi poppler resvg ImageMagick ffmpeg
-
 # dev 
 sudo xbps-install -y rust cargo python3-pip gdb git git-lfs lazygit
 
