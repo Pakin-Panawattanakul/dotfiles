@@ -36,7 +36,7 @@ static int log_level = WLR_ERROR;
 /* Autostart */
 static const char *const autostart[] = {
         "pipewire", NULL,
-        "sh", "-c", "pkill mpd; sleep 1; mpd", NULL,
+        "sh", "-c", "pkill mpd;  mpd", NULL,
         "someblocks", NULL,
         "wbg", "/home/pakin/Pictures/wallpapers/void/019.png", NULL,
         "dbus-update-activation-environment", "DISPLAY", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP=wlroots", NULL,
@@ -87,6 +87,7 @@ static const KeyboardRule kbrules[] = {
 	*/
   { "ROYUAN Gaming keyboard", NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
   { "Compx Air84@Lofree", NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
+  { "AT Translated Set 2 keyboard", NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
 	{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
 

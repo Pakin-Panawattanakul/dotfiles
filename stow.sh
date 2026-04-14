@@ -1,5 +1,5 @@
 #!/bin/sh
-
+mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share/applications"
 mkdir -p "$HOME/.local/share/icons"

@@ -1,6 +1,5 @@
 #!/bin/sh
 # void linux install scripts with dwl
-set -e
 install_dir="$(pwd)"
 
 # Git config
@@ -136,9 +135,18 @@ install_nvidia(){
   sudo xbps-install mesa-dri nvidia  nvidia-libs-32bit
   sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 nvidia_drm.modeset=1 nvidia_drm.fbdev=1"' /etc/default/grub
 }
-if [ $choice = 'y' ]; do
+if [ $choice = 'y' ]; then
   install_nvidia
-done
+fi
+
+# Install oh-my-zsh 
+if [ ! -d "$HOME/.oh-my-zsh"  ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  check_exit "Installing oh-my-zsh"
+  # Clone zsh plugins
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
 
 sudo xbps-install greetd tuigreet
 sudo ln -s /etc/sv/greetd /var/service
