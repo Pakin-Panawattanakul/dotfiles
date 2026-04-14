@@ -97,6 +97,9 @@ sudo xbps-install -y qutebrowser mpd mpc rmpc cava mpv yt-dlp
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install --user --assumeyes dev.vencord.Vesktop  me.proton.Pass  com.spotify.Client io.gitlab.librewolf-community  net.davidotek.pupgui2
+flatpak override --user --filesystem="$HOME/.themes"
+flatpak override --user --env=GTK_THEME=Orchis-Dark
+
 # balatro mod mamager
 curl -sL https://raw.githubusercontent.com/skyline69/balatro-mod-manager/main/scripts/linux-install.sh | bash -s -- --clone
 
@@ -147,6 +150,9 @@ if [ ! -d "$HOME/.oh-my-zsh"  ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
+
+# set gpu ENV variables on for separate machine on .gpu
+touch "$HOME/.gpu"
 
 sudo xbps-install greetd tuigreet
 sudo ln -s /etc/sv/greetd /var/service
