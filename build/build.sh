@@ -9,4 +9,4 @@ meson setup build
 sudo ninja -C build install
 
 cd "$current_dir/someblocks"
-sudo make install
+sudo make clean install

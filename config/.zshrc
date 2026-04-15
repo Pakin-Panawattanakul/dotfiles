@@ -56,7 +56,6 @@ man() {
 }
 # coloriziing stuff
 alias psc='ps aux | cat -l conf'
-alias lsblk='lsblk | cat -l conf'
 
 
 # ------------ Custom alias ------------
