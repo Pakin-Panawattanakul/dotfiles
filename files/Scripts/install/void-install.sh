@@ -28,7 +28,7 @@ sudo ln -s /etc/sv/dbus  /etc/sv/polkitd /var/service
 sudo xbps-install -y socklog-void
 sudo ln -s /etc/sv/socklog-unix /etc/sv/nanoklogd /var/service
 
-sudo xbps-install -y xdg-user-dirs
+sudo xbps-install -y xdg-user-dirs xdg-utils
 xdg-user-dirs-update
 
 # network
@@ -60,7 +60,7 @@ sudo xbps-install -y tlp upower brightnessctl
 sudo tlp start
 sudo ln -s /etc/sv/tlp /var/service
 
-# dwl dependecies
+# dwl dependecie
 sudo xbps-install -y libinput libinput-devel wayland wayland-devel wlroots0.19 wlroots0.19-devel libxkbcommon libxkbcommon-devel wayland-protocols pkg-config xorg-server-xwayland
 # someblock
 sudo xbps-install -y cairo-devel  pango-devel meson ninja
@@ -96,7 +96,7 @@ sudo xbps-install -y qutebrowser mpd mpc rmpc cava mpv yt-dlp
 # flatpak
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install --user --assumeyes dev.vencord.Vesktop  me.proton.Pass  com.spotify.Client io.gitlab.librewolf-community  net.davidotek.pupgui2
+flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client io.gitlab.librewolf-community net.davidotek.pupgui2
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
@@ -116,7 +116,7 @@ sudo xbps-install -y ncurses-libtinfo-libs \
    ncurses-libs-32bit ncurses-libtinfo-libs-32bit ncurses-term
 sudo xbps-install -y xorg-server-xvfb xvfb-run # xvfb
 sudo xbps-install -y nss libnss-cache # libnss3
-sudo xbps-install -y  alsa-lib-32bit # asound2 # alsa-lib : should be already installed 
+sudo xbps-install -y alsa-lib-32bit # asound2 # alsa-lib : should be already installed 
 sudo xbps-install -y libXScrnSaver libXScrnSaver-32bit # libxss
 sudo xbps-install -y gtk+3 gtk+3-32bit # gtk3
 sudo cp /lib/libtinfo.so.6 /lib/libtinfo.so.5
@@ -137,7 +137,7 @@ done
 
 install_nvidia(){
   sudo xbps-install mesa-dri nvidia  nvidia-libs-32bit
-  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="loglevel=4 nvidia_drm.modeset=1 nvidia_drm.fbdev=1"' /etc/default/grub
+  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet nvidia_drm.modeset=1 nvidia_drm.fbdev=1"' /etc/default/grub
 }
 if [ $choice = 'y' ]; then
   install_nvidia

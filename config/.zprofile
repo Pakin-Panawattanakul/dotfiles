@@ -15,3 +15,6 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 
 export SWAY_ROFI_SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots"
 export PATH="$HOME/.local/bin:$PATH:$HOME/.cargo/bin"
+
+# qt theme
+QT_QPA_PLATFORMTHEME=qt6ct

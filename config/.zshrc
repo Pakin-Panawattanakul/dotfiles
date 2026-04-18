@@ -69,4 +69,5 @@ alias ref='cd $HOME/kyber-ref/kyber768'
 # void linux
 alias xi='sudo xbps-install'
 alias xq='xbps-query'
+alias xqr='xbps-query -Rs'
 alias xr='sudo xbps-remove'
