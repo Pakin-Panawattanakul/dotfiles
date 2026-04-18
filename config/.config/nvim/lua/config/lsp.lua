@@ -9,7 +9,7 @@ vim.lsp.config("slang-server", {
 	},
 })
 vim.lsp.enable("slang-server")
-
+vim.cmd('cnoreabbrev LspInfo checkhealth vim.lsp')
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 vim.lsp.config("*", {
 	capabilities = capabilities,
