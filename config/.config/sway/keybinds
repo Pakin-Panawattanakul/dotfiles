@@ -3,7 +3,6 @@
 ########################################
 # Modifiers
 set $mod Mod1
-set $alt Mod1
 set $meh Mod1+Control+Shift
 # Vim-like motions
 set $left m
@@ -23,7 +22,7 @@ bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "d
 bindsym $mod+d exec rofi -show-icons -show drun
 bindsym $mod+Shift+q exec rofi -show power-menu -modi power-menu:rofi-power-menu
 bindsym Print exec /home/pakin/.local/bin/sway-rofi-screenshot
-bindsym $alt+tab exec rofi -show-icons -show window 
+bindsym $mod+tab exec rofi -show-icons -show window 
 
 bindsym $mod+t exec $term
 bindsym $mod+f exec $filemanager
@@ -135,8 +134,6 @@ bindsym $mod+Shift+KP_0 move container to workspace number 10; workspace number 
 #bindsym $mod+Shift+KP_0 move container to workspace back_and_forth; workspace back_and_forth
 
 # To workspace
-#bindsym $mod+$alt+Shift+$left move container to output right
-#bindsym $mod+$alt+Shift+$right move container to output left
 bindsym $mod+Shift+period move container to output right
 bindsym $mod+Shift+comma move container to output left
 

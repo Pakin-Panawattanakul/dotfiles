@@ -70,7 +70,7 @@ sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock autoti
 sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
 
 # desktop utils
-sudo xbps-install -y wmenu libnotify imv zathura zathura-pdf-mupdf aria2
+sudo xbps-install -y libnotify imv zathura zathura-pdf-mupdf aria2
 
 # themes and fonts
 sudo xbps-install -y papirus-icon-theme noto-fonts-ttf nerd-fonts-ttf nwg-look qt6-wayland
