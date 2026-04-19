@@ -11,8 +11,8 @@ mkdir -p "$HOME/.themes"
 # stowing config and asset dir
 stow files
 stow config
-stow wmenu-scripts --target="$HOME/.local/bin" 
-ln -sf "$HOME/dotfiles/build/dwl/startw" "$HOME/.local/bin"
+stow rofi-scripts --target="$HOME/.local/bin" 
+ln -sf "$HOME/dotfiles/config/.config/sway/start-sway" "$HOME/.local/bin"
 
 # mpd
 mkdir -p "$HOME/.local/state/mpd"

@@ -1,7 +1,7 @@
 #nvidia
 # this is not require to set by default just for forcing
-#export GBM_BACKEND=nvidia-drm
-#export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 # User Directories
 export XDG_CONFIG_HOME="$HOME/.config"

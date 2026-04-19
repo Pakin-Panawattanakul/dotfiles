@@ -1,5 +1,5 @@
 #!/bin/sh
-# void linux install scripts with dwl
+# void linux install scripts with sway
 install_dir="$(pwd)"
 
 # Git config
@@ -60,19 +60,17 @@ sudo xbps-install -y tlp upower brightnessctl
 sudo tlp start
 sudo ln -s /etc/sv/tlp /var/service
 
-# dwl dependecie
-sudo xbps-install -y libinput libinput-devel wayland wayland-devel wlroots0.19 wlroots0.19-devel libxkbcommon libxkbcommon-devel wayland-protocols pkg-config xorg-server-xwayland
-# someblock
-sudo xbps-install -y cairo-devel  pango-devel meson ninja
-
 # desktop portal
 sudo xbps-install -y xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
+# sway
+sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock autotiling xorg-server-xwayland
+
 # wayland stuff 
-sudo xbps-install -y wl-clipboard grim slurp wbg waylock wlr-randr wdisplays wl-mirror wev 
+sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
 
 # desktop utils
-sudo xbps-install -y wmenu libnotify mako imv zathura zathura-pdf-mupdf aria2
+sudo xbps-install -y wmenu libnotify imv zathura zathura-pdf-mupdf aria2
 
 # themes and fonts
 sudo xbps-install -y papirus-icon-theme noto-fonts-ttf nerd-fonts-ttf nwg-look qt6-wayland
