@@ -1,6 +1,5 @@
 #! /bin/sh
 
-# start mpd if not already start
-if [ ! $(pgrep mpd) ]; then
-  exec mpd
-fi
+pkill --exact mpd
+sleep 1
+exec mpd

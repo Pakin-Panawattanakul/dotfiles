@@ -30,8 +30,7 @@ bindsym $mod+w exec $web-browser
 
 bindsym $meh+n exec foot -a neovim nvim
 bindsym $meh+s exec foot -a wiremix wiremix
-#bindsym $meh+d exec discord
-bindsym $meh+m exec mpd & foot -a rmpc rmpc
+bindsym $meh+m exec foot -a rmpc rmpc
 bindsym $meh+k exec keymapp
 
 ########################################

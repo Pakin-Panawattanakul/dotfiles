@@ -62,8 +62,8 @@ input type:keyboard {
     xkb_layout us,th
     xkb_variant colemak_dh,
     xkb_options "grp:win_space_toggle,caps:escape,custom:hjkl"
-
     repeat_rate 35
+    repeat_delay 200
 }
 
 input 12951:6519:ZSA_Technology_Labs_Voyager {
@@ -80,7 +80,6 @@ tiling_drag enable
 # Bar
 ########################################
 bar {
-    #output eDP-1
     font pango:JetBrainsMono Nerd Font Propo 10
     position top
     mode dock
@@ -104,13 +103,13 @@ bar {
 
 for_window [app_id="org.pwmt.zathura"] fullscreen enable
 for_window [app_id="imv"] floating enable
-for_window [app_id="swayimg"] fullscreen enable
 for_window [app_id="me.proton.Pass"] floating enable
 for_window [app_id="wiremix"] floating enable
-
-for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="steam"] inhibit_idle fullscreen
 
+assign [app_id="Thunderbird"] workspace 7
+assign [app_id="vesktop"] workspace 8
+assign [app_id="rmpc"] workspace 9
 # Dual screen 
  workspace 1 output $firstMonitor 
  workspace 2 output $firstMonitor 
