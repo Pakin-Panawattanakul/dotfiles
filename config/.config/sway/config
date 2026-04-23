@@ -83,7 +83,8 @@ bar {
     font pango:JetBrainsMono Nerd Font Propo 10
     position top
     mode dock
-    status_edge_padding 20
+    status_edge_padding 0
+    tray_padding 2
     status_padding 0
 
     colors {

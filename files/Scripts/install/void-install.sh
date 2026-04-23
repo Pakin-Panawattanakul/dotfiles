@@ -15,12 +15,11 @@ mkdir -p "$HOME/.local/share/fonts"
 mkdir -p "$HOME/.local/share/themes"
 
 # enable void repo
-sudo xbps-install -y void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree
+sudo xbps-install -y void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree xtools
 sudo xbps-install -Syu
 
 # essential
 sudo xbps-install -y intel-ucode base-devel dbus elogind polkit man-db
-sudo rm /var/service/wpa_supplicant
 sudo ln -s /etc/sv/dbus  /etc/sv/polkitd /var/service
 # /etc/sv/elogind not enable this and enable greetd and tuigreet at the end
 
@@ -34,7 +33,11 @@ xdg-user-dirs-update
 # network
 sudo xbps-install -y iwd impala ufw
 sudo ufw enable
+sudo rm /var/service/wpa_supplicant
 sudo ln -s /etc/sv/ufw /var/service
+sudo echo "[General]
+EnableNetworkConfiguration=false
+UseDefaultInterface=true" | sudo tee /etc/iwd/main.conf
 
 # bluetooth
 sudo xbps-install -y bluez bluetui
@@ -70,7 +73,10 @@ sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock autoti
 sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
 
 # desktop utils
-sudo xbps-install -y libnotify imv zathura zathura-pdf-mupdf aria2
+sudo xbps-install -y libnotify imv zathura zathura-pdf-mupdf aria2 qalculate-gtk
+
+# thunar
+sudo xbps-install -y Thunar thunar-archive-plugin thunar-volman tumbler
 
 # themes and fonts
 sudo xbps-install -y papirus-icon-theme noto-fonts-ttf nerd-fonts-ttf nwg-look qt6-wayland
@@ -102,7 +108,7 @@ flatpak override --user --env=GTK_THEME=Orchis-Dark
 curl -sL https://raw.githubusercontent.com/skyline69/balatro-mod-manager/main/scripts/linux-install.sh | bash -s -- --clone
 
 # game 
-sudo xbps-install -y steam libdrm-32bit libgcc-32bit libstdc++-32bit gamemode
+sudo xbps-install -y steam libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit libva-32bit gamemode
 
 #https://bugraeren.com/blog/vivado_on_void_linux/
 # --- vivado ---
@@ -127,18 +133,35 @@ sudo groupadd plugdev
 sudo usermod -aG plugdev $USER
 
 # nvidia
+
+install_nvidia(){
+  sudo xbps-install mesa-dri nvidia  nvidia-libs-32bit
+  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet nvidia_drm.modeset=1 nvidia_drm.fbdev=1"' /etc/default/grub
+}
+
+install_intel(){
+  sudo xbps-install mesa-dri mesa-dri-32bit vulkan-loader mesa-vulkan-loader intel-video-accel
+}
+
 choice=""
 while [ "$choice" != "y" ] && [ "$choice" != "n" ]; do
     printf "Installing nvidia gpu driver?"
     read -r choice
 done
 
-install_nvidia(){
-  sudo xbps-install mesa-dri nvidia  nvidia-libs-32bit
-  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet nvidia_drm.modeset=1 nvidia_drm.fbdev=1"' /etc/default/grub
-}
 if [ $choice = 'y' ]; then
   install_nvidia
+fi
+
+
+choice=""
+while [ "$choice" != "y" ] && [ "$choice" != "n" ]; do
+    printf "Installing intel gpu driver?"
+    read -r choice
+done
+
+if [ $choice = 'y' ]; then
+  install_intel
 fi
 
 # Install oh-my-zsh 
@@ -150,5 +173,7 @@ if [ ! -d "$HOME/.oh-my-zsh"  ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
+# tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo xbps-install greetd tuigreet
 sudo ln -s /etc/sv/greetd /var/service

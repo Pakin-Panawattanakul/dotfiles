@@ -10,6 +10,7 @@ source $ZSH/oh-my-zsh.sh
 
 # ------------ Neovim ------------
 alias vim='nvim'
+alias vi='nvim'
 
 # ------------ Fuzzy finder ------------
 # Set up fzf key bindings and fuzzy completion
