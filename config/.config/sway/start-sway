@@ -12,4 +12,9 @@ export PROTON_ENABLE_WAYLAND=1
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
-exec dbus-run-session sway --unsupported-gpu
+
+if [ $(lsmod | grep -q nvidia) ]; then
+  exec dbus-run-session sway --unsupported-gpu
+else
+  exec dbus-run-session sway
+fi
