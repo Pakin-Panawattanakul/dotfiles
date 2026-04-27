@@ -13,7 +13,7 @@ export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
-if [ $(lsmod | grep -q nvidia) ]; then
+if lsmod | grep -q nvidia; then
   exec dbus-run-session sway --unsupported-gpu
 else
   exec dbus-run-session sway
