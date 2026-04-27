@@ -101,12 +101,13 @@ bar {
     }
    status_command i3status -c ~/.config/sway/i3status-config
 }
+for_window [title="Friends List"] floating enable
+for_window [app_id="steam"] inhibit_idle open
 
 for_window [app_id="org.pwmt.zathura"] fullscreen enable
 for_window [app_id="imv"] floating enable
 for_window [app_id="me.proton.Pass"] floating enable
 for_window [app_id="wiremix"] floating enable
-for_window [class="steam"] inhibit_idle fullscreen
 
 assign [app_id="Thunderbird"] workspace 7
 assign [app_id="vesktop"] workspace 8

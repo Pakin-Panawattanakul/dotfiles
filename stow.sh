@@ -12,7 +12,7 @@ mkdir -p "$HOME/.themes"
 stow files
 stow config
 stow rofi-scripts --target="$HOME/.local/bin" 
-ln -sf "$HOME/dotfiles/config/.config/sway/start-sway" "$HOME/.local/bin"
+cp -f  "$HOME/dotfiles/config/.config/sway/start-sway" "$HOME/.local/bin"
 
 # mpd
 mkdir -p "$HOME/.local/state/mpd"
