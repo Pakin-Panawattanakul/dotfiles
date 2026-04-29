@@ -89,10 +89,11 @@ sudo xbps-install -y foot foot-terminfo bat zsh eza zoxide starship \
 sudo xbps-install -y rust cargo python3-pip gdb git git-lfs lazygit
 
 # neovim
-sudo xbps-install -y neovim tree-sitter tree-sitter-devel nodejs luarocks
+sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
 
 # utils / software
-sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
+sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th \
+  qutebrowser
 
 # Media 
 sudo xbps-install -y qutebrowser mpd mpc rmpc cava mpv yt-dlp

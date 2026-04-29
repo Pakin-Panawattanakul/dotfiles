@@ -2,7 +2,7 @@
 ## Set variable
 ########################################
 # Modifiers
-set $mod Mod1
+set $mod Mod4
 set $meh Mod1+Control+Shift
 # Vim-like motions
 set $left m
