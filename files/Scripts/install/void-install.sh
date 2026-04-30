@@ -79,7 +79,7 @@ sudo xbps-install -y libnotify imv zathura zathura-pdf-mupdf aria2 qalculate-gtk
 sudo xbps-install -y Thunar thunar-archive-plugin thunar-volman tumbler
 
 # themes and fonts
-sudo xbps-install -y papirus-icon-theme noto-fonts-ttf nerd-fonts-ttf nwg-look qt6-wayland
+sudo xbps-install -y papirus-icon-theme noto-fonts-ttf noto-fonts-emoji nerd-fonts-ttf nwg-look qt6-wayland
 
 # terminal
 sudo xbps-install -y foot foot-terminfo bat zsh eza zoxide starship \

@@ -112,6 +112,8 @@ for_window [app_id="wiremix"] floating enable
 assign [app_id="Thunderbird"] workspace 7
 assign [app_id="vesktop"] workspace 8
 assign [app_id="rmpc"] workspace 9
+assign [app_id="spotify"] workspace 9
+
 # Dual screen 
  workspace 1 output $firstMonitor 
  workspace 2 output $firstMonitor 
