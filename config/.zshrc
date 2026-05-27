@@ -63,7 +63,7 @@ alias psc='ps aux | cat -l conf'
 alias grep='grep --color'
 alias f=fastfetch
 alias ll='ls -al'
-alias dot='cd ~/dotfiles && ls -al'
+alias dot='cd ~/.dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias ref='cd $HOME/kyber-ref/kyber768'
 
