@@ -7,7 +7,7 @@ include styles
 ########################################
 xwayland enable
 exec autotiling
-exec gammastep -l 36:138
+#exec gammastep -l 16:101
 exec /home/pakin/Scripts/low_battery.sh
 #exec --no-startup-id /usr/libexec/xfce-polkit
 
@@ -18,10 +18,10 @@ exec ~/Scripts/void/mpd.sh
 
 ### Idle configuration : man swayidle
 set $wallpaper ~/Pictures/wallpapers/void/019.png
-exec swayidle -w \
-         timeout 600 'swaylock -f -i $wallpaper' \
-         timeout 900 'systemctl suspend' \
-         before-sleep 'swaylock -f -i $wallpaper'
+#exec swayidle -w \
+         #timeout 600 'swaylock -f -i $wallpaper' \
+         #timeout 900 'systemctl suspend' \
+         #before-sleep 'swaylock -f -i $wallpaper'
          #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 
 # bindsym $mod+l exec swaylock -f -i $wallpaper
@@ -59,19 +59,20 @@ input type:pointer {
 }
 
 input type:keyboard {
-    xkb_layout us,th
-    xkb_variant colemak_dh,
+    xkb_layout us,th,us
+    #xkb_variant colemak_dh,
+    xkb_variant colemak_dh,,
     xkb_options "grp:win_space_toggle,caps:escape,custom:hjkl"
+    #xkb_options "grp:win_space_toggle"
     repeat_rate 35
-    repeat_delay 200
+    repeat_delay 300
 }
-
 input 12951:6519:ZSA_Technology_Labs_Voyager {
     xkb_layout us
     xkb_variant ""
     xkb_options ""
     repeat_rate 35
-    repeat_delay 200
+    repeat_delay 300
 }
 floating_modifier Mod1 normal
 tiling_drag enable

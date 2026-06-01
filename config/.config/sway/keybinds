@@ -30,8 +30,9 @@ bindsym $mod+f exec $filemanager
 bindsym $mod+w exec $web-browser
 
 bindsym $meh+n exec foot -a neovim nvim
-bindsym $meh+s exec foot -a wiremix wiremix
 bindsym $meh+m exec foot -a rmpc rmpc
+bindsym $meh+w exec foot -a wiremix wiremix
+bindsym $meh+b exec foot -a bluetui bluetui
 bindsym $meh+k exec keymapp
 
 ########################################

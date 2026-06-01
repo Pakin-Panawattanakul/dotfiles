@@ -76,7 +76,7 @@ sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev g
 sudo xbps-install -y libnotify imv zathura zathura-pdf-mupdf aria2 qalculate-gtk
 
 # thunar
-sudo xbps-install -y Thunar thunar-archive-plugin thunar-volman tumbler
+sudo xbps-install -y Thunar thunar-archive-plugin thunar-volman tumbler xarchiver
 
 # themes and fonts
 sudo xbps-install -y papirus-icon-theme noto-fonts-ttf noto-fonts-emoji nerd-fonts-ttf nwg-look qt6-wayland
@@ -174,6 +174,8 @@ if [ ! -d "$HOME/.oh-my-zsh"  ]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
+# fix lofree keyboard
+echo "options hid_apple fnmode=2" | sudo tee /etc/modprobe.d/20_lofree_fn_mode_fix.conf
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo xbps-install greetd tuigreet
