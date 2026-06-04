@@ -73,7 +73,7 @@ sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock autoti
 sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
 
 # desktop utils
-sudo xbps-install -y libnotify imv zathura zathura-pdf-mupdf aria2 qalculate-gtk
+sudo xbps-install -y libnotify imv aria2 qalculate-gtk
 
 # thunar
 sudo xbps-install -y Thunar thunar-archive-plugin thunar-volman tumbler xarchiver
