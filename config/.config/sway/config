@@ -14,10 +14,11 @@ exec /home/pakin/Scripts/low_battery.sh
 # void linux
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec pipewire
+exec waybar
 exec ~/Scripts/void/mpd.sh
 
 ### Idle configuration : man swayidle
-set $wallpaper ~/Pictures/wallpapers/void/019.png
+set $wallpaper ~/Pictures/wallpapers/erawan.jpg
 #exec swayidle -w \
          #timeout 600 'swaylock -f -i $wallpaper' \
          #timeout 900 'systemctl suspend' \
@@ -77,31 +78,6 @@ input 12951:6519:ZSA_Technology_Labs_Voyager {
 floating_modifier Mod1 normal
 tiling_drag enable
 
-########################################
-# Bar
-########################################
-bar {
-    font pango:JetBrainsMono Nerd Font Propo 10
-    position top
-    mode dock
-    status_edge_padding 0
-    tray_padding 2
-    status_padding 0
-
-    colors {
-        background #07080b
-        statusline #e0e2ea
-        separator  #4f5259
-
-        # color format     border    bg        text 
-        focused_workspace  #7edfde #7edfde #07080b
-        active_workspace   #07080b #07080b #e0e2ea
-        inactive_workspace #07080b #07080b #c4c6cd
-        urgent_workspace   #e5adb9 #e5adb9 #07080b
-        binding_mode       #e3ca85 #e3ca85 #07080b
-    }
-   status_command i3status -c ~/.config/sway/i3status-config
-}
 for_window [title="Friends List"] floating enable
 for_window [app_id="steam"] inhibit_idle open
 
@@ -110,10 +86,10 @@ for_window [app_id="imv"] floating enable
 for_window [app_id="me.proton.Pass"] floating enable
 for_window [app_id="wiremix"] floating enable
 
-assign [app_id="Thunderbird"] workspace 7
+assign [app_id="rmpc"] workspace 7
+assign [app_id="spotify"] workspace 7
 assign [app_id="vesktop"] workspace 8
-assign [app_id="rmpc"] workspace 9
-assign [app_id="spotify"] workspace 9
+assign [app_id="Thunderbird"] workspace 9
 
 # Dual screen 
  workspace 1 output $firstMonitor 

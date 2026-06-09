@@ -1,0 +1,71 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 4,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
+
+  "modules-left": ["sway/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery", "tray"],
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{icon}",
+    "format-icons": {
+      "7": "󰝚",
+      "8": "",
+      "9": "󰇮",
+    }
+  },
+
+  "clock": {
+    "format": "  {:%a %d %b    %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "  {usage}%",
+    "max-length": 10,
+    "on-click" : "foot -a btop -t btop btop"
+  },
+
+  "memory": {
+    "interval": 10,
+    "format": "  {}%",
+    "on-click" : "foot -a btop -t btop btop"
+  },
+
+  "network": {
+    "format-wifi": "  {essid} {signalStrength}%",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "  disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "on-click" : "foot -a impala -t impala impala"
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "󰝟  muted",
+    "on-click": "foot -a wiremix -t wiremix wiremix"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-full": "  100%",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}
