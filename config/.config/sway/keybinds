@@ -16,8 +16,8 @@ set $right i
 set $term foot
 set $web-browser flatpak run io.gitlab.librewolf-community 
 set $filemanager thunar
-bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
-bindsym $mod+Shift+b exec sh -c 'pkill -x waybar; waybar'
+#bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
+#bindsym $mod+Shift+b exec sh -c 'pkill -x waybar; waybar'
 
 # rofi
 bindsym $mod+d exec rofi -show-icons -show drun

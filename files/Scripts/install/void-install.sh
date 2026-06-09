@@ -67,7 +67,7 @@ sudo ln -s /etc/sv/tlp /var/service
 sudo xbps-install -y xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
 # sway
-sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock autotiling xorg-server-xwayland
+sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock autotiling xorg-server-xwayland Waybar
 
 # wayland stuff 
 sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
