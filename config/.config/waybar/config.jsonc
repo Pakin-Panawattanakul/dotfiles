@@ -9,7 +9,7 @@
 
   "modules-left": ["sway/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "network", "pulseaudio", "battery", "tray"],
+  "modules-right": ["sway/language", "pulseaudio", "cpu", "memory", "network", "battery", "tray"],
 
   "sway/workspaces": {
     "disable-scroll": true,
@@ -25,6 +25,16 @@
   "clock": {
     "format": "  {:%a %d %b    %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "sway/language": {
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "󰝟  muted",
+    "on-click": "foot -a wiremix -t wiremix wiremix"
   },
 
   "cpu": {
@@ -46,12 +56,6 @@
     "format-disconnected": "  disconnected",
     "tooltip-format": "{ifname} via {gwaddr}",
     "on-click" : "foot -a impala -t impala impala"
-  },
-
-  "pulseaudio": {
-    "format": "  {volume}%",
-    "format-muted": "󰝟  muted",
-    "on-click": "foot -a wiremix -t wiremix wiremix"
   },
 
   "battery": {

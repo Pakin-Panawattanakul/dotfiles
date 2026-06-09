@@ -56,20 +56,21 @@ window#waybar {
 
 /* ── right — shared ── */
 
+#language,
 #cpu,
 #memory,
 #network,
 #pulseaudio,
 #battery,
 #tray {
-  padding: 0 10px;
-  color: #c4c6cd;
+  padding: 0 8px;
 }
 
+#language { color: #fce094; } /* yellow - language */
+#pulseaudio { color: #ffcaff; } /* magenta — audio */
 #cpu { color: #8cf8f7; }      /* cyan — processing */
 #memory { color: #b3f6c0; }   /* green — memory */
 #network { color: #a6dbff; }  /* blue — network */
-#pulseaudio { color: #ffcaff; } /* magenta — audio */
 
 /* battery states */
 #battery { color: #b3f6c0; }
@@ -88,14 +89,15 @@ window#waybar {
 }
 
 #tray {
-  padding: 0 8px;
+  padding: 2px 8px;
 }
 
 /* separator between right modules */
+#language,
 #cpu,
 #memory,
 #network,
 #pulseaudio,
 #battery {
-  border-left: 1px solid #2c2e33;
+  border-left: 1px dashed #2c2e33;
 }

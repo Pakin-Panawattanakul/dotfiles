@@ -60,9 +60,9 @@ input type:pointer {
 }
 
 input type:keyboard {
-    xkb_layout us,th,us
+    xkb_layout us,th
     #xkb_variant colemak_dh,
-    xkb_variant colemak_dh,,
+    xkb_variant colemak_dh,
     xkb_options "grp:win_space_toggle,caps:escape,custom:hjkl"
     #xkb_options "grp:win_space_toggle"
     repeat_rate 35
@@ -85,6 +85,7 @@ for_window [app_id="org.pwmt.zathura"] fullscreen enable
 for_window [app_id="imv"] floating enable
 for_window [app_id="me.proton.Pass"] floating enable
 for_window [app_id="wiremix"] floating enable
+for_window [app_id="btop"] fullscreen enable 
 
 assign [app_id="rmpc"] workspace 7
 assign [app_id="spotify"] workspace 7
