@@ -178,5 +178,8 @@ fi
 echo "options hid_apple fnmode=2" | sudo tee /etc/modprobe.d/20_lofree_fn_mode_fix.conf
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-sudo xbps-install greetd tuigreet
-sudo ln -s /etc/sv/greetd /var/service
+
+# sddm theme 
+#https://github.com/Keyitdev/sddm-astronaut-theme
+sudo xbps-install -y sddm qt6-svg qt6-virtualkeyboard qt6-multimedia
+sudo ln -s /etc/sv/sddm /var/service

@@ -1,5 +1,5 @@
-default_border pixel
-default_floating_border pixel 
+default_border pixel 2
+default_floating_border normal
 hide_edge_borders smart
 # Title bar
 gaps inner 3px
@@ -10,10 +10,11 @@ focus_follows_mouse yes
 focus_wrapping no
 mouse_warping output
 
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #7edfde #07080b #7edfde #95c5e5   #7edfde
 client.focused_inactive #4f5258 #4f5258 #c4c6cd #4f5258   #4f5258
-client.unfocused        #2c2e33 #2c2e33 #4f5258 #2c2e33   #2c2e33
+client.unfocused        #07080b #07080b #4f5258 #2c2e33   #2c2e33
 client.urgent           #e5adb9 #e5adb9 #07080b #ffc0b9   #e5adb9
 client.placeholder      #07080b #07080b #4f5258 #07080b   #07080b
 

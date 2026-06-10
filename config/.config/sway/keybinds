@@ -168,11 +168,7 @@ bindsym $mod+r mode "resize"
 ########################################
 # Layout control
 ########################################
-bindsym $mod+h splith
-bindsym $mod+v splitv
-bindsym $mod+l layout tabbed
-bindsym $mod+u layout toggle split
-bindsym $mod+y layout stacking
+#bindsym $mod+y layout toggle split tabbed 
 
 # toggle tiling / floating
 bindsym $mod+g floating toggle
@@ -182,6 +178,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
 
 ########################################
 ## Scratchpad:
