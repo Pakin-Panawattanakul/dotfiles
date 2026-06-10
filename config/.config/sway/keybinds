@@ -170,9 +170,9 @@ bindsym $mod+r mode "resize"
 ########################################
 bindsym $mod+h splith
 bindsym $mod+v splitv
-#bindsym $mod+l layout tabbed
-#bindsym $mod+u layout toggle split
-#bindsym $mod+y layout stacking
+bindsym $mod+l layout tabbed
+bindsym $mod+u layout toggle split
+bindsym $mod+y layout stacking
 
 # toggle tiling / floating
 bindsym $mod+g floating toggle

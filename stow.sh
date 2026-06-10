@@ -13,6 +13,7 @@ stow files
 stow config
 stow rofi-scripts --target="$HOME/.local/bin" 
 ln -sf "$HOME/.dotfiles/config/.config/sway/start-sway" "$HOME/.local/bin"
+#sudo ln -sf "$HOME/.dotfiles/config/.config/sway/start-sway" "/usr/local/bin"
 
 # mpd
 mkdir -p "$HOME/.local/state/mpd"
