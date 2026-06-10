@@ -168,13 +168,15 @@ bindsym $mod+r mode "resize"
 ########################################
 # Layout control
 ########################################
-#bindsym $mod+y layout toggle split tabbed 
+bindsym $mod+y layout toggle split tabbed 
+bindsym $mod+h splith
+bindsym $mod+v splitv
 
 # toggle tiling / floating
 bindsym $mod+g floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+g focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent

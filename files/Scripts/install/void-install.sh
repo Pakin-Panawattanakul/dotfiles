@@ -67,7 +67,7 @@ sudo ln -s /etc/sv/tlp /var/service
 sudo xbps-install -y xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
 # sway
-sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock autotiling xorg-server-xwayland Waybar
+sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock xorg-server-xwayland Waybar
 
 # wayland stuff 
 sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
@@ -181,5 +181,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # sddm theme 
 #https://github.com/Keyitdev/sddm-astronaut-theme
-sudo xbps-install -y sddm qt6-svg qt6-virtualkeyboard qt6-multimedia
+sudo xbps-install -y sddm qt6-svg qt6-virtualkeyboard qt6-multimedia xorg-minimal
+sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
+sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
+sudo mkdir /etc/sddm.conf.d/
+echo "[Theme]
+Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf.d/sddm.conf
+echo "[General]
+InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf
 sudo ln -s /etc/sv/sddm /var/service

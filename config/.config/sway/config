@@ -6,7 +6,7 @@ include styles
 # Auto Start
 ########################################
 xwayland enable
-exec autotiling
+#exec autotiling 
 #exec gammastep -l 16:101
 exec /home/pakin/Scripts/low_battery.sh
 #exec --no-startup-id /usr/libexec/xfce-polkit
@@ -18,7 +18,7 @@ exec waybar
 exec ~/Scripts/void/mpd.sh
 
 ### Idle configuration : man swayidle
-set $wallpaper ~/Pictures/wallpapers/erawan.jpg
+set $wallpaper ~/Pictures/wallpapers/astronaut.png
 #exec swayidle -w \
          #timeout 600 'swaylock -f -i $wallpaper' \
          #timeout 900 'systemctl suspend' \
