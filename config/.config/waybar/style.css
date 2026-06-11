@@ -101,5 +101,5 @@ window#waybar {
 #network,
 #pulseaudio,
 #battery {
-  border-left: 1px dashed #2c2e33;
+  /*border-left: 1px dashed #2c2e33;*/
 }

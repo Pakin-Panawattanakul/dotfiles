@@ -51,7 +51,7 @@
   },
 
   "network": {
-    "format-wifi": "  {essid} {signalStrength}%",
+    "format-wifi": " {essid} {signalStrength}%",
     "format-ethernet": "󰈀 {ipaddr}",
     "format-disconnected": "  disconnected",
     "tooltip-format": "{ifname} via {gwaddr}",
