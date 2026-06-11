@@ -21,7 +21,6 @@ sudo xbps-install -Syu
 # essential
 sudo xbps-install -y intel-ucode base-devel dbus elogind polkit man-db
 sudo ln -s /etc/sv/dbus  /etc/sv/polkitd /var/service
-# /etc/sv/elogind not enable this and enable greetd and tuigreet at the end
 
 # log
 sudo xbps-install -y socklog-void
@@ -35,7 +34,7 @@ sudo xbps-install -y iwd impala ufw
 sudo ufw enable
 sudo rm /var/service/wpa_supplicant
 sudo ln -s /etc/sv/ufw /var/service
-sudo echo "[General]
+echo "[General]
 EnableNetworkConfiguration=false
 UseDefaultInterface=true" | sudo tee /etc/iwd/main.conf
 
@@ -60,8 +59,8 @@ sudo ln -s /etc/sv/openntpd /var/service
 
 # power
 sudo xbps-install -y tlp upower brightnessctl
-sudo tlp start
 sudo ln -s /etc/sv/tlp /var/service
+sudo tlp start
 
 # desktop portal
 sudo xbps-install -y xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
@@ -92,8 +91,7 @@ sudo xbps-install -y rust cargo python3-pip gdb git git-lfs lazygit
 sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
 
 # utils / software
-sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th \
-  qutebrowser
+sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
 
 # Media 
 sudo xbps-install -y qutebrowser mpd mpc rmpc cava mpv yt-dlp
@@ -101,7 +99,8 @@ sudo xbps-install -y qutebrowser mpd mpc rmpc cava mpv yt-dlp
 # flatpak
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client io.gitlab.librewolf-community net.davidotek.pupgui2
+flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client \
+  io.gitlab.librewolf-community net.davidotek.pupgui2 com.nextcloud.desktopclient.nextcloud
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
@@ -168,7 +167,7 @@ fi
 # Install oh-my-zsh 
 if [ ! -d "$HOME/.oh-my-zsh"  ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  check_exit "Installing oh-my-zsh"
+  echo "Installing oh-my-zsh"
   # Clone zsh plugins
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
