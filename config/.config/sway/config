@@ -15,6 +15,7 @@ exec /home/pakin/Scripts/low_battery.sh
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec pipewire
 exec waybar
+exec udiskie
 exec ~/Scripts/void/mpd.sh
 
 ### Idle configuration : man swayidle

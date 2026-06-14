@@ -178,6 +178,10 @@ echo "options hid_apple fnmode=2" | sudo tee /etc/modprobe.d/20_lofree_fn_mode_f
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# grub theme
+git clone --depth 1 https://github.com/VandalByte/darkmatter-grub2-theme.git && cd darkmatter-grub2-theme
+sudo python3 darkmatter-theme.py --install
+
 # sddm theme 
 #https://github.com/Keyitdev/sddm-astronaut-theme
 sudo xbps-install -y sddm qt6-svg qt6-virtualkeyboard qt6-multimedia xorg-minimal
