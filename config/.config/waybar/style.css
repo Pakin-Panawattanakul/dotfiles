@@ -47,6 +47,22 @@ window#waybar {
   border-bottom: 2px solid #ffc0b9;
 }
 
+#mpd {
+  padding: 0 30px;
+}
+
+#mpd.playing {
+  color: #b3f6c0;
+}
+
+#mpd.paused {
+  color: #fce094;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+  color: #ffc0b9
+}
 /* ── center ── */
 
 #clock {
