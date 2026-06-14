@@ -196,10 +196,11 @@ bindsym $mod+minus scratchpad show
 ## utilities:
 ########################################
 #mpd
-bindsym Shift+XF86AudioRaiseVolume exec mpc volume +5
-bindsym Shift+XF86AudioLowerVolume exec mpc volume -5
+#bindsym Shift+XF86AudioRaiseVolume exec mpc volume +5
+#bindsym Shift+XF86AudioLowerVolume exec mpc volume -5
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && $refresh_i3status
