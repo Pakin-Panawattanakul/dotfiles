@@ -175,6 +175,10 @@ fi
 
 # fix lofree keyboard
 echo "options hid_apple fnmode=2" | sudo tee /etc/modprobe.d/20_lofree_fn_mode_fix.conf
+
+# qmk
+sudo xbps-install -y qmk dos2unix
+
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
