@@ -12,7 +12,7 @@ mouse_warping output
 
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #a6dbff #14161b #e0e2ea #a6dbff   #a6dbff
+client.focused          #4f5258 #14161b #a6dbff #a6dbff   #a6dbff
 client.focused_inactive #4f5258 #14161b #c4c6cd #4f5258   #4f5258
 client.unfocused        #2c2e33 #14161b #4f5258 #2c2e33   #2c2e33
 client.urgent           #ffc0b9 #14161b #e0e2ea #ffc0b9   #ffc0b9

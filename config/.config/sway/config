@@ -2,21 +2,20 @@
 # Include config files
 include keybinds
 include styles
+xwayland enable
 ########################################
 # Auto Start
 ########################################
-xwayland enable
-#exec autotiling 
 #exec gammastep -l 16:101
-exec /home/pakin/Scripts/low_battery.sh
-#exec --no-startup-id /usr/libexec/xfce-polkit
+exec waybar
+exec udiskie
+exec brightnessctl set 50%
 
 # void linux
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec pipewire
-exec waybar
-exec udiskie
 exec ~/Scripts/void/mpd.sh
+exec /home/pakin/Scripts/low_battery.sh
 
 ### Idle configuration : man swayidle
 set $wallpaper ~/Pictures/wallpapers/astronaut.png
@@ -26,7 +25,7 @@ set $wallpaper ~/Pictures/wallpapers/astronaut.png
          #before-sleep 'swaylock -f -i $wallpaper'
          #timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 
-# bindsym $mod+l exec swaylock -f -i $wallpaper
+bindsym $mod+l exec swaylock -f -i $wallpaper
 
 ########################################
 # Outputs
@@ -76,7 +75,7 @@ input 12951:6519:ZSA_Technology_Labs_Voyager {
     repeat_rate 35
     repeat_delay 300
 }
-floating_modifier Mod1 normal
+floating_modifier Mod4 normal
 tiling_drag enable
 
 for_window [title="Friends List"] floating enable
