@@ -63,7 +63,7 @@ input type:keyboard {
     xkb_layout us,th
     #xkb_variant colemak_dh,
     xkb_variant colemak_dh,
-    xkb_options "grp:win_space_toggle,caps:escape,custom:hjkl"
+    xkb_options "grp:win_space_toggle,custom:hjkl"
     #xkb_options "grp:win_space_toggle"
     repeat_rate 35
     repeat_delay 300
