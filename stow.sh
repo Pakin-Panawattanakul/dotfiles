@@ -16,4 +16,6 @@ ln -sf "$HOME/.dotfiles/config/.config/sway/scripts/start-sway" "$HOME/.local/bi
 #sudo ln -sf "$HOME/.dotfiles/config/.config/sway/scripts/start-sway" "/usr/local/bin"
 
 # mpd
+mkdir -p "$HOME/.local/state/mpd"
+touch "$HOME/.local/state/mpd/state"
 touch "$HOME/.config/mpd/database"
