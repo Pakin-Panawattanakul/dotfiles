@@ -61,13 +61,13 @@ config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
 config.set("content.cookies.accept", "no-3rdparty")
 config.set("content.cookies.store", True)
-# config.set("content.javascript.enabled", False) # tsh keybind to toggle
+config.set("content.javascript.enabled", True) # tsh keybind to toggle
 
 config.set("content.javascript.clipboard", "access-paste")
 
 # ads block
 c.content.blocking.enabled = True
-#c.content.blocking.method = "adblock"  # uncomment this if you install python-adblock
+c.content.blocking.method = "adblock"  # uncomment this if you install python-adblock
 c.content.blocking.adblock.lists = [
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-cookies.txt",
     "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances-others.txt",
@@ -105,11 +105,21 @@ config.bind("<space>p", "tab-prev")
 config.bind("cm", "clear-messages")
 
 # since i don't use qwerty
+config.bind("<Alt-Left>", "back")
+config.bind("<Alt-Right>", "forward")
+
 config.bind("<Shift-Left>", "back")
 config.bind("<Shift-Right>", "forward")
-config.bind("<Shift-Down>", "tab-prev")
-config.bind("<Shift-Up>", "tab-next")
+config.bind("<Shift-Down>", "tab-nex")
+config.bind("<Shift-Up>", "tab-prev")
+
+config.bind("<Alt-m>", "back")
+config.bind("<Alt-i>", "forward")
+config.bind("<Alt-n>", "tab-next")
+config.bind("<Alt-e>", "tab-prev")
+
 config.bind('<Ctrl+/>', 'hint links spawn --detach mpv {hint-url}')
+config.bind("<Alt-Shift-m>", "tab-mute")
 ############################################################
 #                                                          #
 #                   Style and Colors                       #
@@ -141,3 +151,10 @@ c.colors.webpage.darkmode.policy.images = "never"
 # base16 colors but with variable names that
 # reflect what the color is mainly used for
 config.source("themes/nvim-dark.py")
+
+# google signin work around patch
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}; rv:131.0) Gecko/20100101 Firefox/131.0",
+    "https://accounts.google.com/*",
+)
