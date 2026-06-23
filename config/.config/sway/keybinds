@@ -14,7 +14,8 @@ set $right i
 # Default applications
 ########################################
 set $term foot
-set $web-browser flatpak run io.gitlab.librewolf-community 
+set $web-browser qutebrowser
+set $web-browser2 flatpak run io.gitlab.librewolf-community 
 set $filemanager thunar
 #bindsym $mod+b exec '[ "$(swaymsg -t get_bar_config bar-0 | jq -r ".mode")" = "dock" ] && swaymsg bar mode invisible || swaymsg bar mode dock'
 #bindsym $mod+Shift+b exec sh -c 'pkill -x waybar; waybar'
@@ -28,6 +29,8 @@ bindsym Mod1+tab exec rofi -show-icons -show window
 bindsym $mod+t exec $term
 bindsym $mod+f exec $filemanager
 bindsym $mod+w exec $web-browser
+bindsym $mod+Shift+w exec $web-browser2
+bindsym $mod+p exec flatpak run me.proton.Pass
 
 bindsym $meh+n exec foot -a neovim nvim
 bindsym $meh+m exec foot -a rmpc rmpc
@@ -229,4 +232,4 @@ mode "present" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+p mode "present"
+bindsym $mod+shift+p mode "present"
