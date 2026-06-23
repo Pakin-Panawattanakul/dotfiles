@@ -42,3 +42,6 @@ vim.g.have_nerd_font = true
 vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
+
+-- suggested by auto-session plugin
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
