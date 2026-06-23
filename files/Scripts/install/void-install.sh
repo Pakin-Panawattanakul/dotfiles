@@ -77,6 +77,9 @@ sudo xbps-install -y libnotify imv aria2 qalculate-gtk
 # thunar
 sudo xbps-install -y Thunar thunar-archive-plugin thunar-volman tumbler xarchiver
 
+# yazi & dependency
+sudo xbps-install -y yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg ImageMagick wl-clipboard
+
 # themes and fonts
 sudo xbps-install -y papirus-icon-theme noto-fonts-ttf noto-fonts-emoji nerd-fonts-ttf nwg-look qt6-wayland
 
@@ -94,7 +97,7 @@ sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
 sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
 
 # Media 
-sudo xbps-install -y qutebrowser mpd mpc rmpc cava mpv yt-dlp
+sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp
 
 # flatpak
 sudo xbps-install -y flatpak
