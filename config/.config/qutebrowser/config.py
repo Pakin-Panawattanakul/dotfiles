@@ -110,7 +110,7 @@ config.bind("<Alt-Right>", "forward")
 
 config.bind("<Shift-Left>", "back")
 config.bind("<Shift-Right>", "forward")
-config.bind("<Shift-Down>", "tab-nex")
+config.bind("<Shift-Down>", "tab-next")
 config.bind("<Shift-Up>", "tab-prev")
 
 config.bind("<Alt-m>", "back")
