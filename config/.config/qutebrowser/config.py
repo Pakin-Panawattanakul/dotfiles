@@ -55,8 +55,8 @@ c.auto_save.session = True  # save tabs on quit/restart
 # privacy - adjust these settings based on your preference
 config.set("completion.cmd_history_max_items", 200)
 # config.set("content.private_browsing", True)
-config.set("content.webgl", False, "*")
-config.set("content.canvas_reading", False)
+config.set("content.webgl", True, "*")
+config.set("content.canvas_reading", True)
 config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
 config.set("content.cookies.accept", "no-3rdparty")
