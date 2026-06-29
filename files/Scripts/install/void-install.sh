@@ -32,7 +32,7 @@ xdg-user-dirs-update
 # network
 sudo xbps-install -y iwd impala ufw
 sudo ufw enable
-sudo rm /var/service/wpa_supplicant
+sudo rm -f /var/service/wpa_supplicant
 sudo ln -s /etc/sv/ufw /var/service
 echo "[General]
 EnableNetworkConfiguration=false
@@ -65,9 +65,6 @@ sudo tlp start
 # desktop portal
 sudo xbps-install -y xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
-#******************** sway ********************
-#sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock xorg-server-xwayland Waybar
-
 #******************** dwl ********************
 sudo xbps-install -y libinput libinput-devel wayland wayland-devel wlroots0.19  wlroots0.19-devel libxkbcommon libxkbcommon-devel \
   wayland-protocols pkg-config
@@ -90,7 +87,7 @@ sudo xbps-install -y Thunar thunar-archive-plugin thunar-volman tumbler xarchive
 sudo xbps-install -y yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg ImageMagick wl-clipboard
 
 # themes and fonts
-sudo xbps-install -y papirus-icon-theme noto-fonts-ttf noto-fonts-emoji nerd-fonts-ttf nwg-look qt6-wayland
+sudo xbps-install -y papirus-icon-theme noto-fonts-ttf noto-fonts-emoji nerd-fonts-ttf nwg-look qt6-wayland qt6ct
 
 # terminal
 sudo xbps-install -y foot foot-terminfo bat zsh eza zoxide starship \
@@ -106,7 +103,7 @@ sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
 sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
 
 # Media 
-sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp
+sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp udiskdie zathura zahura-pdf-mupdf
 
 # flatpak
 sudo xbps-install -y flatpak
@@ -147,34 +144,25 @@ sudo usermod -aG plugdev $USER
 # nvidia
 
 install_nvidia(){
-  sudo xbps-install mesa-dri nvidia  nvidia-libs-32bit
-  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet nvidia_drm.modeset=1 nvidia_drm.fbdev=1"' /etc/default/grub
+  sudo xbps-install -y mesa-dri nvidia  nvidia-libs-32bit
+  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 loglevel=3 nvidia.NVreg_UseKernelSuspendNotifiers=1 nvidia.NVreg_TemporaryFilePath=/var/tmp/"' /etc/default/grub
 }
 
 install_intel(){
   sudo xbps-install mesa-dri mesa-dri-32bit vulkan-loader mesa-vulkan-loader intel-video-accel
 }
 
-choice=""
-while [ "$choice" != "y" ] && [ "$choice" != "n" ]; do
-    printf "Installing nvidia gpu driver?"
-    read -r choice
-done
+ask_install() {
+    choice=""
+    while [ "$choice" != "y" ] && [ "$choice" != "n" ]; do
+        printf "Install %s? [y/n] " "$1"
+        read -r choice
+    done
+    [ "$choice" = "y" ]
+}
 
-if [ $choice = 'y' ]; then
-  install_nvidia
-fi
-
-
-choice=""
-while [ "$choice" != "y" ] && [ "$choice" != "n" ]; do
-    printf "Installing intel gpu driver?"
-    read -r choice
-done
-
-if [ $choice = 'y' ]; then
-  install_intel
-fi
+ask_install "nvidia gpu driver" && install_nvidia
+ask_install "intel gpu driver" && install_intel
 
 # Install oh-my-zsh 
 if [ ! -d "$HOME/.oh-my-zsh"  ]; then
@@ -192,25 +180,14 @@ echo "options hid_apple fnmode=2" | sudo tee /etc/modprobe.d/20_lofree_fn_mode_f
 sudo xbps-install -y qmk dos2unix
 
 # tpm
+sudo xbps-install -y tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # grub theme
 git clone --depth 1 https://github.com/VandalByte/darkmatter-grub2-theme.git && cd darkmatter-grub2-theme
 sudo python3 darkmatter-theme.py --install
 
-# sddm theme : need to remove soon
-#https://github.com/Keyitdev/sddm-astronaut-theme
-sudo xbps-install -y sddm qt6-svg qt6-virtualkeyboard qt6-multimedia xorg-minimal
-sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
-sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
-sudo mkdir /etc/sddm.conf.d/
-echo "[Theme]
-Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf.d/sddm.conf
-echo "[General]
-InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf
-sudo ln -s /etc/sv/sddm /var/service
-
 # greetd + tuigreet
 sudo xbps-install -y greetd tuigreet
 sudo sed -i 's|^command.*|command = "tuigreet --remember --remember-session --time --power-shutdown '\''loginctl poweroff'\'' --power-reboot '\''loginctl reboot'\''"|' /etc/greetd/config.toml
-sudo ln -s /etc/sv/greetd/ var/service
+sudo ln -s /etc/sv/greetd/ /var/service
