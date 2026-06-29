@@ -1,5 +1,5 @@
 #!/bin/sh
-# void linux install scripts with sway
+# void linux install scripts
 install_dir="$(pwd)"
 
 # Git config
@@ -65,8 +65,17 @@ sudo tlp start
 # desktop portal
 sudo xbps-install -y xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
 
-# sway
-sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock xorg-server-xwayland Waybar
+#******************** sway ********************
+#sudo xbps-install -y sway SwayNotificationCenter swaybg swayidle swaylock xorg-server-xwayland Waybar
+
+#******************** dwl ********************
+sudo xbps-install -y libinput libinput-devel wayland wayland-devel wlroots0.19  wlroots0.19-devel libxkbcommon libxkbcommon-devel \
+  wayland-protocols pkg-config
+sudo xbps-install -y libxcb libxcb-devel xorg-server-xwayland
+# somebar
+sudo xbps-install -y wmenu waylock wbg mako
+# bar patches
+sudo xbps-install -y tllist fcft pixman
 
 # wayland stuff 
 sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
@@ -111,7 +120,7 @@ flatpak override --user --env=GTK_THEME=Orchis-Dark
 curl -sL https://raw.githubusercontent.com/skyline69/balatro-mod-manager/main/scripts/linux-install.sh | bash -s -- --clone
 
 # game 
-sudo xbps-install -y steam libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit libva-32bit gamemode
+sudo xbps-install -y steam libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit libva-32bit gamemode gamescope
 
 #https://bugraeren.com/blog/vivado_on_void_linux/
 # --- vivado ---
@@ -189,7 +198,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone --depth 1 https://github.com/VandalByte/darkmatter-grub2-theme.git && cd darkmatter-grub2-theme
 sudo python3 darkmatter-theme.py --install
 
-# sddm theme 
+# sddm theme : need to remove soon
 #https://github.com/Keyitdev/sddm-astronaut-theme
 sudo xbps-install -y sddm qt6-svg qt6-virtualkeyboard qt6-multimedia xorg-minimal
 sudo git clone -b master --depth 1 https://github.com/keyitdev/sddm-astronaut-theme.git /usr/share/sddm/themes/sddm-astronaut-theme
@@ -200,3 +209,8 @@ Current=sddm-astronaut-theme" | sudo tee /etc/sddm.conf.d/sddm.conf
 echo "[General]
 InputMethod=qtvirtualkeyboard" | sudo tee /etc/sddm.conf.d/virtualkbd.conf
 sudo ln -s /etc/sv/sddm /var/service
+
+# greetd + tuigreet
+sudo xbps-install -y greetd tuigreet
+sudo sed -i 's|^command.*|command = "tuigreet --remember --remember-session --time --power-shutdown '\''loginctl poweroff'\'' --power-reboot '\''loginctl reboot'\''"|' /etc/greetd/config.toml
+sudo ln -s /etc/sv/greetd/ var/service
