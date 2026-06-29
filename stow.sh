@@ -5,15 +5,12 @@ mkdir -p "$HOME/.local/share/applications"
 mkdir -p "$HOME/.local/share/icons"
 mkdir -p "$HOME/.local/share/fonts"
 mkdir -p "$HOME/.local/share/keymapp"
-mkdir -p "$HOME/.local/share/rofi"
 mkdir -p "$HOME/.themes"
 
 # stowing config and asset dir
 stow files
 stow config
-stow rofi-scripts --target="$HOME/.local/bin" 
-ln -sf "$HOME/.dotfiles/config/.config/sway/scripts/start-sway" "$HOME/.local/bin"
-#sudo ln -sf "$HOME/.dotfiles/config/.config/sway/scripts/start-sway" "/usr/local/bin"
+stow wmenu-scripts --target="$HOME/.local/bin" 
 
 # mpd
 mkdir -p "$HOME/.local/state/mpd"
