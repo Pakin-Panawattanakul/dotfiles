@@ -57,8 +57,8 @@ eval "$(starship init zsh)"
 # --- bat ---
 alias cat='bat --style=plain'
 # use bat for help
-alias -g -- -h='-h 2>&1 | bat --language=help'
-alias -g -- --help='--help 2>&1 | bat --language=help' 
+#alias -g -- -h='-h 2>&1 | bat --language=help'
+#alias -g -- --help='--help 2>&1 | bat --language=help' 
 #export MANPAGER="bat -plman"
 man() {
   command man "$@" | col -bx | bat -plman --paging=always
