@@ -109,7 +109,7 @@ sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp ud
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client \
-  io.gitlab.librewolf-community net.davidotek.pupgui2 com.nextcloud.desktopclient.nextcloud
+  io.gitlab.librewolf-community com.nextcloud.desktopclient.nextcloud
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
