@@ -72,7 +72,7 @@ sudo xbps-install -y libxcb libxcb-devel xorg-server-xwayland
 # somebar
 sudo xbps-install -y wmenu waylock wbg mako
 # bar patches
-sudo xbps-install -y tllist fcft pixman
+sudo xbps-install -y tllist fcft fcft-devel pixman
 
 # wayland stuff 
 sudo xbps-install -y wl-clipboard grim slurp wlr-randr wdisplays wl-mirror wev gammastep
@@ -103,7 +103,7 @@ sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
 sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
 
 # Media 
-sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp udiskdie zathura zahura-pdf-mupdf
+sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
 
 # flatpak
 sudo xbps-install -y flatpak
