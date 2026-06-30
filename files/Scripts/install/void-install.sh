@@ -20,46 +20,52 @@ sudo xbps-install -Syu
 
 # essential
 sudo xbps-install -y intel-ucode base-devel dbus elogind polkit man-db
-sudo ln -s /etc/sv/dbus  /etc/sv/polkitd /var/service
+sudo ln -sf /etc/sv/dbus  /etc/sv/polkitd /var/service
 
 # log
 sudo xbps-install -y socklog-void
-sudo ln -s /etc/sv/socklog-unix /etc/sv/nanoklogd /var/service
+sudo ln -sf /etc/sv/socklog-unix /etc/sv/nanoklogd /var/service
 
 sudo xbps-install -y xdg-user-dirs xdg-utils
 xdg-user-dirs-update
 
 # network
-sudo xbps-install -y iwd impala ufw
+sudo xbps-install -y NetworkManager impala ufw
 sudo ufw enable
 sudo rm -f /var/service/wpa_supplicant
-sudo ln -s /etc/sv/ufw /var/service
+sudo rm -f /var/service/dhcpcd
+sudo ln -sf /etc/sv/ufw /var/service
 echo "[General]
 EnableNetworkConfiguration=false
 UseDefaultInterface=true" | sudo tee /etc/iwd/main.conf
+sudo mkdir -p /etc/NetworkManager/conf.d
+echo "[device]
+wifi.backend.iwd" | sudo tee /etc/NetworkManager/conf.d/wifi_backend.conf
+sudo ln -sf /etc/sv/iwd /var/service
+sudo ln -sf /etc/sv/NetworkManager/ /var/service
 
 # bluetooth
 sudo xbps-install -y bluez bluetui
-sudo ln -s /etc/sv/bluetoothd /var/service  
+sudo ln -sf /etc/sv/bluetoothd /var/service  
 
 # sound
 sudo xbps-install -y pipewire wireplumber wiremix libspa-bluetooth
 : "${XDG_CONFIG_HOME:=${HOME}/.config}"
 mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
-ln -s /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
-ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+ln -sf /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+ln -sf /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 
 # rtkit
 sudo xbps-install -y rtkit
-sudo ln -s /etc/sv/rtkit /var/service
+sudo ln -sf /etc/sv/rtkit /var/service
 
 # ntp
 sudo xbps-install -y openntpd
-sudo ln -s /etc/sv/openntpd /var/service
+sudo ln -sf /etc/sv/openntpd /var/service
 
 # power
 sudo xbps-install -y tlp upower brightnessctl
-sudo ln -s /etc/sv/tlp /var/service
+sudo ln -sf /etc/sv/tlp /var/service
 sudo tlp start
 
 # desktop portal
@@ -190,4 +196,4 @@ sudo python3 darkmatter-theme.py --install
 # greetd + tuigreet
 sudo xbps-install -y greetd tuigreet
 sudo sed -i 's|^command.*|command = "tuigreet --remember --remember-session --time --power-shutdown '\''loginctl poweroff'\'' --power-reboot '\''loginctl reboot'\''"|' /etc/greetd/config.toml
-sudo ln -s /etc/sv/greetd/ /var/service
+sudo ln -sf /etc/sv/greetd/ /var/service
