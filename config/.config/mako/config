@@ -1,7 +1,7 @@
 font=JetBrainsMonoNerdFont Regular 12
-background-color=#14161bcc
+background-color=#14161bff
 text-color=#e0e2ea
-border-color=#8cf8f137
+border-color=#b3f6c0ff
 border-radius=4
 default-timeout=5000
 max-icon-size=32
