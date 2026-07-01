@@ -1,5 +1,13 @@
 #!/bin/sh
 # void linux install scripts
+ask_install() {
+    choice=""
+    while [ "$choice" != "y" ] && [ "$choice" != "n" ]; do
+        printf "Install %s? [y/n] " "$1"
+        read -r choice
+    done
+    [ "$choice" = "y" ]
+}
 install_dir="$(pwd)"
 
 # Git config
@@ -30,19 +38,24 @@ sudo xbps-install -y xdg-user-dirs xdg-utils
 xdg-user-dirs-update
 
 # network
-sudo xbps-install -y NetworkManager impala ufw
-sudo ufw enable
+sudo xbps-install -y NetworkManager  ufw
+wireless_setup(){
+  sudo xbps-install -y iwd impala
+  sudo ln -sf /etc/sv/iwd /var/service
+  echo "[General]
+  EnableNetworkConfiguration=false
+  UseDefaultInterface=true" | sudo tee /etc/iwd/main.conf
+  sudo mkdir -p /etc/NetworkManager/conf.d
+  echo "[device]
+  wifi.backend.iwd" | sudo tee /etc/NetworkManager/conf.d/wifi_backend.conf
+  sudo ln -sf /etc/sv/iwd /var/service
+}
 sudo rm -f /var/service/wpa_supplicant
 sudo rm -f /var/service/dhcpcd
-sudo ln -sf /etc/sv/ufw /var/service
-echo "[General]
-EnableNetworkConfiguration=false
-UseDefaultInterface=true" | sudo tee /etc/iwd/main.conf
-sudo mkdir -p /etc/NetworkManager/conf.d
-echo "[device]
-wifi.backend.iwd" | sudo tee /etc/NetworkManager/conf.d/wifi_backend.conf
-sudo ln -sf /etc/sv/iwd /var/service
+ask_install "wireless setup" && wireless_setup
 sudo ln -sf /etc/sv/NetworkManager/ /var/service
+sudo ln -sf /etc/sv/ufw /var/service
+sudo ufw enable
 
 # bluetooth
 sudo xbps-install -y bluez bluetui
@@ -158,14 +171,6 @@ install_intel(){
   sudo xbps-install mesa-dri mesa-dri-32bit vulkan-loader mesa-vulkan-loader intel-video-accel
 }
 
-ask_install() {
-    choice=""
-    while [ "$choice" != "y" ] && [ "$choice" != "n" ]; do
-        printf "Install %s? [y/n] " "$1"
-        read -r choice
-    done
-    [ "$choice" = "y" ]
-}
 
 ask_install "nvidia gpu driver" && install_nvidia
 ask_install "intel gpu driver" && install_intel
@@ -196,4 +201,5 @@ sudo python3 darkmatter-theme.py --install
 # greetd + tuigreet
 sudo xbps-install -y greetd tuigreet
 sudo sed -i 's|^command.*|command = "tuigreet --remember --remember-session --time --power-shutdown '\''loginctl poweroff'\'' --power-reboot '\''loginctl reboot'\''"|' /etc/greetd/config.toml
-sudo ln -sf /etc/sv/greetd/ /var/service
+sudo sed -i 's|^vt.*|vt = 1|' /etc/greetd/config.toml
+sudo rm -f /var/service/agetty-tty1 & sudo ln -sf /etc/sv/greetd/ /var/service
