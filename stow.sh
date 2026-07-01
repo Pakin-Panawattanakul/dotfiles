@@ -16,3 +16,6 @@ stow wmenu-scripts --target="$HOME/.local/bin"
 mkdir -p "$HOME/.local/state/mpd"
 touch "$HOME/.local/state/mpd/state"
 touch "$HOME/.config/mpd/database"
+# dwl
+ln -sf "$HOME/.config/dwl/config.h" "$HOME/.dotfiles/build/dwl/"
+ln -sf "$HOME/.config/dwl/start-dwl" "$HOME/.local/bin/"

@@ -15,19 +15,19 @@
     preview_metadata_group_style: (fg: "yellow", modifiers: "Bold"),
     tab_bar: (
         enabled: true,
-        active_style: (fg: "#000000", bg: "blue", modifiers: "Bold"),
+        active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
         inactive_style: (),
     ),
     highlighted_item_style: (fg: "blue", modifiers: "Bold"),
-    current_item_style: (fg: "#000000", bg: "blue", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
     borders_style: (fg: "blue"),
     highlight_border_style: (fg: "blue"),
     symbols: (song: "S", dir: "D", playlist: "P", marker: "M", ellipsis: "..."),
     progress_bar: (
         symbols: ["[", "-", ">", " ", "]"],
-        track_style: (fg: "#1e2030"),
+        track_style: (fg: "black"),
         elapsed_style: (fg: "blue"),
-        thumb_style: (fg: "blue", bg: "#000000"),
+        thumb_style: (fg: "blue", bg: "black"),
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],

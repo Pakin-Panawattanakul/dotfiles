@@ -74,6 +74,7 @@ alias ll='ls -al'
 alias dot='cd ~/.dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias ref='cd $HOME/kyber-ref/kyber768'
+alias steam='unset SDL_VIDEODRIVER; gamescope -H 1080 -W 1920 -f -e --backend sdl -- /usr/bin/steam'
 
 # void linux
 alias xi='sudo xbps-install'
