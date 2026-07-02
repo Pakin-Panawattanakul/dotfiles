@@ -119,7 +119,7 @@ sudo xbps-install -y rust cargo python3-pip gdb git git-lfs lazygit
 sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
 
 # utils / software
-sudo xbps-install -y curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
+sudo xbps-install -y topgrade curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
 
 # Media 
 sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
