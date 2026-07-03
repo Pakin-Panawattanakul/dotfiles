@@ -64,7 +64,7 @@ man() {
   command man "$@" | col -bx | bat -plman --paging=always
 }
 # coloriziing stuff
-alias psc='ps aux | cat -l conf'
+alias psg='ps aux | bat -l conf | grep $@'
 
 
 # ------------ Custom alias ------------
@@ -74,7 +74,6 @@ alias ll='ls -al'
 alias dot='cd ~/.dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias ref='cd $HOME/kyber-ref/kyber768'
-alias steam='unset SDL_VIDEODRIVER; gamescope -H 1080 -W 1920 -f -e --backend sdl -- /usr/bin/steam'
 
 # void linux
 alias xi='sudo xbps-install'
