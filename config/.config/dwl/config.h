@@ -177,9 +177,8 @@ static const char *brightness_up[] = {"sh", "-c", "pkill -RTMIN+3 someblocks", N
 static const char *brightness_down[] = {"sh", "-c","pkill -RTMIN+3 someblocks", NULL };
 static const char *termcmd[] = { "foot", NULL };
 static const char *filemanager[] = { "thunar", NULL};
-//static const char *web_browser[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL};
-static const char *web_browser[] = { "qutebrowser", NULL};
-static const char *menucmd[] = { "wmenu-drun", "-i", "-p", "drun",
+static const char *web_browser[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL};
+static const char *menucmd[] = { "wmenu-drun", "-i", "-p", "run",
   "-f", "JetBrainsMono Nerd Font 10",
   "-n", "e0e2ea", "-N", "14161b",
   "-S", "14161b", "-s", "8cf8f7",

@@ -122,7 +122,7 @@ sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
 sudo xbps-install -y topgrade curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
 
 # Media 
-sudo xbps-install -y qutebrowser python3-adblock mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
+sudo xbps-install -y  mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
 
 # flatpak
 sudo xbps-install -y flatpak
