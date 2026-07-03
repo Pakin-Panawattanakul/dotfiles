@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Wireimix
-Comment=TUI for pipewire
-Exec=wiremix
-Terminal=true
-Type=Application
-Categories=System
