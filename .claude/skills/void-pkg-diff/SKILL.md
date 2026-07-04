@@ -18,4 +18,11 @@ This script (in `files/Scripts/install/void-package-diff.sh`) parses `void-insta
 
 When reporting results, summarize each section briefly rather than dumping raw output uninterpreted — call out anything that looks like real drift (section 1, or new unexpected entries in section 4) versus expected noise (sections 2 and 3).
 
-If the user wants to fix drift found by this skill (e.g. marking dependency-only packages as manual, or removing stray manual packages), remember: any command requiring `sudo` should be handed back to the user as a script to run themselves, not executed directly.
+After reporting, always give the user the fix-up commands directly in chat as copy-pasteable one-liners — do NOT write them to script files, and never execute `sudo` commands directly:
+
+1. **Section 1 (missing required packages)** — `sudo xbps-install -S <pkg> <pkg> ...` for everything missing.
+2. **Section 2 (installed only as dependency)** — `sudo xbps-pkgdb -m manual <pkg> <pkg> ...` to mark them manual.
+3. **Section 3 (optional packages not installed)** — leave as-is, no command needed.
+4. **Section 4 (manual but unreferenced)** — `sudo xbps-remove -Rf <pkg> <pkg> ...` to remove them.
+
+Skip a section's command if that section is empty. Flag if any package in section 4 looks load-bearing (e.g. `cryptsetup`, `lvm2` for disk encryption/LVM) before suggesting removal.

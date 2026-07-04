@@ -172,7 +172,7 @@ install_nvidia(){
 }
 
 install_intel(){
-  sudo xbps-install mesa-dri mesa-dri-32bit vulkan-loader mesa-vulkan-loader intel-video-accel
+  sudo xbps-install mesa-dri mesa-dri-32bit vulkan-loader mesa-vulkan-intel intel-video-accel
 }
 
 
