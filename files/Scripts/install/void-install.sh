@@ -39,6 +39,7 @@ xdg-user-dirs-update
 
 # network
 sudo xbps-install -y NetworkManager  ufw
+sudo xbps-install -y nmap netcat tcpdump
 wireless_setup(){
   sudo xbps-install -y iwd impala
   sudo ln -sf /etc/sv/iwd /var/service
@@ -116,10 +117,10 @@ sudo xbps-install -y foot foot-terminfo bat zsh eza zoxide starship \
 sudo xbps-install -y rust cargo python3-pip gdb git git-lfs lazygit
 
 # neovim
-sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks
+sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks xxd
 
 # utils / software
-sudo xbps-install -y topgrade curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th
+sudo xbps-install -y topgrade curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th void-docs-browse Solaar
 
 # Media 
 sudo xbps-install -y  mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
@@ -132,11 +133,14 @@ flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotif
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
-# balatro mod mamager
-curl -sL https://raw.githubusercontent.com/skyline69/balatro-mod-manager/main/scripts/linux-install.sh | bash -s -- --clone
-
-# game 
+# game
 sudo xbps-install -y steam libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit libva-32bit gamemode gamescope
+
+# virtualization
+sudo xbps-install -y virtualbox-ose
+
+# EDA / hardware design
+sudo xbps-install -y kicad iverilog
 
 #https://bugraeren.com/blog/vivado_on_void_linux/
 # --- vivado ---
