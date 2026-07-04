@@ -15,6 +15,7 @@ git config --global user.email "pakin.pan@proton.me"
 git config --global user.name "Pakin Panawattanakul"
 git config --global pull.rebase true
 git config --global init.defaultBranch main
+git config --global submodule.recurse true
 
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share/applications"
