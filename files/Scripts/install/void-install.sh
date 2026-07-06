@@ -49,7 +49,7 @@ wireless_setup(){
   UseDefaultInterface=true" | sudo tee /etc/iwd/main.conf
   sudo mkdir -p /etc/NetworkManager/conf.d
   echo "[device]
-  wifi.backend.iwd" | sudo tee /etc/NetworkManager/conf.d/wifi_backend.conf
+wifi.backend=iwd" | sudo tee /etc/NetworkManager/conf.d/wifi_backend.conf
   sudo ln -sf /etc/sv/iwd /var/service
 }
 sudo rm -f /var/service/wpa_supplicant
