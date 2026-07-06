@@ -17,10 +17,12 @@ vim.keymap.set("n", "<leader>q", ":q<cr>", { desc = "[Q]uit Vim!!" })
 vim.keymap.set("n", "<leader>w", ":w<cr>", { desc = "[W]rite buffer" })
 --vim.keymap.set("n", "<leader>c", ":q!<cr>", { desc = "Quit without save" })
 
+--[[
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
 vim.keymap.set("n", "<C-f>", "<C-f>zz", { desc = "Page down" })
 vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Page up" })
+--]]
 
 -- buffers
 vim.keymap.set("n", "<leader>n", ":bn<cr>", { desc = "Next Buffer" })

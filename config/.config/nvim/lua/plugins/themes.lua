@@ -9,12 +9,15 @@ return {
 				code_style = {},
 				colors = {
 					black = "#07080d", -- regular0 / NvimDarkGrey1
+
 					--[[
+          -- lighther variant of blacks
 					bg0 = "#14161b", -- background / NvimDarkGrey2
 					bg1 = "#2c2e33", -- bright0 / NvimDarkGrey3
 					bg2 = "#4f5258", -- selection-background / NvimDarkGrey4
 					bg3 = "#4f5258",
           --]]
+          -- darker variaint of blacks
 					bg0 = "#07080d",
 					bg1 = "#14161b", -- background / NvimDarkGrey2
 					bg2 = "#2c2e33", -- bright0 / NvimDarkGrey3
@@ -47,6 +50,7 @@ return {
 				},
 
 				highlights = {
+					CursorLine = { bg = "NvimDarkGrey3" },
 					Comment = { fg = "#c4c6cd" },
 					["@lsp.type.comment"] = { fg = "#c4c6cd" },
 					["@comment"] = { fg = "#c4c6cd" },
@@ -56,7 +60,7 @@ return {
 				},
 			})
 			-- Enable theme
-			 require("onedark").load()
+			require("onedark").load()
 		end,
 	},
 }
