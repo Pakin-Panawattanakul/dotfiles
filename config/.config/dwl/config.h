@@ -95,8 +95,8 @@ static const MonitorRule monrules[] = {
 	* -1 sets a custom mode following the user's choice
 	* All other numbers set the mode at the index n; 0 is the standard mode; see wlr-randr
 	*/
-  {  "eDP-1", 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,  0,  0, 1920,1080, 165.000f,  -1,       0},
-  {   "DP-3", 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,  0,  0, 1920,1080, 165.000f,   1,       0},
+  {  "eDP-1", 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,  0,  0,    0,   0, 165.000f,   0,       0},
+  {   "DP-3", 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,  0,  0,    0,   0, 165.000f,   1,       0},
 	{     NULL, 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, -1, -1,    0,   0,     0.0f,   0,       0},
 	/* default monitor rule: can be changed but cannot be eliminated; at least one monitor rule must exist */
 };
