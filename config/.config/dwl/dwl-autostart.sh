@@ -1,7 +1,7 @@
 #!/bin/sh
 
 $HOME/Scripts/low_battery.sh &
-wbg -s "$HOME/Pictures/wallpapers/mountain3.jpg" &
+wbg -s "$HOME/Pictures/wallpapers/void_071.png" &
 brightnessctl set 50%
 
 dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots

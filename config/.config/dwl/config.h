@@ -18,7 +18,7 @@ static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will
 static const int follow                    = 1;  /* 1 means follow windows when sent to another tag */
 static const int smartgaps                 = 0;  /* 1 means no outer gap when there is only one window */
 static int gaps                            = 1;  /* 1 means gaps between windows are added */
-static const unsigned int gappx            = 8; /* gap pixel between windows */
+static const unsigned int gappx            = 4; /* gap pixel between windows */
 static const unsigned int borderpx         = 1;  /* border pixel of windows */
 static const int window_title              = 0;  /* 1 means showing window titles on the bar */
 static const int showbar                   = 1; /* 0 means no bar */
@@ -110,7 +110,8 @@ static const KeyboardRule kbrules[] = {
 	*/
 	{ "ZSA Technology Labs Voyager", NULL, NULL, "us",    NULL,   NULL },
 	{ "Cradio Keyboard", NULL, NULL, "us",    NULL,   NULL },
-  { NULL, NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
+  //{ NULL, NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
+  { NULL, NULL,NULL, "us,th", NULL , "grp:win_space_toggle"},
 	//{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
 
