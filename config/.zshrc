@@ -15,20 +15,21 @@ alias vim='nvim'
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
-alias fzf='fzf --preview "bat --color=always --style=full --line-range=:500 {}"'
+alias -g -- fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 
 # ------------ Eza : better ls ------------
 # export EZA_CONFIG_DIR="$HOME/.config/eza" # move to .zshenv
 export DISABLE_LS_COLORS="true" # to show the correct theme disable LS_COLORS 
 export LS_COLORS=""
-alias ls='eza --color=always --long'
+alias ll='eza --color=always --long'
+alias ls='eza --color=always'
 
 # ------------ Zoxide: better cd------------
 eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd to z
-#cd_ls(){
-#  z "$@" && ls
-#}
-#alias cd=cd_ls
+cd_ls(){
+  cd "$@" && ls
+}
+alias cd=cd_ls
 
 # ------------ History ------------
 HISTSIZE=3000
@@ -57,9 +58,9 @@ eval "$(starship init zsh)"
 # --- bat ---
 alias cat='bat --style=plain'
 # use bat for help
-#alias -g -- -h='-h 2>&1 | bat --language=help'
-#alias -g -- --help='--help 2>&1 | bat --language=help' 
-#export MANPAGER="bat -plman"
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+# bat for man page
 man() {
   command man "$@" | col -bx | bat -plman --paging=always
 }
@@ -76,7 +77,4 @@ alias kyber='cd $HOME/kyber'
 alias ref='cd $HOME/kyber-ref/kyber768'
 
 # void linux
-alias xi='sudo xbps-install'
-alias xq='xbps-query'
 alias xqr='xbps-query -Rs'
-alias xr='sudo xbps-remove'
