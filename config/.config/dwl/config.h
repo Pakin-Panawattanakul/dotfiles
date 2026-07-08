@@ -260,6 +260,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_q,           killclient,       {0} },
 	{ MODKEY,                    XKB_KEY_y,           nextlayout,       {0} },
 	{ MODKEY,                    XKB_KEY_g,           togglefloating,   {0} },
+	{ MODSHIFT,                  XKB_KEY_f,           togglefullscreen, {0} },
 	{ 0,                         XKB_KEY_F11,         togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_0,           view,             {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright,  tag,              {.ui = ~0} },

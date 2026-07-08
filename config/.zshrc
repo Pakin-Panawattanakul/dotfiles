@@ -77,6 +77,7 @@ alias f=fastfetch
 alias ll='ls -al'
 alias dot='cd ~/.dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
+alias lg=lazygit
 
 # void linux
 alias xqr='xbps-query -Rs'
