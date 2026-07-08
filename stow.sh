@@ -8,9 +8,9 @@ mkdir -p "$HOME/.local/share/keymapp"
 mkdir -p "$HOME/.themes"
 
 # stowing config and asset dir
-stow files
-stow config
-stow wmenu-scripts --target="$HOME/.local/bin" 
+stow -R files
+stow -R config
+stow -R wmenu-scripts --target="$HOME/.local/bin" 
 
 # mpd
 mkdir -p "$HOME/.local/state/mpd"
