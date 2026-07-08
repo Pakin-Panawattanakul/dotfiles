@@ -4,7 +4,6 @@
  *  attatchbottom
  *  autostart
  *  custom float
- *  gaps
  *  perinputconfig
  */
 /* Taken from https://github.com/djpohly/dwl/issues/466 */
@@ -13,26 +12,33 @@
                         ((hex >> 8) & 0xFF) / 255.0f, \
                         (hex & 0xFF) / 255.0f }
 /* appearance */
-static const int sloppyfocus               = 1;  /* focus follows mouse */
-static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
-static const int follow                    = 1;  /* 1 means follow windows when sent to another tag */
-static const int smartgaps                 = 0;  /* 1 means no outer gap when there is only one window */
-static int gaps                            = 1;  /* 1 means gaps between windows are added */
-static const unsigned int gappx            = 4; /* gap pixel between windows */
-static const unsigned int borderpx         = 1;  /* border pixel of windows */
-static const int window_title              = 0;  /* 1 means showing window titles on the bar */
+static const int sloppyfocus               = 1; /* focus follows mouse */
+static const int bypass_surface_visibility = 0; /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible */
+static const int enablegaps                = 1; /* 1 means gaps are enabled */
+static const int smartgaps                 = 0; /* 1 means no outer gap when there is only one window */
+static const int monoclegaps               = 1; /* 1 means outer gaps in monocle layout */
+static const int follow                    = 1; /* 1 means follow windows when sent to another tag */
+static const unsigned int borderpx         = 1;  /* border pixel of windows & bar */
+static const unsigned int gappih           = 2; /* horiz inner gap between windows */
+static const unsigned int gappiv           = 2; /* vert inner gap between windows */
+static const unsigned int gappoh           = 2; /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov           = 2; /* vert outer gap between windows and screen edge */
+static const int window_title              = 1; /* 1 means showing window titles on the bar */
 static const int showbar                   = 1; /* 0 means no bar */
 static const int topbar                    = 1; /* 0 means bottom bar */
+static const int vertpad                   = 4; /* vertical padding of bar */
+static const int sidepad                   = 4; /* horizontal padding of bar */
 static const char *fonts[]                 = {"JetBrainsMono Nerd Font Propo:size=11:style=Medium"};
 static const float rootcolor[]             = COLOR(0x2c2e33ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You can also use glsl colors */
-static const int respect_monitor_reserved_area = 0;  /* 1 to monitor center while respecting the monitor's reserved area, 0 to monitor center */
+static const int respect_monitor_reserved_area = 1;  /* 1 to monitor center while respecting the monitor's reserved area, 0 to monitor center */
 static uint32_t colors[][3]                = {
 	/*               fg          bg          border    */
 	[SchemeNorm] = { 0xe0e2eaff, 0x14161bff, 0x2c2e33ff },
 	[SchemeSel]  = { 0xb3f6c0ff, 0x2c2e33ff, 0x8cf8f7ff },
 	[SchemeUrg]  = { 0xffc0b9ff, 0x2c2e33ff, 0xffc0b9ff },
+	[SchemeBar]  = { 0,          0,          0xa6dbffff },
 };
 /* keyboard layout change notification for status bar */
 static const char  kblayout_file[] = "/tmp/dwl-keymap";
@@ -77,10 +83,11 @@ static const Rule rules[] = {
 /* layout(s) */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "",      tile },
-	//{ "[]=",      tile },
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	//{ "",      tile },
+	{ "[]",       tile },
+	//{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+  { NULL,       NULL }, /* terminate */
 };
 
 /* monitors */
@@ -185,6 +192,7 @@ static const char *brightness_down[] = {"sh", "-c","pkill -RTMIN+3 someblocks", 
 static const char *termcmd[] = { "foot", NULL };
 static const char *filemanager[] = { "thunar", NULL};
 static const char *web_browser[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL};
+static const char *discord[] = { "flatpak", "run", "dev.vencord.Vesktop"};
 static const char *menucmd[] = { "wmenu-drun", "-i", "-p", "run",
   "-f", "JetBrainsMono Nerd Font 10",
   "-n", "e0e2ea", "-N", "14161b",
@@ -206,23 +214,27 @@ static const char *wiremix[] = { "foot", "--app-id", "wiremix", "-T", "wiremix",
 static const char *thunderbird[] = {"thunderbird", NULL};
 
 #define MEHKEY WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT
+#define MODSHIFT WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: 2 -> at, etc. */
 	/* modifier                  key                  function          argument */
 	{ MODKEY,                    XKB_KEY_d,           spawn,            {.v = menucmd} },
-	{ MODKEY,                    XKB_KEY_t,           spawn,            {.v = termcmd} },
+	{ MODKEY,                    XKB_KEY_Return,      spawn,            {.v = termcmd} },
   { MODKEY,                    XKB_KEY_f,           spawn,            {.v = filemanager} },
 	{ MODKEY,                    XKB_KEY_b,           spawn,            {.v = web_browser} },
+	{ MODKEY,                    XKB_KEY_v,           spawn,            {.v = discord} },
+  { MODKEY,                    XKB_KEY_r,           spawn,            {.v = rmpc} },
+  { MODKEY,                    XKB_KEY_t,           spawn,            {.v = thunderbird} },
 	{ 0,                         XKB_KEY_Print,       spawn,            {.v = screenshot} },
-  { MEHKEY,                    XKB_KEY_r,           spawn,            {.v = rmpc} },
-  { MEHKEY,                    XKB_KEY_w,           spawn,            {.v = wiremix} },
-  { MEHKEY,                    XKB_KEY_b,           spawn,            {.v = bluetui} },
-  { MEHKEY,                    XKB_KEY_m,           spawn,            {.v = thunderbird} },
+  { MODSHIFT,                  XKB_KEY_w,           spawn,            {.v = wiremix} },
+  { MODSHIFT,                  XKB_KEY_b,           spawn,            {.v = bluetui} },
   { 0, XKB_KEY_XF86AudioRaiseVolume,                spawn,            {.v = up_vol } },
   { 0, XKB_KEY_XF86AudioLowerVolume,                spawn,            {.v = down_vol } },
   { 0, XKB_KEY_XF86AudioMute,                       spawn,            {.v = mute_vol } },
   { 0, XKB_KEY_XF86MonBrightnessUp,                 spawn,            {.v = brightness_up}},
   { 0, XKB_KEY_XF86MonBrightnessDown,               spawn,            {.v = brightness_down}},
+	{ MODKEY,                    XKB_KEY_l,           focusstack,       {.i = -1} },
+	{ MODKEY,                    XKB_KEY_u,           focusstack,       {.i = +1} },
 	{ MODKEY,                    XKB_KEY_Left,        focusdir,         {.ui = 0} },
 	{ MODKEY,                    XKB_KEY_m,           focusdir,         {.ui = 0} },
 	{ MODKEY,                    XKB_KEY_Right,       focusdir,         {.ui = 1} },
@@ -246,7 +258,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,      zoom,             {0} },
 	{ MODKEY,                    XKB_KEY_Tab,         view,             {0} },
 	{ MODKEY,                    XKB_KEY_q,           killclient,       {0} },
-//{ MODKEY,                    XKB_KEY_space,       setlayout,        {0} },
+	{ MODKEY,                    XKB_KEY_y,           nextlayout,       {0} },
 	{ MODKEY,                    XKB_KEY_g,           togglefloating,   {0} },
 	{ 0,                         XKB_KEY_F11,         togglefullscreen, {0} },
 	{ MODKEY,                    XKB_KEY_0,           view,             {.ui = ~0} },
@@ -267,11 +279,26 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Escape,      quit,             {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_q,           spawn,            {.v = powermenu } },
 
-	//{ MODKEY,                    XKB_KEY_j,           focusstack,       {.i = +1} },
-	//{ MODKEY,                    XKB_KEY_k,           focusstack,       {.i = -1} },
-	//{ MODKEY,                    XKB_KEY_u,           setlayout,        {.v = &layouts[0]} },
-	//{ MODKEY,                    XKB_KEY_i,           setlayout,        {.v = &layouts[1]} },
-  //{ MODKEY,                    XKB_KEY_o,           setlayout,        {.v = &layouts[2]} },
+  // gaps patch
+//	{ MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_h,           incgaps,          {.i = +1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_l,           incgaps,          {.i = -1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,    XKB_KEY_H,         incogaps,      {.i = +1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,    XKB_KEY_L,         incogaps,      {.i = -1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_CTRL,     XKB_KEY_h,         incigaps,      {.i = +1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_CTRL,     XKB_KEY_l,         incigaps,      {.i = -1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_0,           togglegaps,        {0} },
+//	{ MODKEY|WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT,    XKB_KEY_parenright,defaultgaps,    {0} },
+//	{ MODKEY,                    XKB_KEY_y,           incihgaps,        {.i = +1 } },
+//	{ MODKEY,                    XKB_KEY_o,           incihgaps,        {.i = -1 } },
+//	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_y,           incivgaps,        {.i = +1 } },
+//	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_o,           incivgaps,        {.i = -1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_y,           incohgaps,        {.i = +1 } },
+//	{ MODKEY|WLR_MODIFIER_LOGO,  XKB_KEY_o,           incohgaps,        {.i = -1 } },
+//	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Y,           incovgaps,        {.i = +1 } },
+//	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,           incovgaps,        {.i = -1 } },
+//	{ MODKEY,                    XKB_KEY_u,           setlayout,        {.v = &layouts[0]} },
+//	{ MODKEY,                    XKB_KEY_i,           setlayout,        {.v = &layouts[1]} },
+//  { MODKEY,                    XKB_KEY_o,           setlayout,        {.v = &layouts[2]} },
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
 	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT,XKB_KEY_Terminate_Server, quit, {0} },
 	/* Ctrl-Alt-Fx is used to switch to another VT, if you don't know what a VT is
