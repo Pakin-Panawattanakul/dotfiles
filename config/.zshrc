@@ -12,6 +12,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
 
 # ------------ Neovim ------------
 alias vim='nvim'
+alias vi='nvim'
 
 # ------------ Fuzzy finder ------------
 # Set up fzf key bindings and fuzzy completion
