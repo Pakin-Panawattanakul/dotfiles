@@ -25,7 +25,7 @@ mkdir -p "$HOME/.local/share/fonts"
 mkdir -p "$HOME/.local/share/themes"
 
 # enable void repo
-sudo xbps-install -y void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree xtools
+sudo xbps-install -y void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree xtools-minimal
 sudo xbps-install -Syu
 
 # essential
