@@ -7,6 +7,8 @@ plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+# auto suggestion color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
 
 # ------------ Neovim ------------
 alias vim='nvim'

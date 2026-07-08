@@ -32,7 +32,7 @@ static uint32_t colors[][3]                = {
 	/*               fg          bg          border    */
 	[SchemeNorm] = { 0xe0e2eaff, 0x14161bff, 0x2c2e33ff },
 	[SchemeSel]  = { 0xb3f6c0ff, 0x2c2e33ff, 0x8cf8f7ff },
-	[SchemeUrg]  = { 0,          0,          0xffc0b9ff },
+	[SchemeUrg]  = { 0xffc0b9ff, 0x2c2e33ff, 0xffc0b9ff },
 };
 /* keyboard layout change notification for status bar */
 static const char  kblayout_file[] = "/tmp/dwl-keymap";

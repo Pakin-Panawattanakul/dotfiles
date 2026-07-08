@@ -9,4 +9,5 @@ pkill -x mako
 sleep 0.5
 mako &
 
-$HOME/Scripts/media.sh
+$HOME/Scripts/media.sh &
+flatpak run dev.vencord.Vesktop & 
