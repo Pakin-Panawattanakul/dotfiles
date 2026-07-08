@@ -16,6 +16,7 @@ git config --global user.name "Pakin Panawattanakul"
 git config --global pull.rebase true
 git config --global init.defaultBranch main
 git config --global submodule.recurse true
+git config --global credential.helper oauth
 
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share/applications"
@@ -115,7 +116,7 @@ sudo xbps-install -y foot foot-terminfo bat zsh eza zoxide starship \
   fzf fd ncdu ripgrep tree fastfetch
 
 # dev 
-sudo xbps-install -y rust cargo python3-pip gdb git git-lfs lazygit
+sudo xbps-install -y rust cargo python3-pip gdb git git-lfs git-credential-oauth lazygit
 
 # neovim
 sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks xxd
