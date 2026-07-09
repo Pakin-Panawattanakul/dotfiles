@@ -70,7 +70,7 @@ static const Rule rules[] = {
 	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1,       -1, -1, 1000,   0.75 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "rmpc",             NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-	{ "spotify",             NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "spotify",          NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
 	{ "Thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
   { "mpv",              NULL,       0,            1,           -1,       -1, -1, -1,     -1 },
@@ -105,6 +105,7 @@ static const MonitorRule monrules[] = {
 	*/
   {  "eDP-1", 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,  0,  0,    0,   0, 165.000f,   0,       0},
   {   "DP-3", 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,  0,  0,    0,   0, 165.000f,   1,       0},
+  {"HDMI-A-1",0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,1920, 0,    0,   0, 165.000f,   1,       0},
 	{     NULL, 0.5f,     1,     1, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL, -1, -1,    0,   0,     0.0f,   0,       0},
 	/* default monitor rule: can be changed but cannot be eliminated; at least one monitor rule must exist */
 };
