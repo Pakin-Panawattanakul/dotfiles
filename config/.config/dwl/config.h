@@ -70,6 +70,7 @@ static const Rule rules[] = {
 	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1,       -1, -1, 1000,   0.75 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "rmpc",             NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "spotify",             NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
 	{ "Thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
   { "mpv",              NULL,       0,            1,           -1,       -1, -1, -1,     -1 },

@@ -9,10 +9,10 @@ export WLR_NO_HARDWARE_CURSORS=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export MOZ_ENABLE_WAYLAND=1
 export PROTON_ENABLE_WAYLAND=1
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # dwl
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=wlroots
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 exec dbus-run-session -- sh -c '/usr/local/bin/someblocks -p 2>/dev/null | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh" > /tmp/dwl.log'
