@@ -1,0 +1,120 @@
+/* Neovim Dark — NvimDarkGrey2 base, NvimLight accents */
+
+/* Palette reference:
+   bg:        #14161b  NvimDarkGrey2
+   bg-raised: #2c2e33  NvimDarkGrey3
+   border:    #4f5258  NvimDarkGrey4
+   fg:        #e0e2ea  NvimLightGrey2
+   fg-dim:    #c4c6cd  NvimLightGrey3
+   accent:    #a6dbff  NvimLightBlue
+   green:     #b3f6c0  NvimLightGreen
+   yellow:    #fce094  NvimLightYellow
+   red:       #ffc0b9  NvimLightRed
+   cyan:      #8cf8f7  NvimLightCyan
+*/
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: #14161b;
+  color: #e0e2ea;
+  border: 1px ridge  #a6dbff;
+}
+
+/* ── left ── */
+#workspaces button {
+  padding: 0 4px;
+  background: transparent;
+  color: #c4c6cd;
+  border-bottom: 2px solid transparent;
+}
+
+#workspaces button.active {
+  color: #a6dbff;
+  border-bottom: 2px solid #a6dbff;
+}
+
+#workspaces button.urgent {
+  color: #ffc0b9;
+  border-bottom: 2px solid #ffc0b9;
+}
+
+#mpd {
+  padding: 0 30px;
+}
+
+#mpd.playing {
+  color: #b3f6c0;
+}
+
+#mpd.paused {
+  color: #fce094;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+  color: #ffc0b9
+}
+/* ── center ── */
+
+#clock {
+  color: #e0e2ea;
+  padding: 0 12px;
+}
+
+/* ── right — shared ── */
+
+#mode,
+#language,
+#cpu,
+#memory,
+#network,
+#wireplumber,
+#battery,
+#tray {
+  padding: 0 8px;
+}
+
+#mode { background-color : #b3f6c0; color : #14161b }
+#language { color: #fce094; } /* yellow - language */
+#wireplumber { color: #ffcaff; } /* magenta — audio */
+#cpu { color: #8cf8f7; }      /* cyan — processing */
+#memory { color: #b3f6c0; }   /* green — memory */
+#network { color: #a6dbff; }  /* blue — network */
+
+/* battery states */
+#battery { color: #b3f6c0; }
+
+#battery.warning {
+  color: #fce094;
+}
+
+#battery.critical {
+  color: #ffc0b9;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.4; }
+}
+
+#tray {
+  padding: 2px 8px;
+}
+
+/* separator between right modules */
+#language,
+#cpu,
+#memory,
+#network,
+#wireplumber,
+#battery {
+  /*border-left: 1px dashed #2c2e33;*/
+}

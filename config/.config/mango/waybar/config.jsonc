@@ -1,0 +1,97 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "spacing": 4,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
+
+  "modules-left": ["ext/workspaces", "mpd"],
+  "modules-center": ["clock"],
+  "modules-right": ["wireplumber", "cpu", "memory", "network", "battery", "tray"],
+
+  "ext/workspaces": {
+    "ignore-hidden": "true",
+    "on-click": "activate",
+    "on-click-right": "deactivate",
+    "sort-by-id": true,
+    "format": "{icon}",
+    "format-icons": {
+      "7": "󰝚",
+      "8": "",
+      "9": "󰇮",
+      },
+  },
+
+  "clock": {
+    "format": "  {:%a %d %b    %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    //"format-disconnected": "Disconnected ",
+    //"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "format-disconnected": "",
+    "format-stopped": "",
+    "interval": 10,
+    "consume-icons": {
+        "on": " " // Icon shows only when "consume" is on
+    },
+    "state-icons": {
+        "paused": "",
+        "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+    "artist-len": 20,
+    "title-len": 20
+},
+
+  "sway/language": {
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+  },
+
+  "wireplumber": {
+    "format": "  {volume}%",
+    "format-muted": "󰝟  muted",
+    "on-click": "foot -a wiremix -t wiremix wiremix"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "  {usage}%",
+    "max-length": 10,
+    "on-click" : "foot -a btop -t btop btop"
+  },
+
+  "memory": {
+    "interval": 10,
+    "format": "  {}%",
+    "on-click" : "foot -a btop -t btop btop"
+  },
+
+  "network": {
+    "format-wifi": " {essid} {signalStrength}%",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "  disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "on-click" : "foot -a impala -t impala impala"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-full": "  100%",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}
