@@ -81,3 +81,4 @@ alias lg=lazygit
 
 # void linux
 alias xqr='xbps-query -Rs'
+export SVDIR="$HOME/.runit/service"

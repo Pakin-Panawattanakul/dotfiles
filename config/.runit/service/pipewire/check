@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ -S "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/pipewire-0" ] && exit 0
+exit 1

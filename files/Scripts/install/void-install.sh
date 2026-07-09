@@ -37,6 +37,8 @@ sudo ln -sf /etc/sv/socklog-unix /etc/sv/nanoklogd /var/service
 
 sudo xbps-install -y xdg-user-dirs xdg-utils
 xdg-user-dirs-update
+rmdir "$HOME/Publics"
+rmdir "$HOME/Videos"
 
 # network
 sudo xbps-install -y NetworkManager  ufw
@@ -85,6 +87,19 @@ sudo tlp start
 
 # desktop portal
 sudo xbps-install -y xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk
+
+# setup runit user service 
+sudo mkdir -p /etc/sv/runsvdir-pakin
+sudo tee /etc/sv/runsvdir-pakin/run << 'EOF'
+#!/bin/sh
+export USER="pakin"
+export HOME="/home/pakin"
+export XDG_RUNTIME_DIR="/run/user/$(id -u $USER)"
+groups="$(id -Gn "$USER" | tr ' ' ':')"
+svdir="$HOME/.runit/service"
+exec chpst -u "$USER:$groups" runsvdir "$svdir"
+EOF
+sudo ln -sf /etc/sv/runsvdir-pakin /var/service
 
 #******************** dwl ********************
 sudo xbps-install -y libinput libinput-devel wayland wayland-devel wlroots0.19  wlroots0.19-devel libxkbcommon libxkbcommon-devel \

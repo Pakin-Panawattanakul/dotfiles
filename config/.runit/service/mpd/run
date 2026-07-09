@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sv check "$HOME/.runit/service/pipewire" >/dev/null || exit 1
+exec mpd --no-daemon

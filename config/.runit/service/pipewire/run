@@ -1,0 +1,10 @@
+#!/bin/sh
+# source the dbus env file set in .profile
+#!/bin/sh
+if [ -f "$XDG_RUNTIME_DIR/dbus-session-env" ]; then
+    . "$XDG_RUNTIME_DIR/dbus-session-env"
+else
+    echo "dbus-session-env missing, not starting pipewire" >&2
+    exit 1
+fi
+exec pipewire > /dev/null 2>&1
