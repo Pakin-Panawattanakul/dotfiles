@@ -99,6 +99,7 @@ groups="$(id -Gn "$USER" | tr ' ' ':')"
 svdir="$HOME/.runit/service"
 exec chpst -u "$USER:$groups" runsvdir "$svdir"
 EOF
+sudo chmod +x /etc/sv/runsvdir-pakin/run
 sudo ln -sf /etc/sv/runsvdir-pakin /var/service
 
 #******************** dwl ********************

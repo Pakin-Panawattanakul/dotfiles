@@ -29,24 +29,24 @@ return {
 					light_grey = "#c4c6cd", -- regular7 / NvimLightGrey3
 
 					red = "#ffc0b9", -- regular1
-					green = "#b4f6c0", -- regular2
+					green = "#b3f6c0", -- regular2
 					yellow = "#fce094", -- regular3
 					blue = "#a6dbff", -- regular4
 					purple = "#ffcaff", -- regular5
 					cyan = "#8cf8f7", -- regular6
 					orange = "#fce094",
 
-					dark_red = "#5e0009",
-					dark_green = "#015825",
-					dark_yellow = "#6e5600",
-					dark_blue = "#005078",
-					dark_purple = "#4c0049",
-					dark_cyan = "#007676",
+					dark_red = "#590008", -- regular1 (light) / NvimDarkRed
+					dark_green = "#005523", -- regular2 (light) / NvimDarkGreen
+					dark_yellow = "#6b5300", -- regular3 (light) / NvimDarkYellow
+					dark_blue = "#004c73", -- regular4 (light) / NvimDarkBlue
+					dark_purple = "#470045", -- regular5 (light) / NvimDarkMagenta
+					dark_cyan = "#007373", -- regular6 (light) / NvimDarkCyan
 
-					diff_add = "#015825",
-					diff_delete = "#5e0009",
-					diff_change = "#005078",
-					diff_text = "#007676",
+					diff_add = "#005523",
+					diff_delete = "#590008",
+					diff_change = "#004c73",
+					diff_text = "#007373",
 				},
 
 				highlights = {
