@@ -1,7 +1,6 @@
 #!/bin/sh
 
-# This script is a simple powermenu for wmenu
-# for sway and i3 but easily extendible to other wm and de
+# This script is a simple powermenu for rofi
 
 # Set lock command and logout command base on desktop
 # wallpaper="/path/to/wallpaper/"
@@ -9,12 +8,12 @@
 lock_cmd="waylock -ignore-empty-password -init-color 0x2c2e33 -input-color 0x005523 -fail-color 0x590008"
 logout_cmd="loginctl terminate-session $XDG_SESSION_ID"
 
-choice=$(printf "󰐥 Shutdown\n󰜉 Reboot\n󰒲 Suspend\n󰍃 Logout\n󰌾 Lock" | rofi -dmenu "$@" -p 'Power Menu')
+choice=$(printf "󰐥  Shutdown\n󰜉  Reboot\n󰒲  Suspend\n󰍃  Logout\n󰌾  Lock" | rofi -dmenu -i "$@" -p 'Power Menu')
 
 case "$choice" in
-    󰌾 Lock) $lock_cmd ;;
-    󰍃 Logout) $logout_cmd ;;
-    󰒲 Suspend) loginctl suspend ;;
-    󰜉 Reboot) loginctl reboot ;;
-    󰐥 Shutdown) loginctl poweroff ;;
+    *Lock) $lock_cmd ;;
+    *Logout) $logout_cmd ;;
+    *Suspend) loginctl suspend ;;
+    *Reboot) loginctl reboot ;;
+    *Shutdown) loginctl poweroff ;;
 esac

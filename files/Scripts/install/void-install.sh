@@ -107,7 +107,7 @@ sudo xbps-install -y libinput libinput-devel wayland wayland-devel wlroots0.19  
   wayland-protocols pkg-config
 sudo xbps-install -y libxcb libxcb-devel xorg-server-xwayland
 # somebar
-sudo xbps-install -y wmenu waylock wbg mako
+sudo xbps-install -y rofi waylock wbg mako
 # bar patches
 sudo xbps-install -y tllist fcft fcft-devel pixman
 

@@ -192,28 +192,22 @@ static const char *mute_vol[] = { "sh", "-c", "wpctl set-mute @DEFAULT_SINK@ tog
 static const char *brightness_up[] = {"sh", "-c", "pkill -RTMIN+3 someblocks", NULL };
 static const char *brightness_down[] = {"sh", "-c","pkill -RTMIN+3 someblocks", NULL };
 static const char *termcmd[] = { "foot", NULL };
-static const char *filemanager[] = { "thunar", NULL};
-static const char *web_browser[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL};
+static const char *filemanager[] = { "thunar", NULL };
+static const char *web_browser[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL };
 static const char *discord[] = { "flatpak", "run", "dev.vencord.Vesktop"};
-static const char *menucmd[] = { "wmenu-drun", "-i", "-p", "run",
-  "-f", "JetBrainsMono Nerd Font 10",
-  "-n", "e0e2ea", "-N", "14161b",
-  "-S", "14161b", "-s", "8cf8f7",
-  "-m", "b3f6c0", "-M", "14161b", NULL };
-static const char *powermenu[] = { "wmenu-powermenu", "-i", "-p", "powermenu",
-  "-f", "JetBrainsMono Nerd Font 10",
-  "-n", "e0e2ea", "-N", "14161b",
-  "-S", "14161b", "-s", "8cf8f7",
-  "-m", "b3f6c0", "-M", "14161b", NULL };
-static const char *screenshot[] = { "wmenu-screenshot", "-i", "-p", "screenshot",
-  "-f", "JetBrainsMono Nerd Font 10",
-  "-n", "e0e2ea", "-N", "14161b",
-  "-S", "14161b", "-s", "8cf8f7",
-  "-m", "b3f6c0", "-M", "14161b", NULL };
-static const char *rmpc[] = { "foot", "--app-id", "rmpc", "-T", "rmpc", "rmpc", NULL};
-static const char *bluetui[] = { "foot", "--app-id", "bluetui", "-T", "bluetui","bluetui", NULL};
-static const char *wiremix[] = { "foot", "--app-id", "wiremix", "-T", "wiremix", "wiremix", NULL};
-static const char *thunderbird[] = {"thunderbird", NULL};
+/*
+static const char *menucmd[] = { "wmenu-drun", "-i", "-l", "5", "-p", "run",
+  "-f", "JetBrainsMono Nerd Font 10", "-S", "005523", "-m", "b3f6c0", "-M", "2c2e33", NULL };
+static const char *powermenu[] = { "wmenu-powermenu", "-l", "5", "-i", "-p", "power",
+  "-f", "JetBrainsMono Nerd Font 10", "-S", "005523", "-m", "b3f6c0", "-M", "2c2e33", NULL };
+*/
+static const char *menucmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
+static const char *powermenu[] = {"rofi-powermenu", NULL };
+static const char *screenshot[] = {"screenshot.sh", NULL };
+static const char *rmpc[] = { "foot", "--app-id", "rmpc", "-T", "rmpc", "rmpc", NULL };
+static const char *bluetui[] = { "foot", "--app-id", "bluetui", "-T", "bluetui","bluetui", NULL };
+static const char *wiremix[] = { "foot", "--app-id", "wiremix", "-T", "wiremix", "wiremix", NULL };
+static const char *thunderbird[] = {"thunderbird", NULL };
 
 #define MEHKEY WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT
 #define MODSHIFT WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT
@@ -253,8 +247,8 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_k,           swapdir,          {.ui = 2} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Down,        swapdir,          {.ui = 3} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_n,           swapdir,          {.ui = 3} },
-	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_n,           incnmaster,       {.i = +1} },
-	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_e,           incnmaster,       {.i = -1} },
+	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_bracketright,incnmaster,       {.i = +1} },
+	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_bracketleft, incnmaster,       {.i = -1} },
 	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_m,           setmfact,         {.f = -0.05f} },
 	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_i,           setmfact,         {.f = +0.05f} },
 	{ MODKEY,                    XKB_KEY_Return,      zoom,             {0} },
