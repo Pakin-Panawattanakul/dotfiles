@@ -11,7 +11,7 @@ ask_install() {
 install_dir="$(pwd)"
 
 # Git config
-git config --global user.email "pakin.pan@proton.me" 
+git config --global user.email "p.panawattanakul@gmail.com" 
 git config --global user.name "Pakin Panawattanakul"
 git config --global pull.rebase true
 git config --global init.defaultBranch main
@@ -41,7 +41,7 @@ rmdir "$HOME/Publics"
 rmdir "$HOME/Videos"
 
 # network
-sudo xbps-install -y NetworkManager  ufw
+sudo xbps-install -y NetworkManager ufw
 sudo xbps-install -y nmap netcat tcpdump
 wireless_setup(){
   sudo xbps-install -y iwd impala
@@ -142,9 +142,6 @@ sudo xbps-install -y topgrade curl wget btop stow jq glxinfo tldr qmk thunderbir
 # Media 
 sudo xbps-install -y  mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
 
-# Nextcloud
-sudo xbps-install -y nextcloud-client kf6-kwallet kwalletmanager
-
 # flatpak
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -227,9 +224,16 @@ sudo xbps-install -y greetd tuigreet
 sudo sed -i 's|^command.*|command = "tuigreet --remember --remember-session --time --power-shutdown '\''loginctl poweroff'\'' --power-reboot '\''loginctl reboot'\''"|' /etc/greetd/config.toml
 sudo sed -i 's|^vt.*|vt = 1|' /etc/greetd/config.toml
 
-# set up kwallet with pam
-sudo sed "/auth       include      system-local-login/a auth       optional     pam_kwallet5.so" -i /etc/pam.d/greetd
-sudo sed "/session    include      system-local-login/a session    optional     pam_kwallet5.so auto_start force_run kwalletd=\/usr\/bin\/ksecretd" -i /etc/pam.d/greetd
-
 sudo ln -sf /etc/sv/greetd/ /var/service
 sudo rm -f /var/service/agetty-tty1 
+
+# cron
+sudo xbps-install -y dcron
+sudo ln -sf /etc/sv/dcron /var/service
+
+# rclone setup
+sudo xbps-install -y rclone
+mkdir -p "$HOME/gdrive"
+rclone config
+rclone mount gdrive: ~/gdrive  
+(crontab -l 2>/dev/null; echo "@reboot rclone mount gdrive: $HOME/gdrive") | crontab -
