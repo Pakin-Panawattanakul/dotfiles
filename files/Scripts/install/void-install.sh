@@ -161,19 +161,13 @@ sudo xbps-install -y kicad iverilog
 
 #https://bugraeren.com/blog/vivado_on_void_linux/
 # --- vivado ---
-# this should be already installed : make unzip zip gcc git libfdisk
-sudo xbps-install -y graphviz 
-# all ncurses compat libs
-# this should be already installed : ncurses ncurses-libs ncurses-base
-sudo xbps-install -y ncurses-libtinfo-libs \
-   ncurses-libs-32bit ncurses-libtinfo-libs-32bit ncurses-term
-sudo xbps-install -y xorg-server-xvfb xvfb-run # xvfb
-sudo xbps-install -y nss libnss-cache # libnss3
-sudo xbps-install -y alsa-lib-32bit # asound2 # alsa-lib : should be already installed 
-sudo xbps-install -y libXScrnSaver libXScrnSaver-32bit # libxss
-sudo xbps-install -y gtk+3 gtk+3-32bit # gtk3
-sudo cp /lib/libtinfo.so.6 /lib/libtinfo.so.5
-sudo cp /lib/libncurses.so.6 /lib/libncurses.so.5
+sudo xbps-install -y graphviz make unzip zip gcc git libfdisk \
+  ncurses ncurses-libs ncurses-base ncurses-libtinfo-libs \
+  ncurses-libs-32bit ncurses-libtinfo-libs-32bit ncurses-term \
+  xorg-server-xvfb xvfb-run nss libnss-cache alsa-lib alsa-lib-32bit \
+  libXScrnSaver libXScrnSaver-32bit gtk+3 gtk+3-32bit
+sudo ln -sf /lib/libtinfo.so.6 /lib/libtinfo.so.5
+sudo ln -sf /lib/libncurses.so.6 /lib/libncurses.so.5
 
 # ZSA keymapp dependency & proton pass
 sudo cp "$install_dir/50-zsa.rules" "/etc/udev/rules.d/50-zsa.rules"
