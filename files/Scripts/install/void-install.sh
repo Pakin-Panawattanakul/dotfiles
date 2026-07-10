@@ -149,7 +149,7 @@ sudo xbps-install -y nextcloud-client kf6-kwallet kwalletmanager
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client \
-  io.gitlab.librewolf-community 
+  io.gitlab.librewolf-community md.obsidian.Obsidian
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
@@ -226,4 +226,10 @@ sudo python3 darkmatter-theme.py --install
 sudo xbps-install -y greetd tuigreet
 sudo sed -i 's|^command.*|command = "tuigreet --remember --remember-session --time --power-shutdown '\''loginctl poweroff'\'' --power-reboot '\''loginctl reboot'\''"|' /etc/greetd/config.toml
 sudo sed -i 's|^vt.*|vt = 1|' /etc/greetd/config.toml
-sudo rm -f /var/service/agetty-tty1 & sudo ln -sf /etc/sv/greetd/ /var/service
+
+# set up kwallet with pam
+sudo sed "/auth       include      system-local-login/a auth       optional     pam_kwallet5.so" -i /etc/pam.d/greetd
+sudo sed "/session    include      system-local-login/a session    optional     pam_kwallet5.so auto_start force_run kwalletd=\/usr\/bin\/ksecretd" -i /etc/pam.d/greetd
+
+sudo ln -sf /etc/sv/greetd/ /var/service
+sudo rm -f /var/service/agetty-tty1 
