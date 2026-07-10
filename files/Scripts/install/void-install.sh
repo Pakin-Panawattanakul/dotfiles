@@ -229,5 +229,3 @@ sudo ln -sf /etc/sv/dcron /var/service
 sudo xbps-install -y rclone
 mkdir -p "$HOME/gdrive"
 rclone config
-rclone mount gdrive: ~/gdrive  
-(crontab -l 2>/dev/null; echo "@reboot rclone mount gdrive: $HOME/gdrive") | crontab -
