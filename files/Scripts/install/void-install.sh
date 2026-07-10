@@ -152,6 +152,8 @@ flatpak override --user --env=GTK_THEME=Orchis-Dark
 
 # game
 sudo xbps-install -y steam libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit libva-32bit gamemode gamescope
+sudo sed -i "/#@student        hard    nproc           20/a *               hard    nofile             524288" /etc/security/limits.conf 
+echo "vm.max_map_count=1048576" | sudo tee -a /etc/sysctl.conf
 
 # virtualization
 sudo xbps-install -y virtualbox-ose
@@ -221,11 +223,14 @@ sudo sed -i 's|^vt.*|vt = 1|' /etc/greetd/config.toml
 sudo ln -sf /etc/sv/greetd/ /var/service
 sudo rm -f /var/service/agetty-tty1 
 
+# Boox compatibility
+sudo xbps-install -y jmtpfs android-tools
+
 # cron
 sudo xbps-install -y dcron
 sudo ln -sf /etc/sv/dcron /var/service
 
 # rclone setup
-sudo xbps-install -y rclone
+sudo xbps-install -y rclone fuse3
 mkdir -p "$HOME/gdrive"
 rclone config
