@@ -233,4 +233,4 @@ sudo ln -sf /etc/sv/dcron /var/service
 # rclone setup
 sudo xbps-install -y rclone fuse3
 mkdir -p "$HOME/gdrive"
-rclone config
+# rclone config # can not run this without browser
