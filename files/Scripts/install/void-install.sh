@@ -142,11 +142,14 @@ sudo xbps-install -y topgrade curl wget btop stow jq glxinfo tldr qmk thunderbir
 # Media 
 sudo xbps-install -y  mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
 
+# Nextcloud
+sudo xbps-install -y nextcloud-client kf6-kwallet kwalletmanager
+
 # flatpak
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client \
-  io.gitlab.librewolf-community com.nextcloud.desktopclient.nextcloud
+  io.gitlab.librewolf-community 
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
