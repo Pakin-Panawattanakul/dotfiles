@@ -20,7 +20,12 @@ return {
 					},
 				},
 			},
-			pickers = {},
+			pickers = {
+        find_files = {
+          no_ignore = true,
+          follow = true,
+        },
+      },
 			extensions = {
 				["ui-select"] = { require("telescope.themes").get_dropdown() },
 			},
