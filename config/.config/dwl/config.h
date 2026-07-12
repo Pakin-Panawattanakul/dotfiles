@@ -193,7 +193,7 @@ static const char *brightness_up[] = {"sh", "-c", "pkill -RTMIN+3 someblocks", N
 static const char *brightness_down[] = {"sh", "-c","pkill -RTMIN+3 someblocks", NULL };
 static const char *termcmd[] = { "foot", NULL };
 static const char *filemanager[] = { "thunar", NULL };
-static const char *web_browser[] = { "flatpak", "run", "io.gitlab.librewolf-community", NULL };
+static const char *web_browser[] = { "firefox", NULL };
 static const char *discord[] = { "flatpak", "run", "dev.vencord.Vesktop"};
 /*
 static const char *menucmd[] = { "wmenu-drun", "-i", "-l", "5", "-p", "run",
