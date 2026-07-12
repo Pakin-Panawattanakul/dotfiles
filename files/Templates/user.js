@@ -231,7 +231,24 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling overrides below this line:
 
+/****************************************************************************
+ * SECTION:  CUSTOM  OVERRIDE                                                     *
+****************************************************************************/
 
+// Disable saving logins/passwords
+user_pref("signon.rememberSignons", false);
+
+// Disable the built-in password manager prompt entirely (optional, stronger)
+user_pref("signon.autofillForms", false);
+
+// Disable payment method / credit card autofill & saving
+user_pref("extensions.formautofill.creditCards.enabled", false);
+user_pref("extensions.formautofill.creditCards.available", false);
+
+// Set default search engine to DuckDuckGo
+user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
+user_pref("browser.search.defaultenginename", "DuckDuckGo");
+user_pref("browser.search.selectedEngine", "DuckDuckGo");
 
 /****************************************************************************
  * END: BETTERFOX                                                           *

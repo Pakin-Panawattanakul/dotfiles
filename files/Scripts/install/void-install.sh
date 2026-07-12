@@ -140,13 +140,12 @@ sudo xbps-install -y neovim tree-sitter tree-sitter-cli nodejs luarocks xxd
 sudo xbps-install -y topgrade curl wget btop stow jq glxinfo tldr qmk thunderbird libreoffice libreoffice-i18n-th void-docs-browse Solaar
 
 # Media 
-sudo xbps-install -y  mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
+sudo xbps-install -y  firefox mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathura-pdf-mupdf
 
 # flatpak
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client \
-  io.gitlab.librewolf-community md.obsidian.Obsidian
+flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
@@ -224,7 +223,7 @@ sudo ln -sf /etc/sv/greetd/ /var/service
 sudo rm -f /var/service/agetty-tty1 
 
 # Boox compatibility
-sudo xbps-install -y jmtpfs android-tools
+sudo xbps-install -y jmtpfs android-tools syncthing syncthing-gtk
 
 # cron
 sudo xbps-install -y dcron
