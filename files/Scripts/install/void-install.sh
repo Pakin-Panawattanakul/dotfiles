@@ -145,7 +145,7 @@ sudo xbps-install -y  firefox mpd mpc rmpc cava mpv yt-dlp udiskie zathura zathu
 # flatpak
 sudo xbps-install -y flatpak
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install --user --assumeyes dev.vencord.Vesktop me.proton.Pass com.spotify.Client
+flatpak install --user --assumeyes dev.vencord.Vesktop com.spotify.Client com.bitwarden.desktop
 flatpak override --user --filesystem="$HOME/.themes"
 flatpak override --user --env=GTK_THEME=Orchis-Dark
 
@@ -180,7 +180,7 @@ sudo usermod -aG plugdev $USER
 
 install_nvidia(){
   sudo xbps-install -y mesa-dri nvidia  nvidia-libs-32bit
-  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 loglevel=3 nvidia.NVreg_UseKernelSuspendNotifiers=1 nvidia.NVreg_TemporaryFilePath=/var/tmp/"' /etc/default/grub
+  sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 nvidia.NVreg_UseKernelSuspendNotifiers=1 nvidia.NVreg_TemporaryFilePath=/var/tmp/"' /etc/default/grub
 }
 
 install_intel(){
