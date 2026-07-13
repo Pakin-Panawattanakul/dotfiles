@@ -1,9 +1,9 @@
 #!/bin/sh
 mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.config/mpd/playlists"
 mkdir -p "$HOME/.local/bin"
 mkdir -p "$HOME/.local/share/applications"
 mkdir -p "$HOME/.local/share/icons"
-mkdir -p "$HOME/.local/share/mpd/playlists/"
 mkdir -p "$HOME/.local/share/fonts"
 mkdir -p "$HOME/.local/share/keymapp"
 mkdir -p "$HOME/.local/share/rofi"

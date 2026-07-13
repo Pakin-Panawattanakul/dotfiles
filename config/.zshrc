@@ -78,6 +78,9 @@ alias ll='ls -al'
 alias dot='cd ~/.dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias lg=lazygit
+plc() {
+    fd ".flac$" "$1" > "$HOME/.config/mpd/playlists/$1.m3u"
+}
 
 # void linux
 alias xqr='xbps-query -Rs'
