@@ -2,7 +2,7 @@
 
 $HOME/Scripts/random-wallpaper.sh &
 $HOME/Scripts/low_battery.sh &
-brightnessctl set 50%
+brightnessctl set 20%
 pkill -x mako
 mako &
 if [ "$HOST" = "void-linux" ]; then
