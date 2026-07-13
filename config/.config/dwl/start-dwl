@@ -15,4 +15,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=wlroots
 
-exec dbus-run-session -- sh -c '/usr/local/bin/someblocks -p 2>/dev/null | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh" > /tmp/dwl.log'
+# keep log from dwl
+exec dbus-run-session -- sh -c '/usr/local/bin/someblocks -p 2>/dev/null | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh > /dev/null 2>&1" > /dwl.log'
+# mute everything
+#exec dbus-run-session -- sh -c '/usr/local/bin/someblocks -p | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh "' > /dev/null 2>&1
