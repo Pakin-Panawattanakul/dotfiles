@@ -1,10 +1,19 @@
 /*  My patches
+ *  alwayscenter
+ *  attatchbottom
+ *  bar-notitle
+ *  bar
+ *  barborder
+ *  barcolors
+ *  barpadding
+ *  customfloat
+ *  follow
+ *  genericaps
+ *  kblayout
+ *  nextlayout
+ *  perinputconfig-keyboard
  *  swapandfocusdir
  *  warpcursor
- *  attatchbottom
- *  autostart
- *  custom float
- *  perinputconfig
  */
 /* Taken from https://github.com/djpohly/dwl/issues/466 */
 #define COLOR(hex)    { ((hex >> 24) & 0xFF) / 255.0f, \
@@ -49,20 +58,6 @@ static char *tags[] = { "1", "2", "3", "4", "5", "6", "", "", "󰇮"};
 
 /* logging */
 static int log_level = WLR_ERROR;
-
-/* Autostart */
-static const char *const autostart[] = {
-  /*
-        "/home/pakin/.local/bin/pipewire.sh", NULL,
-        "/home/pakin/.local/bin/mpd.sh", NULL,
-        "mako", NULL,
-        "/home/pakin/Scripts/low_battery.sh", NULL,
-        "wbg", "/home/pakin/Pictures/wallpapers/void/wallhaven-o3kzqp.png", NULL,
-        //"wbg", "/home/pakin/Pictures/wallpapers/astronaut.png", NULL,
-        "dbus-update-activation-environment", "DISPLAY", "WAYLAND_DISPLAY", "XDG_CURRENT_DESKTOP=wlroots", NULL,
-  */
-        NULL /* terminate */
-};
 
 /* Window rules */
 static const Rule rules[] = {
