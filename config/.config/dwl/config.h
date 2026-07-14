@@ -172,13 +172,13 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *up_vol[]   = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 5%+; pkill -RTMIN+3 someblocks", NULL };
-static const char *down_vol[] = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 5%-; pkill -RTMIN+3 someblocks",   NULL };
-static const char *mute_vol[] = { "sh", "-c", "wpctl set-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+3 someblocks", NULL };
+static const char *up_vol[]   = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 5%+; pkill -RTMIN+4 someblocks", NULL };
+static const char *down_vol[] = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 5%-; pkill -RTMIN+4 someblocks",   NULL };
+static const char *mute_vol[] = { "sh", "-c", "wpctl set-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+4 someblocks", NULL };
 // for some resason even without this there are default +-5% build in
 // sending signal to someblocks
-static const char *brightness_up[] = {"sh", "-c", "brightnessctl set +10%;pkill -RTMIN+3 someblocks", NULL };
-static const char *brightness_down[] = {"sh", "-c","brightnessctl set 10%-;pkill -RTMIN+3 someblocks", NULL };
+static const char *brightness_up[] = {"sh", "-c", "brightnessctl set +10%;pkill -RTMIN+4 someblocks", NULL };
+static const char *brightness_down[] = {"sh", "-c","brightnessctl set 10%-;pkill -RTMIN+4 someblocks", NULL };
 static const char *termcmd[] = { "foot", NULL };
 static const char *filemanager[] = { "thunar", NULL };
 static const char *web_browser[] = { "firefox", NULL };
