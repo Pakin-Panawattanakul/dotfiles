@@ -243,6 +243,9 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("security.webauth.webauthn", false);
 // PREF: ask where to save every file
 user_pref("browser.download.useDownloadDir", false);
+
+// Enable search suggestion
+user_pref("browser.search.suggest.enabled", false);
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
