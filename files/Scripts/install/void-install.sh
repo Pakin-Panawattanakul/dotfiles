@@ -233,3 +233,6 @@ sudo ln -sf /etc/sv/dcron /var/service
 sudo xbps-install -y rclone fuse3
 mkdir -p "$HOME/gdrive"
 # rclone config # can not run this without browser
+
+# for my thinkpad T480
+# sudo xbps-install -y intel-undervolt
