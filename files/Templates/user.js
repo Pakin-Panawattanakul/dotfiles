@@ -245,7 +245,7 @@ user_pref("security.webauth.webauthn", false);
 user_pref("browser.download.useDownloadDir", false);
 
 // Enable search suggestion
-user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.search.suggest.enabled", true);
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
