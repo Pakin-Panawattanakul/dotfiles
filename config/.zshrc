@@ -85,3 +85,6 @@ plc() {
 # void linux
 alias xqr='xbps-query -Rs'
 export SVDIR="$HOME/.runit/service"
+
+# opencode
+export PATH=/home/pakin/.opencode/bin:$PATH
