@@ -75,7 +75,7 @@ alias psg='ps aux | bat -l conf | grep $@'
 alias grep='grep --color'
 alias f=fastfetch
 alias ll='ls -al'
-alias dot='cd ~/.dotfiles && ls -al'
+alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias lg=lazygit
 plc() {

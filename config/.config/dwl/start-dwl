@@ -10,12 +10,13 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export MOZ_ENABLE_WAYLAND=1
 export PROTON_ENABLE_WAYLAND=1
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export INIT_UNIX_BACKEND=x11
 
 # dwl
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=wlroots
 
 # keep log from dwl
-# exec dbus-run-session -- sh -c '/usr/local/bin/someblocks -p 2>/dev/null | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh > /dev/null 2>&1" > /tmp/dwl.log'
+exec dbus-run-session -- sh -c '/usr/local/bin/someblocks 2>/dev/null -p | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh"'
 # mute everything
-exec dbus-run-session -- sh -c '/usr/local/bin/someblocks -p | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh "' > /dev/null 2>&1
+#exec dbus-run-session -- sh -c '/usr/local/bin/someblocks -p | /usr/local/bin/dwl -s "$HOME/.config/dwl/dwl-autostart.sh "' > /dev/null 2>&1

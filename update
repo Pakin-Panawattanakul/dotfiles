@@ -19,12 +19,12 @@ mkdir -p "$HOME/.local/state/mpd"
 touch "$HOME/.local/state/mpd/state"
 touch "$HOME/.config/mpd/database"
 # dwl
-ln -sf "$HOME/.config/dwl/config.h" "$HOME/.dotfiles/build/dwl/"
-ln -sf "$HOME/.config/dwl/blocks.h" "$HOME/.dotfiles/build/someblocks/"
+ln -sf "$HOME/.config/dwl/config.h" "$HOME/dotfiles/build/dwl/"
+ln -sf "$HOME/.config/dwl/blocks.h" "$HOME/dotfiles/build/someblocks/"
 ln -sf "$HOME/.config/dwl/start-dwl" "$HOME/.local/bin/"
 
-cd "$HOME/.dotfiles/build/dwl"
+cd "$HOME/dotfiles/build/dwl"
 sudo make clean install
 
-cd "$HOME/.dotfiles/build/someblocks"
+cd "$HOME/dotfiles/build/someblocks"
 sudo make clean install

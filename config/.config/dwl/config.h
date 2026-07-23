@@ -107,7 +107,7 @@ static const KeyboardRule kbrules[] = {
 	*/
 	{ "ZSA Technology Labs Voyager", NULL, NULL, "us",    NULL,   NULL },
 	{ "Cradio Keyboard", NULL, NULL, "us",    NULL,   NULL },
-  { NULL, NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl"},
+  { NULL, NULL,NULL, "us,th,us", ",,colemak_dh" , "grp:win_space_toggle"},
   // { NULL, NULL,NULL, "us,th", NULL , "grp:win_space_toggle"},
 	//{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
