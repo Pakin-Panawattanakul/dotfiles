@@ -72,10 +72,6 @@ mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
 ln -sf /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 ln -sf /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 
-# rtkit
-sudo xbps-install -y rtkit
-sudo ln -sf /etc/sv/rtkit /var/service
-
 # ntp
 sudo xbps-install -y openntpd
 sudo ln -sf /etc/sv/openntpd /var/service
