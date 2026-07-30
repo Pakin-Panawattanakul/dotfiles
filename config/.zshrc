@@ -1,10 +1,13 @@
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+
+# comment out for nixos 
+#export ZSH="$HOME/.oh-my-zsh"
+#source $ZSH/oh-my-zsh.sh
+#plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
+
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="false"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # auto suggestion color
@@ -86,5 +89,5 @@ plc() {
 alias xqr='xbps-query -Rs'
 export SVDIR="$HOME/.runit/service"
 
-# opencode
-export PATH=/home/pakin/.opencode/bin:$PATH
+#nixos
+alias rebuild="sudo nixos-rebuild switch --flake ~/dotfiles/nixos#nixos-T480"
