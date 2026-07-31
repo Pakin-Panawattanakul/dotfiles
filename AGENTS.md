@@ -1,5 +1,9 @@
 # AGENTS.md — Pakin's dotfiles (NixOS)
 
+**Always ask for confirmation before making any changes.**
+
+## Rebuild
+
 ## Rebuild
 
 ```sh

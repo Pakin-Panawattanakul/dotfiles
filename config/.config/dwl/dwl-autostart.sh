@@ -12,5 +12,7 @@ elif [ "$HOST" = "void-linux" ]; then
 fi
 
 gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
-"$HOME"/Scripts/runit-user-service.sh
+if grep -qi "void" /etc/os-release 2>/dev/null; then
+  "$HOME"/Scripts/runit-user-service.sh
+fi
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots

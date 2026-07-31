@@ -6,7 +6,7 @@ return {
 			"pyright",
 			"stylua",
 			"rust_analyzer",
-			"verible",
+      "verible",
       "clangd",
 		},
 		automatic_enable = {

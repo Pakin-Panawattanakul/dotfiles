@@ -1,100 +1,104 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    ./modules/homeFile.nix
-    ./modules/xdgConfig.nix
-    ./modules/theme.nix
-  ];
-
   home.username = "pakin";
   home.homeDirectory = "/home/pakin";
   home.stateVersion = "26.05";
 
-  programs = {
-    zsh = {
-      enable = true;
-      oh-my-zsh = {
-        enable = true;
-        plugins = [
-          "git"
-        ];
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "Pakin Panawattanakul";
+        email = "p.panawattanakul@gmail.com";
       };
-      autosuggestion = {
-        enable = true;
-        highlight = "fg=7";
-      };
-      syntaxHighlighting.enable = true;
-      initContent = ''
-        source /home/pakin/dotfiles/config/.zshrc
-      '';
-      envExtra = ''
-        source /home/pakin/dotfiles/config/.zshenv
-      '';
-      profileExtra = ''
-        source /home/pakin/dotfiles/config/.zprofile
-      '';
+      pull.rebase = true;
+      init.defaultBranch = "main";
+      submodule.recurse = true;
+      credential.helper = "libsecret";
     };
-
-    git = {
-      enable = true;
-      settings = {
-        user = {
-          name = "Pakin Panawattanakul";
-          email = "p.panawattanakul@gmail.com";
-        };
-        pull.rebase = true;
-        init.defaultBranch = "main";
-        submodule.recurse = true;
-      };
-      lfs.enable = true;
-    };
-
-    foot.enable = true;
+    package = pkgs.git.override { withLibsecret = true; };
+    lfs.enable = true;
   };
 
+  programs.firefox.enable = true;
+
+  services.mako = {
+    enable = true;
+    settings = {
+
+      font = "JetBrainsMonoNerdFont Regular 12";
+      background-color = "#14161bff";
+      text-color = "#e0e2ea";
+      border-color = "#b3f6c0ff";
+      border-radius = 4;
+      border-size = 1;
+      default-timeout = 5000;
+      max-icon-size = 48;
+      icon-path = "/etc/profiles/per-user/pakin/share/icons/Papirus-Dark";
+    };
+  };
+  # services
+  services.gnome-keyring.enable = true;
+  #xdg.portal.enable = true; # enable mango automatically enable xdg-desktop-portal
+
+  # google drive rclone
+  systemd.user.tmpfiles.rules = [
+    "d /home/pakin/gdrive 0755 pakin users -"
+  ];
+
+  systemd.user.services.rclone-gdrive = {
+    Unit = {
+      Description = "Mount Google Drive via rclone";
+      After = [ "network-online.target" ];
+      Wants = [ "network-online.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = ''
+        ${pkgs.rclone}/bin/rclone mount gdrive: /home/pakin/gdrive \
+          --vfs-cache-mode full \
+          --vfs-cache-max-size 50G \
+          --buffer-size 1G \
+          --vfs-read-ahead 512M
+      '';
+      Restart = "no";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
+  # packages
   home.packages = with pkgs; [
-    # neovim
-    neovim
-    ripgrep
-    fd
-    nodejs
-    rustc
-    cargo
-    gcc
-    python3
-    tree-sitter
-    unzip
-    gnumake
     #dev
     gdb
-    jq
+    #jq # do i need this?
+    rclone
+    fuse3
 
+    # wayland
     rofi
     waybar
+    waylock
     wbg
     wl-clipboard
     grim
     slurp
     wlr-randr
     wdisplays
+    gammastep
+    wl-mirror
+    libnotify
 
-    eza
-    zoxide
-    fzf
-    yazi
-    starship
-    lazygit
-    fastfetch
-    bat
-
+    # desktop utils
     bluetui
     wiremix
     brightnessctl
     btop
+    aria2
+    qalculate-gtk
 
-    libreoffice
-    thunderbird
-
+    # Media
     zathura
     mpc
     rmpc
@@ -105,10 +109,26 @@
     vesktop
     spotify
     opencode
+    libreoffice
+    thunderbird
+
+    wev
+    bitwarden-desktop
+    #gnome keyring
+    gcr
+    seahorse
   ];
 
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
   };
+
+  imports = [
+    ./modules/configSymlink.nix
+    ./modules/theme.nix
+    ./modules/neovim.nix
+    ./modules/mpd.nix
+    ./modules/terminal.nix
+  ];
 }

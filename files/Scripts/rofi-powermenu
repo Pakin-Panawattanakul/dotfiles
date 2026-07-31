@@ -1,6 +1,15 @@
 #!/bin/sh
 
-# This script is a simple powermenu for rofi
+# Detect distro for power commands
+if grep -qi "nixos" /etc/os-release 2>/dev/null; then
+    poweroff_cmd="systemctl poweroff"
+    reboot_cmd="systemctl reboot"
+    suspend_cmd="systemctl suspend"
+else
+    poweroff_cmd="loginctl poweroff"
+    reboot_cmd="loginctl reboot"
+    suspend_cmd="loginctl suspend"
+fi
 
 # Set lock command and logout command base on desktop
 # wallpaper="/path/to/wallpaper/"
@@ -13,7 +22,7 @@ choice=$(printf "󰐥  Shutdown\n󰜉  Reboot\n󰒲  Suspend\n󰍃  Logout\n󰌾
 case "$choice" in
     *Lock) $lock_cmd ;;
     *Logout) $logout_cmd ;;
-    *Suspend) loginctl suspend ;;
-    *Reboot) loginctl reboot ;;
-    *Shutdown) loginctl poweroff ;;
+    *Suspend) $suspend_cmd ;;
+    *Reboot) $reboot_cmd ;;
+    *Shutdown) $poweroff_cmd ;;
 esac
