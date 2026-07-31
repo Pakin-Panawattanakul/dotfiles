@@ -69,6 +69,64 @@
     enable = true;
     profiles.default = {
       extraConfig = builtins.readFile ../files/Templates/user.js;
+      search = {
+        force          = true;
+        default        = "ddg";
+        privateDefault = "ddg";
+
+        engines = {
+          "Nix Packages" = {
+            urls = [{
+              template = "https://search.nixos.org/packages";
+              params = [
+                { name = "channel"; value = "unstable"; }
+                { name = "query";   value = "{searchTerms}"; }
+              ];
+            }];
+            icon           = ./Icons/nix-packages.svg;
+            definedAliases = [ "np" ];
+          };
+
+          "Nix Options" = {
+            urls = [{
+              template = "https://search.nixos.org/options";
+              params = [
+                { name = "channel"; value = "unstable"; }
+                { name = "query";   value = "{searchTerms}"; }
+              ];
+            }];
+            icon           = ./Icons/nix-options.svg;
+            definedAliases = [ "no" ];
+          };
+
+          "NixOS Wiki" = {
+            urls = [{
+              template = "https://wiki.nixos.org/w/index.php";
+              params   = [ { name = "search"; value = "{searchTerms}"; } ];
+            }];
+            icon           = ./Icons/nix-wiki.svg;
+            definedAliases = [ "nw" ];
+          };
+
+          "MyNixOS" = {
+            urls            = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
+            icon            = ./Icons/mynixos.svg;
+            definedAliases  = [ "mn" ];
+          };
+
+          "Arch Wiki" = {
+            urls           = [{ template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; }];
+            icon           = ./Icons/arch_wiki.svg;
+            definedAliases = [ "aw" ];
+          };
+
+          youtube = {
+            urls           = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
+            icon           = ./Icons/youtube.svg;
+            definedAliases = [ "yt" ];
+          };
+        };
+      };
     };
   };
 
