@@ -5,6 +5,9 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
+  programs.steam.remotePlay.openFirewall = true;
+  programs.gamemode.enable = true;
+
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
