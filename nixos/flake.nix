@@ -35,12 +35,12 @@
             }
           ];
         };
-        nixos-desktop = nixpkgs.lib.nixosSystem {
+        nixos-home= nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./configuration.nix
-            ./hosts/desktop/hardware-configuration.nix
-            ./host/desktop/desktop.nix
+            ./hosts/home/hardware-configuration.nix
+            ./hosts/home/home.nix
             home-manager.nixosModules.home-manager
             {
               home-manager = {

@@ -20,7 +20,7 @@
     lfs.enable = true;
   };
 
-  programs.firefox.enable = true;
+  programs.librewolf.enable = true;
 
   services.mako = {
     enable = true;
