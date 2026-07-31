@@ -75,7 +75,6 @@
   # packages
   home.packages = with pkgs; [
     #dev
-    librewolf
     gdb
     #jq # do i need this?
     rclone
