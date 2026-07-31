@@ -56,7 +56,9 @@
 
   # wayland compositor
   hardware.graphics.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
+  security.pam.services.ly.enableGnomeKeyring = true;
   programs.mango.enable = true;
 
   programs.zsh.enable = true;

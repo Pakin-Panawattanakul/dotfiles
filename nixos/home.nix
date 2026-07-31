@@ -38,7 +38,6 @@
     };
   };
   # services
-  services.gnome-keyring.enable = true;
   #xdg.portal.enable = true; # enable mango automatically enable xdg-desktop-portal
 
   # google drive rclone
@@ -115,7 +114,6 @@
     wev
     bitwarden-desktop
     #gnome keyring
-    gcr
     seahorse
   ];
 
