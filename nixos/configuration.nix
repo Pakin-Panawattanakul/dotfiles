@@ -87,6 +87,10 @@
     #noto-fonts-cjk
   ];
 
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2
+  '';
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
