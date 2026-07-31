@@ -20,8 +20,6 @@
     lfs.enable = true;
   };
 
-  programs.librewolf.enable = true;
-
   services.mako = {
     enable = true;
     settings = {
@@ -67,9 +65,17 @@
     };
   };
 
+  programs.firefox = {
+    enable = true;
+    profiles.default = {
+      extraConfig = builtins.readFile ../files/Templates/user.js;
+    };
+  };
+
   # packages
   home.packages = with pkgs; [
     #dev
+    librewolf
     gdb
     #jq # do i need this?
     rclone

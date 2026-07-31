@@ -61,6 +61,7 @@
   security.pam.services.ly.enableGnomeKeyring = true;
   programs.mango.enable = true;
 
+  users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
   users.users.pakin.shell = pkgs.zsh;
 
