@@ -10,6 +10,7 @@ let
     "rmpc"
     "rofi"
     "yazi"
+    "starship.toml"
   ];
   xdgConfigSymlink = name: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/.config/${name}";
 
