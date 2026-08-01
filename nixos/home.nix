@@ -159,6 +159,7 @@
     btop
     aria2
     qalculate-gtk
+    gimp
 
     # Media
     zathura

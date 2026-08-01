@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
@@ -42,9 +43,6 @@
   programs.dconf.enable = true;
   programs.nix-ld.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pakin = {
     isNormalUser = true;
@@ -59,7 +57,8 @@
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
-  programs.mango.enable = true;
+  programs.mangowc.enable = true;
+  programs.mangowc.package = pkgs-unstable.mango;
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
@@ -79,7 +78,10 @@
   environment.systemPackages = with pkgs; [
     vim
     curl
+    solaar
   ];
+
+  #hardware.logitech.wireless.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -91,6 +93,10 @@
     options hid_apple fnmode=2
   '';
 
+  # for vesktop
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -114,4 +120,8 @@
   #         ];
   #       });
   # };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  #services.libinput.enable = true;
+
 }

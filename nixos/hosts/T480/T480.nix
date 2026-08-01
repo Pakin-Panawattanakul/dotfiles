@@ -24,4 +24,10 @@
       STOP_CHARGE_THRESH_BAT1 = 50;
     };
   };
+
+  networking.networkmanager.wifi.backend = "iwd";
+  environment.systemPackages = with pkgs; [
+    impala
+    iwd
+  ];
 }
