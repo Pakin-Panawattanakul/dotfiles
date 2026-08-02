@@ -2,9 +2,10 @@
 
   #services.upower.enable = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
-
   programs.gamemode.enable = true;
+
+  services.xserver.videoDrivers = ["nvidia"];
+  boot.kernelParams = [ "nvidia.NVreg_TemporaryFilePath=/var/tmp" ];
 
   hardware.nvidia = {
     modesetting.enable = true;

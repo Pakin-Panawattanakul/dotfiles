@@ -1,6 +1,5 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   config,
   lib,
@@ -8,7 +7,6 @@
   pkgs-unstable,
   ...
 }:
-
 {
   # allow unfree software
   nixpkgs.config.allowUnfree = true;
@@ -57,8 +55,8 @@
   hardware.graphics.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
-  security.pam.services.ly.enableGnomeKeyring = true;
-  services.desktopManager.plasma6.enable = true;
+  #security.pam.services.ly.enableGnomeKeyring = true;
+  #services.desktopManager.plasma6.enable = true;
   programs.mangowc.enable = true;
   programs.mangowc.package = pkgs-unstable.mango;
 
@@ -99,6 +97,13 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-39.8.10"
   ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -108,20 +113,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  programs.dwl = {
-    enable = true;
-    package =
-      (pkgs.dwl.override {
-        configH = ../config/.config/dwl/config.h;
-      }).overrideAttrs
-        (oldAttrs: {
-          src = ../build/dwl;
-          buildInputs = oldAttrs.buildInputs or [ ] ++ [
-            pkgs.fcft
-            pkgs.libdrm
-          ];
-        });
-  };
   # Enable touchpad support (enabled default in most desktopManager).
   #services.libinput.enable = true;
 
