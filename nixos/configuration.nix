@@ -97,6 +97,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-39.8.10"
   ];
+  hardware.logitech.wireless.enable = true;
 
   nix.gc = {
     automatic = true;
