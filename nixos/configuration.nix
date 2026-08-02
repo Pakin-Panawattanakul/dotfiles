@@ -58,6 +58,7 @@
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
+  services.desktopManager.plasma6.enable = true;
   programs.mangowc.enable = true;
   programs.mangowc.package = pkgs-unstable.mango;
 
@@ -107,21 +108,20 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # programs.dwl = {
-  #   enable = true;
-  #   package =
-  #     (pkgs.dwl.override {
-  #       configH = ../config/.config/dwl/config.h;
-  #     }).overrideAttrs
-  #       (oldAttrs: {
-  #         src = ../build/dwl;
-  #         buildInputs = oldAttrs.buildInputs or [ ] ++ [
-  #           pkgs.fcft
-  #           pkgs.libdrm
-  #         ];
-  #       });
-  # };
-
+  programs.dwl = {
+    enable = true;
+    package =
+      (pkgs.dwl.override {
+        configH = ../config/.config/dwl/config.h;
+      }).overrideAttrs
+        (oldAttrs: {
+          src = ../build/dwl;
+          buildInputs = oldAttrs.buildInputs or [ ] ++ [
+            pkgs.fcft
+            pkgs.libdrm
+          ];
+        });
+  };
   # Enable touchpad support (enabled default in most desktopManager).
   #services.libinput.enable = true;
 

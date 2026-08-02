@@ -20,6 +20,7 @@
     lfs.enable = true;
   };
 
+  # conflicts with plasma6's notification system
   services.mako = {
     enable = true;
     settings = {
@@ -188,7 +189,7 @@
 
   imports = [
     ./home-modules/configSymlink.nix
-    ./home-modules/theme.nix
+    # ./home-modules/theme.nix # forces qt platformtheme=gtk3, conflicts with plasma6
     ./home-modules/neovim.nix
     ./home-modules/mpd.nix
     ./home-modules/terminal.nix

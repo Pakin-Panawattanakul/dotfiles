@@ -17,5 +17,5 @@ export SWAY_ROFI_SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots"
 export PATH="$HOME/.local/bin:$HOME/Scripts:$PATH"
 
 # qt theme
-export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_QPA_PLATFORMTHEME=qt6ct # dont use on nixos
 
