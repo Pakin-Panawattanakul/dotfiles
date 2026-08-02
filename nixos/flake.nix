@@ -22,8 +22,8 @@
           specialArgs = { inherit pkgs-unstable; };
           modules = [
             ./configuration.nix
-            ./hosts/T480/hardware-configuration.nix
-            ./hosts/T480/T480.nix
+            ./modules/battery.nix
+            ./hardware-configurations/hardware-configuration-T480.nix
             { networking.hostName = "nixos-T480";} 
             home-manager.nixosModules.home-manager
             {
@@ -41,8 +41,8 @@
           specialArgs = { inherit pkgs-unstable; };
           modules = [
             ./configuration.nix
-            ./hosts/home/hardware-configuration.nix
-            ./hosts/home/home.nix
+            ./modules/nvidia.nix
+            ./hardware-configurations/hardware-configuration-home.nix
             { networking.hostName = "nixos-home";} 
             home-manager.nixosModules.home-manager
             {

@@ -187,10 +187,10 @@
   };
 
   imports = [
-    ./modules/configSymlink.nix
-    ./modules/theme.nix
-    ./modules/neovim.nix
-    ./modules/mpd.nix
-    ./modules/terminal.nix
+    ./home-modules/configSymlink.nix
+    ./home-modules/theme.nix
+    ./home-modules/neovim.nix
+    ./home-modules/mpd.nix
+    ./home-modules/terminal.nix
   ];
 }
