@@ -19,10 +19,12 @@
       nixosConfigurations = {
         nixos-T480 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit pkgs-unstable; };
           modules = [
             ./configuration.nix
             ./hosts/T480/hardware-configuration.nix
             ./hosts/T480/T480.nix
+            { networking.hostName = "nixos-T480";} 
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -41,6 +43,7 @@
             ./configuration.nix
             ./hosts/home/hardware-configuration.nix
             ./hosts/home/home.nix
+            { networking.hostName = "nixos-home";} 
             home-manager.nixosModules.home-manager
             {
               home-manager = {

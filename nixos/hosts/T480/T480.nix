@@ -1,7 +1,5 @@
 { config, pkgs, ... }: {
 
-  networking.hostName = "nixos-T480"; # Define your hostname.
-
   services.upower.enable = true;
   services.tlp = {
     enable = true;
@@ -24,10 +22,5 @@
       STOP_CHARGE_THRESH_BAT1 = 50;
     };
   };
-
-  networking.networkmanager.wifi.backend = "iwd";
-  environment.systemPackages = with pkgs; [
-    impala
-    iwd
-  ];
 }
+

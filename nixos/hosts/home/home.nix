@@ -1,11 +1,9 @@
 { config, pkgs, ... }: {
 
-  networking.hostName = "nixos-home"; # Define your hostname.
   #services.upower.enable = true;
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  programs.steam.remotePlay.openFirewall = true;
   programs.gamemode.enable = true;
 
   hardware.nvidia = {

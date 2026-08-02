@@ -38,6 +38,7 @@
   };
 
   programs.steam.enable = true;
+  programs.steam.remotePlay.openFirewall = true;
 
   # for setting theme
   programs.dconf.enable = true;
