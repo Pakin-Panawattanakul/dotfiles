@@ -11,7 +11,6 @@
 
   imports = [
     ./modules/dwl.nix
-    ./hardware-configurations/external-media.nix
   ];
 
   # allow unfree software

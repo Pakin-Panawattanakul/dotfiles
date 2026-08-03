@@ -113,8 +113,6 @@
     opencode
     libreoffice
     thunderbird
-    z-library-desktop
-    calibre
 
     wev
     bitwarden-desktop

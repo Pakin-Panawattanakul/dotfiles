@@ -27,9 +27,10 @@
           system = "x86_64-linux";
           specialArgs = { inherit pkgs-unstable; };
           modules = [
+            ./hardware-configurations/hardware-configuration-T480.nix
             ./configuration.nix
             ./modules/battery.nix
-            ./hardware-configurations/hardware-configuration-T480.nix
+            ./packages/nixos-T480.nix
             { networking.hostName = "nixos-T480"; }
             home-manager.nixosModules.home-manager
             {
@@ -46,10 +47,10 @@
           system = "x86_64-linux";
           specialArgs = { inherit pkgs-unstable; };
           modules = [
+            ./hardware-configurations/hardware-configuration-home.nix
             ./configuration.nix
             ./modules/nvidia.nix
-            ./hardware-configurations/hardware-configuration-home.nix
-            { services.desktopManager.plasma6.enable = true; }
+            ./packages/nixos-home.nix
             { networking.hostName = "nixos-home"; }
             home-manager.nixosModules.home-manager
             {

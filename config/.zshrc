@@ -43,7 +43,7 @@ eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd t
 cd_ls(){
   cd "$@" && ls
 }
-alias cd=cd_ls
+#alias cd=cd_ls
 
 # ------------ History ------------
 HISTSIZE=3000
