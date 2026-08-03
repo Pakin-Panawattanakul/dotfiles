@@ -1,8 +1,11 @@
-{config ,pkgs, ... }:
+{ config, pkgs, ... }:
 {
 
-  home.packages = with pkgs; [
-    z-library-desktop
-    calibre
-  ];
+  users.users.pakin = {
+    packages = with pkgs; [
+      z-library-desktop
+      calibre
+    ];
+  };
+
 }
