@@ -2,6 +2,7 @@
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles";
   xdgConfigs = [
+    "dwl"
     "eza"
     "foot"
     "mango"
@@ -11,6 +12,7 @@ let
     "rofi"
     "yazi"
     "starship.toml"
+    "xkb"
   ];
   xdgConfigSymlink = name: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/.config/${name}";
 

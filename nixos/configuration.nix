@@ -37,6 +37,9 @@
 
   programs.steam.enable = true;
   programs.steam.remotePlay.openFirewall = true;
+  programs.steam.extraCompatPackages = with pkgs; [
+    proton-ge-bin
+  ];
 
   # for setting theme
   programs.dconf.enable = true;
@@ -55,10 +58,12 @@
   hardware.graphics.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
-  #security.pam.services.ly.enableGnomeKeyring = true;
-  #services.desktopManager.plasma6.enable = true;
+  security.pam.services.ly.enableGnomeKeyring = true;
   programs.mangowc.enable = true;
   programs.mangowc.package = pkgs-unstable.mango;
+  imports = [
+    ./modules/dwl.nix
+  ];
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
@@ -80,8 +85,6 @@
     curl
     solaar
   ];
-
-  #hardware.logitech.wireless.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
