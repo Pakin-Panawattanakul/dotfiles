@@ -1,15 +1,21 @@
 {
   description = "Nixos minimal system";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";   # now stable
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";     # for mango only
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05"; # now stable
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # for mango only
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs =
-    { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      ...
+    }:
     let
       pkgs-unstable = import nixpkgs-unstable {
         system = "x86_64-linux";
@@ -24,7 +30,7 @@
             ./configuration.nix
             ./modules/battery.nix
             ./hardware-configurations/hardware-configuration-T480.nix
-            { networking.hostName = "nixos-T480";} 
+            { networking.hostName = "nixos-T480"; }
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -43,7 +49,8 @@
             ./configuration.nix
             ./modules/nvidia.nix
             ./hardware-configurations/hardware-configuration-home.nix
-            { networking.hostName = "nixos-home";} 
+            { services.desktopManager.plasma6.enable = true; }
+            { networking.hostName = "nixos-home"; }
             home-manager.nixosModules.home-manager
             {
               home-manager = {

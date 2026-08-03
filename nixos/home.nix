@@ -49,6 +49,8 @@
       Description = "Mount Google Drive via rclone";
       After = [ "network-online.target" ];
       Wants = [ "network-online.target" ];
+      StartLimitIntervalSec = "600";
+      StartLimitBurst = "5";
     };
     Service = {
       Type = "simple";
@@ -59,7 +61,8 @@
           --buffer-size 1G \
           --vfs-read-ahead 512M
       '';
-      Restart = "no";
+      Restart = "on-failure";
+      RestartSec = "5";
     };
     Install = {
       WantedBy = [ "default.target" ];
@@ -122,6 +125,8 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
+    videos = null;
+    publicShare = null;
   };
 
   imports = [

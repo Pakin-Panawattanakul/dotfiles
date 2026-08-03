@@ -8,6 +8,12 @@
   ...
 }:
 {
+
+  imports = [
+    ./modules/dwl.nix
+    ./hardware-configurations/external-media.nix
+  ];
+
   # allow unfree software
   nixpkgs.config.allowUnfree = true;
 
@@ -60,13 +66,8 @@
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
-  #services.desktopManager.plasma6.enable = true;
-  services.power-profiles-daemon.enable = false;
   #programs.mangowc.enable = true;
   #programs.mangowc.package = pkgs-unstable.mango;
-  imports = [
-    ./modules/dwl.nix
-  ];
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
