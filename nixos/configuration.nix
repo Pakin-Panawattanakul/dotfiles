@@ -39,6 +39,7 @@
   programs.steam.remotePlay.openFirewall = true;
   programs.steam.extraCompatPackages = with pkgs; [
     proton-ge-bin
+    gamescope
   ];
 
   # for setting theme
@@ -59,8 +60,10 @@
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
-  programs.mangowc.enable = true;
-  programs.mangowc.package = pkgs-unstable.mango;
+  #services.desktopManager.plasma6.enable = true;
+  services.power-profiles-daemon.enable = false;
+  #programs.mangowc.enable = true;
+  #programs.mangowc.package = pkgs-unstable.mango;
   imports = [
     ./modules/dwl.nix
   ];
@@ -118,6 +121,6 @@
   # services.printing.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-  #services.libinput.enable = true;
+  services.libinput.enable = true;
 
 }
