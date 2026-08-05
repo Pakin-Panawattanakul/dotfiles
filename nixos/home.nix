@@ -112,6 +112,7 @@
 
     vesktop
     spotify
+    yt-dlp
     opencode
     libreoffice
     thunderbird
