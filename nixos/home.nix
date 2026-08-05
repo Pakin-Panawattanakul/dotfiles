@@ -90,6 +90,7 @@
     gammastep
     wl-mirror
     libnotify
+    wev
 
     # desktop utils
     bluetui
@@ -99,6 +100,7 @@
     aria2
     qalculate-gtk
     gimp
+    jmtpfs
 
     # Media
     zathura
@@ -113,8 +115,6 @@
     opencode
     libreoffice
     thunderbird
-
-    wev
     bitwarden-desktop
     #gnome keyring
     seahorse

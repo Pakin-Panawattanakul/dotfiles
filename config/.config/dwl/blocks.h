@@ -8,8 +8,8 @@ static const Block blocks[] = {
     {"", "w=$(nmcli -t -f active,ssid,signal dev wifi 2>/dev/null | awk -F: '$1==\"yes\"{print $2\",\"$3; exit}'); if [ -n \"$w\" ]; then ssid=${w%,*}; sig=${w#*,}; printf \"^fg(8cf8f7) %s %s%%^fg()\" \"$ssid\" \"$sig\"; else e=$(nmcli -t -f device,type,state device 2>/dev/null | awk -F: '$2==\"ethernet\"&&$3==\"connected\"{print $1; exit}'); if [ -n \"$e\" ]; then ip=$(nmcli -t -f IP4.ADDRESS device show \"$e\" 2>/dev/null | head -1 | cut -d: -f2 | cut -d/ -f1); printf \"^fg(8cf8f7)󰈀 %s^fg()\" \"$ip\"; else printf \"^fg(8cf8f7)  disconnected^fg()\"; fi; fi", 5, 0},
     {"", "upower -e | grep BAT | xargs -I{} upower -i {} \
       | awk '/energy:/&&!/energy-empty/&&!/energy-full/{e+=$2} /energy-full:/&&!/energy-full-design/{f+=$2} END{if(f>0){p=e/f*100;c=\"b3f6c0\";if(p<=15)c=\"ffc0b9\";else if(p<=30)c=\"fce094\";printf \"^fg(%s)󰁹 %.0f%%^fg()\",c,p}}'", 5, 0},
-    {"", "date '+^fg(a6dbff)󰃭 %b %d (%a)^fg()'", 60, 0},
-    {"", "date '+^fg(ffc0b9) %H:%M ^fg()'", 60, 0},
+    {"", "date '+^fg(a6dbff)󰃭 %b %d (%a)^fg()'", 5, 0},
+    {"", "date '+^fg(ffc0b9) %H:%M ^fg()'", 5, 0},
 };
 
 // sets delimeter between status commands. NULL character ('\0') means no

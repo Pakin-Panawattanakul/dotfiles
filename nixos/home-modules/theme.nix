@@ -17,6 +17,11 @@
     colorScheme = "dark";
   };
 
+  xdg.configFile."kded6rc".text = ''
+    [Module-gtkconfig]
+    autoload=false
+  '';
+
   # qt = {
   #   enable = true;
   #   platformTheme.name = "gtk3";
