@@ -67,7 +67,7 @@ static const Rule rules[] = {
 	{ "rmpc",             NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "spotify",          NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
-	{ "Thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+	{ "thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
   { "mpv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
   { "imv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
   { "com.bitwarden.desktop",NULL,   0,            1,           -1,       -1, -1, -1,     -1 },
@@ -182,7 +182,7 @@ static const char *brightness_down[] = {"brightnessctl", "set", "10%-", NULL };
 static const char *termcmd[] = { "foot", NULL };
 static const char *filemanager[] = { "thunar", NULL };
 static const char *web_browser[] = { "firefox", NULL };
-static const char *discord[] = { "flatpak", "run", "dev.vencord.Vesktop"};
+static const char *discord[] = { "vesktop"};
 /*
 static const char *menucmd[] = { "wmenu-drun", "-i", "-l", "5", "-p", "run",
   "-f", "JetBrainsMono Nerd Font 10", "-S", "005523", "-m", "b3f6c0", "-M", "2c2e33", NULL };

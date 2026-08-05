@@ -87,6 +87,9 @@
     vim
     curl
     solaar
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
   ];
 
   fonts.packages = with pkgs; [
