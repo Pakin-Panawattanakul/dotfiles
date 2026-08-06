@@ -81,6 +81,7 @@
     qalculate-gtk
     gimp
     jmtpfs
+    gnome-clocks
 
     # Media
     zathura

@@ -9,9 +9,9 @@
 }:
 {
 
-  imports = [
-    ./modules/dwl.nix
-  ];
+  # imports = [
+  #   ./modules/dwl.nix
+  # ];
 
   # allow unfree software
   nixpkgs.config.allowUnfree = true;
@@ -60,13 +60,17 @@
     ];
   };
 
+  # virtual box VM
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
   # wayland compositor
   hardware.graphics.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
-  #programs.mangowc.enable = true;
-  #programs.mangowc.package = pkgs-unstable.mango;
+  programs.mangowc.enable = true;
+  programs.mangowc.package = pkgs-unstable.mango;
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
