@@ -4,6 +4,16 @@
   home.homeDirectory = "/home/pakin";
   home.stateVersion = "26.05";
 
+  imports = [
+    ./home-modules/configSymlink.nix
+    ./home-modules/theme.nix # forces qt platformtheme=gtk3, conflicts with plasma6
+    ./home-modules/neovim.nix
+    ./home-modules/mpd.nix
+    ./home-modules/terminal.nix
+    ./home-modules/firefox.nix
+    ./home-modules/rclone-gdrive.nix
+  ];
+
   programs.git = {
     enable = true;
     settings = {
@@ -38,38 +48,8 @@
   };
   # services
   #xdg.portal.enable = true; # enable mango automatically enable xdg-desktop-portal
-
-  # google drive rclone
-  systemd.user.tmpfiles.rules = [
-    "d /home/pakin/gdrive 0755 pakin users -"
-  ];
-
-  systemd.user.services.rclone-gdrive = {
-    Unit = {
-      Description = "Mount Google Drive via rclone";
-      After = [ "network-online.target" ];
-      Wants = [ "network-online.target" ];
-      StartLimitIntervalSec = "600";
-      StartLimitBurst = "5";
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = ''
-        ${pkgs.rclone}/bin/rclone mount gdrive: /home/pakin/gdrive \
-          --vfs-cache-mode full \
-          --vfs-cache-max-size 50G \
-          --buffer-size 1G \
-          --vfs-read-ahead 512M
-      '';
-      Restart = "on-failure";
-      RestartSec = "5";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
-
   # packages
+
   home.packages = with pkgs; [
     #dev
     gdb
@@ -127,13 +107,4 @@
     videos = null;
     publicShare = null;
   };
-
-  imports = [
-    ./home-modules/configSymlink.nix
-    ./home-modules/theme.nix # forces qt platformtheme=gtk3, conflicts with plasma6
-    ./home-modules/neovim.nix
-    ./home-modules/mpd.nix
-    ./home-modules/terminal.nix
-    ./home-modules/firefox.nix
-  ];
 }
