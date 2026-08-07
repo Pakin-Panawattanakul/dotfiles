@@ -49,7 +49,26 @@
 
   # for setting theme
   programs.dconf.enable = true;
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      zlib
+      zstd
+      stdenv.cc.cc
+      curl
+      openssl
+      attr
+      libssh
+      bzip2
+      libxml2
+      acl
+      libsodium
+      util-linux
+      xz
+      systemd
+
+    ];
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pakin = {
