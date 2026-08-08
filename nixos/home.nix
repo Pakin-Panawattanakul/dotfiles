@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   home.username = "pakin";
   home.homeDirectory = "/home/pakin";
@@ -46,10 +46,9 @@
       icon-path = "/etc/profiles/per-user/pakin/share/icons/Papirus-Dark";
     };
   };
-  # services
-  #xdg.portal.enable = true; # enable mango automatically enable xdg-desktop-portal
-  # packages
 
+  # packages
+  programs.opencode.package = pkgs-unstable.opencode;
   home.packages = with pkgs; [
     #dev
     gdb

@@ -39,6 +39,7 @@
                 useUserPackages = true;
                 users.pakin = import ./home.nix;
                 backupFileExtension = "backup";
+                extraSpecialArgs = { inherit pkgs-unstable; };
               };
             }
           ];
@@ -59,6 +60,7 @@
                 useUserPackages = true;
                 users.pakin = import ./home.nix;
                 backupFileExtension = "backup";
+                extraSpecialArgs = { inherit pkgs-unstable; };
               };
             }
           ];
