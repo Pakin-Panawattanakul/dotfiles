@@ -52,7 +52,6 @@
   home.packages = with pkgs; [
     #dev
     gdb
-    #jq # do i need this?
     rclone
     fuse3
 

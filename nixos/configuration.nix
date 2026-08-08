@@ -80,8 +80,8 @@
   };
 
   # virtual box VM
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  #virtualisation.virtualbox.host.enable = true;
+  #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
   # wayland compositor
   hardware.graphics.enable = true;
