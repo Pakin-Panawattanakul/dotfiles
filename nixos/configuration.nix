@@ -34,6 +34,7 @@
       fcitx5-gtk
     ];
   };
+  i18n.inputMethod.fcitx5.waylandFrontend = true;
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
