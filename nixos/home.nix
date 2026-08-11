@@ -10,13 +10,13 @@
   home.stateVersion = "26.05";
 
   imports = [
-    ./home-modules/configSymlink.nix
-    ./home-modules/theme.nix # forces qt platformtheme=gtk3, conflicts with plasma6
-    ./home-modules/neovim.nix
-    ./home-modules/mpd.nix
-    ./home-modules/terminal.nix
-    ./home-modules/firefox.nix
-    ./home-modules/rclone-gdrive.nix
+    ./home-manager/configSymlink.nix
+    ./home-manager/theme.nix # forces qt platformtheme=gtk3, conflicts with plasma6
+    ./home-manager/neovim.nix
+    ./home-manager/mpd.nix
+    ./home-manager/terminal.nix
+    ./home-manager/firefox.nix
+    ./home-manager/rclone-gdrive.nix
   ];
 
   programs.git = {
