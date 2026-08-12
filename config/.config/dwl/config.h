@@ -67,7 +67,7 @@ static const Rule rules[] = {
 	{ "rmpc",             NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "spotify",          NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
-	{ "Thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+	{ "thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
   { "mpv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
   { "imv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
   { "com.bitwarden.desktop",NULL,   0,            1,           -1,       -1, -1, -1,     -1 },
@@ -107,7 +107,7 @@ static const KeyboardRule kbrules[] = {
 	*/
 	{ "ZSA Technology Labs Voyager", NULL, NULL, "us",    NULL,   NULL },
 	{ "Cradio Keyboard", NULL, NULL, "us",    NULL,   NULL },
-  { NULL, NULL,NULL, "us,th,us", ",,colemak_dh" , "grp:win_space_toggle"},
+  { NULL, NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl" } ,
   // { NULL, NULL,NULL, "us,th", NULL , "grp:win_space_toggle"},
 	//{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
@@ -182,7 +182,7 @@ static const char *brightness_down[] = {"brightnessctl", "set", "10%-", NULL };
 static const char *termcmd[] = { "foot", NULL };
 static const char *filemanager[] = { "thunar", NULL };
 static const char *web_browser[] = { "firefox", NULL };
-static const char *discord[] = { "flatpak", "run", "dev.vencord.Vesktop"};
+static const char *discord[] = { "vesktop"};
 /*
 static const char *menucmd[] = { "wmenu-drun", "-i", "-l", "5", "-p", "run",
   "-f", "JetBrainsMono Nerd Font 10", "-S", "005523", "-m", "b3f6c0", "-M", "2c2e33", NULL };
@@ -206,10 +206,10 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_t,           spawn,            {.v = termcmd} },
   { MODKEY,                    XKB_KEY_f,           spawn,            {.v = filemanager} },
 	{ MODKEY,                    XKB_KEY_b,           spawn,            {.v = web_browser} },
-	{ MODKEY,                    XKB_KEY_v,           spawn,            {.v = discord} },
-  { MODKEY,                    XKB_KEY_r,           spawn,            {.v = rmpc} },
 	{ 0,                         XKB_KEY_Print,       spawn,            {.v = screenshot} },
   { MODSHIFT,                  XKB_KEY_t,           spawn,            {.v = thunderbird} },
+	{ MODSHIFT,                  XKB_KEY_v,           spawn,            {.v = discord} },
+  { MODSHIFT,                  XKB_KEY_r,           spawn,            {.v = rmpc} },
   { MODSHIFT,                  XKB_KEY_w,           spawn,            {.v = wiremix} },
   { MODSHIFT,                  XKB_KEY_b,           spawn,            {.v = bluetui} },
   { 0, XKB_KEY_XF86AudioRaiseVolume,                spawn,            {.v = up_vol } },

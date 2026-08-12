@@ -7,7 +7,8 @@ return {
 			"stylua",
 			"rust_analyzer",
 			"verible",
-      "clangd",
+			"clangd",
+      "nil_ls",
 		},
 		automatic_enable = {
 			exclude = { "verible" },

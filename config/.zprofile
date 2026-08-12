@@ -10,12 +10,12 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 # System Directories
-export XDG_DATA_DIRS="/usr/local/share:$HOME/.local/share/flatpak/exports/share:/usr/share:/var/lib/flatpak/exports/share"
+export XDG_DATA_DIRS="/usr/local/share:$HOME/.local/share/flatpak/exports/share:/usr/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 export SWAY_ROFI_SCREENSHOT_SAVEDIR="$HOME/Pictures/screenshots"
-export PATH="$HOME/.local/bin:$HOME/Scripts:$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.local/bin:$HOME/Scripts:$PATH"
 
 # qt theme
-export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_QPA_PLATFORMTHEME=qt6ct # dont use on nixos
 

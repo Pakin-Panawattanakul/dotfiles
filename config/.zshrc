@@ -1,10 +1,21 @@
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+
+# if NixOS dont execute this
+if ! grep -qi "nixos" /etc/os-release 2>/dev/null; then
+  export ZSH="$HOME/.oh-my-zsh"
+  source $ZSH/oh-my-zsh.sh
+  plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
+  # void linux
+  alias xqr='xbps-query -Rs'
+  export SVDIR="$HOME/.runit/service"
+  man() {
+    command man "$@" | col -bx | bat -plman --paging=always
+  }
+fi
+
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="false"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # auto suggestion color
@@ -32,7 +43,7 @@ eval "$(zoxide init zsh --cmd cd)" #"--cmd cd" add this before zsh to remap cd t
 cd_ls(){
   cd "$@" && ls
 }
-alias cd=cd_ls
+#alias cd=cd_ls
 
 # ------------ History ------------
 HISTSIZE=3000
@@ -64,9 +75,7 @@ alias cat='bat --style=plain'
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 # bat for man page
-man() {
-  command man "$@" | col -bx | bat -plman --paging=always
-}
+export MANPAGER="bat -plman"
 # coloriziing stuff
 alias psg='ps aux | bat -l conf | grep $@'
 
@@ -82,9 +91,5 @@ plc() {
     fd ".flac$" "$1" > "$HOME/.config/mpd/playlists/$1.m3u"
 }
 
-# void linux
-alias xqr='xbps-query -Rs'
-export SVDIR="$HOME/.runit/service"
-
-# opencode
-export PATH=/home/pakin/.opencode/bin:$PATH
+#nixos
+alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles/nixos?submodules=1#'$HOST"
