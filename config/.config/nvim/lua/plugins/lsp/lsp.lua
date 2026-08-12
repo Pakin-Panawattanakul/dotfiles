@@ -6,8 +6,9 @@ return {
 			"pyright",
 			"stylua",
 			"rust_analyzer",
-      "verible",
-      "clangd",
+			"verible",
+			"clangd",
+      "nil_ls",
 		},
 		automatic_enable = {
 			exclude = { "verible" },
