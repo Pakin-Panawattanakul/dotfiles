@@ -29,6 +29,9 @@ in
   environment.systemPackages = with pkgs; [
     dwl
     someblocks
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
   ];
 
   services.displayManager.sessionPackages = [

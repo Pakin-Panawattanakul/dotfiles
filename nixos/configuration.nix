@@ -9,9 +9,9 @@
 }:
 {
 
-  # imports = [
-  #   ./modules/dwl.nix
-  # ];
+  imports = [
+     ./modules/dwl.nix
+  ];
 
   # allow unfree software
   nixpkgs.config.allowUnfree = true;
@@ -98,8 +98,8 @@
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
-  programs.mangowc.enable = true;
-  programs.mangowc.package = pkgs-unstable.mango;
+  #programs.mangowc.enable = true;
+  #programs.mangowc.package = pkgs-unstable.mango;
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
@@ -120,15 +120,12 @@
     vim
     curl
     solaar
-    xdg-desktop-portal
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-gtk
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts
-    #noto-fonts-cjk
+    noto-fonts-cjk
   ];
 
   boot.extraModprobeConfig = ''
