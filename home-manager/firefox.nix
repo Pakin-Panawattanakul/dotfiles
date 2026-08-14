@@ -3,7 +3,7 @@
   programs.firefox = {
     enable = true;
     profiles.default = {
-      extraConfig = builtins.readFile ../../files/Templates/user.js;
+      extraConfig = builtins.readFile ../files/Templates/user.js;
       search = {
         force          = true;
         default        = "ddg";

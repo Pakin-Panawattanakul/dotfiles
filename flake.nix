@@ -27,7 +27,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit pkgs-unstable; };
           modules = [
-            ./hardware-configurations/hardware-configuration-T480.nix
+            ./hosts/hardware-configuration-T480.nix
             ./configuration.nix
             ./modules/battery.nix
             ./packages/nixos-T480.nix
@@ -49,7 +49,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit pkgs-unstable; };
           modules = [
-            ./hardware-configurations/hardware-configuration-home.nix
+            ./hosts/hardware-configuration-home.nix
             ./configuration.nix
             ./modules/nvidia.nix
             ./packages/nixos-home.nix
@@ -71,7 +71,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit pkgs-unstable; };
           modules = [
-            ./hardware-configurations/hardware-configuration-NV15.nix
+            ./hosts/hardware-configuration-NV15.nix
             ./configuration.nix
             ./modules/battery.nix
 	    ./modules/nvidia.nix
