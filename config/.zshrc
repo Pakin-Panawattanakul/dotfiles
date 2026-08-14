@@ -92,4 +92,4 @@ plc() {
 }
 
 #nixos
-alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles/nixos?submodules=1#'$HOST"
+alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles?submodules=1#'$HOST"

@@ -5,10 +5,10 @@
 ## Rebuild
 
 ```sh
-sudo nixos-rebuild switch --flake ~/dotfiles#nixos-T480
+sudo nixos-rebuild switch --flake ~/'dotfiles?submodules=1#'nixos-T480
 ```
 
-Other hosts: `nixos-home`, `nixos-NV15`.
+`?submodules=1` is required so the `build/dwl` + `build/someblocks` submodules are included in the flake source. Other hosts: `nixos-home`, `nixos-NV15`. There's also a `rebuild` alias in `config/.zshrc` using `$HOST`.
 
 ## Deploy non-NixOS assets
 
