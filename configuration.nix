@@ -10,7 +10,8 @@
 {
 
   imports = [
-     ./modules/dwl.nix
+    ./modules/dwl.nix
+    ./modules/udev.nix
   ];
 
   # allow unfree software
@@ -46,7 +47,7 @@
   };
 
   # dbus: usually already true by default
-  services.dbus.enable = true; 
+  services.dbus.enable = true;
 
   # Enable sound.
   services.pipewire = {
@@ -94,25 +95,15 @@
     ];
   };
 
-  # virtual box VM
-  #virtualisation.virtualbox.host.enable = true;
-  #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  documentation.man = {
+    enable = true;
+    generateCaches = true;
+  };
 
-  # wayland compositor
   hardware.graphics.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
-  # security.pam.services.greetd.enableGnomeKeyring = true;
-  # services.greetd = {                                                      
-  #   enable = true;                                                         
-  #   settings = {                                                           
-  #     default_session = {                                                  
-  #       command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks";
-  #       user = "greeter";                                                  
-  #     };                                                                   
-  #   };                                                                     
-  # };
   #programs.mangowc.enable = true;
   #programs.mangowc.package = pkgs-unstable.mango;
 

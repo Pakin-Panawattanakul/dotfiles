@@ -59,6 +59,7 @@
     gdb
     rclone
     fuse3
+    keymapp
 
     # wayland
     rofi
