@@ -8,6 +8,7 @@ let
     "mango"
     "mpd"
     "nvim"
+    "opencode"
     "rmpc"
     "rofi"
     "yazi"
