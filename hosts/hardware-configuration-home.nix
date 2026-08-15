@@ -24,11 +24,6 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/home/pakin/Data" =
-    { device = "/dev/disk/by-uuid/803c39cd-ed27-4417-aeb2-2fd80b5ab12c";
-      fsType = "ext4";
-    };
-
   swapDevices =
     [ { device = "/dev/disk/by-uuid/4d3bb501-0cf0-403a-9ced-98ed8bc219d1"; }
     ];

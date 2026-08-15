@@ -28,12 +28,6 @@
     [ { device = "/dev/disk/by-uuid/552ff27a-58ae-42fa-b5e1-760320650db8"; }
     ];
 
-  fileSystems."/home/pakin/Data" = 
-    {
-      device = "/dev/disk/by-uuid/786dd06d-6b10-4023-8920-6535d39d263e";
-      fsType = "ext4";
-    };
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
