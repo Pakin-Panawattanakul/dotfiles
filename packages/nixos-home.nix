@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 {
 
-  services.desktopManager.plasma6.enable = true;
+  services = {
+    desktopManager.cosmic.enable = true;
+    power-profiles-daemon.enable = false;
+  };
+  
 
   # home.packages = with pkgs; [
   # ];

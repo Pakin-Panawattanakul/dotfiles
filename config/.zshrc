@@ -38,7 +38,7 @@ alias -g -- fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 # export EZA_CONFIG_DIR="$HOME/.config/eza" # move to .zshenv
 export DISABLE_LS_COLORS="true" # to show the correct theme disable LS_COLORS 
 export LS_COLORS=""
-alias ll='eza --color=always --long'
+alias ll='eza --color=always --long -all'
 alias ls='eza --color=always'
 
 # ------------ Zoxide: better cd------------
