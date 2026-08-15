@@ -19,6 +19,8 @@
     colorScheme = "dark";
   };
 
+  home.sessionVariables.GTK_THEME = "Orchis-Dark";
+
   xdg.configFile."kded6rc".text = ''
     [Module-gtkconfig]
     autoload=false

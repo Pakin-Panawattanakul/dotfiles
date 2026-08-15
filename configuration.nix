@@ -97,8 +97,17 @@
   # wayland compositor
   hardware.graphics.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  services.displayManager.ly.enable = true;
-  security.pam.services.ly.enableGnomeKeyring = true;
+  #services.displayManager.ly.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  services.greetd = {                                                      
+    enable = true;                                                         
+    settings = {                                                           
+      default_session = {                                                  
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks";
+        user = "greeter";                                                  
+      };                                                                   
+    };                                                                     
+  };
   #programs.mangowc.enable = true;
   #programs.mangowc.package = pkgs-unstable.mango;
 
