@@ -74,7 +74,8 @@
             ./hosts/hardware-configuration-NV15.nix
             ./configuration.nix
             ./modules/battery.nix
-	    ./modules/nvidia.nix
+	          ./modules/nvidia.nix
+            ./modules/virtualbox.nix
             #./packages/nixos-T480.nix
             { networking.hostName = "nixos-NV15"; }
             home-manager.nixosModules.home-manager
