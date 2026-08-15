@@ -8,12 +8,15 @@ mpc stop
 touch /tmp/dwl-keymap
 
 case "$(hostname)" in
-  nixos-home) wlr-randr --output DP-3 --mode 1920x1080@165Hz ;;
-  nixos-NV15) wlr-randr --output eDP-1 --mode 1920x1080@165Hz ;;
+  nixos-home) 
+    wlr-randr --output DP-3 --mode 1920x1080@165Hz
+    solaar -w hide & ;; 
+  nixos-NV15)
+    wlr-randr --output eDP-1 --mode 1920x1080@165Hz 
+    solaar -w hide & ;; 
 esac
 
 gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
-solaar -w hide &
 
 exec dbus-update-activation-environment --systemd \
   DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots 
