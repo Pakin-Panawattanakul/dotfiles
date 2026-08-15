@@ -18,7 +18,7 @@
                 { name = "query";   value = "{searchTerms}"; }
               ];
             }];
-            icon           = ../Icons/nix-packages.svg;
+            icon           = ../icons/nix-packages.svg;
             definedAliases = [ "np" ];
           };
 
@@ -30,7 +30,7 @@
                 { name = "query";   value = "{searchTerms}"; }
               ];
             }];
-            icon           = ../Icons/nix-options.svg;
+            icon           = ../icons/nix-options.svg;
             definedAliases = [ "no" ];
           };
 
@@ -39,25 +39,25 @@
               template = "https://wiki.nixos.org/w/index.php";
               params   = [ { name = "search"; value = "{searchTerms}"; } ];
             }];
-            icon           = ../Icons/nix-wiki.svg;
+            icon           = ../icons/nix-wiki.svg;
             definedAliases = [ "nw" ];
           };
 
           "MyNixOS" = {
             urls            = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
-            icon            = ../Icons/mynixos.svg;
+            icon            = ../icons/mynixos.svg;
             definedAliases  = [ "mn" ];
           };
 
           "Arch Wiki" = {
             urls           = [{ template = "https://wiki.archlinux.org/index.php?search={searchTerms}"; }];
-            icon           = ../Icons/arch_wiki.svg;
+            icon           = ../icons/arch_wiki.svg;
             definedAliases = [ "aw" ];
           };
 
           youtube = {
             urls           = [{ template = "https://www.youtube.com/results?search_query={searchTerms}"; }];
-            icon           = ../Icons/youtube.svg;
+            icon           = ../icons/youtube.svg;
             definedAliases = [ "yt" ];
           };
         };
