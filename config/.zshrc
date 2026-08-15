@@ -1,25 +1,28 @@
 # Path to your Oh My Zsh installation.
 
 # if NixOS dont execute this
+# ------------ Oh My Zsh ------------
 if ! grep -qi "nixos" /etc/os-release 2>/dev/null; then
   export ZSH="$HOME/.oh-my-zsh"
-  source $ZSH/oh-my-zsh.sh
-  plugins=(git  zsh-syntax-highlighting zsh-autosuggestions)
-  # void linux
-  alias xqr='xbps-query -Rs'
-  export SVDIR="$HOME/.runit/service"
+
+  ENABLE_CORRECTION="false"
+  COMPLETION_WAITING_DOTS="false"
+  DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
+
+  plugins=(
+    git
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+  )
+
+  source "$ZSH/oh-my-zsh.sh"
+
   man() {
     command man "$@" | col -bx | bat -plman --paging=always
   }
 fi
-
-ENABLE_CORRECTION="false"
-COMPLETION_WAITING_DOTS="false"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# User configuration
-# auto suggestion color
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=7"
 
 # ------------ Neovim ------------
 alias vim='nvim'
@@ -27,7 +30,7 @@ alias vi='nvim'
 
 # ------------ Fuzzy finder ------------
 # Set up fzf key bindings and fuzzy completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
 alias -g -- fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 
@@ -77,13 +80,14 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 # bat for man page
 export MANPAGER="bat -plman"
 # coloriziing stuff
-alias psg='ps aux | bat -l conf | grep $@'
+psg() {
+    ps aux | grep --color=auto "$@" | bat -l conf
+}
 
 
 # ------------ Custom alias ------------
 alias grep='grep --color'
 alias f=fastfetch
-alias ll='ls -al'
 alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias lg=lazygit
