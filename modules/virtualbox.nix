@@ -1,5 +1,11 @@
-{ config, pkgs, ... } :
+{ config, pkgs, ... }:
 {
-   virtualisation.virtualbox.host.enable = true;
-   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  users.extraGroups.vboxusers.members = [ "pakin" ];
+  virtualisation.virtualbox = {
+    host.enable = true;
+    guest = {
+      enable = true;
+      dragAndDrop = true;
+    };
+  };
 }
