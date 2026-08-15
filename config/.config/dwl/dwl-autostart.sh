@@ -13,6 +13,8 @@ case "$(hostname)" in
 esac
 
 gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
+solaar -w hide &
+
 exec dbus-update-activation-environment --systemd \
   DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots 
   # QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME QT_STYLE_OVERRIDE QT_PLUGIN_PATH GTK_THEME
