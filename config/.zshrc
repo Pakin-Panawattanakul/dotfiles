@@ -94,7 +94,12 @@ alias lg=lazygit
 plc() {
     fd ".flac$" "$1" > "$HOME/.config/mpd/playlists/$1.m3u"
 }
-alias edpoff="wlr-randr --output eDP-1 --off"
+edp() {
+  case "$1" in
+    off) wlr-randr --output eDP-1 --off ;;
+    on) wlr-randr --output eDP-1 --on ;;
+  esac
+}
 
 #nixos
 alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles?submodules=1#'$HOST"

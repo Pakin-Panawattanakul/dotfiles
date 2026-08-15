@@ -15,6 +15,8 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 
 export PATH="$HOME/.local/bin:$HOME/Scripts:$PATH"
 
-# qt theme
-# export QT_QPA_PLATFORMTHEME=qt6ct # dont use on nixos
+# home-manager session vars display managers auto source this but greetd:tuigreet does not
+# if [ -f "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh" ]; then
+#   . "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
+# fi
 

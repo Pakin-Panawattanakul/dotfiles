@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # wayland stuff
-export QT_QPA_PLATFORM=wayland
 export ELM_DISPLAY=wl
 export GDK_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland,x11
