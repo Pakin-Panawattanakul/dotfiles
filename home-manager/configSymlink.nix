@@ -12,6 +12,7 @@ let
     "rmpc"
     "rofi"
     "yazi"
+    "yt-dlp/plugins"
     "starship.toml"
     "xkb"
   ];

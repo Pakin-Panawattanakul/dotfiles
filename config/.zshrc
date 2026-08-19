@@ -91,9 +91,21 @@ alias f=fastfetch
 alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias lg=lazygit
+
+# ------------ mpd alias ------------
 plc() {
-    fd -E ".spotdl$" . "$1" > "$HOME/.config/mpd/playlists/$1.m3u"
+    fd . "$1" -E "*.spotdl" > "$HOME/Music/playlists/$1.m3u"
 }
+
+my-spotdl(){
+  spotdl --cookie-file  $HOME/Downloads/cookies.txt \
+    --format m4a --dont-filter-results \
+    "$@"
+}
+alias pot-provider="cd $HOME/dotfiles/build/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
+
+# -----------------------------------
+
 edp() {
   case "$1" in
     off) wlr-randr --output eDP-1 --off ;;

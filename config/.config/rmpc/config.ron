@@ -39,6 +39,7 @@
             "3":       SwitchToTab("Artists"),
             "4":       SwitchToTab("Albums"),
             "5":       SwitchToTab("Search"),
+            "6":       SwitchToTab("Directories"),
             "q":       Quit,
             ">":       NextTrack,
             "p":       TogglePause,
@@ -172,6 +173,16 @@
         (
             name: "Search",
             pane: Pane(Search),
+        ),
+        (
+            name: "Directories",
+            borders: "ALL",
+            border_symbols: Rounded,
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Directories), size: "100%", borders: "ALL", border_symbols: Rounded)],
+            )
         ),
     ],
 )
