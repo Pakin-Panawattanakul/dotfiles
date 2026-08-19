@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Impala
-Comment=TUI frontend for iwd
-Exec=impala
-Terminal=true
-Type=Application
-Categories=System

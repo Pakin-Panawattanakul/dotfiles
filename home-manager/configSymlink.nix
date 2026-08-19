@@ -21,6 +21,8 @@ let
     "Pictures/wallpapers"
     "Scripts"
     ".local/share/rofi/themes"
+    ".local/bin/mimi"
+    "Templates"
   ];
 
   homeFileSymlink = path: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/files/${path}";
