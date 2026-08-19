@@ -92,7 +92,7 @@ alias dot='cd ~/dotfiles && ls -al'
 alias kyber='cd $HOME/kyber'
 alias lg=lazygit
 plc() {
-    fd ".flac$" "$1" > "$HOME/.config/mpd/playlists/$1.m3u"
+    fd -E ".spotdl$" . "$1" > "$HOME/.config/mpd/playlists/$1.m3u"
 }
 edp() {
   case "$1" in

@@ -3,7 +3,7 @@
   services.mpd = {
     enable = true;
     musicDirectory = "${config.home.homeDirectory}/Music";
-    playlistDirectory = "${config.xdg.configHome}/mpd/playlists";
+    playlistDirectory = "${config.home.homeDirectory}/Music/playlists";
    # dbFile = "${config.xdg.configHome}/mpd/database";
    # dataDir = "${config.xdg.configHome}/mpd";
     extraConfig = ''
