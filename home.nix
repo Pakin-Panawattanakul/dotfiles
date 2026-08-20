@@ -37,6 +37,7 @@
     lfs.enable = true;
   };
 
+  services.udiskie.enable = true;
   # conflicts with plasma6's notification system
   services.mako = {
     enable = true;

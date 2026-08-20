@@ -22,9 +22,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 3;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # Set your time zone.
   time.timeZone = "Asia/Bangkok";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -97,7 +94,7 @@
 
   documentation.man = {
     enable = true;
-    generateCaches = true;
+    cache.enable = true;
   };
 
   hardware.graphics.enable = true;
@@ -122,17 +119,21 @@
   };
 
   # system packages
-  environment.systemPackages = with pkgs; [
-    vim
-    curl
-    solaar
-    file
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      vim
+      curl
+      solaar
+      file
+    ]
+    ++ [ pkgs-unstable.slang-server ] ;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts
   ];
+  services.udisks2.enable = true;
 
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2

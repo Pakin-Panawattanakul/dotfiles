@@ -4,7 +4,7 @@
   virtualisation.virtualbox = {
     host.enable = true;
     guest = {
-      enable = true;
+      enable = false;
       dragAndDrop = true;
     };
   };
