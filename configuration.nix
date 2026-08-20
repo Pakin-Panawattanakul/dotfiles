@@ -126,6 +126,7 @@
     vim
     curl
     solaar
+    file
   ];
 
   fonts.packages = with pkgs; [
