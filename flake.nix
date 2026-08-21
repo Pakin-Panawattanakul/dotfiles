@@ -30,6 +30,7 @@
             ./hosts/hardware-configuration-T480.nix
             ./configuration.nix
             ./modules/battery.nix
+            ./modules/wifi.nix
             ./packages/nixos-T480.nix
             { networking.hostName = "nixos-T480"; }
             home-manager.nixosModules.home-manager
@@ -52,7 +53,6 @@
             ./hosts/hardware-configuration-home.nix
             ./configuration.nix
             ./modules/nvidia.nix
-            ./modules/wifi.nix
             ./packages/nixos-home.nix
             { networking.hostName = "nixos-home"; }
             home-manager.nixosModules.home-manager
