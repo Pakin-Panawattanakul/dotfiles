@@ -10,4 +10,6 @@
     };
   };
   networking.networkmanager.wifi.backend = "iwd";
+
+  environment.systemPackages = [ pkgs.impala ];
 }
