@@ -11,21 +11,6 @@
     fuse3
     keymapp
 
-    # wayland
-    rofi
-    waybar
-    waylock
-    wbg
-    wl-clipboard
-    grim
-    slurp
-    wlr-randr
-    wdisplays
-    gammastep
-    wl-mirror
-    libnotify
-    wev
-
     # desktop utils
     bluetui
     wiremix

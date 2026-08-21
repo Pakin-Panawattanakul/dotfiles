@@ -10,6 +10,21 @@
     cantata
     deno
     spotdl
+
+    # wayland
+    rofi
+    waybar
+    waylock
+    wbg
+    wl-clipboard
+    grim
+    slurp
+    wlr-randr
+    wdisplays
+    gammastep
+    wl-mirror
+    libnotify
+    wev
   ];
 
   programs.yt-dlp = {
