@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 let
   dwl =
     (pkgs.dwl.override {
@@ -21,10 +20,8 @@ let
       cp ${../config/.config/dwl/blocks.h} blocks.h
       sed -i 's/void termhandler()/void termhandler(int signum)/; s/void sigpipehandler()/void sigpipehandler(int signum)/' someblocks.c
     '';
-
   };
 in
-
 {
   environment.systemPackages = with pkgs; [
     dwl
@@ -41,5 +38,4 @@ in
       passthru.providedSessions = [ "dwl" ]; # 3. metadata the option requires
     })
   ];
-
 }

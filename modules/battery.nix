@@ -1,5 +1,4 @@
 { config, pkgs, ... }: {
-
   services.upower.enable = true;
   services.tlp = {
     enable = true;
@@ -23,4 +22,3 @@
     };
   };
 }
-

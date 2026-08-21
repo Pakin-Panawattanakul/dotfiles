@@ -1,7 +1,4 @@
 { config, pkgs, ... }: {
-
-  #services.upower.enable = true;
-
   programs.gamemode.enable = true;
 
   services.xserver.videoDrivers = ["nvidia"];
