@@ -19,6 +19,19 @@
     enable = true;
     platformTheme.name = "qtct";
     style.name = "kvantum";
+    qt5ctSettings = {
+      Fonts = {
+        general = "\"JetbrainsMono Nerd Font,12\"";
+        fixed = "\"JetbrainsMono Nerd Font Mono,12\"";
+      };
+    };
+    qt6ctSettings = {
+      Fonts = {
+        general = "\"JetbrainsMono Nerd Font,12\"";
+        fixed = "\"JetbrainsMono Nerd Font Mono,12\"";
+      };
+    };
+    #kvantum.settings.General.theme = "KvGnomeDark";
   };
 
   home.sessionVariables = {

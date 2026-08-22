@@ -93,15 +93,31 @@ alias kyber='cd $HOME/kyber'
 alias lg=lazygit
 
 # ------------ mpd alias ------------
-plc() {
-    fd . "$1" -E "*.spotdl" > "$HOME/Music/playlists/$1.m3u"
+music-sync() {
+  for dir in "$HOME"/gdrive/Music/*/; do
+    name="$(basename "$dir")"
+    [ "$name" = "playlists" ] && continue
+    fd . "$dir" -E "*.spotdl" -e mp3 | sed "s|^$HOME/gdrive/Music/||" > "$HOME/gdrive/Music/playlists/$name.m3u"
+  done
+  if mountpoint -q "/run/media/pakin/ECHO MINI"; then
+    echo "Sync File to Snowsky"
+    rsync -av --exclude "*.spotdl" --delete --progress  ~/gdrive/Music/ "/run/media/pakin/ECHO MINI"
+  fi
+  echo "Sync File to ~/Music"
+  rsync -av --exclude "*.spotdl" --delete --progress  ~/gdrive/Music/ ~/Music
 }
 
 my-spotdl(){
   spotdl --cookie-file  $HOME/Downloads/cookies.txt \
-    --format m4a --dont-filter-results \
-    "$@"
+    --format mp3 --audio youtube-music soundcloud bandcamp \
+    --max-retries 10 \
+    -- "$@"
 }
+my-spotdl-with-yt() {
+  echo "$1|$2"
+  spotdl --cookie-file ~/Downloads/cookies.txt "$1|$2"
+}
+# use when don't want to check song accuracy : --dont-filter-results 
 alias pot-provider="cd $HOME/dotfiles/build/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
 
 # -----------------------------------
