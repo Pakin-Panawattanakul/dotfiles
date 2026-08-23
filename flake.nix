@@ -19,6 +19,18 @@
     let
       pkgs-unstable = import nixpkgs-unstable {
         system = "x86_64-linux";
+        overlays = [
+          # spotdl forces YTMusic(language="de"); localized ("Titel") shelf titles
+          # make ytmusicapi drop all songs-filter results. Default to en.
+          (final: prev: {
+            spotdl = prev.spotdl.overrideAttrs (old: {
+              postPatch = (old.postPatch or "") + ''
+                substituteInPlace spotdl/providers/audio/ytmusic.py \
+                  --replace-fail 'return YTMusic(language="de")' 'return YTMusic()'
+              '';
+            });
+          })
+        ];
       };
     in
     {

@@ -101,16 +101,16 @@ music-sync() {
   done
   if mountpoint -q "/run/media/pakin/ECHO MINI"; then
     echo "Sync File to Snowsky"
-    rsync -av --exclude "*.spotdl" --delete --progress  ~/gdrive/Music/ "/run/media/pakin/ECHO MINI"
+    rsync -av --exclude "*.spotdl" --exclude "/playlists" --delete --progress ~/gdrive/Music/ "/run/media/pakin/ECHO MINI"
   fi
   echo "Sync File to ~/Music"
   rsync -av --exclude "*.spotdl" --delete --progress  ~/gdrive/Music/ ~/Music
 }
 
 my-spotdl(){
-  spotdl --cookie-file  $HOME/Downloads/cookies.txt \
+  spotdl --cookie-file  "$HOME/Downloads/cookies.txt" \
     --format mp3 --audio youtube-music soundcloud bandcamp \
-    --max-retries 10 \
+    --max-retries 10 --dont-filter-results \
     -- "$@"
 }
 my-spotdl-with-yt() {
