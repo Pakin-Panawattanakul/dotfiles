@@ -108,14 +108,13 @@ music-sync() {
 }
 
 my-spotdl(){
-  spotdl --cookie-file  "$HOME/Downloads/cookies.txt" \
-    --format mp3 --audio youtube-music soundcloud bandcamp \
+  spotdl --format mp3 --audio youtube-music soundcloud bandcamp \
     --max-retries 10 --dont-filter-results \
-    -- "$@"
+    "$@"
 }
 my-spotdl-with-yt() {
   echo "$1|$2"
-  spotdl --cookie-file ~/Downloads/cookies.txt "$1|$2"
+  spotdl "$1|$2"
 }
 # use when don't want to check song accuracy : --dont-filter-results 
 alias pot-provider="cd $HOME/dotfiles/build/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
