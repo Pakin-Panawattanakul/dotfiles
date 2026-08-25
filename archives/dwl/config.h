@@ -27,7 +27,7 @@ static const int enablegaps                = 1; /* 1 means gaps are enabled */
 static const int smartgaps                 = 0; /* 1 means no outer gap when there is only one window */
 static const int monoclegaps               = 1; /* 1 means outer gaps in monocle layout */
 static const int follow                    = 1; /* 1 means follow windows when sent to another tag */
-static const unsigned int borderpx         = 1;  /* border pixel of windows & bar */
+static const unsigned int borderpx         = 2;  /* border pixel of windows & bar */
 static const unsigned int gappih           = 2; /* horiz inner gap between windows */
 static const unsigned int gappiv           = 2; /* vert inner gap between windows */
 static const unsigned int gappoh           = 2; /* horiz outer gap between windows and screen edge */
@@ -64,14 +64,17 @@ static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   monitor   x   y   width   height */
 	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1,       -1, -1, 1000,   0.75 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-	{ "rmpc",             NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "ncspot",           NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "spotify",          NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
 	{ "thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+	{ "wiremix",          NULL,       0,            1,           -1,       -1, -1,0.8,    0.8 },
+	{ "impala",          NULL,       0,             1,           -1,       -1, -1,0.8,    0.8 },
+	{ "bluetui",          NULL,       0,            1,           -1,       -1, -1,0.8,    0.8 },
   { "mpv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
   { "imv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
-  { "com.bitwarden.desktop",NULL,   0,            1,           -1,       -1, -1, -1,     -1 },
-  { "org.pwmt.zathura", NULL,       0,            1,           -1,       -1, -1,  1,      1 },
+  { "bitwarden",NULL,   0,            1,           -1,       -1, -1, -1,     -1 },
+  { "zathura", NULL,       0,            1,           -1,       -1, -1,  1,      1 },
   
     /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
 };
@@ -192,8 +195,9 @@ static const char *powermenu[] = { "wmenu-powermenu", "-l", "5", "-i", "-p", "po
 static const char *menucmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *powermenu[] = {"rofi-powermenu", NULL };
 static const char *screenshot[] = {"screenshot.sh", NULL };
-static const char *rmpc[] = { "foot", "--app-id", "rmpc", "-T", "rmpc", "rmpc", NULL };
+static const char *ncspot[] = { "foot", "--app-id", "ncspot", "-T", "ncspot", "ncspot", NULL };
 static const char *bluetui[] = { "foot", "--app-id", "bluetui", "-T", "bluetui","bluetui", NULL };
+static const char *impala[] = { "foot", "--app-id", "impala", "-T", "impala","impala", NULL };
 static const char *wiremix[] = { "foot", "--app-id", "wiremix", "-T", "wiremix", "wiremix", NULL };
 static const char *thunderbird[] = {"thunderbird", NULL };
 
@@ -209,9 +213,10 @@ static const Key keys[] = {
 	{ 0,                         XKB_KEY_Print,       spawn,            {.v = screenshot} },
   { MODSHIFT,                  XKB_KEY_t,           spawn,            {.v = thunderbird} },
 	{ MODSHIFT,                  XKB_KEY_v,           spawn,            {.v = discord} },
-  { MODSHIFT,                  XKB_KEY_r,           spawn,            {.v = rmpc} },
-  { MODSHIFT,                  XKB_KEY_w,           spawn,            {.v = wiremix} },
+  { MODSHIFT,                  XKB_KEY_s,           spawn,            {.v = ncspot} },
+  { MODSHIFT,                  XKB_KEY_p,           spawn,            {.v = wiremix} },
   { MODSHIFT,                  XKB_KEY_b,           spawn,            {.v = bluetui} },
+  { MODSHIFT,                  XKB_KEY_w,           spawn,            {.v = impala} },
   { 0, XKB_KEY_XF86AudioRaiseVolume,                spawn,            {.v = up_vol } },
   { 0, XKB_KEY_XF86AudioLowerVolume,                spawn,            {.v = down_vol } },
   { 0, XKB_KEY_XF86AudioMute,                       spawn,            {.v = mute_vol } },

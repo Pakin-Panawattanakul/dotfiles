@@ -10,7 +10,6 @@
 {
 
   imports = [
-    #./modules/dwl.nix
     ./modules/udev.nix
   ];
 

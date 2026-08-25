@@ -18,7 +18,6 @@
     ./home-manager/rclone-gdrive.nix
     ./packages/stable.nix
     ./packages/unstable.nix
-    #./home-manager/mpd.nix
   ];
 
   programs.git = {

@@ -5,7 +5,6 @@ wbg -s $HOME/Pictures/wallpapers/nix_01.png &
 $HOME/Scripts/low_battery.sh &
 brightnessctl set 40%
 mpc stop
-touch /tmp/dwl-keymap
 
 case "$(hostname)" in
   nixos-home) 

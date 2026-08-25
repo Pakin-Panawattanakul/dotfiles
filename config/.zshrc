@@ -103,8 +103,8 @@ music-sync() {
     echo "Sync File to Snowsky"
     rsync -av --exclude "*.spotdl" --exclude "/playlists" --delete --progress ~/gdrive/Music/ "/run/media/pakin/ECHO MINI"
   fi
-  echo "Sync File to ~/Music"
-  rsync -av --exclude "*.spotdl" --delete --progress  ~/gdrive/Music/ ~/Music
+  #echo "Sync File to ~/Music"
+  #rsync -av --exclude "*.spotdl" --delete --progress  ~/gdrive/Music/ ~/Music
 }
 
 my-spotdl(){
@@ -129,5 +129,5 @@ edp() {
 }
 
 #nixos
-alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles?submodules=1#'$HOST"
+alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles#'$HOST"
 alias nixgc="sudo nix-collect-garbage -d"

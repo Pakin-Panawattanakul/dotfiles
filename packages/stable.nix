@@ -24,14 +24,14 @@
 
     # Media
     zathura
-    mpc
-    rmpc
     mpv
     imv
     cava
 
     vesktop
     spotify
+
+    ncspot
     libreoffice
     thunderbird
     bitwarden-desktop

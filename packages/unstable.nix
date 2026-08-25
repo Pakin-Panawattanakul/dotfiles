@@ -7,7 +7,7 @@
   home.packages = with pkgs-unstable; [
     opencode
     #ffmpeg # install by yazi dep
-    cantata
+    #cantata
     deno
     spotdl
 

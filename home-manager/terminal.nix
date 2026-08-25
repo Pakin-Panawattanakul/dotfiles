@@ -102,6 +102,9 @@
       set -g @vim_navigator_mapping_up "C-Up"
       set -g @vim_navigator_mapping_down "C-Down"
       set -g @vim_navigator_mapping_prev ""
+
+      # ---------- tmux continuum ----------
+      set -g @continuum-restore 'on'
     '';
   };
 }

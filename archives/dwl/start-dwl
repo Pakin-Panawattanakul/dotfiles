@@ -15,5 +15,6 @@ export INIT_UNIX_BACKEND=x11
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=wlroots
 
-# keep log from dwl
+# create keymap files before someblocks start
+touch /tmp/dwl-keymap
 exec someblocks 2>/dev/null -p | dwl -s "$HOME/.config/dwl/dwl-autostart.sh"
