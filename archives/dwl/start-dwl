@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# wayland stuff
+export ELM_DISPLAY=wl
+export GDK_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland,x11
+export WLR_NO_HARDWARE_CURSORS=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+export MOZ_ENABLE_WAYLAND=1
+export PROTON_ENABLE_WAYLAND=1
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export INIT_UNIX_BACKEND=x11
+
+# dwl
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=wlroots
+
+# keep log from dwl
+exec someblocks 2>/dev/null -p | dwl -s "$HOME/.config/dwl/dwl-autostart.sh"

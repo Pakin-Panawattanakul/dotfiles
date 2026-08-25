@@ -1,0 +1,68 @@
+include styles
+include keybinds
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+exec_always --no-startup-id autotiling
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -k -i ~/Pictures/wallpapers/TrixieTracksCenter.png
+exec --no-startup-id picom
+exec --no-startup-id nm-applet
+exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/Scripts/low_battery.sh
+
+########################################
+# Outputs
+########################################
+#exec_always ~/.config/i3/monitors.sh
+exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 165 --primary
+exec_always --no-startup-id xrandr --output HDMI-1-0 --mode 2560x1440  --right-of eDP-1
+exec_always --no-startup-id nitrogen --restore
+
+########################################
+# Inputs
+########################################
+#exec_always --no-startup-id setxkbmap -layout us,th -variant colemak_dh_ortho, -option 'grp:win_space_toggle,lv3:caps_switch,mykeys:hjkl' 
+exec_always --no-startup-id setxkbmap -layout us,th -variant ,  -option 'grp:win_space_toggle'
+#exec_always --no-startup-id ~/.config/i3/keyboard.sh
+
+########################################
+# Applications launcher
+# move here so keybinds and styles can be share with sway
+########################################
+# Default applications
+set $term kitty
+set $menu rofi -show drun
+set $browser firefox
+set $filemanager thunar
+
+set $mod Mod4
+set $alt Mod1
+bindsym $mod+t exec $term
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+f exec $filemanager
+bindsym $mod+b exec $browser
+bindsym $mod+r exec $menu
+bindsym $alt+Tab exec --no-startup-id rofi -show window
+
+floating_modifier Mod4
+tiling_drag modifier titlebar
+
+########################################
+## Bar
+########################################
+bar {
+    font pango:JetBrainsMonoNerdFontPropo 10
+    colors {
+        background #07080b
+        statusline #E0E2EA
+        separator  #4f5258
+        focused_workspace  #7EDFDE #7EDFDE #07080b
+        active_workspace   #4f5258 #4f5258 #E0E2EA
+        inactive_workspace #2c2e33 #2c2e33 #C4C6CD
+        urgent_workspace   #E5ADB9 #E5ADB9 #07080b
+        binding_mode       #E3CA85 #E3CA85 #07080b
+    }
+   status_command i3status
+}

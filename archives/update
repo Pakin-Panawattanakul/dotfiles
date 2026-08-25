@@ -1,0 +1,30 @@
+#!/bin/sh
+mkdir -p "$HOME/.config"
+mkdir -p "$HOME/.config/mpd/playlists"
+mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/.local/share/applications"
+mkdir -p "$HOME/.local/share/icons"
+mkdir -p "$HOME/.local/share/fonts"
+mkdir -p "$HOME/.local/share/keymapp"
+mkdir -p "$HOME/.local/share/rofi"
+mkdir -p "$HOME/.themes"
+
+# stowing config and asset dir
+stow -R files
+stow -R config
+stow -R wmenu-scripts --target="$HOME/.local/bin" 
+
+# mpd
+mkdir -p "$HOME/.local/state/mpd"
+touch "$HOME/.local/state/mpd/state"
+touch "$HOME/.config/mpd/database"
+# dwl
+ln -sf "$HOME/.config/dwl/config.h" "$HOME/dotfiles/build/dwl/"
+ln -sf "$HOME/.config/dwl/blocks.h" "$HOME/dotfiles/build/someblocks/"
+ln -sf "$HOME/.config/dwl/start-dwl" "$HOME/.local/bin/"
+
+cd "$HOME/dotfiles/build/dwl"
+sudo make clean install
+
+cd "$HOME/dotfiles/build/someblocks"
+sudo make clean install
