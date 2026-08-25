@@ -43,6 +43,7 @@
             ./configuration.nix
             ./modules/battery.nix
             ./modules/wifi.nix
+            ./modules/kanata.nix
             ./packages/nixos-T480.nix
             { networking.hostName = "nixos-T480"; }
             home-manager.nixosModules.home-manager
