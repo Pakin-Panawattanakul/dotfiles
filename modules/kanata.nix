@@ -29,37 +29,38 @@
             q w e r t y u i o p
             a s d f g h j k l ;
             z x c v b n m , . /
-            caps
+            caps lalt
           )
           (defvar
-            tap-time 200
+            tap-time 180
             hold-time 200
           )
 
           (defalias
-            a (tap-hold-release $tap-time $hold-time a lmet)
-            s (tap-hold-release $tap-time $hold-time s lalt)
-            d (tap-hold-release $tap-time $hold-time d lctl)
-            f (tap-hold-release $tap-time $hold-time f lsft)
-            j (tap-hold-release $tap-time $hold-time j rsft)
-            k (tap-hold-release $tap-time $hold-time k rctl)
-            l (tap-hold-release $tap-time $hold-time l lalt)
-            ; (tap-hold-release $tap-time $hold-time ; rmet)
+            a (tap-hold $tap-time $hold-time a lmet)
+            s (tap-hold $tap-time $hold-time s lalt)
+            d (tap-hold $tap-time $hold-time d lctl)
+            f (tap-hold $tap-time $hold-time f lsft)
+            j (tap-hold $tap-time $hold-time j rsft)
+            k (tap-hold $tap-time $hold-time k rctl)
+            l (tap-hold $tap-time $hold-time l lalt)
+            ; (tap-hold $tap-time $hold-time ; rmet)
             cap_esc (tap-hold-release $tap-time $hold-time esc (layer-while-held arrownav))
+            lalt-nav (layer-while-held arrownav)
           )
 
           (deflayer base
             q    w    e    r    t    y    u    i    o    p
             @a   @s   @d   @f   g    h    @j   @k   @l   @;
             z    x    c    v    b    n    m    ,    .    /
-            @cap_esc
+            esc  @lalt-nav
           )
 
           (deflayer arrownav
             _    _    _    _    _    _    _    _    _    _
-            _    _    _    _    _    left down up   right _
+            _    lmet lalt lctl lsft left down up   right _
             _    _    _    _    _    _    _    _    _    _
-            _
+            _    _
           )
         '';
       };
