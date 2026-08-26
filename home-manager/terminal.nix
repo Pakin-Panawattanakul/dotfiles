@@ -62,12 +62,13 @@
 
     extraConfig = ''
       unbind r
-      bind r source-file ~/.tmux.conf \; display-message "Config updated"
+      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config updated"
       unbind C-b
 
       set-option -g allow-rename off
-      set -as terminal-features ",foot:RGB"
+      set -as terminal-features ",foot:RGB,rxvt-unicode-256color:clipboard"
       set -g pane-base-index 1
+      set -s set-clipboard external
 
       # ---------- Status Bar ----------
       set -g status-style "bg=black,fg=default,bold"
@@ -96,15 +97,14 @@
       bind -n M-8 select-window -t 8
       bind -n M-9 select-window -t 9
 
-      # ---------- vim-tmux-navigator ----------
       set -g @vim_navigator_mapping_left "C-Left"
       set -g @vim_navigator_mapping_right "C-Right"
       set -g @vim_navigator_mapping_up "C-Up"
       set -g @vim_navigator_mapping_down "C-Down"
       set -g @vim_navigator_mapping_prev ""
-
-      # ---------- tmux continuum ----------
       set -g @continuum-restore 'on'
-    '';
+      run-shell ${pkgs.tmuxPlugins.vim-tmux-navigator}/share/tmux-plugins/vim-tmux-navigator/vim-tmux-navigator.tmux
+      run-shell ${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/continuum.tmux
+      '';
   };
 }

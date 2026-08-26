@@ -25,25 +25,39 @@
 window#waybar {
   background-color: #14161b;
   color: #e0e2ea;
-  border: 1px ridge  #a6dbff;
+  border: 1px solid  #a6dbff;
 }
 
 /* ── left ── */
 #workspaces button {
   padding: 0 4px;
   background: transparent;
+  color: #b3f6c0;
+  border-bottom: 2px ridge transparent;
+}
+
+#workspaces button.empty {
   color: #c4c6cd;
-  border-bottom: 2px solid transparent;
+  border-bottom: 2px ridge transparent;
 }
 
 #workspaces button.active {
-  color: #a6dbff;
-  border-bottom: 2px solid #a6dbff;
+  color: #b3f6c0;
+  border-bottom: 2px solid #b3f6c0;
 }
 
 #workspaces button.urgent {
   color: #ffc0b9;
   border-bottom: 2px solid #ffc0b9;
+}
+
+#layout { 
+  background-color : #14161b; 
+  color : #b3f6c0 ;
+  border-top: 1px solid #a6dbff;
+  border-bottom: 1px solid #a6dbff;
+  padding-bottom : 2px;
+  padding: 0 4px;
 }
 
 #mpd {

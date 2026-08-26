@@ -7,21 +7,31 @@
   "margin-left": 8,
   "margin-right": 8,
 
-  "modules-left": ["ext/workspaces", "mpd"],
+  // "mpd" removed from modules left
+  "modules-left": ["mango/workspaces", "mango/layout", ], 
   "modules-center": ["clock"],
-  "modules-right": ["wireplumber", "cpu", "memory", "network", "battery", "tray"],
+  "modules-right": [ "mango/language", "wireplumber", "cpu", "memory", "network", "battery", "tray"],
 
-  "ext/workspaces": {
-    "ignore-hidden": "true",
+  "mango/workspaces": {
     "on-click": "activate",
     "on-click-right": "deactivate",
-    "sort-by-id": true,
+    "hide-empty": false,
     "format": "{icon}",
     "format-icons": {
       "7": "󰝚",
       "8": "",
       "9": "󰇮",
       },
+  },
+
+  "mango/layout" : {
+    "format" : "[{symbol}]"
+  },
+
+  "mango/language": {
+    "format": " {short} ",
+    "format-us": "US",
+    "format-de": "DE"
   },
 
   "clock": {
@@ -48,10 +58,6 @@
     "artist-len": 20,
     "title-len": 20
 },
-
-  "sway/language": {
-      "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
-  },
 
   "wireplumber": {
     "format": "  {volume}%",
