@@ -49,7 +49,7 @@
 
   programs.tmux = {
     enable = true;
-    prefix = "C-a";
+    #prefix = "C-a";
     baseIndex = 1;
     mouse = true;
     terminal = "tmux-256color";
@@ -63,7 +63,6 @@
     extraConfig = ''
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config updated"
-      unbind C-b
 
       set-option -g allow-rename off
       set -as terminal-features ",foot:RGB,rxvt-unicode-256color:clipboard"

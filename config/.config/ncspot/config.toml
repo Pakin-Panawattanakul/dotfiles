@@ -1,8 +1,11 @@
 playback_state = "Playing"
 backend = "pulseaudio"
-[theme]
 use_nerdfont = true
 notify = true
+default_keybindings = true
+shuffle = true
+library_tabs = [ "playlists", "albums", "artists", "podcasts", "browse" ]
+[theme]
 background = "#07080D"
 primary = "#E0E2EA"
 secondary = "#c4c6cd"
