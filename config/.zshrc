@@ -101,7 +101,7 @@ music-sync() {
   done
   if mountpoint -q "/run/media/pakin/ECHO MINI"; then
     echo "Sync File to Snowsky"
-    rsync -av --exclude "*.spotdl" --exclude "/playlists" --delete --progress ~/gdrive/Music/ "/run/media/pakin/ECHO MINI"
+    rsync -av --modify-window=2 --exclude "*.spotdl" --exclude "/playlists" --delete --progress ~/gdrive/Music/ "/run/media/pakin/ECHO MINI"
   fi
   #echo "Sync File to ~/Music"
   #rsync -av --exclude "*.spotdl" --delete --progress  ~/gdrive/Music/ ~/Music
