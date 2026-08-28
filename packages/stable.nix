@@ -30,6 +30,7 @@
 
     vesktop
     spotify
+    synology-drive-client
 
     ncspot
     libreoffice
