@@ -11,6 +11,9 @@
     deno
     spotdl
 
+    #spotify
+    ncspot
+
     # wayland
     rofi
     waybar

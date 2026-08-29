@@ -32,7 +32,6 @@
     spotify
     synology-drive-client
 
-    ncspot
     libreoffice
     thunderbird
     bitwarden-desktop
