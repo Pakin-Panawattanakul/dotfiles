@@ -61,20 +61,20 @@ static int log_level = WLR_ERROR;
 
 /* Window rules */
 static const Rule rules[] = {
-	/* app_id             title       tags mask     isfloating   monitor   x   y   width   height */
-	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1,       -1, -1, 1000,   0.75 }, /* Start on currently visible tags floating, not tiled */
-	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-	{ "ncspot",           NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-	{ "spotify",          NULL,       1 << 6,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-	{ "vesktop",          NULL,       1 << 7,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
-	{ "thunderbird",      NULL,       1 << 8,       0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
-	{ "wiremix",          NULL,       0,            1,           -1,       -1, -1,0.8,    0.8 },
-	{ "impala",          NULL,       0,             1,           -1,       -1, -1,0.8,    0.8 },
-	{ "bluetui",          NULL,       0,            1,           -1,       -1, -1,0.8,    0.8 },
-  { "mpv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
-  { "imv",              NULL,       0,            1,           -1,       -1, -1,  1,      1 },
-  { "bitwarden",NULL,   0,            1,           -1,       -1, -1, -1,     -1 },
-  { "zathura", NULL,       0,            1,           -1,       -1, -1,  1,      1 },
+	/* app_id             title       tags mask     switchtotag  isfloating   monitor     x   y   width   height */
+	{ "Gimp_EXAMPLE",     NULL,       0,            0,            1,           -1,       -1, -1, 1000,   0.75 }, /* Start on currently visible tags floating, not tiled */
+	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "ncspot",           NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "spotify",          NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "vesktop",          NULL,       1 << 7,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
+	{ "thunderbird",      NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+	{ "wiremix",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
+	{ "impala",           NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
+	{ "bluetui",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
+  { "mpv",              NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
+  { "imv",              NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
+  { "bitwarden",        NULL,       0,            0,            0,           -1,       -1, -1, -1,     -1 },
+  { "zathura",          NULL,       0,            0,            0,           -1,       -1, -1,  1,      1 },
   
     /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
 };
@@ -108,7 +108,7 @@ static const KeyboardRule kbrules[] = {
 	/* example:
 	{ "keyboard", NULL, NULL, "us,de", NULL,   "ctrl:nocaps" },
 	*/
-	{ "ZSA Technology Labs Voyager", NULL, NULL, "us",    NULL,   NULL },
+	{ "ZSA Technology Labs Voyager", NULL, NULL, "us,th",    "colemak_dh_ortho,",   NULL },
 	{ "Cradio Keyboard", NULL, NULL, "us",    NULL,   NULL },
   { NULL, NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl" } ,
   // { NULL, NULL,NULL, "us,th", NULL , "grp:win_space_toggle"},

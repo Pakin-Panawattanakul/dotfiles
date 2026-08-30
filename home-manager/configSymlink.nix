@@ -2,9 +2,9 @@
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles";
   xdgConfigs = [
+    "dwl"
     "eza"
     "foot"
-    "mango"
     "ncspot"
     "nvim"
     "opencode"

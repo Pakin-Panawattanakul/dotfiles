@@ -10,6 +10,7 @@
 {
 
   imports = [
+    ./modules/dwl.nix
     ./modules/udev.nix
   ];
 
@@ -90,8 +91,6 @@
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
   security.pam.services.ly.enableGnomeKeyring = true;
-  programs.mangowc.enable = true;
-  programs.mangowc.package = pkgs-unstable.mango;
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;

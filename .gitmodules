@@ -1,3 +1,9 @@
+[submodule "build/dwl"]
+	path = build/dwl
+	url = https://github.com/Pakin-Panawattanakul/dwl
+[submodule "build/someblocks"]
+	path = build/someblocks
+	url = https://github.com/Pakin-Panawattanakul/someblocks
 [submodule "build/bgutil-ytdlp-pot-provider"]
 	path = build/bgutil-ytdlp-pot-provider
 	url = https://github.com/Brainicism/bgutil-ytdlp-pot-provider

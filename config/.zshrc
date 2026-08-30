@@ -129,5 +129,5 @@ edp() {
 }
 
 #nixos
-alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles#'$HOST"
+alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles?submodules=1#'$HOST"
 alias nixgc="sudo nix-collect-garbage -d"
