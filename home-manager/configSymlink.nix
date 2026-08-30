@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  dotfiles = "${config.home.homeDirectory}/dotfiles";
+  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles";
   xdgConfigs = [
     "dwl"
     "eza"

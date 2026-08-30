@@ -114,6 +114,7 @@
       curl
       solaar
       file
+      libinput
     ]
     ++ [ pkgs-unstable.slang-server ] ;
 

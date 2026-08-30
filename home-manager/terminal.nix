@@ -37,13 +37,13 @@
     };
     syntaxHighlighting.enable = true;
     initContent = ''
-      source /home/pakin/dotfiles/config/.zshrc
+      source /home/pakin/nixos-dotfiles/config/.zshrc
     '';
     envExtra = ''
-      source /home/pakin/dotfiles/config/.zshenv
+      source /home/pakin/nixos-dotfiles/config/.zshenv
     '';
     profileExtra = ''
-      source /home/pakin/dotfiles/config/.zprofile
+      source /home/pakin/nixos-dotfiles/config/.zprofile
     '';
   };
 

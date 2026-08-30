@@ -88,7 +88,7 @@ psg() {
 # ------------ Custom alias ------------
 alias grep='grep --color'
 alias f=fastfetch
-alias dot='cd ~/dotfiles && ls -l'
+alias dot='cd ~/nixos-dotfiles && ls -l'
 alias kyber='cd $HOME/kyber'
 alias lg=lazygit
 
@@ -117,7 +117,7 @@ my-spotdl-with-yt() {
   spotdl "$1|$2"
 }
 # use when don't want to check song accuracy : --dont-filter-results 
-alias pot-provider="cd $HOME/dotfiles/build/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
+alias pot-provider="cd $HOME/nixos-dotfiles/build/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
 
 # -----------------------------------
 
@@ -129,5 +129,5 @@ edp() {
 }
 
 #nixos
-alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles?submodules=1#'$HOST"
+alias rebuild="sudo nixos-rebuild switch --flake ~/'nixos-dotfiles?submodules=1#'$HOST"
 alias nixgc="sudo nix-collect-garbage -d"
