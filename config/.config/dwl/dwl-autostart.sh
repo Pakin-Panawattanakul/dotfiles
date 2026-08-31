@@ -1,7 +1,7 @@
 #!/bin/sh
 
-#$HOME/Scripts/random-wallpaper.sh &
-wbg -s $HOME/Pictures/wallpapers/nix_01.png &
+$HOME/Scripts/random-wallpaper.sh &
+#wbg -s $HOME/Pictures/wallpapers/nix_01.png &
 $HOME/Scripts/low_battery.sh &
 brightnessctl set 40%
 mpc stop
