@@ -108,9 +108,9 @@ static const KeyboardRule kbrules[] = {
 	/* example:
 	{ "keyboard", NULL, NULL, "us,de", NULL,   "ctrl:nocaps" },
 	*/
-	{ "ZSA Technology Labs Voyager", NULL, NULL, "us,th",    "colemak_dh_ortho,",   NULL },
+	{ "ZSA Technology Labs Voyager", NULL, NULL, "us,th",    "colemak_dh_ortho,", "grp:win_space_toggle" },
 	{ "Cradio Keyboard", NULL, NULL, "us",    NULL,   NULL },
-  { NULL, NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle,custom:hjkl" } ,
+  { NULL, NULL,NULL, "us,th", "colemak_dh," , "grp:win_space_toggle" } ,
   // { NULL, NULL,NULL, "us,th", NULL , "grp:win_space_toggle"},
 	//{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
@@ -178,6 +178,8 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *up_vol[]   = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 10%+; pkill -RTMIN+4 someblocks", NULL };
 static const char *down_vol[] = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 10%-; pkill -RTMIN+4 someblocks",   NULL };
 static const char *mute_vol[] = { "sh", "-c", "wpctl set-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+4 someblocks", NULL };
+static const char *mute_mic[] = { "sh", "-c", "wpctl set-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+4 someblocks", NULL };
+static const char *toggle_bluetooth[] = { "toggle_bluetooth.sh", NULL };
 // for some resason even without this there are default +-5% build in
 // sending signal to someblocks
 static const char *brightness_up[] = {"brightnessctl", "set", "+10%", NULL };
@@ -216,10 +218,12 @@ static const Key keys[] = {
   { MODSHIFT,                  XKB_KEY_s,           spawn,            {.v = ncspot} },
   { MODSHIFT,                  XKB_KEY_p,           spawn,            {.v = wiremix} },
   { MODSHIFT,                  XKB_KEY_b,           spawn,            {.v = bluetui} },
+  { 0, XKB_KEY_XF86Bluetooth,                       spawn,            {.v = toggle_bluetooth} },
   { MODSHIFT,                  XKB_KEY_w,           spawn,            {.v = impala} },
   { 0, XKB_KEY_XF86AudioRaiseVolume,                spawn,            {.v = up_vol } },
   { 0, XKB_KEY_XF86AudioLowerVolume,                spawn,            {.v = down_vol } },
   { 0, XKB_KEY_XF86AudioMute,                       spawn,            {.v = mute_vol } },
+  { 0, XKB_KEY_XF86AudioMicMute,                    spawn,            {.v = mute_mic } },
   { 0, XKB_KEY_XF86MonBrightnessUp,                 spawn,            {.v = brightness_up}},
   { 0, XKB_KEY_XF86MonBrightnessDown,               spawn,            {.v = brightness_down}},
 	{ MODKEY,                    XKB_KEY_l,           focusstack,       {.i = -1} },

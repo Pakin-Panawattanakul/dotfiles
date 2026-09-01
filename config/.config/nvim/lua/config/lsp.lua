@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "LSP : Code Action" })
 		map("n", "<leader>gw", builtin.lsp_workspace_symbols, { buffer = ev.buf, desc = "LSP : workspace symbols" })
 		map("n", "<leader>gs", builtin.lsp_document_symbols, { buffer = ev.buf, desc = "LSP : Document Symbols" })
-		map("n", "gr", builtin.lsp_references, { nowait = true, buffer = ev.buf, desc = "LSP : [G]o to [R]eferences" })
+		map("n", "gR", builtin.lsp_references, { nowait = true, buffer = ev.buf, desc = "LSP : [G]o to [R]eferences" })
 		map("n", "gd", builtin.lsp_definitions, { buffer = ev.buf, desc = "LSP : [D]efinitions" })
 		map("n", "gD", vim.lsp.buf.declaration, { buffer = ev.buf, desc = "LSP : [G]o to [D]eclaration" })
 		map("n", "gi", builtin.lsp_implementations, { buffer = ev.buf, desc = "LSP : [G]oto [I]mplementations" })

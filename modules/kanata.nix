@@ -37,15 +37,16 @@
           )
 
           (defalias
-            a (multi nop0 (tap-hold $tap-time $hold-time a lmet))
-            s (multi nop0 (tap-hold $tap-time $hold-time s lalt))
-            d (multi nop0 (tap-hold $tap-time $hold-time d lctl))
-            f (multi nop0 (tap-hold $tap-time $hold-time f lsft))
-            j (multi nop0 (tap-hold $tap-time $hold-time j rsft))
-            k (multi nop0 (tap-hold $tap-time $hold-time k rctl))
-            l (multi nop0 (tap-hold $tap-time $hold-time l lalt))
-            ; (multi nop0 (tap-hold $tap-time $hold-time ; rmet))
-            cap_esc (multi nop0 (tap-hold $tap-time $hold-time esc (layer-while-held arrownav)))
+            norepeat kana
+            a (multi @norepeat (tap-hold $tap-time $hold-time a lmet))
+            s (multi @norepeat (tap-hold $tap-time $hold-time s lalt))
+            d (multi @norepeat (tap-hold $tap-time $hold-time d lctl))
+            f (multi @norepeat (tap-hold $tap-time $hold-time f lsft))
+            j (multi @norepeat (tap-hold $tap-time $hold-time j rsft))
+            k (multi @norepeat (tap-hold $tap-time $hold-time k rctl))
+            l (multi @norepeat (tap-hold $tap-time $hold-time l lalt))
+            ; (multi @norepeat (tap-hold $tap-time $hold-time ; rmet))
+            cap_esc (multi @norepeat (tap-hold $tap-time $hold-time esc caps))
             lalt-nav (layer-while-held arrownav)
           )
 
@@ -53,7 +54,7 @@
             q    w    e    r    t    y    u    i    o    p
             @a   @s   @d   @f   g    h    @j   @k   @l   @;
             z    x    c    v    b    n    m    ,    .    /
-            esc  @lalt-nav
+            @cap_esc  @lalt-nav
           )
 
           (deflayer arrownav

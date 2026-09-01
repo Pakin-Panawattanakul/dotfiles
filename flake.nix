@@ -47,7 +47,7 @@
             ./modules/battery.nix
             ./modules/wifi.nix
             ./modules/kanata.nix
-            ./packages/nixos-T480.nix
+            ./packages/books-library.nix
             { networking.hostName = "nixos-T480"; }
             home-manager.nixosModules.home-manager
             {
@@ -69,7 +69,7 @@
             ./hosts/hardware-configuration-home.nix
             ./configuration.nix
             ./modules/nvidia.nix
-            ./packages/nixos-home.nix
+            ./packages/cosmic-desktop.nix
             { networking.hostName = "nixos-home"; }
             home-manager.nixosModules.home-manager
             {
