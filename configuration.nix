@@ -90,7 +90,8 @@
   hardware.graphics.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.displayManager.ly.enable = true;
-  security.pam.services.ly.enableGnomeKeyring = true;
+ # security.pam.services.ly.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;

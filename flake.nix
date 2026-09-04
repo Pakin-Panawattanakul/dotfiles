@@ -47,17 +47,18 @@
             ./modules/battery.nix
             ./modules/wifi.nix
             ./modules/kanata.nix
-            ./packages/books-library.nix
             { networking.hostName = "nixos-T480"; }
             home-manager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.pakin = import [
-                  ./home.nix
-                  ./home-manager/books-library.nix
-                ];
+                users.pakin = {
+                  imports = [
+                    ./home.nix
+                    ./home-manager/books-library.nix
+                  ];
+                };
                 backupFileExtension = "backup";
                 extraSpecialArgs = { inherit pkgs-unstable; };
               };
