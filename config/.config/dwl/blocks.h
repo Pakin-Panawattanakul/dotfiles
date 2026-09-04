@@ -7,7 +7,7 @@ static const Block blocks[] = {
     {"", "wpctl get-volume @DEFAULT_SINK@ | awk '{if(/MUTED/)icon=\"󰝟\";else if($2<0.33)icon=\"󰕿\";else if($2<0.66)icon=\"󰖀\";else icon=\"󰕾\";printf \"^fg(ffcaff)%s %.0f%%^fg()\",icon,$2*100}'", 5, 4},
     {"", "w=$(nmcli -t -f active,ssid,signal dev wifi 2>/dev/null | awk -F: '$1==\"yes\"{print $2\",\"$3; exit}'); if [ -n \"$w\" ]; then ssid=${w%,*}; sig=${w#*,}; printf \"^fg(8cf8f7) %s %s%%^fg()\" \"$ssid\" \"$sig\"; else e=$(nmcli -t -f device,type,state device 2>/dev/null | awk -F: '$2==\"ethernet\"&&$3==\"connected\"{print $1; exit}'); if [ -n \"$e\" ]; then ip=$(nmcli -t -f IP4.ADDRESS device show \"$e\" 2>/dev/null | head -1 | cut -d: -f2 | cut -d/ -f1); printf \"^fg(8cf8f7)󰈀 %s^fg()\" \"$ip\"; else printf \"^fg(8cf8f7)  disconnected^fg()\"; fi; fi", 5, 0},
     {"", "upower -e | grep BAT | xargs -I{} upower -i {} \
-      | awk '/energy:/&&!/energy-empty/&&!/energy-full/{e+=$2} /energy-full:/&&!/energy-full-design/{f+=$2} END{if(f>0){p=e/f*100;c=\"b3f6c0\";if(p<=15)c=\"ffc0b9\";else if(p<=30)c=\"fce094\";printf \"^fg(%s)󰁹 %.0f%%^fg()\",c,p}}'", 5, 0},
+      | awk '/state:/{state=$2} /energy:/&&!/energy-empty/&&!/energy-full/{e+=$2} /energy-full:/&&!/energy-full-design/{f+=$2} END{if(f>0){p=e/f*100;if(state==\"charging\")icon=\"󰂄\";else if(state==\"fully-charged\"||state==\"not-charging\"||state==\"pending-charge\")icon=\"󱐋\";else if(p<20)icon=\"󰁺\";else if(p<45)icon=\"󰁾\";else icon=\"󰁹\";c=\"b3f6c0\";if(p<20)c=\"ffc0b9\";else if(p<45)c=\"fce094\";printf \"^fg(%s)%s %.0f%%^fg()\",c,icon,p}}'", 5, 0},
     {"", "date '+^fg(a6dbff)󰃭 %b %d (%a)^fg()'", 5, 0},
     {"", "date '+^fg(ffc0b9) %H:%M ^fg()'", 5, 0},
 };
