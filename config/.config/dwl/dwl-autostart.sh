@@ -11,8 +11,12 @@ case "$(hostname)" in
     wlr-randr --output DP-2 --mode 1920x1080@165Hz
     solaar -w hide & ;; 
   nixos-NV15)
-    wlr-randr --output eDP-1 --mode 1920x1080@165Hz 
+    wlr-randr --output HDMI-A-2 --mode 1920x1080@144.001007Hz --pos 0,0
+    wlr-randr --output eDP-1 --mode 1920x1080@165Hz --right-of HDMI-A-2
     solaar -w hide & ;; 
+  nixos-T480)
+    wlr-randr --output HDMI-A-2 --mode 1920x1080@120Hz --pos 0,0
+    wlr-randr --output eDP-1 --right-of HDMI-A-2
 esac
 
 gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
