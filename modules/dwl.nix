@@ -5,7 +5,7 @@ let
       configH = ../config/.config/dwl/config.h;
     }).overrideAttrs
       (oldAttrs: {
-        src = ../build/dwl;
+        src = ../submodules/dwl;
         buildInputs = oldAttrs.buildInputs or [ ] ++ [
           pkgs.fcft
           pkgs.libdrm
@@ -14,7 +14,7 @@ let
   someblocks = pkgs.stdenv.mkDerivation {
     name = "someblocks-1.0.1";
     pname = "someblocks";
-    src = ../build/someblocks;
+    src = ../submodules/someblocks;
     makeFlags = [ "PREFIX=$(out)" ];
     postPatch = ''
       cp ${../config/.config/dwl/blocks.h} blocks.h

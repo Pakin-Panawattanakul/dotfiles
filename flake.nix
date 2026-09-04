@@ -54,7 +54,10 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                users.pakin = import ./home.nix;
+                users.pakin = import [
+                  ./home.nix
+                  ./home-manager/books-library.nix
+                ];
                 backupFileExtension = "backup";
                 extraSpecialArgs = { inherit pkgs-unstable; };
               };
@@ -69,7 +72,7 @@
             ./hosts/hardware-configuration-home.nix
             ./configuration.nix
             ./modules/nvidia.nix
-            ./packages/cosmic-desktop.nix
+            ./modules/cosmic-desktop.nix
             { networking.hostName = "nixos-home"; }
             home-manager.nixosModules.home-manager
             {

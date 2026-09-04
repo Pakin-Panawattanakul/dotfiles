@@ -14,6 +14,11 @@
     ncdu
     tldr
 
+    # dev program
+    gcc
+    gdb
+    opencode
+
     # yazi and dependency
     yazi
     ffmpeg

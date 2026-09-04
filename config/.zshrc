@@ -117,7 +117,7 @@ my-spotdl-with-yt() {
   spotdl "$1|$2"
 }
 # use when don't want to check song accuracy : --dont-filter-results 
-alias pot-provider="cd $HOME/nixos-dotfiles/build/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
+alias pot-provider="cd $HOME/nixos-dotfiles/submodules/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
 
 # -----------------------------------
 

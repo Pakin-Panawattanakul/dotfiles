@@ -196,6 +196,8 @@ static const char *powermenu[] = { "wmenu-powermenu", "-l", "5", "-i", "-p", "po
 */
 static const char *menucmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *powermenu[] = {"rofi-powermenu", NULL };
+//static const char *menucmd[] = { "wmenu-drun", NULL };
+//static const char *powermenu[] = {"wmenu-powermenu", NULL };
 static const char *screenshot[] = {"screenshot.sh", NULL };
 static const char *ncspot[] = { "sh", "-c", "pgrep ncspot || foot -T ncspot -a ncspot ncspot ", NULL };
 static const char *bluetui[] = { "foot", "--app-id", "bluetui", "-T", "bluetui","bluetui", NULL };

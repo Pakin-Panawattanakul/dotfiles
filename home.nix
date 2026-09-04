@@ -10,14 +10,15 @@
   home.stateVersion = "26.05";
 
   imports = [
-    ./home-manager/configSymlink.nix
+    ./home-manager/config-symlink.nix
     ./home-manager/theme.nix # forces qt platformtheme=gtk3, conflicts with plasma6
     ./home-manager/neovim.nix
     ./home-manager/terminal.nix
     ./home-manager/firefox.nix
     ./home-manager/rclone-gdrive.nix
-    ./packages/stable.nix
-    ./packages/unstable.nix
+    ./home-manager/wayland.nix
+    ./home-manager/music.nix
+    ./home-manager/desktop-utils.nix
   ];
 
   programs.git = {

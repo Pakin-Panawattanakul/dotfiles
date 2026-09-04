@@ -6,7 +6,6 @@
 {
   home.packages = with pkgs; [
     #dev
-    gdb
     rclone
     fuse3
     keymapp
@@ -26,10 +25,8 @@
     zathura
     mpv
     imv
-    cava
 
     vesktop
-    spotify
     synology-drive-client
 
     libreoffice
