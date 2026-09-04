@@ -59,7 +59,7 @@
 
           (deflayer arrownav
             _    _    _    _    _    _    _    _    _    _
-            _    lmet lalt lctl lsft left down up   right _
+            lmet lalt lctl lsft _   left down up   right _
             _    _    _    _    _    _    _    _    _    _
             _    _
           )

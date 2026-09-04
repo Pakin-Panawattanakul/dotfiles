@@ -93,6 +93,7 @@
             ./modules/battery.nix
             ./modules/nvidia.nix
             ./modules/wifi.nix
+            ./modules/kanata.nix
             { networking.hostName = "nixos-NV15"; }
             home-manager.nixosModules.home-manager
             {
