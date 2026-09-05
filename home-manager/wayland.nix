@@ -9,6 +9,7 @@
     # wayland
     #rofi
     bemenu
+    swayidle
     waylock
     wbg
     wl-clipboard

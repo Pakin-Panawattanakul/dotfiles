@@ -6,8 +6,8 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export MENU_LAUNCHER=bemenu
 export BMENU_BACKEND=wayland
 export BEMENU_OPTS="\
--i -c -l 10 -W 0.25 -p '' \
---fn \"JetBrainsMono Nerd Font 13\" \
+-i -c -l 10 -W 0.25 -p ''  --fixed-height \
+--fn \"JetBrainsMono Nerd Font Propo 13\"  \
 --tf #b3f6c0 --tb #14161be6 \
 --nf #e0e2ea --nb #14161be6 \
 --ff #e0e2ea --fb #14161be6 \

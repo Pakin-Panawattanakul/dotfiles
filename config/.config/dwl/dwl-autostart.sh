@@ -21,6 +21,10 @@ esac
 
 gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
 
+swayidle \
+  timeout 1200 'waylock -ignore-empty-password -init-color 0x2c2e33 -input-color 0x005523 -fail-color 0x590008' \
+  timeout 1800 'systemctl suspend'
+
 exec dbus-update-activation-environment --systemd \
   DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots 
   # QT_QPA_PLATFORM QT_QPA_PLATFORMTHEME QT_STYLE_OVERRIDE QT_PLUGIN_PATH GTK_THEME
