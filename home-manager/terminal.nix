@@ -97,6 +97,10 @@
       set -g @vim_navigator_mapping_right "C-Right"
       set -g @vim_navigator_mapping_up "C-Up"
       set -g @vim_navigator_mapping_down "C-Down"
+      set -g @vim_navigator_mapping_left "C-h"
+      set -g @vim_navigator_mapping_right "C-l"
+      set -g @vim_navigator_mapping_up "C-k"
+      set -g @vim_navigator_mapping_down "C-j"
       set -g @vim_navigator_mapping_prev ""
       set -g @continuum-restore 'on'
       run-shell ${pkgs.tmuxPlugins.vim-tmux-navigator}/share/tmux-plugins/vim-tmux-navigator/vim-tmux-navigator.tmux

@@ -11,7 +11,7 @@
 
   imports = [
     ./home-manager/config-symlink.nix
-    ./home-manager/theme.nix # forces qt platformtheme=gtk3, conflicts with plasma6
+    ./home-manager/theme.nix
     ./home-manager/neovim.nix
     ./home-manager/terminal.nix
     ./home-manager/firefox.nix

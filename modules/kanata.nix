@@ -29,7 +29,7 @@
             q w e r t y u i o p
             a s d f g h j k l ;
             z x c v b n m , . /
-            caps lalt
+            caps
           )
           (defvar
             tap-time 180
@@ -47,21 +47,20 @@
             l (multi @norepeat (tap-hold $tap-time $hold-time l lalt))
             ; (multi @norepeat (tap-hold $tap-time $hold-time ; rmet))
             cap_esc (multi @norepeat (tap-hold $tap-time $hold-time esc caps))
-            lalt-nav (layer-while-held arrownav)
           )
 
           (deflayer base
             q    w    e    r    t    y    u    i    o    p
             @a   @s   @d   @f   g    h    @j   @k   @l   @;
             z    x    c    v    b    n    m    ,    .    /
-            @cap_esc  @lalt-nav
+            @cap_esc
           )
 
           (deflayer arrownav
             _    _    _    _    _    _    _    _    _    _
             lmet lalt lctl lsft _   left down up   right _
             _    _    _    _    _    _    _    _    _    _
-            _    _
+            _
           )
         '';
       };
