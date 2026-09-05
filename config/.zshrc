@@ -18,10 +18,6 @@ if ! grep -qi "nixos" /etc/os-release 2>/dev/null; then
   )
 
   source "$ZSH/oh-my-zsh.sh"
-
-  man() {
-    command man "$@" | col -bx | bat -plman --paging=always
-  }
 fi
 
 # ------------ Neovim ------------
@@ -60,15 +56,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# yazi
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	command rm -f -- "$tmp"
-}
-
 # ------------ Starship ------------
 eval "$(starship init zsh)"
 
@@ -87,7 +74,6 @@ man() {
 psg() {
     ps aux | grep --color=auto "$@" | bat -l conf
 }
-
 
 # ------------ Custom alias ------------
 alias grep='grep --color'
