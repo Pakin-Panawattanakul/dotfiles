@@ -246,6 +246,10 @@ user_pref("browser.download.useDownloadDir", false);
 
 // Enable search suggestion
 user_pref("browser.search.suggest.enabled", true);
+
+// PREF: DNS over HTTPS — custom mode, Google DNS
+user_pref("network.trr.mode", 3);
+user_pref("network.trr.uri", "https://dns.google/dns-query");
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/

@@ -6,8 +6,8 @@
       extraConfig = builtins.readFile ../files/Templates/user.js;
       search = {
         force          = true;
-        default        = "ddg";
-        privateDefault = "ddg";
+        default        = "google";
+        privateDefault = "google";
 
         engines = {
           "Nix Packages" = {
