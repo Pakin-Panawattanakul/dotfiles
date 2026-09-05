@@ -31,9 +31,9 @@
       pull.rebase = true;
       init.defaultBranch = "main";
       submodule.recurse = true;
-      credential.helper = "libsecret";
+      credential.helper = "store";
     };
-    package = pkgs.git.override { withLibsecret = true; };
+    package = pkgs.git;
     lfs.enable = true;
   };
 

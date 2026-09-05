@@ -32,8 +32,6 @@
     #libreoffice
     thunderbird
     bitwarden-desktop
-    #gnome keyring
-    seahorse
   ];
 
 }
