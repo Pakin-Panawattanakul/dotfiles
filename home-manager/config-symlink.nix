@@ -9,8 +9,6 @@ let
     "nvim"
     "opencode"
     "rmpc"
-    "rofi"
-    "yazi"
     "yt-dlp/plugins"
     "starship.toml"
     "xkb"
@@ -20,8 +18,6 @@ let
   homeFiles = [
     "Pictures/wallpapers"
     "Scripts"
-    ".local/share/rofi/themes"
-    ".local/bin/mimi"
     "Templates"
   ];
 

@@ -18,14 +18,6 @@
     gcc
     gdb
     opencode
-
-    # yazi and dependency
-    yazi
-    ffmpeg
-    p7zip
-    poppler
-    resvg
-    imagemagick
   ];
 
   programs.zsh = {

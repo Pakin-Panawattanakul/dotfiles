@@ -8,19 +8,13 @@
   home.packages =
     with pkgs;
     [
-      spotify
-
       # for yt-dlp
-      ffmpeg # install by yazi dep
+      ffmpeg
       deno
 
+      # spotify 
       spotdl
       spotify
-
-      # for mpd
-      # rmpc
-      # cava
-      # cantata
     ]
     ++ [
       pkgs-unstable.ncspot
