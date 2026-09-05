@@ -78,7 +78,11 @@ alias cat='bat --style=plain'
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 # bat for man page
-export MANPAGER="bat -plman"
+#export MANPAGER="bat -plman"
+man() {
+  command man "$@" | col -bx | bat -plman --paging=always
+}
+
 # coloriziing stuff
 psg() {
     ps aux | grep --color=auto "$@" | bat -l conf

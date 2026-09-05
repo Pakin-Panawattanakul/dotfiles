@@ -7,7 +7,8 @@
 {
   home.packages = with pkgs-unstable; [
     # wayland
-    rofi
+    #rofi
+    bemenu
     waylock
     wbg
     wl-clipboard
@@ -21,4 +22,6 @@
     wev
   ];
 
+  home.file.".local/bin/wmenu-drun".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/submodules/wmenu-scripts/wmenu-drun";
+  home.file.".local/bin/wmenu-powermenu".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-dotfiles/submodules/wmenu-scripts/wmenu-powermenu";
 }

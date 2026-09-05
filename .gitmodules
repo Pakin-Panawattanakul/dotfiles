@@ -7,3 +7,6 @@
 [submodule "submodules/bgutil-ytdlp-pot-provider"]
 	path = submodules/bgutil-ytdlp-pot-provider
 	url = https://github.com/Brainicism/bgutil-ytdlp-pot-provider
+[submodule "submodules/wmenu-scripts"]
+	path = submodules/wmenu-scripts
+	url = https://github.com/Pakin-Panawattanakul/wmenu-scripts
