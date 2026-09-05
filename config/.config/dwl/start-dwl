@@ -18,4 +18,4 @@ export XDG_CURRENT_DESKTOP=wlroots
 
 # create keymap files before someblocks start
 touch /tmp/dwl-keymap
-exec someblocks 2>/dev/null -p | dwl -s "$HOME/.config/dwl/dwl-autostart"
+exec someblocks 2>/dev/null -p | dwl -s "$HOME/.config/dwl/autostart"
