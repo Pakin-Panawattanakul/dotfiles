@@ -15,41 +15,17 @@
     colorScheme = "dark";
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
-    qt5ctSettings = {
-      Fonts = {
-        general = "\"JetbrainsMono Nerd Font,12\"";
-        fixed = "\"JetbrainsMono Nerd Font Mono,12\"";
-      };
-    };
-    qt6ctSettings = {
-      Fonts = {
-        general = "\"JetbrainsMono Nerd Font,12\"";
-        fixed = "\"JetbrainsMono Nerd Font Mono,12\"";
-      };
-    };
-    #kvantum.settings.General.theme = "KvGnomeDark";
-  };
-
   home.sessionVariables = {
-    QT_QPA_PLATFORM = "wayland";
+    #QT_QPA_PLATFORM = "wayland;xcb";
     GTK_THEME = "Orchis-Dark";
   };
 
-  xdg.configFile = {
-    "gtk-4.0/gtk.css".source = "${pkgs.orchis-theme}/share/themes/Orchis-Dark/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source =
-      "${pkgs.orchis-theme}/share/themes/Orchis-Dark/gtk-4.0/gtk-dark.css";
-    "gtk-4.0/assets".source = "${pkgs.orchis-theme}/share/themes/Orchis-Dark/gtk-4.0/assets";
-  };
-
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=KvGnomeDark
-  '';
+  #  xdg.configFile = {
+  #    "gtk-4.0/gtk.css".source = "${pkgs.orchis-theme}/share/themes/Orchis-Dark/gtk-4.0/gtk.css";
+  #    "gtk-4.0/gtk-dark.css".source =
+  #      "${pkgs.orchis-theme}/share/themes/Orchis-Dark/gtk-4.0/gtk-dark.css";
+  #    "gtk-4.0/assets".source = "${pkgs.orchis-theme}/share/themes/Orchis-Dark/gtk-4.0/assets";
+  #  };
 
   dconf.settings."org/gnome/desktop/interface" = {
     gtk-theme = "Orchis-Dark";

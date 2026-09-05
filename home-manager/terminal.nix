@@ -8,7 +8,6 @@
     zoxide
     fzf
     starship
-    lazygit
     fastfetch
     bat
     ncdu
@@ -18,6 +17,8 @@
     gcc
     gdb
     opencode
+
+    #lazygit
   ];
 
   programs.zsh = {

@@ -109,7 +109,6 @@
   environment.systemPackages =
     with pkgs;
     [
-      vim
       curl
       solaar
       file

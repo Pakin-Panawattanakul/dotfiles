@@ -8,7 +8,6 @@ let
     "ncspot"
     "nvim"
     "opencode"
-    "rmpc"
     "yt-dlp/plugins"
     "starship.toml"
     "xkb"

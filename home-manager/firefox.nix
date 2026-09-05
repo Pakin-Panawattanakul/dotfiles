@@ -18,7 +18,7 @@
                 { name = "query";   value = "{searchTerms}"; }
               ];
             }];
-            icon           = ../icons/nix-packages.svg;
+            icon           = ../icons/nix.svg;
             definedAliases = [ "np" ];
           };
 
@@ -30,7 +30,7 @@
                 { name = "query";   value = "{searchTerms}"; }
               ];
             }];
-            icon           = ../icons/nix-options.svg;
+            icon           = ../icons/nix.svg;
             definedAliases = [ "no" ];
           };
 
@@ -39,13 +39,13 @@
               template = "https://wiki.nixos.org/w/index.php";
               params   = [ { name = "search"; value = "{searchTerms}"; } ];
             }];
-            icon           = ../icons/nix-wiki.svg;
+            icon           = ../icons/nix.svg;
             definedAliases = [ "nw" ];
           };
 
           "MyNixOS" = {
             urls            = [{ template = "https://mynixos.com/search?q={searchTerms}"; }];
-            icon            = ../icons/mynixos.svg;
+            icon            = ../icons/nix.svg;
             definedAliases  = [ "mn" ];
           };
 
