@@ -17,7 +17,7 @@
     btop
     aria2
     qalculate-gtk
-    gimp
+    #gimp
     jmtpfs
     gnome-clocks
 
@@ -27,9 +27,9 @@
     imv
 
     vesktop
-    synology-drive-client
+    #synology-drive-client
 
-    libreoffice
+    #libreoffice
     thunderbird
     bitwarden-desktop
     #gnome keyring
