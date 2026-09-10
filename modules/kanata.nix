@@ -23,7 +23,7 @@
         devices = [
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
         ];
-        extraDefCfg = "process-unmapped-keys yes";
+        extraDefCfg = "process-unmapped-keys yes concurrent-tap-hold yes";
         config = ''
           (defsrc
             q w e r t y u i o p
@@ -53,7 +53,7 @@
             q    w    e    r    t    y    u    i    o    p
             @a   @s   @d   @f   g    h    @j   @k   @l   @;
             z    x    c    v    b    n    m    ,    .    /
-            @cap_esc
+            esc
           )
 
           (deflayer arrownav
@@ -61,6 +61,10 @@
             lmet lalt lctl lsft _   left down up   right _
             _    _    _    _    _    _    _    _    _    _
             _
+          )
+
+          (defchordsv2
+            (f j) caps 20 first-release ()
           )
         '';
       };
