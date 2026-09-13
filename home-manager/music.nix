@@ -17,6 +17,7 @@
       spotify
     ]
     ++ [
+      # need unstable ncspot because the login api change
       pkgs-unstable.ncspot
     ];
 

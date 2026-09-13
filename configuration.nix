@@ -12,15 +12,16 @@
   imports = [
     ./modules/dwl.nix
     ./modules/udev.nix
+    #./modules/mango.nix
   ];
 
-  # allow unfree software
+  # allow uneree software
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 3;
+  boot.loader.systemd-boot.configurationLimit = 2;
 
   # Set your time zone.
   time.timeZone = "Asia/Bangkok";
@@ -110,6 +111,8 @@
     noto-fonts
   ];
   services.udisks2.enable = true;
+
+  services.fwupd.enable = true;
 
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
