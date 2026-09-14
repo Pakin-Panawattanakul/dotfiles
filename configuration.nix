@@ -19,6 +19,16 @@
     (final: _prev: {
       slang-server = final.callPackage ./pkgs/slang-server.nix { src = slang-server; };
     })
+    # spotdl forces YTMusic(language="de"); localized ("Titel") shelf titles
+    # make ytmusicapi drop all songs-filter results. Default to en.
+    (final: prev: {
+      spotdl = prev.spotdl.overrideAttrs (old: {
+        postPatch = (old.postPatch or "") + ''
+          substituteInPlace spotdl/providers/audio/ytmusic.py \
+            --replace-fail 'return YTMusic(language="de")' 'return YTMusic()'
+        '';
+      });
+    })
   ];
 
   # allow uneree software
@@ -65,6 +75,7 @@
       zlib
       zstd
       stdenv.cc.cc
+      stdenv.cc.cc.lib
       curl
       openssl
       attr
