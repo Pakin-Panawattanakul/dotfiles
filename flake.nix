@@ -2,45 +2,21 @@
   description = "Nixos minimal system";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05"; # now stable
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # for mango only
-    waybar.url = "github:Alexays/Waybar";
+    # slang-server is not packaged on 26.05; build from source. submodules=1
+    # pulls the vendored external/ deps (slang, reflect-cpp, ctre).
+    slang-server.url = "git+https://github.com/hudson-trading/slang-server?submodules=1";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   outputs =
-    {
-      self,
-      nixpkgs,
-      nixpkgs-unstable,
-      home-manager,
-      waybar,
-      ...
-    }:
-    let
-      pkgs-unstable = import nixpkgs-unstable {
-        system = "x86_64-linux";
-        overlays = [
-          waybar.overlays.waybar
-          # spotdl forces YTMusic(language="de"); localized ("Titel") shelf titles
-          # make ytmusicapi drop all songs-filter results. Default to en.
-          (final: prev: {
-            spotdl = prev.spotdl.overrideAttrs (old: {
-              postPatch = (old.postPatch or "") + ''
-                substituteInPlace spotdl/providers/audio/ytmusic.py \
-                  --replace-fail 'return YTMusic(language="de")' 'return YTMusic()'
-              '';
-            });
-          })
-        ];
-      };
-    in
+    { self, nixpkgs, home-manager, slang-server, ... }:
     {
       nixosConfigurations = {
         nixos-T480 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit pkgs-unstable; };
+          specialArgs = { inherit slang-server; };
           modules = [
             ./hosts/hardware-configuration-T480.nix
             ./configuration.nix
@@ -60,7 +36,6 @@
                   ];
                 };
                 backupFileExtension = "backup";
-                extraSpecialArgs = { inherit pkgs-unstable; };
               };
             }
           ];
@@ -68,7 +43,7 @@
 
         nixos-home = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit pkgs-unstable; };
+          specialArgs = { inherit slang-server; };
           modules = [
             ./hosts/hardware-configuration-home.nix
             ./configuration.nix
@@ -81,7 +56,6 @@
                 useUserPackages = true;
                 users.pakin = import ./home.nix;
                 backupFileExtension = "backup";
-                extraSpecialArgs = { inherit pkgs-unstable; };
               };
             }
           ];
@@ -89,7 +63,7 @@
 
         nixos-NV15 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit pkgs-unstable; };
+          specialArgs = { inherit slang-server; };
           modules = [
             ./hosts/hardware-configuration-NV15.nix
             ./configuration.nix
@@ -105,7 +79,6 @@
                 useUserPackages = true;
                 users.pakin = import ./home.nix;
                 backupFileExtension = "backup";
-                extraSpecialArgs = { inherit pkgs-unstable; };
               };
             }
           ];

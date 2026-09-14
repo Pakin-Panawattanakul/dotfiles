@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 {
@@ -12,13 +11,12 @@
       ffmpeg
       deno
 
-      # spotify 
+      # spotify
       spotdl
       spotify
-    ]
-    ++ [
-      # need unstable ncspot because the login api change
-      pkgs-unstable.ncspot
+
+      # 26.05 stable ships the login-api-fixed ncspot (v1.4.0)
+      ncspot
     ];
 
   programs.yt-dlp = {

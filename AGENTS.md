@@ -16,7 +16,7 @@ sudo nixos-rebuild switch --flake ~/'nixos-dotfiles?submodules=1#'nixos-T480
 
 ## Architecture
 
-- **NixOS flake** at repo root (`flake.nix`) declares hosts `nixos-T480`, `nixos-home`, `nixos-NV15` using nixpkgs stable (`nixos-26.05`) + home-manager `release-26.05`. `pkgs-unstable` (from `nixos-unstable`, threaded via `specialArgs`/`extraSpecialArgs`) carries the `waybar` overlay and a `spotdl` overlay patch.
+- **NixOS flake** at repo root (`flake.nix`) declares hosts `nixos-T480`, `nixos-home`, `nixos-NV15` using nixpkgs stable (`nixos-26.05`) + home-manager `release-26.05`. `slang-server` (not packaged on 26.05) is tracked as a pinned `git+…?submodules=1` input (vendored deps), threaded via `specialArgs` and built into `pkgs` through an overlay in `configuration.nix` (source of truth: `pkgs/slang-server.nix`). ncspot comes from stable nixpkgs (v1.4.0, includes the login-API fix).
 - **Per-host wiring** lives in `flake.nix`: each `nixosSystem` imports `./hosts/hardware-configuration-<host>.nix`, `./configuration.nix`, its own `modules/` set, and home-manager. Wiring today:
   - `nixos-T480`: `modules/battery.nix`, `modules/wifi.nix`, `modules/kanata.nix`; home-manager also imports `./home-manager/books-library.nix`
   - `nixos-home`: `modules/nvidia.nix`

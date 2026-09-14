@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
@@ -21,6 +20,6 @@
       tree-sitter
       unzip
       gnumake
-      pkgs-unstable.slang-server
+      slang-server
     ];
 }

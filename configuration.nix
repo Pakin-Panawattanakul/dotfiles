@@ -4,15 +4,21 @@
   config,
   lib,
   pkgs,
-  pkgs-unstable,
+  slang-server,
   ...
 }:
 {
-
   imports = [
     ./modules/dwl.nix
     ./modules/udev.nix
     #./modules/mango.nix
+  ];
+
+  # build slang-server (not packaged on 26.05) from the pinned flake input
+  nixpkgs.overlays = [
+    (final: _prev: {
+      slang-server = final.callPackage ./pkgs/slang-server.nix { src = slang-server; };
+    })
   ];
 
   # allow uneree software
