@@ -124,10 +124,6 @@
     options hid_apple fnmode=2
   '';
 
-  # for vesktop
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
-  ];
   hardware.logitech.wireless.enable = true;
 
   nix.gc = {
