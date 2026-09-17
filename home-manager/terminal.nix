@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     zoxide
+    eza
     fzf
     starship
     fastfetch
