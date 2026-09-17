@@ -7,7 +7,6 @@ let
     "foot"
     "ncspot"
     "nvim"
-    "opencode"
     "yazi"
     "yt-dlp/plugins"
     "starship.toml"

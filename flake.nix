@@ -1,87 +1,108 @@
 {
   description = "Nixos minimal system";
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05"; # now stable
-    # slang-server is not packaged on 26.05; build from source. submodules=1
-    # pulls the vendored external/ deps (slang, reflect-cpp, ctre).
-    slang-server.url = "git+https://github.com/hudson-trading/slang-server?submodules=1";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
   outputs =
-    { self, nixpkgs, home-manager, slang-server, ... }:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixpkgs-unstable,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable {
+        config.allowUnfree = true;
+        inherit system;
+      };
+      mkHost =
+        {
+          hostName,
+          hardwareConfig,
+          extraModules ? [ ],
+          users ? { },
+        }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit pkgs-unstable;
+          };
+          modules = [
+            hardwareConfig
+            ./configuration.nix
+            { networking.hostName = hostName; }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit pkgs-unstable;
+                };
+                users = nixpkgs.lib.mapAttrs (username: userConfig: {
+                  imports = [
+                    ./home.nix # common home-manager modules
+                  ]
+                  ++ (userConfig.imports or [ ]);
+                }) users;
+                backupFileExtension = "backup";
+              };
+            }
+          ]
+          ++ extraModules;
+        };
+    in
     {
       nixosConfigurations = {
-        nixos-T480 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit slang-server; };
-          modules = [
-            ./hosts/hardware-configuration-T480.nix
-            ./configuration.nix
+        nixos-T480 = mkHost {
+          hostName = "nixos-T480";
+          hardwareConfig = ./hosts/hardware-configuration-T480.nix;
+          extraModules = [
             ./modules/battery.nix
             ./modules/wifi.nix
             ./modules/kanata.nix
-            { networking.hostName = "nixos-T480"; }
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.pakin = {
-                  imports = [
-                    ./home.nix
-                    ./home-manager/books-library.nix
-                  ];
-                };
-                backupFileExtension = "backup";
-              };
-            }
           ];
+          users = {
+            pakin = {
+              imports = [
+                ./home-manager/books-library.nix
+              ];
+            };
+          };
         };
 
-        nixos-home = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit slang-server; };
-          modules = [
-            ./hosts/hardware-configuration-home.nix
-            ./configuration.nix
+        nixos-home = mkHost {
+          hostName = "nixos-home";
+          hardwareConfig = ./hosts/hardware-configuration-home.nix;
+          extraModules = [
             ./modules/nvidia.nix
-            { networking.hostName = "nixos-home"; }
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.pakin = import ./home.nix;
-                backupFileExtension = "backup";
-              };
-            }
           ];
+          users = {
+            pakin = { };
+          };
         };
 
-        nixos-NV15 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit slang-server; };
-          modules = [
-            ./hosts/hardware-configuration-NV15.nix
-            ./configuration.nix
+        nixos-NV15 = mkHost {
+          hostName = "nixos-NV15";
+          hardwareConfig = ./hosts/hardware-configuration-NV15.nix;
+          extraModules = [
             ./modules/battery.nix
             ./modules/nvidia.nix
             ./modules/wifi.nix
             ./modules/kanata.nix
-            { networking.hostName = "nixos-NV15"; }
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.pakin = import ./home.nix;
-                backupFileExtension = "backup";
-              };
-            }
           ];
+          users = {
+            pakin = { };
+          };
         };
       };
     };

@@ -100,7 +100,7 @@ music-sync() {
   done
   if mountpoint -q "/run/media/pakin/ECHO MINI"; then
     echo "Sync File to Snowsky"
-    rsync -av --modify-window=2 --exclude "*.spotdl" --exclude "/playlists" --delete --progress ~/gdrive/Music/ "/run/media/pakin/ECHO MINI"
+    rsync -av --modify-window=2 --exclude "*.spotdl" --exclude "/playlists" --delete --progress ~/SynologyDrive/Music/ "/run/media/pakin/ECHO MINI"
   else
     echo "Echo Mini is not mounted"
   fi

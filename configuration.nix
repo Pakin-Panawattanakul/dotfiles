@@ -4,21 +4,16 @@
   config,
   lib,
   pkgs,
-  slang-server,
   ...
 }:
 {
   imports = [
     ./modules/dwl.nix
     ./modules/udev.nix
-    #./modules/mango.nix
+    ./modules/tmux.nix
   ];
 
-  # build slang-server (not packaged on 26.05) from the pinned flake input
   nixpkgs.overlays = [
-    (final: _prev: {
-      slang-server = final.callPackage ./pkgs/slang-server.nix { src = slang-server; };
-    })
     # spotdl forces YTMusic(language="de"); localized ("Titel") shelf titles
     # make ytmusicapi drop all songs-filter results. Default to en.
     (final: prev: {
