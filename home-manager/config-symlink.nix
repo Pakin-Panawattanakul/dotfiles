@@ -10,7 +10,6 @@ let
     "yazi"
     "yt-dlp/plugins"
     "starship.toml"
-    "xdg-desktop-portal"
     "xkb"
   ];
   xdgConfigSymlink = name: config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/.config/${name}";
