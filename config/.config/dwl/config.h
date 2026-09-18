@@ -69,7 +69,7 @@ static const Rule rules[] = {
 	{ "ncspot",           NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "Spotify",          NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
-	{ "gearly",           NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+	{ "geary",            NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
 	{ "wiremix",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
 	{ "impala",           NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
 	{ "bluetui",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
