@@ -69,6 +69,8 @@
           extraModules = [
             ./modules/battery.nix
             ./modules/wifi.nix
+            ./modules/ly.nix
+            ./modules/dwl.nix
             ./modules/kanata.nix
           ];
           users = {
@@ -85,20 +87,8 @@
           hardwareConfig = ./hosts/hardware-configuration-home.nix;
           extraModules = [
             ./modules/nvidia.nix
-          ];
-          users = {
-            pakin = { };
-          };
-        };
-
-        nixos-NV15 = mkHost {
-          hostName = "nixos-NV15";
-          hardwareConfig = ./hosts/hardware-configuration-NV15.nix;
-          extraModules = [
-            ./modules/battery.nix
-            ./modules/nvidia.nix
-            ./modules/wifi.nix
-            ./modules/kanata.nix
+            ./modules/kde.nix
+            ./modules/dwl.nix
           ];
           users = {
             pakin = { };

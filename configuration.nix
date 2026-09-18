@@ -8,7 +8,6 @@
 }:
 {
   imports = [
-    ./modules/dwl.nix
     ./modules/udev.nix
     ./modules/tmux.nix
   ];
@@ -100,7 +99,6 @@
   };
 
   hardware.graphics.enable = true;
-  services.displayManager.ly.enable = true;
   security.pam.services.waylock = { };
 
   users.defaultUserShell = pkgs.bash;
@@ -118,7 +116,6 @@
 
   # gnome keyring
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.ly.enableGnomeKeyring = true;
   programs.geary.enable = true;
 
   fonts.packages = with pkgs; [
