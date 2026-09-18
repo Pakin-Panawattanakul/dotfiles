@@ -7,10 +7,10 @@
 let
   dwl =
     (pkgs.dwl.override {
-      configH = ../config/.config/dwl/config.h;
+      configH = ../../config/.config/dwl/config.h;
     }).overrideAttrs
       (oldAttrs: {
-        src = ../submodules/dwl;
+        src = ../../build/dwl;
 
         buildInputs = (oldAttrs.buildInputs or [ ]) ++ [
           pkgs.fcft
@@ -22,12 +22,12 @@ let
     pname = "someblocks";
     version = "1.0.1";
 
-    src = ../submodules/someblocks;
+    src = ../../build/someblocks;
 
     makeFlags = [ "PREFIX=$(out)" ];
 
     postPatch = ''
-      cp ${../config/.config/dwl/blocks.h} blocks.h
+      cp ${../../config/.config/dwl/blocks.h} blocks.h
       sed -i \
         's/void termhandler()/void termhandler(int signum)/;
          s/void sigpipehandler()/void sigpipehandler(int signum)/' \

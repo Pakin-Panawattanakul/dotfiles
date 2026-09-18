@@ -1,11 +1,11 @@
 ---
 name: apply-theme
-description: Apply a color theme across every theme file in the nixos-dotfiles repo. Use when the user says to apply/switch/change a theme, e.g. "apply gruvbox", "switch to kanagawa dragon", "change theme everywhere". Lists all files that carry theme colors and how to update each.
+description: Apply a color theme across every theme file in the dotfiles repo. Use when the user says to apply/switch/change a theme, e.g. "apply gruvbox", "switch to kanagawa dragon", "change theme everywhere". Lists all files that carry theme colors and how to update each.
 ---
 
 # Apply Theme
 
-Applies a new color palette to **every theme-bearing file** in `nixos-dotfiles`
+Applies a new color palette to **every theme-bearing file** in `dotfiles`
 (excluding `archives/`). Theme colors are sourced from the palette files in
 `files/Templates/themes/`.
 
@@ -43,7 +43,7 @@ hex from the source palette:
 | 11 | `config/.zprofile` | `BEMENU_OPTS` bemenu colors: `--tf --tb --nf --nb --ff --fb --hf --hb --af --ab`. Backgrounds use 8-digit hex `#RRGGBBe6`. |
 | 12 | `config/.zshrc` | `FZF_DEFAULT_OPTS` `--color=` values (spinner/hl/fg/bg/header/info/pointer/marker/fg+/prompt/hl+/bg+/border). |
 | 13 | `config/.zshenv` | `BAT_THEME=<bat-builtin-name>` (bat has no kanagawa; keeps `gruvbox-dark` as closest). |
-| 14 | `home-manager/theme.nix` | GTK theme (`gtk.theme`, `GTK_THEME`, `dconf` gtk-theme) + icon theme. Only for GTK themes packaged in nixpkgs. |
+| 14 | `nixos/home-manager/theme.nix` | GTK theme (`gtk.theme`, `GTK_THEME`, `dconf` gtk-theme) + icon theme. Only for GTK themes packaged in nixpkgs. |
 | 15 | `config/.config/starship.toml` | No colors currently (symbol overrides only); theme only if user adds a starship palette/preset. |
 | 16 | `config/.profile` | `LOCK_INIT_COLOR` / `LOCK_INPUT_COLOR` / `LOCK_FAIL_COLOR` (`0xRRGGBB`) — waylock colors consumed by lock/powermenu scripts (e.g. `wmenu-powermenu`). Keep in sync with `config/.config/dwl/autostart`. |
 
@@ -67,8 +67,8 @@ hex from the source palette:
 
 ## Deploy/restart notes
 
-- `home.nix`, `home-manager/theme.nix`, dwl (`config.h`/`blocks.h` are
-  compiled), mako → `sudo nixos-rebuild switch --flake ~/'nixos-dotfiles?submodules=1#'nixos-T480` (`rebuild` alias).
+- `nixos/home.nix`, `nixos/home-manager/theme.nix`, dwl (`config.h`/`blocks.h` are
+  compiled), mako → `sudo nixos-rebuild switch --flake ~/'dotfiles/nixos?submodules=1#'nixos-T480` (`rebuild` alias).
 - `foot`, `ncspot`, `eza` → reload the app.
 - `nvim` → **not touched** by this skill; user reloads/updates their theme
   themselves after configuring `config/.config/nvim/lua/plugins/themes.lua`.
