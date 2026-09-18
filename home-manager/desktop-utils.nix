@@ -29,6 +29,7 @@
     vesktop
     keymapp
 
+    codex
     libreoffice
     #thunderbird
     bitwarden-desktop
