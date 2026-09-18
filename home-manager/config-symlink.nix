@@ -2,7 +2,6 @@
 let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles";
   xdgConfigs = [
-    "aerc"
     "dwl"
     "eza"
     "foot"

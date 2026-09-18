@@ -69,7 +69,7 @@ static const Rule rules[] = {
 	{ "ncspot",           NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "Spotify",          NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
-	{ "aerc",             NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+	{ "gearly",           NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
 	{ "wiremix",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
 	{ "impala",           NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
 	{ "bluetui",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
@@ -199,7 +199,7 @@ static const char *ncspot[] = { "sh", "-c", "pgrep ncspot || foot -T ncspot -a n
 static const char *bluetui[] = { "foot", "-a", "bluetui", "-T", "bluetui","bluetui", NULL };
 static const char *impala[] = { "foot", "-a", "impala", "-T", "impala","impala", NULL };
 static const char *wiremix[] = { "foot", "-a", "wiremix", "-T", "wiremix", "wiremix", NULL };
-static const char *email[] = { "foot", "-a", "aerc", "-T", "aerc", "aerc", NULL };
+static const char *email[] = { "geary" , NULL };
 
 #define MEHKEY WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT
 #define MODSHIFT WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT

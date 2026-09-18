@@ -62,7 +62,6 @@
   ];
 
   # for setting theme
-  programs.dconf.enable = true;
 
   programs.nix-ld = {
     enable = true;
@@ -102,21 +101,25 @@
 
   hardware.graphics.enable = true;
   services.displayManager.ly.enable = true;
-  security.pam.services.waylock = {};
+  security.pam.services.waylock = { };
 
   users.defaultUserShell = pkgs.bash;
   programs.zsh.enable = true;
   users.users.pakin.shell = pkgs.zsh;
 
   # system packages
-  environment.systemPackages =
-    with pkgs;
-    [
-      curl
-      solaar
-      file
-      libinput
-    ];
+  environment.systemPackages = with pkgs; [
+    curl
+    solaar
+    file
+    libinput
+    seahorse
+  ];
+
+  # gnome keyring
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.ly.enableGnomeKeyring = true;
+  programs.geary.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

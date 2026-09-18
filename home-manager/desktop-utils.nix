@@ -31,10 +31,7 @@
 
     libreoffice
     #thunderbird
-    aerc
     bitwarden-desktop
-
-    blanket # ambient sound
   ];
 
 }
