@@ -87,7 +87,7 @@
           hardwareConfig = ./hosts/hardware-configuration-home.nix;
           extraModules = [
             ./modules/nvidia.nix
-            ./modules/kde.nix
+            ./modules/cosmic.nix
             ./modules/dwl.nix
           ];
           users = {
