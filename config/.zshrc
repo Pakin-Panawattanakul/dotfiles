@@ -28,7 +28,7 @@ alias vi='nvim'
 # Set up fzf key bindings and fuzzy completion
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
-alias -g -- fzfp="fzf --preview 'bat --color=always {}' --preview-window '~3'"
+alias -g -- fzfp="fzf --preview 'batcat --color=always {}' --preview-window '~3'"
 
 # ------------ Eza : better ls ------------
 # export EZA_CONFIG_DIR="$HOME/.config/eza" # move to .zshenv
@@ -56,38 +56,29 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# ------------ Yazi ------------
-function y() {
-	local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
-	command rm -f -- "$tmp"
-}
-
 # ------------ Starship ------------
 eval "$(starship init zsh)"
 
 # --- bat ---
-alias cat='bat --style=plain'
+alias cat='batcat --style=plain'
 # use bat for help
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+alias -g -- -h='-h 2>&1 | batcat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain'
 # bat for man page
-#export MANPAGER="bat -plman"
+#export MANPAGER="batcat -plman"
 man() {
-  command man "$@" | col -bx | bat -plman --paging=always
+  command man "$@" | col -bx | batcat -plman --paging=always
 }
 
 # coloriziing stuff
 psg() {
-    ps aux | grep --color=auto "$@" | bat -l conf
+    ps aux | grep --color=auto "$@" | batcat -l conf
 }
 
 # ------------ Custom alias ------------
 alias grep='grep --color'
 alias f=fastfetch
-alias dot='cd ~/nixos-dotfiles && ls -l'
+alias dot='cd ~/dotfiles && ls -l'
 alias kyber='cd $HOME/kyber'
 alias lg=lazygit
 
@@ -116,8 +107,8 @@ my-spotdl-with-yt() {
   spotdl "$1|$2"
 }
 
-alias pot-provider-setup="cd $HOME/nixos-dotfiles/submodules/bgutil-ytdlp-pot-provider/server/ &&  deno install --allow-scripts=npm:canvas --frozen"
-alias pot-provider="cd $HOME/nixos-dotfiles/submodules/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
+alias pot-provider-setup="cd $HOME/dotfiles/submodules/bgutil-ytdlp-pot-provider/server/ &&  deno install --allow-scripts=npm:canvas --frozen"
+alias pot-provider="cd $HOME/dotfiles/submodules/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
 
 # -----------------------------------
 
@@ -129,5 +120,12 @@ edp() {
 }
 
 #nixos
-alias rebuild="sudo nixos-rebuild switch --flake ~/'nixos-dotfiles?submodules=1#'$HOST"
+alias rebuild="sudo nixos-rebuild switch --flake ~/'dotfiles?submodules=1#'$HOST"
 alias nixgc="sudo nix-collect-garbage -d"
+
+# debian alias
+alias reboot='systemctl reboot'
+alias poweroff='systemctl poweroff'
+alias fd='fdfind'
+# opencode
+export PATH=/home/pakin/.opencode/bin:$PATH

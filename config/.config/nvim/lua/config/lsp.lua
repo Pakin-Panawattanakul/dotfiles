@@ -1,15 +1,15 @@
 -- luacheck: globals vim
 -- Add Blink.cmp capabilities
-vim.lsp.config("slang-server", {
-	cmd = { "slang-server" },
-	root_markers = { ".git", ".slang" },
-	filetypes = {
-		"systemverilog",
-		"verilog",
-	},
-})
-
-vim.lsp.enable("slang-server")
+-- vim.lsp.config("slang-server", {
+-- 	cmd = { "slang-server" },
+-- 	root_markers = { ".git", ".slang" },
+-- 	filetypes = {
+-- 		"systemverilog",
+-- 		"verilog",
+-- 	},
+-- })
+-- 
+-- vim.lsp.enable("slang-server")
 vim.cmd("cnoreabbrev LspInfo checkhealth vim.lsp")
 
 local capabilities = require("blink.cmp").get_lsp_capabilities()

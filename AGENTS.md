@@ -2,6 +2,10 @@
 
 **Always ask for confirmation before making any changes.**
 
+## Current environment
+
+**The NV15 laptop has moved to Debian (forky/sid), not NixOS** — hostname `debian-NV15` (Acer Nitro ANV15-51, RTX 4050 Laptop, NVIDIA proprietary driver). The NixOS flake config, including the `nixos-NV15` host, is kept in this repo but is no longer the OS on that machine. Dotfiles in `config/` and `files/` remain the source of truth and are edited here.
+
 ## Rebuild
 
 ```sh

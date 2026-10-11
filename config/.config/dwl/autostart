@@ -1,7 +1,7 @@
 #!/bin/sh
 
 $HOME/Scripts/random-wallpaper.sh &
-#wbg -s $HOME/Pictures/wallpapers/nix_01.png &
+#swaybg -i $HOME/Pictures/wallpapers/nix_01.png -m fill &
 $HOME/Scripts/low_battery.sh &
 #brightnessctl set 40%
 
@@ -12,21 +12,19 @@ case "$(hostname)" in
   nixos-T480)
     wlr-randr --output HDMI-A-2 --mode 1920x1080@120Hz --pos 0,0
     wlr-randr --output eDP-1 --right-of HDMI-A-2 ;;
-  nixos-NV15)
+  debian-NV15)
     wlr-randr --output HDMI-A-2 --mode 1920x1080@144.001007Hz --pos 0,0
     wlr-randr --output eDP-1 --mode 1920x1080@165Hz --right-of HDMI-A-2
     solaar -w hide & ;; 
 esac
 
 swayidle -w \
-  timeout 1800 'waylock -ignore-empty-password -init-color 0x282727 -input-color 0x2b3328 -fail-color 0x43242b' \
+  timeout 1800 '$HOME/Scripts/lock.sh' \
   timeout 3600 'systemctl suspend' \
-  before-sleep 'waylock -ignore-empty-password -init-color 0x282727 -input-color 0x2b3328 -fail-color 0x43242b' &
+  before-sleep '$HOME/Scripts/lock.sh -f' &
 
 
 gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
-
-synology-drive &
 
 dbus-update-activation-environment --systemd \
   DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots 

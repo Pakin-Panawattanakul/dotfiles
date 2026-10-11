@@ -36,7 +36,7 @@ hex from the source palette:
 | 4 | `files/Templates/themes/<name>` | **Theme source** — canonical per-theme palette (foot format). Reference/edit this when introducing or changing a theme. |
 | 5 | `config/.config/dwl/config.h` | `rootcolor` + `colors[][3]` at lines ~42-53: `SchemeNorm/Sel/Urg/Bar`, each `{ fg, bg, border }`. Format `0xRRGGBBff`. |
 | 6 | `config/.config/dwl/blocks.h` | someblocks status bar: `^fg(hex)` markers inside block commands (brightness, keymap, volume, wifi, battery, date, time). |
-| 7 | `config/.config/dwl/autostart` | `waylock` colors: `-init-color 0xRRGGBB -input-color 0xRRGGBB -fail-color 0xRRGGBB`. |
+| 7 | `config/.config/dwl/autostart` | Lock command only: `$HOME/Scripts/lock.sh` (swaylock + random wallpaper). Colors live in `.zprofile` (see #16). |
 | 8 | `home.nix` | **Real mako config** (`services.mako.settings`): `background-color`, `text-color`, `border-color`. This is what's deployed. |
 | 9 | `config/.config/mako/config` | mako colors via symlink — **inert leftover** (mako is nix-managed in `home.nix`). Update only to keep the file consistent. |
 | 10 | `config/.config/ncspot/config.toml` | `[theme]` keys: `background, primary, secondary, title, playing, playing_selected, playing_bg, highlight, highlight_bg, error, error_bg, statusbar, statusbar_progress, statusbar_bg, cmdline, cmdline_bg`. |
@@ -45,7 +45,7 @@ hex from the source palette:
 | 13 | `config/.zshenv` | `BAT_THEME=<bat-builtin-name>` (bat has no kanagawa; keeps `gruvbox-dark` as closest). |
 | 14 | `home-manager/theme.nix` | GTK theme (`gtk.theme`, `GTK_THEME`, `dconf` gtk-theme) + icon theme. Only for GTK themes packaged in nixpkgs. |
 | 15 | `config/.config/starship.toml` | No colors currently (symbol overrides only); theme only if user adds a starship palette/preset. |
-| 16 | `config/.profile` | `LOCK_INIT_COLOR` / `LOCK_INPUT_COLOR` / `LOCK_FAIL_COLOR` (`0xRRGGBB`) — waylock colors consumed by lock/powermenu scripts (e.g. `wmenu-powermenu`). Keep in sync with `config/.config/dwl/autostart`. |
+| 16 | `config/.zprofile` (and its symlink `config/.profile`) | `LOCK_INIT_COLOR` / `LOCK_INPUT_COLOR` / `LOCK_FAIL_COLOR` (`RRGGBB`, no `0x`) — swaylock indicator colors (`--inside-color` / `--inside-ver-color` / `--inside-wrong-color`) consumed by `files/Scripts/lock.sh`. |
 
 ## Apply flow
 
@@ -57,7 +57,7 @@ hex from the source palette:
      nvim theme themselves.
    - Keep `foot.ini` and `files/Templates/themes/<name>` dark section identical.
    - Keep `config/.config/mako/config` matching `home.nix` mako colors.
-   - Apps that don't map 1:1 from the palette (e.g. waylock status colors, `bat`
+   - Apps that don't map 1:1 from the palette (e.g. swaylock status colors, `bat`
      theme in `.zshenv`) get the closest match chosen manually.
 4. Verify: grep for leftover hexes from the previous theme source (grep pattern
    above).
@@ -73,4 +73,4 @@ hex from the source palette:
 - `nvim` → **not touched** by this skill; user reloads/updates their theme
   themselves after configuring `config/.config/nvim/lua/plugins/themes.lua`.
 - `.zshrc` / `.zprofile` / `.zshenv` / `.profile` → new shell or login.
-- `dwl/autostart` (waylock) → applies on next lock.
+- `files/Scripts/lock.sh` (swaylock) + `dwl/autostart` → applies on next lock.

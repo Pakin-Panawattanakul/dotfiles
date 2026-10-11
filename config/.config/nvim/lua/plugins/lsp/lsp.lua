@@ -8,7 +8,6 @@ return {
 			"rust_analyzer",
 			"verible",
 			"clangd",
-      "nil_ls",
 		},
 		automatic_enable = {
 			exclude = { "verible" },

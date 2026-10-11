@@ -66,13 +66,9 @@ static const Rule rules[] = {
 	/* app_id             title       tags mask     switchtotag  isfloating   monitor     x   y   width   height */
 	{ "Gimp_EXAMPLE",     NULL,       0,            0,            1,           -1,       -1, -1, 1000,   0.75 }, /* Start on currently visible tags floating, not tiled */
 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-	{ "ncspot",           NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
-	{ "Spotify",          NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
+	{ "spotify",          NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
-	{ "geary",            NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
-	{ "wiremix",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
-	{ "impala",           NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
-	{ "bluetui",          NULL,       0,            0,            1,           -1,       -1, -1,0.8,    0.8 },
+	{ "thunderbird",            NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
   { "mpv",              NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
   { "imv",              NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
   { "bitwarden",        NULL,       0,            0,            1,           -1,       -1, -1,0.6,    0.6 },
@@ -187,19 +183,16 @@ static const char *toggle_bluetooth[] = { "toggle_bluetooth.sh", NULL };
 static const char *brightness_up[] = {"brightnessctl", "set", "+10%", NULL };
 static const char *brightness_down[] = {"brightnessctl", "set", "10%-", NULL };
 static const char *termcmd[] = { "foot", NULL };
-static const char *filemanager[] = { "foot", "-a", "yazi", "-T", "yazi", "yazi", NULL };
+static const char *filemanager[] = { "thunar" ,NULL };
 static const char *web_browser[] = { "firefox", NULL };
-static const char *discord[] = { "vesktop"};
-//static const char *menucmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
-//static const char *powermenu[] = {"rofi-powermenu", NULL };
 static const char *menucmd[] = { "wmenu-drun", NULL };
 static const char *powermenu[] = { "wmenu-powermenu", "-l", "5", NULL };
 static const char *screenshot[] = {"screenshot.sh", NULL };
-static const char *ncspot[] = { "sh", "-c", "pgrep ncspot || foot -T ncspot -a ncspot ncspot ", NULL };
-static const char *bluetui[] = { "foot", "-a", "bluetui", "-T", "bluetui","bluetui", NULL };
-static const char *impala[] = { "foot", "-a", "impala", "-T", "impala","impala", NULL };
-static const char *wiremix[] = { "foot", "-a", "wiremix", "-T", "wiremix", "wiremix", NULL };
-static const char *email[] = { "geary" , NULL };
+static const char *spotify[] = { "flakpak", "run", "com.spotify.Client ",NULL };
+static const char *discord[] = { "flatpak", "run", "dev.vencord.Vesktop"};
+static const char *email[] = { "thunderbird" , NULL };
+static const char *blueman[] = { "blueman", NULL };
+static const char *pavucontrol[] = { "pavucontrol", NULL };
 
 #define MEHKEY WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT
 #define MODSHIFT WLR_MODIFIER_LOGO|WLR_MODIFIER_SHIFT
@@ -214,10 +207,9 @@ static const Key keys[] = {
 	{ 0,                         XKB_KEY_Print,       spawn,            {.v = screenshot} },
   { MODSHIFT,                  XKB_KEY_e,           spawn,            {.v = email} },
 	{ MODSHIFT,                  XKB_KEY_v,           spawn,            {.v = discord} },
-  { MODSHIFT,                  XKB_KEY_n,           spawn,            {.v = impala} },
-  { MODSHIFT,                  XKB_KEY_s,           spawn,            {.v = ncspot} },
-  { MODSHIFT,                  XKB_KEY_p,           spawn,            {.v = wiremix} },
-  { MODSHIFT,                  XKB_KEY_b,           spawn,            {.v = bluetui} },
+  { MODSHIFT,                  XKB_KEY_s,           spawn,            {.v = spotify} },
+  { MODSHIFT,                  XKB_KEY_p,           spawn,            {.v = pavucontrol} },
+  { MODSHIFT,                  XKB_KEY_b,           spawn,            {.v = blueman} },
   { 0, XKB_KEY_XF86Bluetooth,                       spawn,            {.v = toggle_bluetooth} },
   { 0, XKB_KEY_XF86AudioRaiseVolume,                spawn,            {.v = up_vol } },
   { 0, XKB_KEY_XF86AudioLowerVolume,                spawn,            {.v = down_vol } },
