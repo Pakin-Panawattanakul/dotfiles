@@ -1,5 +1,7 @@
 #!/bin/sh
 
+xdg-user-dirs-update
+
 sudo tee /etc/apt/sources.list > /dev/null <<"EOF"
 deb http://deb.debian.org/debian/ forky main contrib non-free non-free-firmware
 deb-src http://deb.debian.org/debian/ forky main contrib non-free non-free-firmware
