@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Keymapp
+Comment=ZSA keyboard editor
+Icon=keymapp
+Exec=keymapp
+Categories=Utility;

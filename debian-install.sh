@@ -1,5 +1,4 @@
 #!/bin/sh
-
 xdg-user-dirs-update
 
 sudo tee /etc/apt/sources.list > /dev/null <<"EOF"
@@ -20,14 +19,10 @@ Pin-Priority: 500
 
 Package: *
 Pin: release a=unstable
-Pin-Priority: 50
+Pin-Priority: 90
 EOF
-
 sudo apt update
 
-# -------------------------
-# core utils
-# -------------------------
 sudo apt install \
   build-essential \
   curl \
@@ -35,8 +30,7 @@ sudo apt install \
   gawk \
   stow \
   zip \
-  unzip \
-  desktop-base
+  unzip
 
 git config --global user.name "Pakin Panawattanakul"
 git config --global user.email p.panawattanakul@gmail.com
@@ -44,21 +38,6 @@ git config --global pull.rebase true
 git config --global init.defaultBranch main
 git config --global submodule.recurse true
 git config --global credential.helper store
-
-# network & bluetooth
-sudo apt install \
-  network-manager \
-  network-manager-applet \
-  bluez \
-  blueman \
- libspa-0.2-bluetooth
-
-# pipewire
-sudo apt install \
-  pipewire \
-  pipewire-pulse \
-  wireplumber \
-  pavucontrol
 
 # -------------------------
 # dwl
@@ -111,9 +90,12 @@ EOF
 
 # Waylands utilities
 sudo apt install \
+  foot \
+  firefox \
   grim \
   slurp \
   xfce-polkit \
+  xdg-desktop-portal-wlr \
   libinput-tools \
   mako-notifier \
   bemenu \
@@ -131,20 +113,65 @@ sudo apt install \
   brightnessctl
 
 # -------------------------
+# core utils
+# -------------------------
+
+# network & bluetooth
+sudo apt install \
+  network-manager \
+  network-manager-applet \
+  bluez \
+  blueman \
+  libspa-0.2-bluetooth --no-install-recommends
+
+# pipewire
+sudo apt install \
+  pipewire \
+  pipewire-pulse \
+  wireplumber \
+  pavucontrol
+
+# tlp (power management, recovered from the pre-Debian tlp.conf)
+sudo apt install tlp tlp-rdw
+sudo tee /etc/tlp.d/10-local.conf > /dev/null <<'EOF'
+TLP_ENABLE=1
+TLP_AUTO_SWITCH=2
+TLP_PROFILE_AC=BAL
+TLP_PROFILE_BAT=SAV
+TLP_PROFILE_DEFAULT=SAV
+CPU_ENERGY_PERF_POLICY_ON_AC=balance_power
+CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+CPU_BOOST_ON_BAT=0
+CPU_BOOST_ON_SAV=0
+CPU_HWP_DYN_BOOST_ON_AC=1
+CPU_HWP_DYN_BOOST_ON_BAT=0
+CPU_HWP_DYN_BOOST_ON_SAV=0
+PLATFORM_PROFILE_ON_AC=balanced_performance
+PLATFORM_PROFILE_ON_BAT=low-power
+PLATFORM_PROFILE_ON_SAV=low-power
+AHCI_RUNTIME_PM_ON_AC=auto
+WIFI_PWR_ON_AC=on
+START_CHARGE_THRESH_BAT0=40
+STOP_CHARGE_THRESH_BAT0=80
+START_CHARGE_THRESH_BAT1=40
+STOP_CHARGE_THRESH_BAT1=80
+EOF
+
+# -------------------------
 # Terminal
 # -------------------------
 # terminal utilities
 sudo apt install \
 	zoxide \
 	eza \
-  fzf \
-  fd-find \
+	fzf \
+  	fd-find \
 	starship \
 	fastfetch \
 	bat \
 	ncdu \
 	ripgrep \
-  tree
+  	tree
 
 # neovim 
 sudo apt install \
@@ -170,8 +197,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo apt install \
   fonts-noto \
   orchis-gtk-theme \
-  papirus-icon-theme 
-
+  papirus-icon-theme \
+  desktop-base
+ 
 sudo apt install --no-install-recommends \
   thunar \
   thunar-volman \
@@ -179,8 +207,6 @@ sudo apt install --no-install-recommends \
 
 # other desktops utils
 sudo apt install \
-	foot \
-	firefox \
   thunderbird \
   libreoffice \
   libreoffice-gtk3 \
@@ -210,6 +236,7 @@ flatpak install \
 # -------------------------
 # Must exist BEFORE any `extrepo enable` below: the shipped default only
 # enables "main", and both nvidia-cuda and steam require the non-free policy.
+sudo apt install extrepo
 sudo tee /etc/extrepo/config.yaml > /dev/null <<"EOF"
 url: https://extrepo-team.pages.debian.net/extrepo-data
 dist: debian
@@ -230,7 +257,6 @@ if lspci | grep -iE "3d|display|vga" | grep -i nvidia; then
   installing Nvidia propritry driver"
 
   sudo apt install linux-headers-generic
-  sudo apt install extrepo
   sudo extrepo enable nvidia-cuda 
   sudo apt update
   sudo apt install nvidia-open
@@ -250,6 +276,9 @@ if ! dpkg -s steam-launcher >/dev/null 2>&1; then
   sudo extrepo disable steam
   sudo apt update
 fi
+
+# ZSA Keymapp depencies
+sudo apt install libwebkit2gtk-4.1-0  
 
 # -------------------------
 # udev rules (from modules/udev.nix)

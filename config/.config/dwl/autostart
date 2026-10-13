@@ -9,9 +9,10 @@ case "$(hostname)" in
   nixos-home) 
     wlr-randr --output DP-2 --mode 1920x1080@165Hz
     solaar -w hide & ;; 
-  nixos-T480)
+  debian-T480)
     wlr-randr --output HDMI-A-2 --mode 1920x1080@120Hz --pos 0,0
-    wlr-randr --output eDP-1 --right-of HDMI-A-2 ;;
+    wlr-randr --output eDP-1 --right-of HDMI-A-2
+    solaar -w hide & ;; 
   debian-NV15)
     wlr-randr --output HDMI-A-2 --mode 1920x1080@144.001007Hz --pos 0,0
     wlr-randr --output eDP-1 --mode 1920x1080@165Hz --right-of HDMI-A-2
@@ -23,7 +24,7 @@ swayidle -w \
   timeout 3600 'systemctl suspend' \
   before-sleep '$HOME/Scripts/lock.sh -f' &
 
-
+flatpak run com.synology.SynologyDrive &
 gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
 
 dbus-update-activation-environment --systemd \
