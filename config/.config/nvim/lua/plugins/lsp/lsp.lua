@@ -8,6 +8,7 @@ return {
 			"rust_analyzer",
 			"verible",
 			"clangd",
+      "slang_server",
 		},
 		automatic_enable = {
 			exclude = { "verible" },
@@ -32,17 +33,3 @@ return {
 		},
 	},
 }
-
--- Old sysntax pre nvim 0,11
---[[
-This code does not merge with our own capabilities just using default
-If have customized lsp config elsewhere merge the capabilites manually
-ee : https://cmp.saghen.dev/installation
-
-require('mason-lspconfig').setup(opts)
-local installed_servers = require('mason-lspconfig').get_installed_servers()
-local lspconfig = require('lspconfig')
-for _, server in ipairs (installed_servers) do
-  vim.lsp.enable(server)
-end
-]]
