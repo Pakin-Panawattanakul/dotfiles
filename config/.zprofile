@@ -1,9 +1,12 @@
 export PROTON_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM="wayland;xcb"
-export GDK_BACKEND=wayland
+export ELM_DISPLAY=wl
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export INIT_UNIX_BACKEND=x11
+#export QT_QPA_PLATFORM="wayland;xcb"
+#export GDK_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland,x11
 export MOZ_ENABLE_WAYLAND=1
-export ELECTRON_OZONE_PLATFORM_HINT=wayland
 export XDG_SESSION_TYPE=wayland
 
 export MENU_TERM=foot
