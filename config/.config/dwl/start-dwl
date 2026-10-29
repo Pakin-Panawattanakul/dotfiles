@@ -1,14 +1,9 @@
 #!/bin/sh
 
-# wayland stuff that's not set in .profile
-export ELM_DISPLAY=wl
-export WLR_NO_HARDWARE_CURSORS=1
-export _JAVA_AWT_WM_NONREPARENTING=1
-export INIT_UNIX_BACKEND=x11
-
 # dwl
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=wlroots
+export WLR_NO_HARDWARE_CURSORS=1
 
 # create keymap files before someblocks start
 touch /tmp/dwl-keymap

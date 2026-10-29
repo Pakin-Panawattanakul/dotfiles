@@ -68,11 +68,12 @@ static const Rule rules[] = {
 	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "spotify",          NULL,       1 << 6,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "9" */
 	{ "vesktop",          NULL,       1 << 7,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
-	{ "thunderbird",            NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
+	{ "dev.vencord.Vesktop",NULL,     1 << 7,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "8" */
+	{ "thunderbird",      NULL,       1 << 8,       1,            0,           -1,       -1, -1, -1,     -1 },   /* Start on ONLY tag "7" */
   { "mpv",              NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
   { "imv",              NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
   { "bitwarden",        NULL,       0,            0,            1,           -1,       -1, -1,0.6,    0.6 },
-  { "zathura",          NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
+  //{ "zathura",          NULL,       0,            0,            1,           -1,       -1, -1,  1,      1 },
   
     /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
 };
@@ -108,7 +109,7 @@ static const KeyboardRule kbrules[] = {
 	*/
 	//{ "ZSA Technology Labs Voyager", NULL, NULL, "us,th",    "colemak_dh_ortho,", "grp:win_space_toggle" },
 	{ "Cradio Keyboard", NULL, NULL, "us",    NULL,   NULL },
-  { NULL, NULL,NULL, "us,th", NULL, "grp:win_space_toggle" } ,
+  { NULL, NULL,NULL, "us,th", NULL, "grp:win_space_toggle,caps:escape_shifted_capslock" } ,
   // { NULL, NULL,NULL, "us,th", NULL , "grp:win_space_toggle"},
 	//{ NULL,       NULL, NULL, NULL,    NULL,   NULL },
 };
@@ -177,7 +178,6 @@ static const char *up_vol[]   = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 1
 static const char *down_vol[] = { "sh", "-c", "wpctl set-volume @DEFAULT_SINK@ 10%-; pkill -RTMIN+4 someblocks",   NULL };
 static const char *mute_vol[] = { "sh", "-c", "wpctl set-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+4 someblocks", NULL };
 static const char *mute_mic[] = { "sh", "-c", "wpctl set-mute @DEFAULT_SOURCE@ toggle; pkill -RTMIN+4 someblocks", NULL };
-static const char *toggle_bluetooth[] = { "toggle_bluetooth.sh", NULL };
 // for some resason even without this there are default +-5% build in
 // sending signal to someblocks
 static const char *brightness_up[] = {"brightnessctl", "set", "+10%", NULL };
@@ -186,12 +186,13 @@ static const char *termcmd[] = { "foot", NULL };
 static const char *filemanager[] = { "thunar" ,NULL };
 static const char *web_browser[] = { "firefox", NULL };
 static const char *menucmd[] = { "wmenu-drun", NULL };
-static const char *powermenu[] = { "wmenu-powermenu", "-l", "5", NULL };
+static const char *powermenu[] = { "wmenu-powermenu", NULL };
+static const char *tlpctl [] = { "wmenu-tlpctl", NULL };
 static const char *screenshot[] = {"screenshot.sh", NULL };
 static const char *spotify[] = { "flatpak", "run", "com.spotify.Client",NULL };
 static const char *discord[] = { "flatpak", "run", "dev.vencord.Vesktop"};
 static const char *email[] = { "thunderbird" , NULL };
-static const char *blueman[] = { "blueman", NULL };
+static const char *blueman[] = { "blueman-manager", NULL };
 static const char *pavucontrol[] = { "pavucontrol", NULL };
 
 #define MEHKEY WLR_MODIFIER_SHIFT|WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT
@@ -209,8 +210,8 @@ static const Key keys[] = {
 	{ MODSHIFT,                  XKB_KEY_v,           spawn,            {.v = discord} },
   { MODSHIFT,                  XKB_KEY_s,           spawn,            {.v = spotify} },
   { MODSHIFT,                  XKB_KEY_p,           spawn,            {.v = pavucontrol} },
-  { MODSHIFT,                  XKB_KEY_b,           spawn,            {.v = blueman} },
-  { 0, XKB_KEY_XF86Bluetooth,                       spawn,            {.v = toggle_bluetooth} },
+  { MODSHIFT,                  XKB_KEY_t,           spawn,            {.v = tlpctl} },
+  { 0, XKB_KEY_XF86Bluetooth,                       spawn,            {.v = blueman } },
   { 0, XKB_KEY_XF86AudioRaiseVolume,                spawn,            {.v = up_vol } },
   { 0, XKB_KEY_XF86AudioLowerVolume,                spawn,            {.v = down_vol } },
   { 0, XKB_KEY_XF86AudioMute,                       spawn,            {.v = mute_vol } },

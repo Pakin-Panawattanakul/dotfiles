@@ -10,8 +10,9 @@ case "$(hostname)" in
     wlr-randr --output DP-2 --mode 1920x1080@165Hz
     solaar -w hide & ;; 
   debian-T480)
-    wlr-randr --output HDMI-A-2 --mode 1920x1080@120Hz --pos 0,0
-    wlr-randr --output eDP-1 --right-of HDMI-A-2
+    wlr-randr --output eDP-1
+    wlr-randr --output HDMI-A-2 --right-of eDP-1
+    wlr-randr --output DP-5 --right-of eDP-1
     solaar -w hide & ;; 
   debian-NV15)
     wlr-randr --output HDMI-A-2 --mode 1920x1080@144.001007Hz --pos 0,0
