@@ -12,6 +12,7 @@ mkdir -p ~/.local/share/pixmaps
 ln -sf "$submodules_dir"/wmenu-scripts/wmenu-drun ~/.local/bin
 ln -sf "$submodules_dir"/wmenu-scripts/wmenu-powermenu ~/.local/bin
 ln -sf "$submodules_dir"/wmenu-scripts/wmenu-screenshot ~/.local/bin
+ln -sf "$submodules_dir"/wmenu-scripts/wmenu-tlpctl ~/.local/bin
 
 ln -sf "$config_dir"/.config/dwl/config.h "$submodules_dir"/dwl
 ln -sf "$config_dir"/.config/dwl/blocks.h "$submodules_dir"/someblocks

@@ -2,11 +2,11 @@
 xdg-user-dirs-update
 
 sudo tee /etc/apt/sources.list > /dev/null <<"EOF"
-deb http://deb.debian.org/debian/ forky main contrib non-free non-free-firmware
-deb-src http://deb.debian.org/debian/ forky main contrib non-free non-free-firmware
+deb http://deb.debian.org/debian/ testing main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ testing main contrib non-free non-free-firmware
 
-deb http://security.debian.org/debian-security forky-security main contrib non-free non-free-firmware
-deb-src http://security.debian.org/debian-security forky-security main contrib non-free non-free-firmware
+deb http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
+deb-src http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
 
 deb http://deb.debian.org/debian sid main contrib non-free non-free-firmware
 deb-src http://deb.debian.org/debian sid main contrib non-free non-free-firmware
@@ -30,7 +30,8 @@ sudo apt install \
   gawk \
   stow \
   zip \
-  unzip
+  unzip \
+  eject
 
 git config --global user.name "Pakin Panawattanakul"
 git config --global user.email p.panawattanakul@gmail.com
@@ -84,7 +85,7 @@ sudo tee /etc/greetd/config.toml > /dev/null <<"EOF"
 [terminal]
 vt = 7
 [default_session]
-command = "/usr/sbin/agreety --cmd 'start-dwl'"
+command = "/usr/bin/tuigreet --remember "
 user = "_greetd"
 EOF
 
@@ -120,9 +121,12 @@ sudo apt install \
 sudo apt install \
   network-manager \
   network-manager-applet \
+  ufw \
   bluez \
   blueman \
-  libspa-0.2-bluetooth --no-install-recommends
+  libspa-0.2-bluetooth
+
+sudo ufw enable
 
 # pipewire
 sudo apt install \
@@ -136,17 +140,18 @@ sudo apt install tlp tlp-rdw
 sudo tee /etc/tlp.d/10-local.conf > /dev/null <<'EOF'
 TLP_ENABLE=1
 TLP_AUTO_SWITCH=2
-TLP_PROFILE_AC=BAL
+TLP_PROFILE_AC=PRF
 TLP_PROFILE_BAT=SAV
 TLP_PROFILE_DEFAULT=SAV
-CPU_ENERGY_PERF_POLICY_ON_AC=balance_power
+CPU_ENERGY_PERF_POLICY_ON_AC=performance
 CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
+CPU_BOOST_ON_AC=1
 CPU_BOOST_ON_BAT=0
 CPU_BOOST_ON_SAV=0
 CPU_HWP_DYN_BOOST_ON_AC=1
 CPU_HWP_DYN_BOOST_ON_BAT=0
 CPU_HWP_DYN_BOOST_ON_SAV=0
-PLATFORM_PROFILE_ON_AC=balanced_performance
+PLATFORM_PROFILE_ON_AC=performance
 PLATFORM_PROFILE_ON_BAT=low-power
 PLATFORM_PROFILE_ON_SAV=low-power
 AHCI_RUNTIME_PM_ON_AC=auto
@@ -203,7 +208,9 @@ sudo apt install \
 sudo apt install --no-install-recommends \
   thunar \
   thunar-volman \
-  thunar-archive-plugin
+  thunar-archive-plugin \
+  xarchiver \
+  tumbler
 
 # other desktops utils
 sudo apt install \
