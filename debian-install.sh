@@ -138,24 +138,31 @@ sudo apt install \
 # tlp (power management, recovered from the pre-Debian tlp.conf)
 sudo apt install tlp tlp-rdw
 sudo tee /etc/tlp.d/10-local.conf > /dev/null <<'EOF'
-TLP_ENABLE=1
-TLP_AUTO_SWITCH=2
-TLP_PROFILE_AC=PRF
-TLP_PROFILE_BAT=SAV
-TLP_PROFILE_DEFAULT=SAV
+# Change CPU energy/performance policy to power (default is balance_power):
+# Change CPU energy/performance policy to performance (default is balance_performance):
 CPU_ENERGY_PERF_POLICY_ON_AC=performance
-CPU_ENERGY_PERF_POLICY_ON_BAT=balance_power
-CPU_BOOST_ON_AC=1
-CPU_BOOST_ON_BAT=0
-CPU_BOOST_ON_SAV=0
-CPU_HWP_DYN_BOOST_ON_AC=1
-CPU_HWP_DYN_BOOST_ON_BAT=0
-CPU_HWP_DYN_BOOST_ON_SAV=0
+CPU_ENERGY_PERF_POLICY_ON_BAT=power
+CPU_ENERGY_PERF_POLICY_ON_SAV=power
+
+# Change the platform profile to low-power (default is balanced):
+# Enable the platform profile performance:
 PLATFORM_PROFILE_ON_AC=performance
 PLATFORM_PROFILE_ON_BAT=low-power
 PLATFORM_PROFILE_ON_SAV=low-power
+
+# Disable turbo boost:
+CPU_BOOST_ON_AC=1
+CPU_BOOST_ON_BAT=0
+CPU_BOOST_ON_SAV=0
+
+CPU_HWP_DYN_BOOST_ON_AC=1
+CPU_HWP_DYN_BOOST_ON_BAT=0
+CPU_HWP_DYN_BOOST_ON_SAV=0
+
 AHCI_RUNTIME_PM_ON_AC=auto
 WIFI_PWR_ON_AC=on
+
+# Batteru Treshold
 START_CHARGE_THRESH_BAT0=40
 STOP_CHARGE_THRESH_BAT0=80
 START_CHARGE_THRESH_BAT1=40
