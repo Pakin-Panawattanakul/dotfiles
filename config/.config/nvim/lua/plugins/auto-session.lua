@@ -8,7 +8,7 @@ return {
   opts = {
     suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
     -- log_level = 'debug',
-    auto_restore_last_session = true,
+    auto_restore_last_session = false,
   },
   keys = {
     { "<leader>ss", "<cmd>AutoSession save<cr>", desc = "Session Save"},

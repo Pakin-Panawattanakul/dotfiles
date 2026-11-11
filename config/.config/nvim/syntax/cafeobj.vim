@@ -7,7 +7,7 @@ syntax match cafeobjComment /--.*/
 
 " Module and view keywords
 syntax keyword cafeobjKeyword mod! mod* view
-syntax keyword cafeobjKeyword pr op bop vars var sort
+syntax keyword cafeobjKeyword pr op ops bop var vars sort
 syntax keyword cafeobjKeyword eq ceq red reduce open close
 syntax keyword cafeobjKeyword principal constr if then else fi
 

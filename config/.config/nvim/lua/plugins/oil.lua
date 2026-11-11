@@ -8,8 +8,15 @@ return {
 	-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 	-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 	lazy = false,
-  keys = {
-    { "<leader>e", "<cmd>Oil<cr>", desc = "Oil file management" },
-    { "<leader>th", function() require('oil').toggle_hidden() end, desc = "[T]oggle [H]idden files" }
-  },
+	keys = {
+		{ "<leader>e", "<cmd>Oil<cr>", desc = "Oil file management" },
+		{
+			"<leader>th",
+			function()
+				require("oil").toggle_hidden()
+			end,
+			desc = "[T]oggle [H]idden files",
+		},
+	},
+	enabled = false,
 }
