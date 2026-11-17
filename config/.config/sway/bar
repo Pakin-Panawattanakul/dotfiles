@@ -1,0 +1,27 @@
+########################################
+# Bar
+########################################
+bar {
+    font pango:JetBrainsMono Nerd Font Propo 12
+    # dwl topbar 0 -> bottom bar
+    position bottom
+    mode dock
+    status_edge_padding 0
+    tray_padding 2
+    status_padding 0
+
+    colors {
+        # kanagawa dragon (files/Templates/themes/kanagawa-dragon)
+        background #181616
+        statusline #c5c9c5
+        separator  #625e5a
+
+        # color format     border    bg        text 
+        focused_workspace  #8a9a7b #8a9a7b #181616
+        active_workspace   #181616 #181616 #c5c9c5
+        inactive_workspace #181616 #181616 #a6a69c
+        urgent_workspace   #c4746e #c4746e #181616
+        binding_mode       #dca561 #dca561 #181616
+    }
+   status_command i3status -c ~/.config/sway/i3status-config
+}

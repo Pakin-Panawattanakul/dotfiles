@@ -2,24 +2,14 @@
 xdg-user-dirs-update
 
 sudo tee /etc/apt/sources.list > /dev/null <<"EOF"
-deb http://deb.debian.org/debian/ testing main contrib non-free non-free-firmware
-deb-src http://deb.debian.org/debian/ testing main contrib non-free non-free-firmware
-
-deb http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
-deb-src http://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
-
 deb http://deb.debian.org/debian sid main contrib non-free non-free-firmware
 deb-src http://deb.debian.org/debian sid main contrib non-free non-free-firmware
 EOF
 
 sudo tee /etc/apt/preferences.d/forky-sid > /dev/null <<"EOF"
 Package: *
-Pin: release n=forky
-Pin-Priority: 500
-
-Package: *
 Pin: release a=unstable
-Pin-Priority: 90
+Pin-Priority: 550
 EOF
 sudo apt update
 
@@ -44,6 +34,7 @@ git config --global credential.helper store
 # dwl
 # -------------------------
 # installing dwl deps
+
 sudo apt install \
 	libinput-dev \
 	libwayland-dev \
@@ -85,7 +76,7 @@ sudo tee /etc/greetd/config.toml > /dev/null <<"EOF"
 [terminal]
 vt = 7
 [default_session]
-command = "/usr/bin/tuigreet --remember "
+command = "/usr/bin/tuigreet --remember --time --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot'"
 user = "_greetd"
 EOF
 
@@ -99,7 +90,7 @@ sudo apt install \
   xdg-desktop-portal-wlr \
   libinput-tools \
   mako-notifier \
-  bemenu \
+  rofi \
   wl-clipboard \
   wlr-randr \
   wdisplays \
@@ -177,13 +168,15 @@ sudo apt install \
 	zoxide \
 	eza \
 	fzf \
-  	fd-find \
+  fd-find \
 	starship \
 	fastfetch \
 	bat \
 	ncdu \
 	ripgrep \
-  	tree
+  tree \
+  tealdeer \
+  rsync
 
 # neovim 
 sudo apt install \

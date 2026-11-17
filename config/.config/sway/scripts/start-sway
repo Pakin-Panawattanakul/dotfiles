@@ -1,0 +1,6 @@
+#!/bin/sh
+if lsmod | grep -q nvidia; then
+  exec sway --unsupported-gpu
+else
+  exec sway
+fi

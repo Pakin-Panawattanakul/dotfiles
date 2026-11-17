@@ -10,7 +10,7 @@ export MOZ_ENABLE_WAYLAND=1
 export XDG_SESSION_TYPE=wayland
 
 export MENU_TERM=foot
-export MENU_LAUNCHER=bemenu
+export MENU_LAUNCHER="rofi -dmenu"
 export BMENU_BACKEND=wayland
 export BEMENU_OPTS="\
 -i -c -l 10 -W 0.25 -p '' -H 28 --fixed-height \
@@ -29,9 +29,4 @@ export LOCK_FAIL_COLOR=43242b
 export LOCK_CMD="$HOME/Scripts/lock.sh"
 
 export PATH="$HOME/.local/bin:$HOME/Scripts:$PATH"
-export XDG_DATA_DIRS=/usr/share:/usr/local/share/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
-# home-manager session vars display managers auto source this but greetd:tuigreet does not
-# if [ -f "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh" ]; then
-#   . "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
-# fi
-
+export XDG_DATA_DIRS=/usr/share:/usr/local/share/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$XDG_DATA_DIRS

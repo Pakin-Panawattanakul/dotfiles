@@ -1,0 +1,104 @@
+/* MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI  */
+/* Author: Newman Sanchez (https://github.com/newmanls) */
+/* kanagawa-dragon variant — palette: files/Templates/themes/kanagawa-dragon */
+/* colours mirror BEMENU_OPTS in config/.zprofile */
+
+* {
+    font:   "JetBrainsMonoNerdFont 13";
+
+    bg0:    #181616E6;   /* --nb/--fb/--ab/--hb */
+    bg1:    #39383680;   /* separators (no bemenu equivalent) */
+    bg2:    #8a9a7b;     /* --tf (title / active text) */
+
+    fg0:    #c5c9c5;     /* --nf/--ff/--af */
+    fg1:    #8ea4a2;     /* --hf (highlighted) */
+    fg2:    #c5c9c580;   /* dimmed text */
+
+    selbg:  #393836E6;   /* selected row bg (SumiInk5), so the highlight is visible */
+
+    background-color:   transparent;
+    text-color:         @fg0;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+}
+
+window {
+    background-color:   @bg0;
+
+    location:       center;
+    width:          640;
+    border-radius:  8;
+}
+
+inputbar {
+    font:       "JetBrainsMonoNerdFont 16";
+    padding:    12px;
+    spacing:    12px;
+    children:   [ icon-search, entry ];
+}
+
+icon-search {
+    expand:     false;
+    filename:   "search";
+    size: 28px;
+}
+
+icon-search, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+entry {
+    font:   inherit;
+
+    placeholder         : "Search";
+    placeholder-color   : @fg2;
+}
+
+message {
+    border:             2px 0 0;
+    border-color:       @bg1;
+    background-color:   @bg1;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    lines:      10;
+    columns:    1;
+
+    fixed-height:   false;
+    border:         1px 0 0;
+    border-color:   @bg1;
+}
+
+element {
+    padding:            8px 16px;
+    spacing:            16px;
+    background-color:   transparent;
+}
+
+element normal active {
+    text-color: @bg2;
+}
+
+element alternate active {
+    text-color: @bg2;
+}
+
+/* bemenu --hf text, with a slightly lifted bg so the selection is visible */
+element selected normal, element selected active {
+    background-color:   @selbg;
+    text-color:         @fg1;
+}
+
+element-icon {
+    size:   1em;
+}
+
+element-text {
+    text-color: inherit;
+}

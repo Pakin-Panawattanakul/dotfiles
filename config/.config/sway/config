@@ -1,0 +1,115 @@
+# Wiki is in the man page : man -k sway
+# Include config files
+include keybinds
+include styles
+include bar
+xwayland enable
+########################################
+# Auto Start
+########################################
+exec brightnessctl set 50%
+# exec udiskie
+set $HOME /home/pakin
+#exec autotiling &
+exec $HOME/Scripts/random-wallpaper.sh &
+exec $HOME/Scripts/low_battery.sh &
+exec gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
+exec flatpak run com.synology.SynologyDrive &
+exec solaar -w hide &
+
+
+### Idle configuration : man swayidle
+exec swayidle -w \
+  timeout 1800 '$HOME/Scripts/lock.sh' \
+  timeout 3600 'systemctl suspend' \
+  before-sleep '$HOME/Scripts/lock.sh -f' &
+
+########################################
+# Outputs
+########################################
+
+set $firstMonitor "eDP-1"
+set $secondMonitor "DP-5" 
+#output * bg $wallpaper fill # now use random-wallpaper instead
+#output * 
+
+output $firstMonitor {
+  resolution 1920x1080@165Hz 
+  position 0,0
+}
+
+output $secondMonitor {
+  resolution 2560x1440@60Hz 
+  position 1920,0  
+}
+
+#output DP-3 resolution 1920x1080@165.000Hz position 0,0
+#use : swaymsg -t get_outputs
+
+########################################
+# Inputs
+########################################
+input type:pointer {
+    dwt enabled
+    tap enabled
+    # tap_button_map lrm
+    drag enabled
+    drag_lock enabled
+    accel_profile flat
+    pointer_accel 0
+    natural_scroll disabled
+    middle_emulation disabled
+    left_handed disabled
+    click_method button_areas
+    scroll_method two_finger
+    #natural_scroll enabled
+}
+
+input type:keyboard {
+    xkb_layout us,th
+    xkb_options "grp:win_space_toggle,caps:escape_shifted_capslock"
+    #xkb_variant colemak_dh,
+    #xkb_options "grp:win_space_toggle,custom:hjkl"
+    #xkb_layout us,th,us
+    #xkb_variant ,,colemak_dh
+    repeat_rate 35
+    repeat_delay 200
+}
+
+# dwl KeyboardRule: "Cradio Keyboard" -> us
+input "Cradio Keyboard" {
+    xkb_layout us
+}
+
+floating_modifier Mod4 normal
+tiling_drag enable
+
+for_window [title="Friends List"] floating enable
+for_window [app_id="steam"] inhibit_idle open
+
+for_window [app_id="org.pwmt.zathura"] fullscreen enable
+for_window [app_id="mpv"] fullscreen enable
+for_window [app_id="imv"] floating enable
+for_window [app_id="me.proton.Pass"] floating enable
+for_window [app_id="wiremix"] floating enable
+for_window [app_id="bitwarden"] fullscreen enable 
+for_window [app_id="btop"] fullscreen enable 
+
+assign [app_id="spotify"] workspace 7
+assign [app_id="vesktop"] workspace 8
+assign [app_id="dev.vencord.Vesktop"] workspace 8
+assign [app_id="Thunderbird"] workspace 9
+
+# Dual screen 
+ workspace 1 output $firstMonitor 
+ workspace 2 output $firstMonitor 
+ workspace 3 output $firstMonitor 
+ workspace 4 output $firstMonitor 
+ workspace 5 output $firstMonitor 
+ workspace 6 output $secondMonitor 
+ workspace 7 output $secondMonitor 
+ workspace 8 output $secondMonitor 
+ workspace 9 output $secondMonitor 
+ workspace 10 output $secondMonitor
+
+include /etc/sway/config.d/*

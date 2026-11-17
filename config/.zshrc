@@ -87,7 +87,7 @@ music-sync() {
   for dir in "$HOME"/Music/*/; do
     name="$(basename "$dir")"
     [ "$name" = "playlists" ] && continue
-    fd . "$dir" -E "*.spotdl" -e mp3 | sed "s|^$HOME/Music/||" > "$HOME/Music/playlists/$name.m3u"
+    fdfind . "$dir" -E "*.spotdl" -e mp3 | sed "s|^$HOME/Music/||" > "$HOME/Music/playlists/$name.m3u"
   done
   if mountpoint -q "/run/media/pakin/ECHO MINI"; then
     echo "Sync File to Snowsky"
@@ -107,8 +107,8 @@ my-spotdl-with-yt() {
   spotdl "$1|$2"
 }
 
-alias pot-provider-setup="cd $HOME/dotfiles/submodules/bgutil-ytdlp-pot-provider/server/ &&  deno install --allow-scripts=npm:canvas --frozen"
-alias pot-provider="cd $HOME/dotfiles/submodules/bgutil-ytdlp-pot-provider/server/node_modules && deno run --allow-env --allow-net --allow-ffi=. --allow-read=. ../src/main.ts"
+alias pot-provider-setup="cd $HOME/dotfiles/submodules/bgutil-ytdlp-pot-provider/server/ &&  npm ci && npm audit fix && npx tsc"
+alias pot-provider="cd $HOME/dotfiles/submodules/bgutil-ytdlp-pot-provider/server && node build/main.js"
 
 # -----------------------------------
 

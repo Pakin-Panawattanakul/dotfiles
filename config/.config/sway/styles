@@ -1,0 +1,24 @@
+default_border pixel 3
+default_floating_border pixel 2
+# dwl never hides edge borders
+hide_edge_borders none
+# Title bar
+gaps inner 0px
+gaps outer 0px
+font pango:JetBrainsMonoNerdFont 10
+
+focus_follows_mouse yes
+focus_wrapping no
+# dwl warpcursor: pull the cursor into the newly focused window
+mouse_warping container
+
+
+# kanagawa dragon (files/Templates/themes/kanagawa-dragon)
+# class                 border  backgr. text    indicator child_border
+client.focused          #8ea4a2 #282727 #8a9a7b #a292a3   #8ea4a2
+client.focused_inactive #393836 #181616 #c5c9c5 #393836   #393836
+client.unfocused        #282727 #181616 #a6a69c #282727   #282727
+client.urgent           #c4746e #282727 #c4746e #c4746e   #c4746e
+client.placeholder      #282727 #181616 #625e5a #282727   #282727
+
+client.background       #282727
