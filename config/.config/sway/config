@@ -7,16 +7,16 @@ xwayland enable
 ########################################
 # Auto Start
 ########################################
-exec brightnessctl set 50%
-# exec udiskie
 set $HOME /home/pakin
+exec brightnessctl set 50%
+#exec udiskie &
 #exec autotiling &
 exec $HOME/Scripts/random-wallpaper.sh &
 exec $HOME/Scripts/low_battery.sh &
 exec gammastep -l 15.87:100.99 -m wayland -b 1:0.9 &
 exec flatpak run com.synology.SynologyDrive &
-exec solaar -w hide &
-
+exec /usr/libexec/xfce-polkit &
+#exec solaar -w hide &
 
 ### Idle configuration : man swayidle
 exec swayidle -w \
@@ -101,15 +101,15 @@ assign [app_id="dev.vencord.Vesktop"] workspace 8
 assign [app_id="Thunderbird"] workspace 9
 
 # Dual screen 
- workspace 1 output $firstMonitor 
- workspace 2 output $firstMonitor 
- workspace 3 output $firstMonitor 
- workspace 4 output $firstMonitor 
- workspace 5 output $firstMonitor 
- workspace 6 output $secondMonitor 
- workspace 7 output $secondMonitor 
- workspace 8 output $secondMonitor 
- workspace 9 output $secondMonitor 
- workspace 10 output $secondMonitor
+ workspace 1 output $secondMonitor 
+ workspace 2 output $secondMonitor 
+ workspace 3 output $secondMonitor 
+ workspace 4 output $secondMonitor 
+ workspace 5 output $secondMonitor 
+ workspace 6 output $firstMonitor 
+ workspace 7 output $firstMonitor 
+ workspace 8 output $firstMonitor 
+ workspace 9 output $firstMonitor 
+ workspace 10 output $firstMonitor
 
 include /etc/sway/config.d/*

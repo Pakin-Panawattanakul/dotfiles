@@ -31,29 +31,13 @@ git config --global submodule.recurse true
 git config --global credential.helper store
 
 # -------------------------
-# dwl
+# sway
 # -------------------------
-# installing dwl deps
 
 sudo apt install \
-	libinput-dev \
-	libwayland-dev \
-	libwlroots-0.20 libwlroots-0.20-dev \
-	libwlroots-0.19 libwlroots-0.19-dev \
-	libxkbcommon-dev \
-	wayland-protocols \
-	pkg-config
-
-#Xwayland deps
-sudo apt install \
-	libxcb1-dev \
-	libxcb-icccm4-dev \
-	xwayland
-
-# bar patch
-sudo apt install \
-	libfcft-dev \
-	libdrm-dev
+  sway \
+  i3status \
+  xwayland
 
 # greeter
 sudo apt install greetd
@@ -76,7 +60,8 @@ sudo tee /etc/greetd/config.toml > /dev/null <<"EOF"
 [terminal]
 vt = 7
 [default_session]
-command = "/usr/bin/tuigreet --remember --time --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot'"
+#command = "/usr/bin/tuigreet --remember --remember-session --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot'"
+command = "/usr/sbin/agreety --cmd sway"
 user = "_greetd"
 EOF
 
@@ -87,6 +72,7 @@ sudo apt install \
   grim \
   slurp \
   xfce-polkit \
+  xdg-desktop-portal-gtk \
   xdg-desktop-portal-wlr \
   libinput-tools \
   mako-notifier \
@@ -202,8 +188,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo apt install \
   fonts-noto \
   orchis-gtk-theme \
-  papirus-icon-theme \
-  desktop-base
+  papirus-icon-theme
  
 sudo apt install --no-install-recommends \
   thunar \

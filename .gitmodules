@@ -7,9 +7,3 @@
 [submodule "config/.config/eza/eza-themes"]
 	path = config/.config/eza/eza-themes
 	url = https://github.com/eza-community/eza-themes
-[submodule "submodules/dwl"]
-	path = submodules/dwl
-	url = https://github.com/Pakin-Panawattanakul/dwl
-[submodule "submodules/someblocks"]
-	path = submodules/someblocks
-	url = https://github.com/Pakin-Panawattanakul/someblocks
