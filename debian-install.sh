@@ -33,7 +33,6 @@ git config --global credential.helper store
 # -------------------------
 # sway
 # -------------------------
-
 sudo apt install \
   sway \
   i3status \
@@ -218,7 +217,7 @@ sudo apt install flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install \
   com.bitwarden.desktop \
-  dev.vencord.Vesktop \
+  com.discordapp.Discord \
   com.synology.SynologyDrive \
   com.spotify.Client \
   com.vysp3r.ProtonPlus

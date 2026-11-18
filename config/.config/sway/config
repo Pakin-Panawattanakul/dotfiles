@@ -87,17 +87,16 @@ tiling_drag enable
 for_window [title="Friends List"] floating enable
 for_window [app_id="steam"] inhibit_idle open
 
-for_window [app_id="org.pwmt.zathura"] fullscreen enable
+#for_window [app_id="org.pwmt.zathura"] fullscreen enable
 for_window [app_id="mpv"] fullscreen enable
 for_window [app_id="imv"] floating enable
-for_window [app_id="me.proton.Pass"] floating enable
 for_window [app_id="wiremix"] floating enable
 for_window [app_id="bitwarden"] fullscreen enable 
 for_window [app_id="btop"] fullscreen enable 
 
 assign [app_id="spotify"] workspace 7
 assign [app_id="vesktop"] workspace 8
-assign [app_id="dev.vencord.Vesktop"] workspace 8
+assign [app_id="discord"] workspace 8
 assign [app_id="Thunderbird"] workspace 9
 
 # Dual screen 

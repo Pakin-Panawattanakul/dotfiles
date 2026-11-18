@@ -23,7 +23,7 @@ set $filemanager thunar
 # rofi
 bindsym $mod+d exec rofi -show-icons -show drun
 bindsym $mod+Shift+q exec wmenu-powermenu -i
-bindsym Print exec /home/pakin/.local/bin/sway-rofi-screenshot
+bindsym Print exec /home/pakin/Scripts/screenshot.sh
 bindsym Mod1+tab exec rofi -show-icons -show window 
 
 bindsym $mod+t exec $term
@@ -31,7 +31,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+e exec $filemanager
 bindsym $mod+w exec $web-browser
 bindsym $mod+Shift+e exec thunderbird
-bindsym $mod+Shift+v exec flatpak run dev.vencord.Vesktop
+bindsym $mod+Shift+d exec flatpak run com.discordapp.Discord
 bindsym $mod+Shift+s exec flatpak run com.spotify.Client
 bindsym $mod+Shift+b exec flatpak run com.bitwarden.desktop
 bindsym $mod+Shift+p exec pavucontrol
